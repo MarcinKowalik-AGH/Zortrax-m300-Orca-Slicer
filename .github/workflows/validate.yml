@@ -30,7 +30,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import os,zipfile
-          source=next(Path('profiles').glob('*.orca_printer'))
+          source=Path('profiles/Zortrax_M300_Classic_0p20_MicroSwiss_R3.orca_printer')
           with zipfile.ZipFile(source) as a,zipfile.ZipFile(Path(os.environ['RUNNER_TEMP'])/'rebuilt.orca_printer') as b:
               assert set(a.namelist())==set(b.namelist())
               assert all(a.read(n)==b.read(n) for n in a.namelist())
