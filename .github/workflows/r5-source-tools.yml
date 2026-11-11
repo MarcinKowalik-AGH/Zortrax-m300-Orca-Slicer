@@ -1,0 +1,40 @@
+name: R5 Z-SUITE source preparation
+on:
+  push:
+    branches: [feature/native-m300-r5]
+    paths: [.github/workflows/r5-source-tools.yml]
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Download portable extraction tools and official source metadata
+        run: |
+          mkdir -p out/tools out/wheels out/metadata
+          curl --fail --location --retry 2 https://constexpr.org/innoextract/files/innoextract-1.9-linux.tar.xz -o out/tools/innoextract.tar.xz
+          python -m pip download --dest out/wheels dnfile dncil pefile py7zr
+          python - <<'PY'
+          import urllib.request,re,json
+          from pathlib import Path
+          from urllib.parse import urljoin
+          url='https://support.zortrax.com/downloads/software/'
+          html=urllib.request.urlopen(url,timeout=30).read().decode()
+          Path('out/metadata/software.html').write_text(html)
+          hits=[line for line in html.splitlines() if any(v in line.lower() for v in ['2.32','4.0.0','.exe','.zip','legacy','download'])]
+          Path('out/metadata/download_hits.txt').write_text('\n'.join(hits))
+          scripts=re.findall(r'<script[^>]+src=[\"\x27]([^\"\x27]+)',html)
+          for i,src in enumerate(scripts):
+              if 'zortrax' not in urljoin(url,src):continue
+              try:
+                  data=urllib.request.urlopen(urljoin(url,src),timeout=15).read()
+                  Path('out/metadata/script_%02d.js'%i).write_bytes(data)
+              except Exception as exc:print(type(exc).__name__,str(exc))
+          print('\n'.join(hits)[-15000:])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: R5_SOURCE_TOOLS
+          path: out
+          retention-days: 2
