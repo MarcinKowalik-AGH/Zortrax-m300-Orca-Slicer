@@ -94,7 +94,7 @@ def generate(root=ROOT):
             'Keep M83, current motion/temperature limits and PA=0 until measured for this nozzle and filament. '
             'Recheck homing/mesh after nozzle replacement. PEEK remains catalog-only, not printable on this hardware.')
         p['file_start_gcode'] = (f'; M300 Classic custom Klipper nozzle {diameter} mm, layer 0.20 mm\n'
-            f'; REQUIRED installed nozzle and Klipper [extruder] nozzle_diameter: {diameter}\n'
+            f'; REQUIRED installed nozzle and Klipper extruder nozzle_diameter: {diameter}\n'
             '; Custom extension; not an OEM Z-SUITE Classic preset.\n')
         q.update(name=process_name, print_settings_id=process_name,
                  compatible_printers=[printer_name], layer_height='0.2', initial_layer_print_height='0.2',
@@ -148,7 +148,6 @@ def generate(root=ROOT):
            'NOZZLES_R4_PL.md': (root/'docs/NOZZLES_R4_PL.md').read_bytes()}
     for variant in record['variants'][1:]: kit[Path(variant['bundle']).name] = outputs[variant['bundle']]
     outputs['profiles/M300_Orca_0p3_0p4_0p6_R4.zip'] = zipped(kit)
-    # Keep original checksum entries; extend them with the new bundles and kit.
     sums = {}
     for line in (root/'SHA256SUMS').read_text().splitlines():
         if line.strip():
