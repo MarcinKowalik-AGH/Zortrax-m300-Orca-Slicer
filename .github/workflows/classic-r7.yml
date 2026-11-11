@@ -46,7 +46,9 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
           WEBKIT_DISABLE_DMABUF_RENDERER: '1'
+          SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
         run: |
+          test -s "$SSL_CERT_FILE"
           mkdir -p out/gui/system
           cp -a native_r7/Zortrax* out/gui/system/
           python - <<'PY'
