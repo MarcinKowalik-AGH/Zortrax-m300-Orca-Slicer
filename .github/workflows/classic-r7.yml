@@ -20,14 +20,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build reproducible one-model profiles and test preservation
+      - name: Build reproducible profiles and test preservation
         run: |
           mkdir -p out
           python tools/build_classic_r7.py
           python tools/build_classic_r7.py --check
           python -m unittest discover -s tests -p test_classic_r7_install.py -v > out/installer-tests.log 2>&1
           cat out/installer-tests.log
-          python -m compileall -q tools/build_classic_r7.py tools/install_classic_r7.py tests/audit_classic_r7.py
       - name: Prepare pinned official Orca2.5
         run: |
           sudo apt-get update -qq
@@ -42,7 +41,7 @@ jobs:
         run: |
           xvfb-run -a python tests/audit_classic_r7.py --orca "$RUNNER_TEMP/orca/squashfs-root/AppRun" --out "$PWD/out/slicing" > out/slicing-console.log 2>&1
           tail -4 out/slicing-console.log
-      - name: Exercise actual system-vendor loader, not only CLI settings
+      - name: Exercise actual native system-vendor loader
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
           WEBKIT_DISABLE_DMABUF_RENDERER: '1'
@@ -57,8 +56,7 @@ jobs:
           j={'version':'2.5.0.0','preset_folder':'default','firstguide':{'finish':True},'stealth_mode':True,'models':[{'vendor':'Zortrax','model':'Zortrax M300 Classic','nozzle_diameter':'0.2;0.3;0.4;0.6'}],'filaments':['Generic PLA @Zortrax M300 0.4'],'presets':{'printer':'Zortrax M300 Classic 0.4 nozzle','print':'0.20mm Standard @Zortrax M300 Classic 0.4 nozzle','filaments':['Generic PLA @Zortrax M300 0.4']}}
           Path('out/gui/OrcaSlicer.conf').write_text(json.dumps(j))
           PY
-          # This is a disposable GUI with no user projects/printer. A normal
-          # application exit may open a save dialog, so bound that shutdown.
+          # Bound shutdown of the disposable test GUI, never a user's process.
           timeout --kill-after=5s 105s xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 70; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; sleep 2; kill -KILL "$pid" 2>/dev/null || true; wait "$pid" || true' || true
           python - <<'PY'
           from pathlib import Path
@@ -71,10 +69,10 @@ jobs:
           print(json.dumps(result));print(Path('out/loader-errors.txt').read_text()[-10000:])
           assert ok,'Native GUI vendor load not confirmed; no publication'
           PY
-      - name: Publish generated profiles and honest test evidence to feature branch
+      - name: Publish validated files to feature branch
         run: |
           python - <<'PY'
-          import json,shutil,os
+          import json,shutil
           from pathlib import Path
           summary=json.loads(Path('out/slicing/summary.json').read_text());assert summary['pass']==138 and summary['fail']==0
           loader=json.loads(Path('out/loader-result.json').read_text());assert loader['native_loader_pass']
@@ -89,7 +87,7 @@ jobs:
           git add native_r7 evidence/R7_PROCESS_CATALOG.json evidence/R7_VALIDATION.json evidence/R7_GCODE_RESULTS.json
           git commit -m 'Publish validated M300 Classic one-model quality profiles R7; no AppConfig edits'
           git push origin HEAD:feature/m300-classic-process-r7
-      - uses: actions/upload-artifact@v4
+      - name: Retain audit evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
