@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
-      - name: Read archived installer directory
+      - name: Read archived installer without downloading unrelated archive members
         run: |
           mkdir -p out tools tmp
           python -m pip install remotezip
@@ -19,16 +19,19 @@ jobs:
           python - <<'PY'
           from remotezip import RemoteZip
           from pathlib import Path
-          import json,hashlib
+          import json,hashlib,zipfile,io
           url='https://archive.org/download/zortrax-archive/Zortrax%20Archive.zip'
-          with RemoteZip(url,initial_buffer_size=262144,timeout=60) as z:
-              rows=[{'name':i.filename,'size':i.file_size,'compressed':i.compress_size} for i in z.infolist()]
-              Path('out/archive_index.json').write_text(json.dumps(rows,indent=2))
-              hits=[i for i in z.infolist() if '2.32' in i.filename and i.filename.lower().endswith('.exe')]
-              print('MATCHES',[(i.filename,i.file_size) for i in hits])
-              for i in hits[:1]:
-                  data=z.read(i.filename);Path('tmp/legacy.exe').write_bytes(data)
-                  Path('out/source.json').write_text(json.dumps({'archive':url,'member':i.filename,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()},indent=2))
+          member='Zortrax Archive/Software/Windows/Z-SUITE_v2.32.0_Win-1.zip'
+          with RemoteZip(url,initial_buffer_size=262144,timeout=120) as z:
+              info=z.getinfo(member);data=z.read(member)
+              assert len(data)==96005257
+          with zipfile.ZipFile(io.BytesIO(data)) as nested:
+              assert nested.testzip() is None
+              names=[n for n in nested.namelist() if n.lower().endswith('.exe')]
+              assert len(names)==1,names
+              exe=nested.read(names[0]);Path('tmp/legacy.exe').write_bytes(exe)
+          Path('out/source.json').write_text(json.dumps({'archive':url,'member':member,'inner_exe':names[0],'zip_sha256':hashlib.sha256(data).hexdigest(),'exe_sha256':hashlib.sha256(exe).hexdigest()},indent=2))
+          print('SOURCE',Path('out/source.json').read_text())
           PY
       - name: Extract only vendor numerical configuration assemblies for analysis
         run: |
