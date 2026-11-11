@@ -1,0 +1,32 @@
+{
+    "bundle_id": "_Zortrax M300 0.4 nozzle_20261110_0p20",
+    "bundle_type": "printer config bundle",
+    "filament_config": [
+        "filament/Z-ASA Pro @Zortrax M300.json",
+        "filament/Z-ESD @Zortrax M300.json",
+        "filament/Z-FLEX @Zortrax M300.json",
+        "filament/Z-GLASS @Zortrax M300.json",
+        "filament/Z-HIPS @Zortrax M300.json",
+        "filament/Z-NYLON @Zortrax M300.json",
+        "filament/Z-PCABS @Zortrax M300.json",
+        "filament/Z-PETG @Zortrax M300.json",
+        "filament/Z-PHA @Zortrax M300.json",
+        "filament/Z-PLA Pro @Zortrax M300.json",
+        "filament/Z-PLA @Zortrax M300.json",
+        "filament/Z-SEMIFLEX @Zortrax M300.json",
+        "filament/Z-SUPPORT Plus @Zortrax M300.json",
+        "filament/Z-SUPPORT Premium @Zortrax M300.json",
+        "filament/Z-SUPPORT @Zortrax M300.json",
+        "filament/Z-ULTRAT Plus @Zortrax M300.json",
+        "filament/Z-ULTRAT @Zortrax M300.json",
+        "filament/Z-PEEK @Zortrax M300.json"
+    ],
+    "printer_config": [
+        "printer/Zortrax M300 0.4 nozzle.json"
+    ],
+    "printer_preset_name": "Zortrax M300 0.4 nozzle",
+    "process_config": [
+        "process/0.20mm Standard @Zortrax M300 0.4 nozzle.json"
+    ],
+    "version": "00.00.00.00"
+}

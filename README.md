@@ -1,7 +1,47 @@
 # Zortrax-m300-Orca-Slicer
 
-Samodzielne repozytorium profili **OrcaSlicer dla Zortrax M300 Classic z Klipperem**.
+Profile **OrcaSlicer dla Zortrax M300 Classic z Klipperem**. Osobne repozytorium slicera; bez firmware MCU, hosta, Fluidd i instalatorów drukarki.
 
-Trwa migracja sprawdzonego pakietu R3 z `MarcinKowalik-AGH/Zortrax-m300-Klipper` (commit `1f58160e2d0e81c462648e57fa0ee69123313a4f`). Przenoszone są profile, testy slicera i dokumentacja; kod hosta, MCU, OLED i ograniczenia temperatur pozostają w repozytorium Klippera.
+## Pobranie i import
 
-Oryginalne pliki nie będą usunięte z aktywnych gałęzi źródła przed weryfikacją kopii w tym repozytorium.
+**[Profil R3 — dysza 0,4 mm, warstwa 0,20 mm](profiles/Zortrax_M300_Classic_0p20_MicroSwiss_R3.orca_printer?raw=true)**
+
+OrcaSlicer: **File → Import → Import Configs**. Wybierz plik `.orca_printer`, następnie drukarkę `Zortrax M300 0.4 nozzle`, proces `0.20mm Standard @Zortrax M300 0.4 nozzle` i materiał z dopiskiem `@Zortrax M300`. Przy ponownym imporcie zastąp wcześniejsze presety o tych samych nazwach. Nie importuj archiwum audytowego jako konfiguracji.
+
+Pakiet zawiera **1 drukarkę, 1 proces oraz 18 wpisów filamentów**. 17 profili przeszło programowy test generowania G-code w silniku OrcaSlicer 2.3.2. **Z-PEEK jest wpisem katalogowym, niedopuszczonym do druku**; sama flaga slicera nie blokuje niezawodnie generowania G-code. Wynik slicingu nie potwierdza przydatności każdego materiału na rzeczywistym M300. Nie wykonano testu GUI na komputerze użytkownika ani fizycznego wydruku.
+
+## Podział projektów
+
+| Tutaj: OrcaSlicer | [Zortrax-m300-Klipper](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper) |
+|---|---|
+| Presety drukarki, procesu i materiałów | Host, MCU, OLED i Fluidd |
+| Wywołania START_PRINT / END_PRINT / PAUSE | Implementacje makr i procedur |
+| Temperatury materiałowe, M83, nastawy PA | Egzekwowanie limitów grzania, homing, mesh |
+| Testy importowanych ustawień i wygenerowanego G-code | Testy sterowania drukarką i instalatory |
+
+**Import presetu nie aktualizuje Klippera.** Stół ma w profilach nastawy do 105°C. Egzekwowanie limitu 105°C po stronie drukarki wymaga odpowiedniego hosta R3; w repozytorium hosta pozostaje osobnym zadaniem. Nie zwiększono limitu hotendu. Micro Swiss oznacza przygotowanie do zestawu M2580-04, nie potwierdzoną kalibrację zamontowanego hotendu.
+
+`M83` pozostaje włączone. Pressure Advance jest jawnie zerowane przed START_PRINT, a następnie ustawiane z filamentu. Dostarczone `PA=0` jest neutralnym ustawieniem **do czasu pomiaru**, nie wynikiem kalibracji. Adaptive PA jest wyłączone. Zachowano prędkości, przyspieszenia, flow ratio i retrakcje R3 bez zmian.
+
+## Dokumentacja i źródła
+
+- [Instrukcja oraz rozdział odpowiedzialności host/profil](docs/INSTALL_PL.md)
+- [Micro Swiss, limit stołu i strojenie PA](docs/MICROSWISS_R3_PL.md)
+- [Oryginalny wynik walidacji R3](evidence/VALIDATION_RESULTS_R3_SOURCE.json)
+- [Oryginalne wyniki G-code R3](evidence/ORCA_RUNTIME_RESULTS_R3.json)
+- [Manifest migracji i pochodzenie każdego pliku](MIGRATION.json)
+
+`profiles/` zawiera plik do importu, `presets/` jego edytowalne pliki JSON, `tests/` niezależne testy slicera, `evidence/` raporty, a `archive/` oryginalny pakiet źródeł i starsze raporty. Aktywne profile nie są budowane z repozytorium Klippera.
+
+## Weryfikacja i rozwój
+
+```bash
+python3 tools/validate_profiles.py
+python3 tools/build_bundle.py --output /tmp/m300-test.orca_printer
+# Z zainstalowanym OrcaSlicer 2.3.2:
+python3 tests/audit_r3.py --orca /sciezka/do/AppRun --bundle profiles/Zortrax_M300_Classic_0p20_MicroSwiss_R3.orca_printer --out /tmp/m300-orca-audit
+```
+
+GitHub Actions wykonuje kontrolę struktury oraz slicing dwuwieżowego modelu na przypiętym binarium OrcaSlicer 2.3.2. Sprawdza start/koniec, temperatury, M83, retrakcję, Z-hop i przekazywanie PA. Nie wykonuje kompilacji ani instalacji Klippera. Metadane `type` i `from=system` są adapterem CLI wyłącznie w kopiach testowych; pakiet importowy pozostaje pakietem użytkownika.
+
+Migracja z commita `1f58160e2d0e81c462648e57fa0ee69123313a4f` repozytorium M300 zachowuje profil R3 **bajt w bajt**, bez zmiany parametrów. Historia oryginalnych commitów pozostaje w repozytorium źródłowym; jej identyfikatory i sumy plików zapisano w manifeście. Licencję kodu zachowano z projektu źródłowego.

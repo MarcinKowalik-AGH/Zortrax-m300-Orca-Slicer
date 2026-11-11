@@ -1,0 +1,81 @@
+{
+  "source_repository": "MarcinKowalik-AGH/Zortrax-m300-Klipper",
+  "source_commit": "1f58160e2d0e81c462648e57fa0ee69123313a4f",
+  "destination_repository": "MarcinKowalik-AGH/Zortrax-m300-Orca-Slicer",
+  "migration_date": "2026-11-11",
+  "profile_path": "profiles/Zortrax_M300_Classic_0p20_MicroSwiss_R3.orca_printer",
+  "profile_sha256": "3b60cd1ec9d324d5c2ed5a2aec7ced13560d13eff56734167bede1655e4333a4",
+  "profile_byte_identical": true,
+  "source_history_rewritten": false,
+  "source_history_url": "https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper/commits/1f58160e2d0e81c462648e57fa0ee69123313a4f/orca",
+  "source_snapshot": "archive/orca_source_R3_1f58160.zip",
+  "source_files": [
+    {
+      "path": "orca/MICROSWISS_R3_PL.md",
+      "sha256": "bbe744655f6cc27fb6e4a120c2f1569b070753121d569bad03ab11af28990f19",
+      "bytes": 5810
+    },
+    {
+      "path": "orca/ORCA_RUNTIME_AUDIT_R2.md",
+      "sha256": "8bc6a6fad3a8842c8822f848dd32ca08cc786a749584d3c99c5815a5d903f53f",
+      "bytes": 6938
+    },
+    {
+      "path": "orca/ORCA_RUNTIME_RESULTS_R2.json",
+      "sha256": "9ca021690ace1b3285408b880f5e8c4b1524f30f77bbd803ade7abd289307620",
+      "bytes": 24107
+    },
+    {
+      "path": "orca/ORCA_RUNTIME_RESULTS_R3.json",
+      "sha256": "127b2b16af670bf382882add67a02b53306023bacc4dba40b13dcff01c21b5de",
+      "bytes": 28790
+    },
+    {
+      "path": "orca/README.md",
+      "sha256": "52cdf0f1f00f5ee71f4c0b52599ada99a7c8399e969a0aae19f7b44a5e1b9c92",
+      "bytes": 1438
+    },
+    {
+      "path": "orca/VALIDATION_M300_0p20.md",
+      "sha256": "bffde43ddc7b773c7164bdbeb89d90dba203e8894fe892a5d625af4731c22341",
+      "bytes": 7832
+    },
+    {
+      "path": "orca/VALIDATION_RESULTS.json",
+      "sha256": "5ced8cb790fbf719f73c6e15c43279573092188fa5cbe0894bd778056b3527c9",
+      "bytes": 573
+    },
+    {
+      "path": "orca/Zortrax_M300_Classic_0p20_18_filaments.orca_printer",
+      "sha256": "3b60cd1ec9d324d5c2ed5a2aec7ced13560d13eff56734167bede1655e4333a4",
+      "bytes": 37466
+    },
+    {
+      "path": "orca/tests/audit_r3.py",
+      "sha256": "59764a5cda2f4ccb7c86f4465f9ca4cc9a3d0ac3d3f6205302b65bd936654143",
+      "bytes": 5319
+    },
+    {
+      "path": "orca/tests/audit_slice.py",
+      "sha256": "d4138e72efaf8f1b381fe8edec611847588a05dc2a8a6b8ba64074aa04463014",
+      "bytes": 9451
+    },
+    {
+      "path": "orca/tests/repair_r2.py",
+      "sha256": "c5dab3d90490a87be7a56b6ad88171e2aaf4f64421f7ddd34bff8e5547886b95",
+      "bytes": 3601
+    }
+  ],
+  "test_adaptations": [
+    "Extract common G-code helpers without R2 repair entrypoint",
+    "Replace hardcoded executed host-test count with explicitly historical metadata"
+  ],
+  "excluded_from_destination": [
+    "host",
+    "mcu",
+    "frontend",
+    "host installers",
+    "tools/apply_m300_r3.py"
+  ],
+  "source_cleanup": "Separate checked operation after destination commit readback"
+}
