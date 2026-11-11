@@ -1,0 +1,78 @@
+name: Orca 2.5.0 M300 R6
+on:
+  push:
+    branches: [main, feature/orca250-r6-model-materials]
+    paths: ['tools/prepare_r6.py', 'tools/build_native_r6.py', 'tools/install_native_r6.py', 'tests/audit_native_r6.py', 'docs/R6_NATIVE_PL.md', '.github/workflows/orca250-r6.yml', 'native/**', 'profiles/R6/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: orca250-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  slice:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build model-only catalogue and native bundles
+        run: |
+          python tools/prepare_r6.py
+          python -m compileall -q tools tests
+          mkdir -p "$RUNNER_TEMP/r6-config"
+          python tools/install_native_r6.py --source native --config-dir "$RUNNER_TEMP/r6-config" --apply
+          python tools/install_native_r6.py --source native --config-dir "$RUNNER_TEMP/r6-config" --apply --replace-existing-vendor
+      - name: Install official Orca2.5.0 and verify its release checksum
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgtk-3-0t64 libwebkit2gtk-4.1-0 libglu1-mesa libsecret-1-0 libgstreamer1.0-0 libgl1-mesa-dri
+          mkdir -p "$RUNNER_TEMP/orca250"
+          cd "$RUNNER_TEMP/orca250"
+          curl --fail --location --retry 3 -o Orca.AppImage 'https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.5.0/OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.0.AppImage'
+          echo 'd13eb0a9cd618ed080ab6b82c64c0a60c4501aac91e88d5ac2c3b526fb141a7c  Orca.AppImage' | sha256sum -c -
+          chmod +x Orca.AppImage
+          ./Orca.AppImage --appimage-extract > /dev/null
+      - name: Slice76 materials plus4 defaults and4 PA trials
+        run: |
+          xvfb-run -a python tests/audit_native_r6.py --orca "$RUNNER_TEMP/orca250/squashfs-root/AppRun" --out "$RUNNER_TEMP/r6-audit"
+      - name: Record actual validation and publish feature candidate
+        env:
+          TARGET_BRANCH: feature/orca250-r6-model-materials
+        run: |
+          python - <<'PY'
+          import os,json,shutil,hashlib
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'r6-audit'
+          s=json.loads((root/'summary.json').read_text())
+          assert s['material_pass']==76 and s['default_process_pass']==4 and s['pa_trial_pass']==4 and s['fail_count']==0
+          s.update(official_release='v2.5.0',official_release_date='2026-11-07',binary_sha256='d13eb0a9cd618ed080ab6b82c64c0a60c4501aac91e88d5ac2c3b526fb141a7c',support_materials=0,materials=19,high_temperature_materials_visible=['Z-PEEK','Z-PEI 1010','Z-PEI 9085'],hardware_acceptance='User reported305/105C on2026-11-11; not verified for every material',physical_prints_executed_by_ci=0)
+          Path('evidence/R6_RUNTIME_VALIDATION.json').write_text(json.dumps(s,indent=2)+'\n')
+          shutil.copyfile(root/'results.json','evidence/R6_RUNTIME_RESULTS.json')
+          Path('README.md').write_text('# Zortrax M300 — OrcaSlicer2.5.0 / R6\n\nNatywne profile0.2/0.3/0.4/0.6. **19 materiałów,76 filamentów,80 procesów; bez sześciu Z-SUPPORT.** Wszystkie pozostałe materiały dostępne, także PEEK i PEI.\n\n[Pobierz komplet](profiles/R6/M300_R6_KOMPLET.zip?raw=true) · [Natywny vendor](profiles/R6/Zortrax_M300_NATIVE_R6.zip?raw=true) · [Instrukcja](docs/R6_NATIVE_PL.md) · [Testy](evidence/R6_RUNTIME_VALIDATION.json).\n\n[0.2 User](profiles/R6/Zortrax_M300_0p2_R6.orca_printer?raw=true) / [0.3 User](profiles/R6/Zortrax_M300_0p3_R6.orca_printer?raw=true) / [0.4 User](profiles/R6/Zortrax_M300_0p4_R6.orca_printer?raw=true) / [0.6 User](profiles/R6/Zortrax_M300_0p6_R6.orca_printer?raw=true). Nie instaluj natywnej i User wersji równocześnie.\n\nUżytkownik potwierdził normalną pracę305°C/105°C. W profilach przywrócono rzeczywiste temperatury Z-SUITE:ABS275,ESD280,PCABS290. PEEK400/PEI360–370 są widoczne, ale ich wymagania przekraczają305°C: host odrzuci polecenie przed grzaniem. Nie udajemy druku PEEK przy305°C. Stół≤105°C.\n\nOficjalny silnik Orca2.5.0:76 kombinacji materiał/dysza+4 Standard+4 testy PA PASS. To kontrola programowa, nie84 fizyczne wydruki. PA=0 czeka na kalibrację. Firmware i host pozostają w osobnym repo Zortrax-m300-Klipper.\n\nStarsze profile i surowe dane źródłowe zachowano wyłącznie do audytu; aktualny pakiet jest w profiles/R6, aktywny katalog w native.\n')
+          PY
+          if [ "$GITHUB_REF" != "refs/heads/$TARGET_BRANCH" ]; then exit 0; fi
+          git fetch origin "$TARGET_BRANCH"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A native profiles/R6 evidence/R6_CATALOG.json evidence/R6_PROVENANCE.json evidence/R6_RUNTIME_RESULTS.json evidence/R6_RUNTIME_VALIDATION.json tools/build_native_r6.py tools/install_native_r6.py tests/audit_native_r6.py archive/pre_R6 presets nozzle_presets .github/workflows README.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish Orca2.5.0-tested M300 R6:19 non-support materials and305/105 envelope'
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
+      - name: Retain bundles and slicing evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: M300_ORCA250_R6
+          path: |
+            profiles/R6
+            evidence/R6_*.json
+            docs/R6_NATIVE_PL.md
+            ${{ runner.temp }}/r6-audit
+          retention-days: 14
