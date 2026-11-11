@@ -1,0 +1,46 @@
+name: R7 native loader diagnostic
+on:
+  push:
+    branches: [feature/m300-classic-process-r7]
+    paths: [.github/workflows/r7-loader-diagnostic.yml]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare pinned Orca and isolated test data
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgtk-3-0t64 libwebkit2gtk-4.1-0 libglu1-mesa libsecret-1-0 libgstreamer1.0-0 libgl1-mesa-dri
+          mkdir -p "$RUNNER_TEMP/orca" out/datadir/system
+          cd "$RUNNER_TEMP/orca"
+          curl -fL --retry 2 -o Orca.AppImage https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.5.0/OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.0.AppImage
+          echo 'd13eb0a9cd618ed080ab6b82c64c0a60c4501aac91e88d5ac2c3b526fb141a7c  Orca.AppImage' | sha256sum -c -
+          chmod +x Orca.AppImage
+          ./Orca.AppImage --appimage-extract >/dev/null
+      - name: Inspect native startup and validation utilities
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          WEBKIT_DISABLE_DMABUF_RENDERER: '1'
+        run: |
+          cp -a native/Zortrax* out/datadir/system/
+          xvfb-run -a "$RUNNER_TEMP/orca/squashfs-root/AppRun" --help > out/help.txt 2>&1 || true
+          find "$RUNNER_TEMP/orca/squashfs-root" -type f \( -iname '*valid*' -o -iname '*cache*' -o -iname '*profile*tool*' \) > out/utilities.txt
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j={'version':'2.5.0.0','preset_folder':'default','firstguide':{'finish':'1'},'models':[{'vendor':'Zortrax','model':'Zortrax M300','nozzle_diameter':'0.2;0.3;0.4;0.6'}],'filaments':['Z-PLA Pro @Zortrax M300 0.4'],'presets':{'printer':'Zortrax M300 0.4','print':'0.20mm Standard @Zortrax M300 0.4','filaments':['Z-PLA Pro @Zortrax M300 0.4']}}
+          Path('out/datadir/OrcaSlicer.conf').write_text(json.dumps(j))
+          PY
+          timeout 30s xvfb-run -a "$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/datadir" --debug 5 > out/startup.log 2>&1 || true
+          grep -Ei 'error|invalid|unknown|Zortrax|failed|exception' out/startup.log | tail -100 || true
+          cat out/utilities.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: R7_LOADER_DIAGNOSTIC
+          path: out
+          retention-days: 7
