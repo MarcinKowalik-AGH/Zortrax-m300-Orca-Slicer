@@ -157,7 +157,7 @@
     "10"
   ],
   "filament_notes": [
-    "Zortrax material; native M300 Orca integration R5. Source: classic / M200. same diameter. OEM nozzle 275C cannot be used under current host limit; 265C is an unqualified thermal adaptation, not the OEM setting. Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
+    "Zortrax material; native M300 Orca integration R6. Source: classic / M200. same diameter.  Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
   ],
   "filament_printable": [
     "1"
@@ -283,16 +283,16 @@
   ],
   "name": "Z-ABS 2 @Zortrax M300 0.3",
   "nozzle_temperature": [
-    "265"
+    "275"
   ],
   "nozzle_temperature_initial_layer": [
-    "265"
+    "275"
   ],
   "nozzle_temperature_range_high": [
-    "270"
+    "295"
   ],
   "nozzle_temperature_range_low": [
-    "245"
+    "255"
   ],
   "overhang_fan_speed": [
     "80"
@@ -348,11 +348,11 @@
   "textured_plate_temp_initial_layer": [
     "80"
   ],
-  "version": "2.3.2.60",
+  "version": "2.5.0.0",
   "volumetric_speed_coefficients": [
     ""
   ],
   "type": "filament",
   "instantiation": "true",
-  "setting_id": "a5d6f6f1-5210-5f2e-bddc-af173fbe59e8"
+  "setting_id": "4f4e041c-5cbe-5990-8514-7bf566b463f3"
 }

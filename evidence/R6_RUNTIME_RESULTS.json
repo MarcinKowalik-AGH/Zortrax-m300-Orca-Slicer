@@ -1,0 +1,3110 @@
+[
+  {
+    "nozzle": "0.2",
+    "material": "Z-ABS",
+    "process": "0.10mm Z-ABS @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 297285,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-ABS 2",
+    "process": "0.10mm Z-ABS 2 @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 297291,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-ASA Pro",
+    "process": "0.10mm Z-ASA Pro @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 296865,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-ESD",
+    "process": "0.10mm Z-ESD @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 303964,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 226,
+      "return_count": 225,
+      "z_hop": 0.6,
+      "hop_count": 225,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03069899235712993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-FLEX",
+    "process": "0.10mm Z-FLEX @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 296452,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-GLASS",
+    "process": "0.10mm Z-GLASS @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 296782,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03069899235712993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-HIPS",
+    "process": "0.10mm Z-HIPS @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 295977,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-NYLON",
+    "process": "0.10mm Z-NYLON @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 297096,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.3,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PCABS",
+    "process": "0.10mm Z-PCABS @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 296840,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.005,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.02974953898525993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PEEK",
+    "process": "0.10mm Z-PEEK @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 296152,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.6,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PEI 1010",
+    "process": "0.10mm Z-PEI 1010 @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 297167,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.6,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PEI 9085",
+    "process": "0.10mm Z-PEI 9085 @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 296651,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.6,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PETG",
+    "process": "0.10mm Z-PETG @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 296806,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.12,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03069899235712993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PHA",
+    "process": "0.10mm Z-PHA @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 297027,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.4,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PLA",
+    "process": "0.10mm Z-PLA @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 317080,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.015,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 302,
+      "return_count": 301,
+      "z_hop": 0.6,
+      "hop_count": 301,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PLA Pro",
+    "process": "0.10mm Z-PLA Pro @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 297112,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-SEMIFLEX",
+    "process": "0.10mm Z-SEMIFLEX @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 316793,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 3.5,
+      "restart_extra": 0.02,
+      "retract_speed": 20.0,
+      "return_speed": 17.0,
+      "retract_count": 302,
+      "return_count": 301,
+      "z_hop": 1.5,
+      "hop_count": 301,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-ULTRAT",
+    "process": "0.10mm Z-ULTRAT @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 304773,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 226,
+      "return_count": 225,
+      "z_hop": 0.4,
+      "hop_count": 225,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-ULTRAT Plus",
+    "process": "0.10mm Z-ULTRAT Plus @Zortrax M300 0.2",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 305932,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 227,
+      "return_count": 226,
+      "z_hop": 0.6,
+      "hop_count": 226,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PLA Pro",
+    "process": "0.10mm Standard @Zortrax M300 0.2",
+    "kind": "default",
+    "status": "PASS",
+    "gcode_bytes": 297172,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.2",
+    "material": "Z-PLA Pro",
+    "process": "0.10mm Standard @Zortrax M300 0.2",
+    "kind": "pa_trial",
+    "status": "PASS",
+    "gcode_bytes": 297180,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 176,
+      "return_count": 175,
+      "z_hop": 0.2,
+      "hop_count": 175,
+      "positive_xy_extrusions": 3757,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-ABS",
+    "process": "0.20mm Z-ABS @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170446,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-ABS 2",
+    "process": "0.20mm Z-ABS 2 @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170452,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-ASA Pro",
+    "process": "0.20mm Z-ASA Pro @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170477,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.01,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-ESD",
+    "process": "0.20mm Z-ESD @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 173394,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.6,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06902829491742873,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-FLEX",
+    "process": "0.20mm Z-FLEX @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170403,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-GLASS",
+    "process": "0.20mm Z-GLASS @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170244,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06902829491742873,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-HIPS",
+    "process": "0.20mm Z-HIPS @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170712,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-NYLON",
+    "process": "0.20mm Z-NYLON @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 171061,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.3,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PCABS",
+    "process": "0.20mm Z-PCABS @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170527,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0075,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06688660557631519,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PEEK",
+    "process": "0.20mm Z-PEEK @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 171588,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.6,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PEI 1010",
+    "process": "0.20mm Z-PEI 1010 @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 172132,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.6,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PEI 9085",
+    "process": "0.20mm Z-PEI 9085 @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 172006,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.6,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PETG",
+    "process": "0.20mm Z-PETG @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170642,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06902829491742873,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PHA",
+    "process": "0.20mm Z-PHA @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170256,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.4,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PLA",
+    "process": "0.20mm Z-PLA @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 181066,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.035,
+      "retract_speed": 21.0,
+      "return_speed": 20.0,
+      "retract_count": 165,
+      "return_count": 164,
+      "z_hop": 0.6,
+      "hop_count": 164,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Z-PLA Pro @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170456,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.5,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-SEMIFLEX",
+    "process": "0.20mm Z-SEMIFLEX @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 180913,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 4.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 20.0,
+      "retract_count": 165,
+      "return_count": 164,
+      "z_hop": 1.5,
+      "hop_count": 164,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-ULTRAT",
+    "process": "0.20mm Z-ULTRAT @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 170649,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-ULTRAT Plus",
+    "process": "0.20mm Z-ULTRAT Plus @Zortrax M300 0.3",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 180820,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.01,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 165,
+      "return_count": 164,
+      "z_hop": 0.6,
+      "hop_count": 164,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Standard @Zortrax M300 0.3",
+    "kind": "default",
+    "status": "PASS",
+    "gcode_bytes": 170516,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.5,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.3",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Standard @Zortrax M300 0.3",
+    "kind": "pa_trial",
+    "status": "PASS",
+    "gcode_bytes": 170524,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.5,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1847,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-ABS",
+    "process": "0.20mm Z-ABS @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148150,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-ABS 2",
+    "process": "0.20mm Z-ABS 2 @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148156,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-ASA Pro",
+    "process": "0.20mm Z-ASA Pro @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148168,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.01,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-ESD",
+    "process": "0.20mm Z-ESD @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 152872,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 133,
+      "return_count": 132,
+      "z_hop": 0.6,
+      "hop_count": 132,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1227584601594994,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-FLEX",
+    "process": "0.20mm Z-FLEX @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148317,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-GLASS",
+    "process": "0.20mm Z-GLASS @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148327,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1227584601594994,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-HIPS",
+    "process": "0.20mm Z-HIPS @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148116,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-NYLON",
+    "process": "0.20mm Z-NYLON @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148600,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.3,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PCABS",
+    "process": "0.20mm Z-PCABS @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148386,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0075,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1190169105755379,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PEEK",
+    "process": "0.20mm Z-PEEK @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 149015,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.6,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PEI 1010",
+    "process": "0.20mm Z-PEI 1010 @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 149194,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.6,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PEI 9085",
+    "process": "0.20mm Z-PEI 9085 @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 149387,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.6,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PETG",
+    "process": "0.20mm Z-PETG @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148704,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1227584601594994,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PHA",
+    "process": "0.20mm Z-PHA @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 147800,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.4,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PLA",
+    "process": "0.20mm Z-PLA @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 158184,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.035,
+      "retract_speed": 21.0,
+      "return_speed": 20.0,
+      "retract_count": 162,
+      "return_count": 161,
+      "z_hop": 0.6,
+      "hop_count": 161,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Z-PLA Pro @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148200,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.5,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-SEMIFLEX",
+    "process": "0.20mm Z-SEMIFLEX @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 158770,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 4.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 20.0,
+      "retract_count": 162,
+      "return_count": 161,
+      "z_hop": 1.5,
+      "hop_count": 161,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-ULTRAT",
+    "process": "0.20mm Z-ULTRAT @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 148239,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.2,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-ULTRAT Plus",
+    "process": "0.20mm Z-ULTRAT Plus @Zortrax M300 0.4",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 158362,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.01,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 162,
+      "return_count": 161,
+      "z_hop": 0.6,
+      "hop_count": 161,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Standard @Zortrax M300 0.4",
+    "kind": "default",
+    "status": "PASS",
+    "gcode_bytes": 148260,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.5,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.4",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Standard @Zortrax M300 0.4",
+    "kind": "pa_trial",
+    "status": "PASS",
+    "gcode_bytes": 148268,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 101,
+      "return_count": 100,
+      "z_hop": 0.5,
+      "hop_count": 100,
+      "positive_xy_extrusions": 1557,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-ABS",
+    "process": "0.20mm Z-ABS @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177502,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0125,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2098021144215856,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-ABS 2",
+    "process": "0.20mm Z-ABS 2 @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177508,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0125,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2098021144215856,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-ASA Pro",
+    "process": "0.20mm Z-ASA Pro @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 176620,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.01,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2152407207209364,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-ESD",
+    "process": "0.20mm Z-ESD @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 194388,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 232,
+      "return_count": 231,
+      "z_hop": 0.6,
+      "hop_count": 231,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21977547507120235,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-FLEX",
+    "process": "0.20mm Z-FLEX @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 176201,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22657244172832075,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-GLASS",
+    "process": "0.20mm Z-GLASS @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177037,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21977547507120235,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-HIPS",
+    "process": "0.20mm Z-HIPS @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 176588,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2152407207209364,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-NYLON",
+    "process": "0.20mm Z-NYLON @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177194,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.3,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2152407207209364,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PCABS",
+    "process": "0.20mm Z-PCABS @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177030,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0075,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21297850841408394,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PEEK",
+    "process": "0.20mm Z-PEEK @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177823,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.6,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2152407207209364,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PEI 1010",
+    "process": "0.20mm Z-PEI 1010 @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 178323,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.6,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2152407207209364,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PEI 9085",
+    "process": "0.20mm Z-PEI 9085 @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 178549,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.6,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2152407207209364,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PETG",
+    "process": "0.20mm Z-PETG @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177434,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21977547507120235,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PHA",
+    "process": "0.20mm Z-PHA @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 176416,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.4,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2220376873780548,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PLA",
+    "process": "0.20mm Z-PLA @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 200156,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.035,
+      "retract_speed": 21.0,
+      "return_speed": 20.0,
+      "retract_count": 261,
+      "return_count": 260,
+      "z_hop": 0.6,
+      "hop_count": 260,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2220376873780548,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Z-PLA Pro @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 177309,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.5,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2220376873780548,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-SEMIFLEX",
+    "process": "0.20mm Z-SEMIFLEX @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 200786,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 4.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 20.0,
+      "retract_count": 261,
+      "return_count": 260,
+      "z_hop": 1.5,
+      "hop_count": 260,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22657244172832075,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-ULTRAT",
+    "process": "0.20mm Z-ULTRAT @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 176996,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2098021144215856,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-ULTRAT Plus",
+    "process": "0.20mm Z-ULTRAT Plus @Zortrax M300 0.6",
+    "kind": "material",
+    "status": "PASS",
+    "gcode_bytes": 200164,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.01,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 261,
+      "return_count": 260,
+      "z_hop": 0.6,
+      "hop_count": 260,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2098021144215856,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Standard @Zortrax M300 0.6",
+    "kind": "default",
+    "status": "PASS",
+    "gcode_bytes": 177369,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.5,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2220376873780548,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "nozzle": "0.6",
+    "material": "Z-PLA Pro",
+    "process": "0.20mm Standard @Zortrax M300 0.6",
+    "kind": "pa_trial",
+    "status": "PASS",
+    "gcode_bytes": 177377,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.5,
+      "hop_count": 117,
+      "positive_xy_extrusions": 1689,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2220376873780548,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  }
+]

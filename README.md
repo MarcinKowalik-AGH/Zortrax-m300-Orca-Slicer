@@ -1,19 +1,13 @@
-# Zortrax-m300-Orca-Slicer
+# Zortrax M300 — OrcaSlicer2.5.0 / R6
 
-## R5 — natywne profile Zortrax M300
+Natywne profile0.2/0.3/0.4/0.6. **19 materiałów,76 filamentów,80 procesów; bez sześciu Z-SUPPORT.** Wszystkie pozostałe materiały dostępne, także PEEK i PEI.
 
-**0,2 / 0,3 / 0,4 / 0,6 mm.** Nazwy drukarek bez dopisku custom. Filamenty: `Z-PLA Pro @Zortrax M300 0.2`, `Z-PLA Pro @Zortrax M300 0.4` itd.
+[Pobierz komplet](profiles/R6/M300_R6_KOMPLET.zip?raw=true) · [Natywny vendor](profiles/R6/Zortrax_M300_NATIVE_R6.zip?raw=true) · [Instrukcja](docs/R6_NATIVE_PL.md) · [Testy](evidence/R6_RUNTIME_VALIDATION.json).
 
-**[Komplet R5](profiles/R5/M300_R5_KOMPLET.zip?raw=true)** · **[Natywny vendor Zortrax](profiles/R5/Zortrax_M300_NATIVE_R5.zip?raw=true)** · [Instrukcja](docs/R5_NATIVE_PL.md)
+[0.2 User](profiles/R6/Zortrax_M300_0p2_R6.orca_printer?raw=true) / [0.3 User](profiles/R6/Zortrax_M300_0p3_R6.orca_printer?raw=true) / [0.4 User](profiles/R6/Zortrax_M300_0p4_R6.orca_printer?raw=true) / [0.6 User](profiles/R6/Zortrax_M300_0p6_R6.orca_printer?raw=true). Nie instaluj natywnej i User wersji równocześnie.
 
-Alternatywny import User: [0.2](profiles/R5/Zortrax_M300_0p2_R5.orca_printer?raw=true) / [0.3](profiles/R5/Zortrax_M300_0p3_R5.orca_printer?raw=true) / [0.4](profiles/R5/Zortrax_M300_0p4_R5.orca_printer?raw=true) / [0.6](profiles/R5/Zortrax_M300_0p6_R5.orca_printer?raw=true). Nie instalować obu wersji pod tymi samymi nazwami.
+Użytkownik potwierdził normalną pracę305°C/105°C. W profilach przywrócono rzeczywiste temperatury Z-SUITE:ABS275,ESD280,PCABS290. PEEK400/PEI360–370 są widoczne, ale ich wymagania przekraczają305°C: host odrzuci polecenie przed grzaniem. Nie udajemy druku PEEK przy305°C. Stół≤105°C.
 
-Źródła: **Z-SUITE 2.32 — 152 rekordy klasycznego M300; beta4.0 — 214 rekordów**. Pierwszeństwo: dane klasyczne, beta, jawne przeliczenia i baza projektu. Natywny oznacza format Orca, a nie oficjalne zatwierdzenie integracji przez Zortrax. [Pochodzenie pól](evidence/R5_PROVENANCE.json) · [Źródła i sumy](sources/SOURCE_MANIFEST_R5.json).
+Oficjalny silnik Orca2.5.0:76 kombinacji materiał/dysza+4 Standard+4 testy PA PASS. To kontrola programowa, nie84 fizyczne wydruki. PA=0 czeka na kalibrację. Firmware i host pozostają w osobnym repo Zortrax-m300-Klipper.
 
-4 drukarki,100 wpisów filamentów,84 procesy:4 Standard i80 wariantów materiałowych dla różnych prędkości. Dysza0.2:warstwa0.10; pozostałe:0.20. [Katalog](evidence/R5_CATALOG.json). PA=0 do pomiaru; M83 i makra Klippera zachowane; robocze temperatury265/105C maksymalnie. Korekty względem OEM są ujawnione.
-
-**Wyłącznie katalog:** Z-PEEK,Z-PEI1010,Z-PEI9085,Z-SUPPORT High-Temp,Z-SUPPORT ATP130. Nie drukować ich na tej M300. Pozostałe wpisy także wymagają fizycznej kwalifikacji.
-
-[Test rzeczywistego Orca2.3.2](evidence/R5_RUNTIME_VALIDATION.json):80 kombinacji materiał/dysza,4 Standard i4 próby PA; bez adaptera metadanych natywnych presetów. Nie wykonano fizycznego wydruku ani ręcznego importu GUI użytkownika.
-
-Host,MCU,OLED,Fluidd i makra pozostają w [Zortrax-m300-Klipper](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper). Profile nie aktualizują hosta. Starsze R3/R4 zachowano jako historyczną bazę; aktualny pakiet jest w `profiles/R5`.
+Starsze profile i surowe dane źródłowe zachowano wyłącznie do audytu; aktualny pakiet jest w profiles/R6, aktywny katalog w native.

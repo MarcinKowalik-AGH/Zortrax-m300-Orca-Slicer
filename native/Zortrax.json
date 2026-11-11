@@ -1,6 +1,6 @@
 {
   "name": "Zortrax",
-  "version": "02.03.02.05",
+  "version": "02.05.00.06",
   "force_update": "0",
   "description": "Zortrax M300 native Orca integration; source-derived and interpolated community profiles, not an official manufacturer release.",
   "machine_model_list": [
@@ -69,6 +69,18 @@
       "sub_path": "process/0.10mm Z-PCABS @Zortrax M300 0.2.json"
     },
     {
+      "name": "0.10mm Z-PEEK @Zortrax M300 0.2",
+      "sub_path": "process/0.10mm Z-PEEK @Zortrax M300 0.2.json"
+    },
+    {
+      "name": "0.10mm Z-PEI 1010 @Zortrax M300 0.2",
+      "sub_path": "process/0.10mm Z-PEI 1010 @Zortrax M300 0.2.json"
+    },
+    {
+      "name": "0.10mm Z-PEI 9085 @Zortrax M300 0.2",
+      "sub_path": "process/0.10mm Z-PEI 9085 @Zortrax M300 0.2.json"
+    },
+    {
       "name": "0.10mm Z-PETG @Zortrax M300 0.2",
       "sub_path": "process/0.10mm Z-PETG @Zortrax M300 0.2.json"
     },
@@ -87,22 +99,6 @@
     {
       "name": "0.10mm Z-SEMIFLEX @Zortrax M300 0.2",
       "sub_path": "process/0.10mm Z-SEMIFLEX @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "0.10mm Z-SUPPORT @Zortrax M300 0.2",
-      "sub_path": "process/0.10mm Z-SUPPORT @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "0.10mm Z-SUPPORT ATP @Zortrax M300 0.2",
-      "sub_path": "process/0.10mm Z-SUPPORT ATP @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "0.10mm Z-SUPPORT Plus @Zortrax M300 0.2",
-      "sub_path": "process/0.10mm Z-SUPPORT Plus @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "0.10mm Z-SUPPORT Premium @Zortrax M300 0.2",
-      "sub_path": "process/0.10mm Z-SUPPORT Premium @Zortrax M300 0.2.json"
     },
     {
       "name": "0.10mm Z-ULTRAT @Zortrax M300 0.2",
@@ -153,6 +149,18 @@
       "sub_path": "process/0.20mm Z-PCABS @Zortrax M300 0.3.json"
     },
     {
+      "name": "0.20mm Z-PEEK @Zortrax M300 0.3",
+      "sub_path": "process/0.20mm Z-PEEK @Zortrax M300 0.3.json"
+    },
+    {
+      "name": "0.20mm Z-PEI 1010 @Zortrax M300 0.3",
+      "sub_path": "process/0.20mm Z-PEI 1010 @Zortrax M300 0.3.json"
+    },
+    {
+      "name": "0.20mm Z-PEI 9085 @Zortrax M300 0.3",
+      "sub_path": "process/0.20mm Z-PEI 9085 @Zortrax M300 0.3.json"
+    },
+    {
       "name": "0.20mm Z-PETG @Zortrax M300 0.3",
       "sub_path": "process/0.20mm Z-PETG @Zortrax M300 0.3.json"
     },
@@ -171,22 +179,6 @@
     {
       "name": "0.20mm Z-SEMIFLEX @Zortrax M300 0.3",
       "sub_path": "process/0.20mm Z-SEMIFLEX @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT @Zortrax M300 0.3",
-      "sub_path": "process/0.20mm Z-SUPPORT @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT ATP @Zortrax M300 0.3",
-      "sub_path": "process/0.20mm Z-SUPPORT ATP @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT Plus @Zortrax M300 0.3",
-      "sub_path": "process/0.20mm Z-SUPPORT Plus @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT Premium @Zortrax M300 0.3",
-      "sub_path": "process/0.20mm Z-SUPPORT Premium @Zortrax M300 0.3.json"
     },
     {
       "name": "0.20mm Z-ULTRAT @Zortrax M300 0.3",
@@ -237,6 +229,18 @@
       "sub_path": "process/0.20mm Z-PCABS @Zortrax M300 0.4.json"
     },
     {
+      "name": "0.20mm Z-PEEK @Zortrax M300 0.4",
+      "sub_path": "process/0.20mm Z-PEEK @Zortrax M300 0.4.json"
+    },
+    {
+      "name": "0.20mm Z-PEI 1010 @Zortrax M300 0.4",
+      "sub_path": "process/0.20mm Z-PEI 1010 @Zortrax M300 0.4.json"
+    },
+    {
+      "name": "0.20mm Z-PEI 9085 @Zortrax M300 0.4",
+      "sub_path": "process/0.20mm Z-PEI 9085 @Zortrax M300 0.4.json"
+    },
+    {
       "name": "0.20mm Z-PETG @Zortrax M300 0.4",
       "sub_path": "process/0.20mm Z-PETG @Zortrax M300 0.4.json"
     },
@@ -255,22 +259,6 @@
     {
       "name": "0.20mm Z-SEMIFLEX @Zortrax M300 0.4",
       "sub_path": "process/0.20mm Z-SEMIFLEX @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT @Zortrax M300 0.4",
-      "sub_path": "process/0.20mm Z-SUPPORT @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT ATP @Zortrax M300 0.4",
-      "sub_path": "process/0.20mm Z-SUPPORT ATP @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT Plus @Zortrax M300 0.4",
-      "sub_path": "process/0.20mm Z-SUPPORT Plus @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT Premium @Zortrax M300 0.4",
-      "sub_path": "process/0.20mm Z-SUPPORT Premium @Zortrax M300 0.4.json"
     },
     {
       "name": "0.20mm Z-ULTRAT @Zortrax M300 0.4",
@@ -321,6 +309,18 @@
       "sub_path": "process/0.20mm Z-PCABS @Zortrax M300 0.6.json"
     },
     {
+      "name": "0.20mm Z-PEEK @Zortrax M300 0.6",
+      "sub_path": "process/0.20mm Z-PEEK @Zortrax M300 0.6.json"
+    },
+    {
+      "name": "0.20mm Z-PEI 1010 @Zortrax M300 0.6",
+      "sub_path": "process/0.20mm Z-PEI 1010 @Zortrax M300 0.6.json"
+    },
+    {
+      "name": "0.20mm Z-PEI 9085 @Zortrax M300 0.6",
+      "sub_path": "process/0.20mm Z-PEI 9085 @Zortrax M300 0.6.json"
+    },
+    {
       "name": "0.20mm Z-PETG @Zortrax M300 0.6",
       "sub_path": "process/0.20mm Z-PETG @Zortrax M300 0.6.json"
     },
@@ -339,22 +339,6 @@
     {
       "name": "0.20mm Z-SEMIFLEX @Zortrax M300 0.6",
       "sub_path": "process/0.20mm Z-SEMIFLEX @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT @Zortrax M300 0.6",
-      "sub_path": "process/0.20mm Z-SUPPORT @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT ATP @Zortrax M300 0.6",
-      "sub_path": "process/0.20mm Z-SUPPORT ATP @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT Plus @Zortrax M300 0.6",
-      "sub_path": "process/0.20mm Z-SUPPORT Plus @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "0.20mm Z-SUPPORT Premium @Zortrax M300 0.6",
-      "sub_path": "process/0.20mm Z-SUPPORT Premium @Zortrax M300 0.6.json"
     },
     {
       "name": "0.20mm Z-ULTRAT @Zortrax M300 0.6",
@@ -435,30 +419,6 @@
       "sub_path": "filament/Z-SEMIFLEX @Zortrax M300 0.2.json"
     },
     {
-      "name": "Z-SUPPORT @Zortrax M300 0.2",
-      "sub_path": "filament/Z-SUPPORT @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP @Zortrax M300 0.2",
-      "sub_path": "filament/Z-SUPPORT ATP @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP 130 @Zortrax M300 0.2",
-      "sub_path": "filament/Z-SUPPORT ATP 130 @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "Z-SUPPORT High-Temp @Zortrax M300 0.2",
-      "sub_path": "filament/Z-SUPPORT High-Temp @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "Z-SUPPORT Plus @Zortrax M300 0.2",
-      "sub_path": "filament/Z-SUPPORT Plus @Zortrax M300 0.2.json"
-    },
-    {
-      "name": "Z-SUPPORT Premium @Zortrax M300 0.2",
-      "sub_path": "filament/Z-SUPPORT Premium @Zortrax M300 0.2.json"
-    },
-    {
       "name": "Z-ULTRAT @Zortrax M300 0.2",
       "sub_path": "filament/Z-ULTRAT @Zortrax M300 0.2.json"
     },
@@ -533,30 +493,6 @@
     {
       "name": "Z-SEMIFLEX @Zortrax M300 0.3",
       "sub_path": "filament/Z-SEMIFLEX @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "Z-SUPPORT @Zortrax M300 0.3",
-      "sub_path": "filament/Z-SUPPORT @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP @Zortrax M300 0.3",
-      "sub_path": "filament/Z-SUPPORT ATP @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP 130 @Zortrax M300 0.3",
-      "sub_path": "filament/Z-SUPPORT ATP 130 @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "Z-SUPPORT High-Temp @Zortrax M300 0.3",
-      "sub_path": "filament/Z-SUPPORT High-Temp @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "Z-SUPPORT Plus @Zortrax M300 0.3",
-      "sub_path": "filament/Z-SUPPORT Plus @Zortrax M300 0.3.json"
-    },
-    {
-      "name": "Z-SUPPORT Premium @Zortrax M300 0.3",
-      "sub_path": "filament/Z-SUPPORT Premium @Zortrax M300 0.3.json"
     },
     {
       "name": "Z-ULTRAT @Zortrax M300 0.3",
@@ -635,30 +571,6 @@
       "sub_path": "filament/Z-SEMIFLEX @Zortrax M300 0.4.json"
     },
     {
-      "name": "Z-SUPPORT @Zortrax M300 0.4",
-      "sub_path": "filament/Z-SUPPORT @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP @Zortrax M300 0.4",
-      "sub_path": "filament/Z-SUPPORT ATP @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP 130 @Zortrax M300 0.4",
-      "sub_path": "filament/Z-SUPPORT ATP 130 @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "Z-SUPPORT High-Temp @Zortrax M300 0.4",
-      "sub_path": "filament/Z-SUPPORT High-Temp @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "Z-SUPPORT Plus @Zortrax M300 0.4",
-      "sub_path": "filament/Z-SUPPORT Plus @Zortrax M300 0.4.json"
-    },
-    {
-      "name": "Z-SUPPORT Premium @Zortrax M300 0.4",
-      "sub_path": "filament/Z-SUPPORT Premium @Zortrax M300 0.4.json"
-    },
-    {
       "name": "Z-ULTRAT @Zortrax M300 0.4",
       "sub_path": "filament/Z-ULTRAT @Zortrax M300 0.4.json"
     },
@@ -733,30 +645,6 @@
     {
       "name": "Z-SEMIFLEX @Zortrax M300 0.6",
       "sub_path": "filament/Z-SEMIFLEX @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "Z-SUPPORT @Zortrax M300 0.6",
-      "sub_path": "filament/Z-SUPPORT @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP @Zortrax M300 0.6",
-      "sub_path": "filament/Z-SUPPORT ATP @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "Z-SUPPORT ATP 130 @Zortrax M300 0.6",
-      "sub_path": "filament/Z-SUPPORT ATP 130 @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "Z-SUPPORT High-Temp @Zortrax M300 0.6",
-      "sub_path": "filament/Z-SUPPORT High-Temp @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "Z-SUPPORT Plus @Zortrax M300 0.6",
-      "sub_path": "filament/Z-SUPPORT Plus @Zortrax M300 0.6.json"
-    },
-    {
-      "name": "Z-SUPPORT Premium @Zortrax M300 0.6",
-      "sub_path": "filament/Z-SUPPORT Premium @Zortrax M300 0.6.json"
     },
     {
       "name": "Z-ULTRAT @Zortrax M300 0.6",

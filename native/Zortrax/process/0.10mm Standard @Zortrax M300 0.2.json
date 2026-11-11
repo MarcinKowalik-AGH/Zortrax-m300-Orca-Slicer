@@ -146,7 +146,7 @@
   "mmu_segmented_region_interlocking_depth": "0",
   "mmu_segmented_region_max_width": "0",
   "name": "0.10mm Standard @Zortrax M300 0.2",
-  "notes": "R5 Zortrax M300. Shared process based on Z-PLA Pro; choose named material process for its extracted feature speeds. Geometric widths, raft algorithm and accelerations are Orca/Klipper adaptations, not a claim of byte-equivalent OEM toolpaths.",
+  "notes": "R6 Zortrax M300. Shared process based on Z-PLA Pro; choose named material process for its extracted feature speeds. Geometric widths, raft algorithm and accelerations are Orca/Klipper adaptations, not a claim of byte-equivalent OEM toolpaths.",
   "only_one_wall_first_layer": "0",
   "only_one_wall_top": "0",
   "ooze_prevention": "1",
@@ -322,7 +322,7 @@
   "tree_support_tip_diameter": "0.8",
   "tree_support_top_rate": "30%",
   "tree_support_wall_count": "2",
-  "version": "2.3.2.60",
+  "version": "2.5.0.0",
   "wall_direction": "auto",
   "wall_distribution_count": "1",
   "wall_filament": "1",
@@ -363,5 +363,5 @@
   "xy_hole_compensation": "0",
   "type": "process",
   "instantiation": "true",
-  "setting_id": "e53cd162-a027-5554-93b7-6a67eaff50c7"
+  "setting_id": "570808ad-6ac3-5d40-9296-f1bfc675e92f"
 }

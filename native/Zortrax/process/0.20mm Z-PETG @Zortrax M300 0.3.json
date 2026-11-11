@@ -146,7 +146,7 @@
   "mmu_segmented_region_interlocking_depth": "0",
   "mmu_segmented_region_max_width": "0",
   "name": "0.20mm Z-PETG @Zortrax M300 0.3",
-  "notes": "R5 Zortrax M300. Material-specific process: Z-PETG. Geometric widths, raft algorithm and accelerations are Orca/Klipper adaptations, not a claim of byte-equivalent OEM toolpaths.",
+  "notes": "R6 Zortrax M300. Material-specific process: Z-PETG. Geometric widths, raft algorithm and accelerations are Orca/Klipper adaptations, not a claim of byte-equivalent OEM toolpaths.",
   "only_one_wall_first_layer": "0",
   "only_one_wall_top": "0",
   "ooze_prevention": "1",
@@ -322,7 +322,7 @@
   "tree_support_tip_diameter": "0.8",
   "tree_support_top_rate": "30%",
   "tree_support_wall_count": "2",
-  "version": "2.3.2.60",
+  "version": "2.5.0.0",
   "wall_direction": "auto",
   "wall_distribution_count": "1",
   "wall_filament": "1",
@@ -363,5 +363,5 @@
   "xy_hole_compensation": "0",
   "type": "process",
   "instantiation": "true",
-  "setting_id": "70a7a3d5-b162-5f3b-b652-d0d72afa9efc"
+  "setting_id": "25f18116-2e08-5074-b2a4-8b5c276721fe"
 }

@@ -56,7 +56,7 @@
   "fan_kickstart": "0",
   "fan_speedup_overhangs": "1",
   "fan_speedup_time": "0",
-  "file_start_gcode": "; Zortrax M300 nozzle 0.6, layer 0.2; source-derived integration R5\n",
+  "file_start_gcode": "; Zortrax M300 nozzle 0.6, layer 0.2; source-derived integration R6\n",
   "from": "system",
   "gcode_flavor": "klipper",
   "grab_length": [
@@ -255,7 +255,7 @@
   "upward_compatible_machine": [],
   "use_firmware_retraction": "0",
   "use_relative_e_distances": "1",
-  "version": "2.3.2.60",
+  "version": "2.5.0.0",
   "wipe": [
     "0"
   ],
@@ -275,5 +275,5 @@
   "z_offset": "0",
   "type": "machine",
   "instantiation": "true",
-  "setting_id": "de832f0c-eaa7-58ba-b693-eb96b6443178"
+  "setting_id": "d5bb72cd-9c4a-5331-981e-aa0454eb2fb7"
 }

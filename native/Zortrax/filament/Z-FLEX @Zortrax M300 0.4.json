@@ -157,7 +157,7 @@
     "10"
   ],
   "filament_notes": [
-    "Zortrax material; native M300 Orca integration R5. Source: beta4 / M300Plus. same diameter.  Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
+    "Zortrax material; native M300 Orca integration R6. Source: beta4 / M300Plus. same diameter.  Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
   ],
   "filament_printable": [
     "1"
@@ -348,11 +348,11 @@
   "textured_plate_temp_initial_layer": [
     "50"
   ],
-  "version": "2.3.2.60",
+  "version": "2.5.0.0",
   "volumetric_speed_coefficients": [
     ""
   ],
   "type": "filament",
   "instantiation": "true",
-  "setting_id": "5a110afc-a10b-5c11-a2fa-764764ebc0bd"
+  "setting_id": "ba2aa347-71c3-57f8-850e-d164818f99c5"
 }

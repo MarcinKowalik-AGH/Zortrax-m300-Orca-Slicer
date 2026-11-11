@@ -157,7 +157,7 @@
     "10"
   ],
   "filament_notes": [
-    "Zortrax material; native M300 Orca integration R5. Source: beta4 / M300Plus. geometric rescaling; not an OEM nozzle preset. filament_retraction_speed: source 80mm/s limited to45mm/s; host limit unchanged. filament_deretraction_speed: source 80mm/s limited to45mm/s; host limit unchanged. Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
+    "Zortrax material; native M300 Orca integration R6. Source: beta4 / M300Plus. geometric rescaling; not an OEM nozzle preset. filament_retraction_speed: source 80mm/s limited to45mm/s; host limit unchanged. filament_deretraction_speed: source 80mm/s limited to45mm/s; host limit unchanged. Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
   ],
   "filament_printable": [
     "1"
@@ -348,11 +348,11 @@
   "textured_plate_temp_initial_layer": [
     "90"
   ],
-  "version": "2.3.2.60",
+  "version": "2.5.0.0",
   "volumetric_speed_coefficients": [
     ""
   ],
   "type": "filament",
   "instantiation": "true",
-  "setting_id": "5e3e82a0-c0b3-5b7b-a36f-7fc3e531a474"
+  "setting_id": "52abd1f9-6d65-553e-a3c2-eea0e951e831"
 }

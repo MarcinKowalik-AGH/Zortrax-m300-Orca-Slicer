@@ -157,10 +157,10 @@
     "10"
   ],
   "filament_notes": [
-    "CATALOG ONLY / NOT FOR M300 PRINTING. Zortrax material; native M300 Orca integration R5. Source: beta4 / Endureal. same diameter. Source bed/chamber above M300 limits; catalogue-only material. Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
+    "Zortrax material; native M300 Orca integration R6. Source: beta4 / Endureal. same diameter. Source bed 200C exceeds configured105C; listed but not qualified at reduced bed temperature. VISIBLE/SELECTABLE: required nozzle 360C exceeds this305C machine. START_PRINT must reject before heat or motion; no claim of305C printability. Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
   ],
   "filament_printable": [
-    "0"
+    "1"
   ],
   "filament_ramming_parameters": [
     "120 100 6.6 6.8 7.2 7.6 7.9 8.2 8.7 9.4 9.9 10.0| 0.05 6.6 0.45 6.8 0.95 7.8 1.45 8.3 1.95 9.7 2.45 10 2.95 7.6 3.45 7.6 3.95 7.6 4.45 7.6 4.95 7.6"
@@ -348,11 +348,11 @@
   "textured_plate_temp_initial_layer": [
     "105"
   ],
-  "version": "2.3.2.60",
+  "version": "2.5.0.0",
   "volumetric_speed_coefficients": [
     ""
   ],
   "type": "filament",
   "instantiation": "true",
-  "setting_id": "cc5d5ee3-5a2b-57e1-b2a7-2488bc2e77d7"
+  "setting_id": "e59c4ce2-58d5-5f97-a5c1-a84c0b71eaca"
 }
