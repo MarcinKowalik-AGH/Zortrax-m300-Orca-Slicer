@@ -120,7 +120,11 @@ def main():
    for target,keys in [('filament_retraction_speed',['R_BackSpeed','Model.Retraction.R_BackSpeed','Support.Retraction.R_BackSupportSpeed']),('filament_deretraction_speed',['R_ForwardSpeed','Model.Retraction.R_ForwardSpeed','Support.Retraction.R_ForwardSupportSpeed'])]:
     x=value(v,*keys)
     if x is not None and x>0:
-     put(target,min(45,x/60),' / '.join(keys),'mm/min /60, capped by host extrude-only velocity45mm/s')
+     # Orca 2.3.2 GCodeWriter rounds retract feed to whole mm/s; make this
+     # approximation explicit and preserve the raw manufacturer value.
+     quantized=min(45,int(x/60+0.5))
+     put(target,quantized,' / '.join(keys),'mm/min /60; nearest whole mm/s as emitted by Orca2.3.2; host extrude-only ceiling45mm/s')
+     fields[target].update(raw_mm_min=x,converted_mm_s=x/60,quantized_mm_s=quantized)
      if x/60>45:warnings.append(f'{target}: source {num(x/60)}mm/s limited to45mm/s; host limit unchanged.')
    forward=value(v,'R_Forward');extra=value(v,'Model.Retraction.R_ForwardDiff','Support.Retraction.R_ForwardSupportDiff')
    if forward is not None and retract is not None:extra=max(0,forward-retract)
@@ -136,7 +140,6 @@ def main():
    f['enable_pressure_advance']=['1'];f['pressure_advance']=['0'];f['adaptive_pressure_advance']=['0']
    if mat in ['Z-ABS','Z-ABS 2']:f['filament_type']=['ABS']
    if mat.startswith('Z-PEI'):f['filament_type']=['PEI']
-   if mat.startswith('Z-SUPPORT'):f['filament_type']=['PVA']
    for k in ['activate_chamber_temp_control','activate_air_filtration','chamber_temperature']:f[k]=['0']
    f['filament_notes']=[('CATALOG ONLY / NOT FOR M300 PRINTING. ' if unsupported else '')+'Zortrax material; native M300 Orca integration R5. Source: '+source.get('source','')+' / '+source.get('printer','project baseline')+'. '+source.get('nozzle_adaptation','')+'. '+' '.join(warnings)+' Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release.']
    system(f,'filament');assert set(original)<=set(f),'Lost filament field'
