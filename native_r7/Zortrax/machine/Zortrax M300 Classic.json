@@ -1,0 +1,14 @@
+{
+  "type": "machine_model",
+  "name": "Zortrax M300 Classic",
+  "model_id": "ZORTRAX_M300_CLASSIC",
+  "family": "Zortrax",
+  "machine_tech": "FFF",
+  "nozzle_diameter": "0.2;0.3;0.4;0.6",
+  "default_materials": "Z-PLA Pro @Zortrax M300 0.2;Z-PLA Pro @Zortrax M300 0.3;Z-PLA Pro @Zortrax M300 0.4;Z-PLA Pro @Zortrax M300 0.6;Generic PLA @Zortrax M300 0.2;Generic PLA @Zortrax M300 0.3;Generic PLA @Zortrax M300 0.4;Generic PLA @Zortrax M300 0.6",
+  "bed_model": "",
+  "bed_texture": "",
+  "hotend_model": "",
+  "url": "https://support.zortrax.com/m-series-specification/",
+  "default_bed_type": "High Temp Plate"
+}
