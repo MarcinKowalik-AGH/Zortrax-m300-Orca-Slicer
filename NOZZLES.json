@@ -1,0 +1,96 @@
+{
+    "revision": "R4",
+    "date": "2026-11-11",
+    "machine": "M300_CLASSIC",
+    "zsuite_classic_nozzles_mm": [
+        0.4
+    ],
+    "custom_klipper_nozzles_mm": [
+        0.3,
+        0.6
+    ],
+    "baseline_sha256": "3b60cd1ec9d324d5c2ed5a2aec7ced13560d13eff56734167bede1655e4333a4",
+    "baseline_0p4_unchanged": true,
+    "sources": [
+        {
+            "url": "https://support.zortrax.com/m-series-specification/",
+            "finding": "M300 Classic: nozzle 0.4 mm; layers 0.09-0.29 mm."
+        },
+        {
+            "url": "https://forum.zortrax.com/t/zortrax-m300-print-with-0-6-mm-nozzle/9671",
+            "finding": "Zortrax support correction dated 2020-05-20: 0.6 not available for M300."
+        },
+        {
+            "url": "https://forum.zortrax.com/t/there-is-no-possibility-to-choose-a-nozzle-except-0-4/12068",
+            "finding": "Zortrax support dated 2023-07-04: no 0.6 M300 profiles; Plus/Dual differ."
+        },
+        {
+            "url": "https://support.zortrax.com/m300-plus-specification/",
+            "finding": "M300 Plus lists 0.3/0.4/0.6; not the Classic machine."
+        },
+        {
+            "url": "https://support.zortrax.com/downloads/software/",
+            "finding": "Classic M300 owners directed to Z-SUITE 2.32.0, not latest Z-SUITE 3.x."
+        },
+        {
+            "url": "https://www.klipper3d.org/Config_Reference.html#extruder",
+            "finding": "Host nozzle_diameter must describe installed nozzle; default max_extrude_cross_section=4*d*d."
+        }
+    ],
+    "variants": [
+        {
+            "diameter": "0.4",
+            "status": "ZSUITE_CLASSIC_DIAMETER_CUSTOM_KLIPPER_PROCESS",
+            "bundle": "profiles/Zortrax_M300_Classic_0p20_MicroSwiss_R3.orca_printer",
+            "preset_root": "presets",
+            "printer": "Zortrax M300 0.4 nozzle",
+            "process": "0.20mm Standard @Zortrax M300 0.4 nozzle",
+            "layer_height": "0.2",
+            "normal_line_width": "0.42",
+            "inner_line_width": "0.45",
+            "initial_line_width": "0.5",
+            "support_line_width": "0.4",
+            "min_layer_height": "0.09",
+            "max_layer_height": "0.29",
+            "materials": 18,
+            "sha256": "3b60cd1ec9d324d5c2ed5a2aec7ced13560d13eff56734167bede1655e4333a4"
+        },
+        {
+            "diameter": "0.3",
+            "status": "CUSTOM_KLIPPER_NOT_ZSUITE_CLASSIC",
+            "bundle": "profiles/Zortrax_M300_Classic_N0p3_0p20_CUSTOM_R4.orca_printer",
+            "preset_root": "nozzle_presets/0p3",
+            "printer": "Zortrax M300 0.3 nozzle - Klipper custom",
+            "process": "0.20mm Standard @Zortrax M300 0.3 nozzle - Klipper custom",
+            "layer_height": "0.2",
+            "normal_line_width": "0.32",
+            "inner_line_width": "0.34",
+            "initial_line_width": "0.38",
+            "support_line_width": "0.3",
+            "min_layer_height": "0.09",
+            "max_layer_height": "0.24",
+            "materials": 18,
+            "sha256": "82e8dcfd312f6ee3837bae8f5ca257765b6e564feab7b4e69e87db0727b56f2f"
+        },
+        {
+            "diameter": "0.6",
+            "status": "CUSTOM_KLIPPER_NOT_ZSUITE_CLASSIC",
+            "bundle": "profiles/Zortrax_M300_Classic_N0p6_0p20_CUSTOM_R4.orca_printer",
+            "preset_root": "nozzle_presets/0p6",
+            "printer": "Zortrax M300 0.6 nozzle - Klipper custom",
+            "process": "0.20mm Standard @Zortrax M300 0.6 nozzle - Klipper custom",
+            "layer_height": "0.2",
+            "normal_line_width": "0.63",
+            "inner_line_width": "0.68",
+            "initial_line_width": "0.75",
+            "support_line_width": "0.6",
+            "min_layer_height": "0.15",
+            "max_layer_height": "0.45",
+            "materials": 18,
+            "sha256": "2997194c26eeba7c4231c0e3755ca44c61babd9db535011119b2d3fcd6736177"
+        }
+    ],
+    "host_updated": false,
+    "physical_test": false,
+    "gui_import_test": false
+}

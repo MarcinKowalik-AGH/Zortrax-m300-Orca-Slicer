@@ -1,5 +1,21 @@
 # Zortrax-m300-Orca-Slicer
 
+## Profile średnic dysz R4
+
+**M300 Classic w Z-SUITE: 0,4 mm.** Warianty 0,3 i 0,6 mm są własnymi rozszerzeniami dla Klippera, nie profilami OEM. Nie mylić z M300 Plus. Każdy wariant ma jeden proces 0,20 mm i osobne filamenty/PA.
+
+| Dysza | Pakiet |
+|---|---|
+| 0,3 mm — Klipper custom | [Import](profiles/Zortrax_M300_Classic_N0p3_0p20_CUSTOM_R4.orca_printer?raw=true) |
+| 0,4 mm — niezmieniona baza R3 | [Import](profiles/Zortrax_M300_Classic_0p20_MicroSwiss_R3.orca_printer?raw=true) |
+| 0,6 mm — Klipper custom | [Import](profiles/Zortrax_M300_Classic_N0p6_0p20_CUSTOM_R4.orca_printer?raw=true) |
+
+[Komplet ZIP](profiles/M300_Orca_0p3_0p4_0p6_R4.zip?raw=true) · [Źródła, parametry i instalacja](docs/NOZZLES_R4_PL.md) · [Testy wszystkich wariantów](evidence/NOZZLE_VALIDATION_R4.json)
+
+**Po fizycznej zmianie dyszy trzeba również poprawić `nozzle_diameter` w Klipperze. Import Orca nie zmienia hosta.** Z-PEEK pozostaje katalogowy; PA=0 czeka na pomiar osobno dla każdej dyszy i materiału. Nowe profile nie podnoszą temperatur, prędkości, przyspieszeń ani przepływu. Test silnika: 51 kombinacji materiał/dysza PASS oraz 3 testy przekazywania PA; bez testu GUI i druku fizycznego.
+
+---
+
 Profile **OrcaSlicer dla Zortrax M300 Classic z Klipperem**. Osobne repozytorium slicera; bez firmware MCU, hosta, Fluidd i instalatorów drukarki.
 
 ## Pobranie i import

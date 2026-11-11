@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "revision": "R4",
+  "orca": "2.3.2",
+  "variants": [
+    {
+      "nozzle": "0.4",
+      "bundle_sha256": "3b60cd1ec9d324d5c2ed5a2aec7ced13560d13eff56734167bede1655e4333a4",
+      "material_pass": 17,
+      "material_fail": 0,
+      "catalog_only": 1,
+      "pa_trial": "PASS"
+    },
+    {
+      "nozzle": "0.3",
+      "bundle_sha256": "82e8dcfd312f6ee3837bae8f5ca257765b6e564feab7b4e69e87db0727b56f2f",
+      "material_pass": 17,
+      "material_fail": 0,
+      "catalog_only": 1,
+      "pa_trial": "PASS"
+    },
+    {
+      "nozzle": "0.6",
+      "bundle_sha256": "2997194c26eeba7c4231c0e3755ca44c61babd9db535011119b2d3fcd6736177",
+      "material_pass": 17,
+      "material_fail": 0,
+      "catalog_only": 1,
+      "pa_trial": "PASS"
+    }
+  ],
+  "printer_count": 3,
+  "material_entries": 54,
+  "software_material_pass": 51,
+  "unsupported_entries": 3,
+  "pa_tests_pass": 3,
+  "baseline_0p4_unchanged": true,
+  "metadata_adapter": [
+    "type",
+    "from=system"
+  ],
+  "gui_import_test": false,
+  "hardware_test": false,
+  "host_changed": false,
+  "workflow_run_id": "42988834950",
+  "tested_commit": "69a37fc555616182e929af45bb14881d7321815a"
+}
