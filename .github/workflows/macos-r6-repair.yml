@@ -1,0 +1,44 @@
+name: R6 Mac preset repair verification
+on:
+  push:
+    branches: [fix/macos-native-install-r6p1]
+    paths: ['tools/repair_macos_r6.py','tests/test_macos_repair.py','.github/workflows/macos-r6-repair.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retain pinned upstream loader sources for offline review
+        run: |
+          mkdir -p out/upstream
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request
+          files=['src/libslic3r/PresetBundle.cpp','src/libslic3r/AppConfig.cpp','src/libslic3r/Preset.cpp','src/slic3r/GUI/ConfigWizard.cpp','src/slic3r/GUI/PresetBundleDialog.cpp','src/slic3r/GUI/MainFrame.cpp']
+          for name in files:
+              data=urllib.request.urlopen('https://raw.githubusercontent.com/OrcaSlicer/OrcaSlicer/v2.5.0/'+name,timeout=30).read()
+              Path('out/upstream',Path(name).name).write_bytes(data)
+          PY
+      - name: Test isolated cleanup, activation, backup and rollback
+        run: |
+          if [ -f tests/test_macos_repair.py ]; then
+            python -m unittest discover -s tests -p test_macos_repair.py -v > out/repair-tests.log 2>&1
+            cat out/repair-tests.log
+          else
+            echo 'Source review only; repair tests not yet provided.' > out/repair-tests.log
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: R6_MAC_REPAIR_EVIDENCE
+          path: out
+          retention-days: 14
