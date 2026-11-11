@@ -2,7 +2,7 @@ name: Native Zortrax M300 R5
 on:
   push:
     branches: [main, feature/native-m300-r5]
-    paths: ['tools/zsuite_numeric.py', 'tools/build_native_r5.py', 'tools/install_native_r5.py', 'tests/audit_native_r5.py', 'docs/R5_NATIVE_PL.md', '.github/workflows/native-r5.yml', 'native/**', 'sources/**']
+    paths: ['tools/zsuite_numeric.py', 'tools/fetch_zsuite_sources.py', 'tools/build_native_r5.py', 'tools/install_native_r5.py', 'tests/audit_native_r5.py', 'docs/R5_NATIVE_PL.md', '.github/workflows/native-r5.yml', 'native/**', 'sources/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,44 +20,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Recover exact source assemblies in disposable scratch storage
+      - name: Recover exact numerical sources without retaining vendor binaries
         run: |
           python -m pip install dnfile==0.18.0 dncil==1.0.2 remotezip==0.12.6
           mkdir -p "$RUNNER_TEMP/zsources" sources evidence
-          if [ -f sources/ZSUITE_classic.json ] && [ -f sources/ZSUITE_beta4.json ]; then
-            echo 'Using committed numerical evidence; no proprietary binary download required.'
-          else
+          if [ ! -f sources/ZSUITE_classic.json ] || [ ! -f sources/ZSUITE_beta4.json ]; then
             curl --fail --location --retry 2 https://constexpr.org/innoextract/files/innoextract-1.9-linux.tar.xz -o "$RUNNER_TEMP/zsources/inno.tar.xz"
             tar -xf "$RUNNER_TEMP/zsources/inno.tar.xz" -C "$RUNNER_TEMP/zsources"
-            python - <<'PY'
-          import hashlib,io,json,os,subprocess,zipfile
-          from pathlib import Path
-          from remotezip import RemoteZip
-          root=Path(os.environ['RUNNER_TEMP'])/'zsources'
-          url='https://archive.org/download/zortrax-archive/Zortrax%20Archive.zip'
-          rows={
-           'classic':('Zortrax Archive/Software/Windows/Z-SUITE_v2.32.0_Win-1.zip','dedc7d0f4136678d742d3bea0dc8db524db716d3bba702f7118c8c0a66061c3c'),
-           'beta4':('Zortrax Archive/Software/Windows/Beta/Z-SUITE-BETA_v4.0.0_Win.exe_.zip','ad2c04816980b38fae4499f1ba54f7c2ccdbacd200b97d3dfd67d399c4d5aa26')}
-          tool=next(root.glob('**/amd64/innoextract'));metadata={}
-          with RemoteZip(url,initial_buffer_size=262144,timeout=120) as z:
-              for version,(member,digest) in rows.items():
-                  data=z.read(member)
-                  assert hashlib.sha256(data).hexdigest()==digest,(version,'archive input differs from reviewed/uploaded file')
-                  with zipfile.ZipFile(io.BytesIO(data)) as inner:
-                      assert inner.testzip() is None
-                      names=[n for n in inner.namelist() if n.lower().endswith('.exe')];assert len(names)==1
-                      exe=inner.read(names[0])
-                  folder=root/version;folder.mkdir();installer=folder/'setup.exe';installer.write_bytes(exe)
-                  subprocess.run([str(tool),'-e','-d',str(folder/'extracted'),str(installer)],check=True,stdout=subprocess.DEVNULL)
-                  dll=folder/'extracted/app/Z-SUITE.dll'
-                  subprocess.run(['python','tools/zsuite_numeric.py','--version',version,'--dll',str(dll),'--out','sources/ZSUITE_'+version+'.json'],check=True)
-                  metadata[version]={'archive':url,'member':member,'zip_sha256':digest,'exe_sha256':hashlib.sha256(exe).hexdigest(),'dll_sha256':hashlib.sha256(dll.read_bytes()).hexdigest(),'application_executed':False,'fonts_exported':False}
-          Path('sources/SOURCE_MANIFEST_R5.json').write_text(json.dumps(metadata,indent=2)+'\n')
-          PY
+            extractor=$(find "$RUNNER_TEMP/zsources" -path '*/amd64/innoextract' | head -1)
+            python tools/fetch_zsuite_sources.py --scratch "$RUNNER_TEMP/zsources" --innoextract "$extractor"
           fi
       - name: Build and check native package
         run: |
-          # Preserve known original material types; do not label every soluble support PVA.
           python - <<'PY'
           from pathlib import Path
           p=Path('tools/build_native_r5.py');s=p.read_text();s=s.replace("   if mat.startswith('Z-SUPPORT'):f['filament_type']=['PVA']\n",'');p.write_text(s)
@@ -117,26 +91,15 @@ jobs:
           test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
           python - <<'PY'
           from pathlib import Path
-          text='''# Zortrax-m300-Orca-Slicer
-
-## R5 — natywne profile Zortrax M300
-
-**0,2 / 0,3 / 0,4 / 0,6 mm.** Nazwy drukarek bez dodatku custom. Filamenty mają postać `Z-PLA Pro @Zortrax M300 0.2`, `Z-PLA Pro @Zortrax M300 0.4` itd.
-
-**[Pobierz komplet R5](profiles/R5/M300_R5_KOMPLET.zip?raw=true)** · **[Natywny pakiet systemowy Zortrax](profiles/R5/Zortrax_M300_NATIVE_R5.zip?raw=true)** · [Instrukcja](docs/R5_NATIVE_PL.md)
-
-Alternatywny import User: [0.2](profiles/R5/Zortrax_M300_0p2_R5.orca_printer?raw=true) / [0.3](profiles/R5/Zortrax_M300_0p3_R5.orca_printer?raw=true) / [0.4](profiles/R5/Zortrax_M300_0p4_R5.orca_printer?raw=true) / [0.6](profiles/R5/Zortrax_M300_0p6_R5.orca_printer?raw=true). Nie instalować równocześnie natywnej i User wersji pod tymi samymi nazwami.
-
-Źródła odczytane z bibliotek: **Z-SUITE 2.32:152 rekordy klasycznego M300; beta4.0:214 rekordów**. Pierwszeństwo mają dane klasyczne, potem beta, następnie jawne przeliczenia/baza projektu. Producent to Zortrax; format jest natywny dla Orca, ale integracja jest projektem społecznościowym, nie oficjalnym wydaniem profili przez Zortrax. [Pochodzenie każdego pola](evidence/R5_PROVENANCE.json) · [Źródła i sumy](sources/SOURCE_MANIFEST_R5.json).
-
-4 drukarki,100 wpisów filamentów,84 procesy:4 Standard i80 wariantów materiałowych, aby odwzorować różne prędkości. Dysza0.2:warstwa0.10; pozostałe:0.20. [Katalog](evidence/R5_CATALOG.json). PA pozostaje0 do pomiaru, M83 i makra Klippera zachowane. Robocze temperatury ograniczone do265/105C; korekty względem OEM są ujawnione.
-
-**Katalog, nie do drukowania na tej M300:** Z-PEEK,Z-PEI1010,Z-PEI9085,Z-SUPPORT High-Temp,Z-SUPPORT ATP130. Pozostałe wpisy także wymagają fizycznej kwalifikacji. Dane innych drukarek w źródłach nie są udawane jako OEM M300 Classic.
-
-[Walidacja rzeczywistego Orca2.3.2](evidence/R5_RUNTIME_VALIDATION.json):80 kombinacji materiał/dysza,4 procesy Standard i4 próby PA. Bez testu GUI na komputerze użytkownika i bez fizycznego wydruku. Nowe presety systemowe nie wymagają adaptera metadanych CLI.
-
-Kod hosta,MCU,OLED,Fluidd i implementacje makr pozostają wyłącznie w [Zortrax-m300-Klipper](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper). Import profili nie zmienia hosta; dopasuj rzeczywistą dyszę i `nozzle_diameter` na postoju. Starsze pliki R3/R4 są zachowane jako historyczna baza; aktualny pakiet znajduje się w `profiles/R5`.
-'''
+          text=('# Zortrax-m300-Orca-Slicer\n\n## R5 — natywne profile Zortrax M300\n\n'
+            '**0,2 / 0,3 / 0,4 / 0,6 mm.** Nazwy drukarek bez dopisku custom. Filamenty: `Z-PLA Pro @Zortrax M300 0.2`, `Z-PLA Pro @Zortrax M300 0.4` itd.\n\n'
+            '**[Komplet R5](profiles/R5/M300_R5_KOMPLET.zip?raw=true)** · **[Natywny vendor Zortrax](profiles/R5/Zortrax_M300_NATIVE_R5.zip?raw=true)** · [Instrukcja](docs/R5_NATIVE_PL.md)\n\n'
+            'Alternatywny import User: [0.2](profiles/R5/Zortrax_M300_0p2_R5.orca_printer?raw=true) / [0.3](profiles/R5/Zortrax_M300_0p3_R5.orca_printer?raw=true) / [0.4](profiles/R5/Zortrax_M300_0p4_R5.orca_printer?raw=true) / [0.6](profiles/R5/Zortrax_M300_0p6_R5.orca_printer?raw=true). Nie instalować obu wersji pod tymi samymi nazwami.\n\n'
+            'Źródła: **Z-SUITE 2.32 — 152 rekordy klasycznego M300; beta4.0 — 214 rekordów**. Pierwszeństwo: dane klasyczne, beta, jawne przeliczenia i baza projektu. Natywny oznacza format Orca, a nie oficjalne zatwierdzenie integracji przez Zortrax. [Pochodzenie pól](evidence/R5_PROVENANCE.json) · [Źródła i sumy](sources/SOURCE_MANIFEST_R5.json).\n\n'
+            '4 drukarki,100 wpisów filamentów,84 procesy:4 Standard i80 wariantów materiałowych dla różnych prędkości. Dysza0.2:warstwa0.10; pozostałe:0.20. [Katalog](evidence/R5_CATALOG.json). PA=0 do pomiaru; M83 i makra Klippera zachowane; robocze temperatury265/105C maksymalnie. Korekty względem OEM są ujawnione.\n\n'
+            '**Wyłącznie katalog:** Z-PEEK,Z-PEI1010,Z-PEI9085,Z-SUPPORT High-Temp,Z-SUPPORT ATP130. Nie drukować ich na tej M300. Pozostałe wpisy także wymagają fizycznej kwalifikacji.\n\n'
+            '[Test rzeczywistego Orca2.3.2](evidence/R5_RUNTIME_VALIDATION.json):80 kombinacji materiał/dysza,4 Standard i4 próby PA; bez adaptera metadanych natywnych presetów. Nie wykonano fizycznego wydruku ani ręcznego importu GUI użytkownika.\n\n'
+            'Host,MCU,OLED,Fluidd i makra pozostają w [Zortrax-m300-Klipper](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper). Profile nie aktualizują hosta. Starsze R3/R4 zachowano jako historyczną bazę; aktualny pakiet jest w `profiles/R5`.\n')
           Path('README.md').write_text(text)
           PY
           git config user.name 'github-actions[bot]'
@@ -158,6 +121,7 @@ Kod hosta,MCU,OLED,Fluidd i implementacje makr pozostają wyłącznie w [Zortrax
             evidence/R5_*.json
             sources
             tools/zsuite_numeric.py
+            tools/fetch_zsuite_sources.py
             tools/build_native_r5.py
             tools/install_native_r5.py
             tests/audit_native_r5.py
