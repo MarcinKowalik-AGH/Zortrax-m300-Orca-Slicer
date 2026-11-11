@@ -10,31 +10,31 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - name: Fetch known vendor and archive metadata
+      - name: Locate archived legacy installer metadata
         run: |
           mkdir -p out
           python - <<'PY'
-          import urllib.request,concurrent.futures,json
+          import urllib.request,urllib.parse,json
           from pathlib import Path
-          urls={
-              'vendor-config':'https://zortrax.s3.amazonaws.com/ZSuiteConfig.json',
-              'firmware-update':'https://zortrax.com/z-suite/z-firmware_update.txt',
-              'archive-search':'https://archive.org/advancedsearch.php?q=zortrax&output=json&rows=50',
-              'official-page':'https://support.zortrax.com/downloads/software/'
-          }
-          def get(item):
-              name,url=item
+          queries=['title:zortrax AND mediatype:software','title:(zortrax archive)','title:(Z-SUITE) AND mediatype:software']
+          seen=set()
+          for i,q in enumerate(queries):
+              url='https://archive.org/advancedsearch.php?'+urllib.parse.urlencode({'q':q,'output':'json','rows':50})
               try:
-                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
-                  data=urllib.request.urlopen(req,timeout=18).read()
-                  Path('out/'+name+'.txt').write_bytes(data)
-                  print(name,len(data),data[:2000])
-              except Exception as exc:print(name,type(exc).__name__,str(exc))
-          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:list(pool.map(get,urls.items()))
+                  data=urllib.request.urlopen(url,timeout=20).read();Path('out/search_'+str(i)+'.json').write_bytes(data)
+                  for entry in json.loads(data)['response']['docs']:
+                      ident=entry['identifier']
+                      if ident in seen:continue
+                      seen.add(ident);print('ITEM',ident,entry.get('title'))
+                      meta=urllib.request.urlopen('https://archive.org/metadata/'+ident,timeout=20).read()
+                      Path('out/meta_'+ident+'.json').write_bytes(meta)
+                      for f in json.loads(meta).get('files',[]):
+                          if 'suite' in f['name'].lower():print('FILE',ident,f['name'],f.get('size'))
+              except Exception as exc:print(type(exc).__name__,str(exc))
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: R5_VENDOR_METADATA
+          name: R5_LEGACY_INDEX
           path: out
           retention-days: 2
