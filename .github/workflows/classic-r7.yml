@@ -2,7 +2,7 @@ name: M300 Classic R7 quality profiles
 on:
   push:
     branches: [feature/m300-classic-process-r7]
-    paths: ['tools/build_classic_r7.py','tools/install_classic_r7.py','tests/test_classic_r7_install.py','tests/audit_classic_r7.py','.github/workflows/classic-r7.yml']
+    paths: ['tools/build_classic_r7.py','tools/install_classic_r7.py','tests/test_classic_r7_install.py','tests/audit_classic_r7.py','tests/check_native_loader_r7.py','.github/workflows/classic-r7.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -53,22 +53,12 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          j={'version':'2.5.0.0','preset_folder':'default','firstguide':{'finish':True},'stealth_mode':True,'models':[{'vendor':'Zortrax','model':'Zortrax M300 Classic','nozzle_diameter':'0.2;0.3;0.4;0.6'}],'filaments':['Generic PLA @Zortrax M300 0.4'],'presets':{'printer':'Zortrax M300 Classic 0.4 nozzle','print':'0.20mm Standard @Zortrax M300 Classic 0.4 nozzle','filaments':['Generic PLA @Zortrax M300 0.4']}}
+          j={'version':'2.5.0.0','preset_folder':'default','firstguide':{'finish':True},'stealth_mode':True,'models':[{'vendor':'Zortrax','model':'Zortrax M300 Classic','nozzle_diameter':'0.2;0.3;0.4;0.6'}],'filaments':['Generic PLA @Zortrax M300 0.4'],'presets':{'machine':'Zortrax M300 Classic 0.4 nozzle','print':'0.20mm Standard @Zortrax M300 Classic 0.4 nozzle','filaments':['Generic PLA @Zortrax M300 0.4']}}
           Path('out/gui/OrcaSlicer.conf').write_text(json.dumps(j))
           PY
-          # Bound shutdown of the disposable test GUI, never a user's process.
-          timeout --kill-after=5s 105s xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 70; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; sleep 2; kill -KILL "$pid" 2>/dev/null || true; wait "$pid" || true' || true
-          python - <<'PY'
-          from pathlib import Path
-          import json,re
-          logs='\n'.join(p.read_text(errors='replace') for p in Path('out/gui/log').glob('*') if p.is_file())
-          Path('out/loader-errors.txt').write_text('\n'.join(l for l in logs.splitlines() if any(w in l.lower() for w in ['error','invalid','failed','exception'])))
-          ok=bool(re.search(r'finished, presets_loaded\s+138\b',logs)) and Path('out/gui/system/Zortrax.opc').exists()
-          result={'native_loader_pass':ok,'expected_presets':138,'actual_gui_platform':'Linux Xvfb','mac_user_install_test':False}
-          Path('out/loader-result.json').write_text(json.dumps(result,indent=2))
-          print(json.dumps(result));print(Path('out/loader-errors.txt').read_text()[-10000:])
-          assert ok,'Native GUI vendor load not confirmed; no publication'
-          PY
+          # Disposable test GUI only; never operates on a user process.
+          timeout --kill-after=5s 105s xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 55; xdotool mousemove 197 165 click 1 || true; sleep 10; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; sleep 2; kill -KILL "$pid" 2>/dev/null || true; wait "$pid" || true' || true
+          python tests/check_native_loader_r7.py --source native_r7 --gui out/gui --out out/loader-result.json
       - name: Publish validated files to feature branch
         run: |
           python - <<'PY'
