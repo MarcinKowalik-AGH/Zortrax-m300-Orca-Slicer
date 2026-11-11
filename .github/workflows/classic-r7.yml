@@ -57,7 +57,9 @@ jobs:
           j={'version':'2.5.0.0','preset_folder':'default','firstguide':{'finish':True},'stealth_mode':True,'models':[{'vendor':'Zortrax','model':'Zortrax M300 Classic','nozzle_diameter':'0.2;0.3;0.4;0.6'}],'filaments':['Generic PLA @Zortrax M300 0.4'],'presets':{'printer':'Zortrax M300 Classic 0.4 nozzle','print':'0.20mm Standard @Zortrax M300 Classic 0.4 nozzle','filaments':['Generic PLA @Zortrax M300 0.4']}}
           Path('out/gui/OrcaSlicer.conf').write_text(json.dumps(j))
           PY
-          xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 85; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; wait "$pid" || true'
+          # This is a disposable GUI with no user projects/printer. A normal
+          # application exit may open a save dialog, so bound that shutdown.
+          timeout --kill-after=5s 105s xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 70; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; sleep 2; kill -KILL "$pid" 2>/dev/null || true; wait "$pid" || true' || true
           python - <<'PY'
           from pathlib import Path
           import json,re
@@ -89,6 +91,7 @@ jobs:
           git push origin HEAD:feature/m300-classic-process-r7
       - uses: actions/upload-artifact@v4
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: M300_CLASSIC_R7_EVIDENCE
           path: |
