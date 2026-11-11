@@ -15,7 +15,6 @@ PROCESS_SPECS={
  '0.3':COMMON[:-1], '0.4':COMMON,
  '0.6':COMMON[1:]+[(.32,'Coarse'),(.36,'Draft'),(.42,'SuperDraft')],
 }
-# Explicit engineering starting points, NOT brand-specific physical calibration.
 GENERIC={
  'PLA':('Z-PLA Pro',210,60,100,8,'PLA'),
  'PETG':('Z-PETG',240,80,40,6,'PETG'),
@@ -56,7 +55,6 @@ def generate(root=ROOT):
   default=process_name(d,.10 if d=='0.2' else .20,'Standard')
   p.update(name=name,printer_model=MODEL,printer_settings_id=name,printer_variant=d,setting_id=pid(name),default_print_profile=default,
    min_layer_height=[scalar(.2*dn)],max_layer_height=[scalar(.8*dn)],file_start_gcode=f'; {MODEL} / nozzle {d} / R7\n')
-  # The prior enum string was empty. Explicit Orca agent; no host URL/credentials.
   p['printer_agent']='orca'
   p['printer_notes']='R7 one-model nozzle variant. Existing M300 G-code and motion limits retained. No host update. Select the physically installed nozzle. Quality preset heights must fit nozzle; PA requires calibration.'
   out[f'Zortrax/machine/{name}.json']=encoded(p)
@@ -66,8 +64,8 @@ def generate(root=ROOT):
    assert .2*dn-1e-8<=height<=.8*dn+1e-8
    q=copy.deepcopy(source_process);qn=process_name(d,height,label)
    q.update(name=qn,print_settings_id=qn,setting_id=pid(qn),compatible_printers=[name],layer_height=scalar(height),
-    initial_layer_print_height=scalar(min(.2,.6*dn)),filename_format='{input_filename_base}_M300_'+d.replace('.','p')+'_'+str(round(height,2)).replace('.','p')+'.gcode')
-   # Keep widths bound to the nozzle, never reuse 0.4 geometry on 0.2/0.6.
+    initial_layer_print_height=scalar(min(.2,.6*dn,height)),raft_contact_distance=scalar(min(.15,height)),
+    filename_format='{input_filename_base}_M300_'+d.replace('.','p')+'_'+str(round(height,2)).replace('.','p')+'.gcode')
    for k in ('line_width','outer_wall_line_width','top_surface_line_width','internal_solid_infill_line_width'):q[k]=scalar(1.1*dn)
    for k in ('inner_wall_line_width','sparse_infill_line_width'):q[k]=scalar(1.2*dn)
    q['initial_layer_line_width']=scalar(1.25*dn);q['support_line_width']=d
@@ -86,15 +84,15 @@ def generate(root=ROOT):
     q['sparse_infill_density']='10%';top,bottom=.6,.5
    for k,t in [('top',top),('bottom',bottom)]:
     q[k+'_shell_layers']=str(max(3,math.ceil(t/height-1e-8)));q[k+'_shell_thickness']=scalar(t)
-   q['notes']='R7 quality family (not material-specific). Geometry and quality overrides adapted for M300; no Creality speeds/accels copied. R6 Standard supplies base speeds; per-material temperature/cooling/MVS stay in filament. NOT claimed exact Z-SUITE material toolpath.'
+   q['notes']='R7 quality family (not material-specific). Geometry/raft contact and quality overrides adapted for M300; no Creality speeds/accels copied. R6 Standard supplies base speeds; per-material temperature/cooling/MVS stay in filament. NOT claimed exact Z-SUITE material toolpath.'
    out[f'Zortrax/process/{qn}.json']=encoded(q);vendor['process_list'].append({'name':qn,'sub_path':f'process/{qn}.json'})
    report['quality_processes'].append({'nozzle':d,'name':qn,'layer_height':height,'label':label,'wall_loops':int(q['wall_loops']),
-    'infill':q['sparse_infill_density'],'outer_wall_speed':q['outer_wall_speed'],'top_surface_speed':q['top_surface_speed'],'line_width':q['line_width'],'first_layer_height':q['initial_layer_print_height']})
+    'infill':q['sparse_infill_density'],'outer_wall_speed':q['outer_wall_speed'],'top_surface_speed':q['top_surface_speed'],'line_width':q['line_width'],
+    'first_layer_height':q['initial_layer_print_height'],'raft_contact_distance':q['raft_contact_distance']})
   for entry in data['Zortrax.json']['filament_list']:
    f0=data['Zortrax/'+entry['sub_path']]
    if not f0['name'].endswith(' @Zortrax M300 '+d):continue
    f=copy.deepcopy(f0);f['compatible_printers']=[name]
-   # Deliberately preserve material names/calibration placeholders and numerical data.
    assert not f['name'].startswith('Z-SUPPORT')
    out['Zortrax/'+entry['sub_path']]=encoded(f);vendor['filament_list'].append(copy.deepcopy(entry))
   for material,(template,temp,bed,fan,mvs,ftype) in GENERIC.items():
@@ -122,15 +120,13 @@ def generate(root=ROOT):
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--check',action='store_true');a=ap.parse_args()
- outputs,report=generate()
- target=ROOT/'native_r7'
+ outputs,report=generate();target=ROOT/'native_r7'
  if a.check:
   assert {str(p.relative_to(target)) for p in target.rglob('*.json')}==set(outputs)
   assert all((target/p).read_bytes()==b for p,b in outputs.items())
  else:
   if target.exists():shutil.rmtree(target)
   for p,b in outputs.items():q=target/p;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(b)
-  (ROOT/'evidence').mkdir(exist_ok=True)
-  (ROOT/'evidence/R7_PROCESS_CATALOG.json').write_bytes(encoded(report))
+  (ROOT/'evidence').mkdir(exist_ok=True);(ROOT/'evidence/R7_PROCESS_CATALOG.json').write_bytes(encoded(report))
  print(json.dumps({k:report[k] for k in ('revision','model_count','machine_variant_count','filament_count','process_count')}))
 if __name__=='__main__':main()
