@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
-      - name: Read archived installer without downloading unrelated archive members
+      - name: Read archived installer without unrelated archive members
         run: |
           mkdir -p out tools tmp
-          python -m pip install remotezip
+          python -m pip install remotezip dnfile
           curl --fail --location https://constexpr.org/innoextract/files/innoextract-1.9-linux.tar.xz -o tools/inno.tar.xz
           tar -xf tools/inno.tar.xz -C tools
           python - <<'PY'
@@ -22,27 +22,39 @@ jobs:
           import json,hashlib,zipfile,io
           url='https://archive.org/download/zortrax-archive/Zortrax%20Archive.zip'
           member='Zortrax Archive/Software/Windows/Z-SUITE_v2.32.0_Win-1.zip'
-          with RemoteZip(url,initial_buffer_size=262144,timeout=120) as z:
-              info=z.getinfo(member);data=z.read(member)
-              assert len(data)==96005257
+          with RemoteZip(url,initial_buffer_size=262144,timeout=120) as z:data=z.read(member)
           with zipfile.ZipFile(io.BytesIO(data)) as nested:
               assert nested.testzip() is None
               names=[n for n in nested.namelist() if n.lower().endswith('.exe')]
               assert len(names)==1,names
               exe=nested.read(names[0]);Path('tmp/legacy.exe').write_bytes(exe)
           Path('out/source.json').write_text(json.dumps({'archive':url,'member':member,'inner_exe':names[0],'zip_sha256':hashlib.sha256(data).hexdigest(),'exe_sha256':hashlib.sha256(exe).hexdigest()},indent=2))
-          print('SOURCE',Path('out/source.json').read_text())
           PY
-      - name: Extract only vendor numerical configuration assemblies for analysis
+      - name: Extract code for static numerical analysis without fonts or GUI assets
         run: |
           exe=$(find tools -path '*amd64/innoextract' | head -1)
           "$exe" -e -d tmp/extracted tmp/legacy.exe
-          find tmp/extracted -type f | sort > out/installed_files.txt
-          find tmp/extracted -type f \( -iname '*Configuration*.dll' -o -iname '*Printers*.dll' -o -iname '*Materials*.dll' -o -iname 'Zortrax.Data.dll' \) -exec cp {} out/ \;
-          sha256sum out/*.dll > out/SHA256SUMS
+          python - <<'PY'
+          import dnfile,hashlib,json,struct,re
+          from pathlib import Path
+          path=Path('tmp/extracted/app/Z-SUITE.dll');raw=bytearray(path.read_bytes())
+          p=dnfile.dnPE(data=bytes(raw),fast_load=True);p.parse_data_directories(directories=[14])
+          base=p.get_offset_from_rva(p.net.struct.ResourcesRva);rows=[]
+          original=hashlib.sha256(raw).hexdigest()
+          for r in p.net.mdtables.ManifestResource:
+              offset=base+r.Offset;size=struct.unpack_from('<I',raw,offset)[0];name=str(r.Name)
+              keep=bool(re.fullmatch(r'[A-Za-z0-9]{10,}\.[A-Za-z0-9]{10,}',name))
+              rows.append({'name':name,'size':size,'retained':keep})
+              if not keep:raw[offset+4:offset+4+size]=b'\0'*size
+          Path('out/Z-SUITE.code.dll').write_bytes(raw)
+          a=p.net.mdtables.Assembly.rows[0]
+          source=json.loads(Path('out/source.json').read_text());source.update(original_dll_sha256=original,analysis_copy_sha256=hashlib.sha256(raw).hexdigest(),assembly_version=[a.MajorVersion,a.MinorVersion,a.BuildNumber,a.RevisionNumber],resources=rows)
+          Path('out/source.json').write_text(json.dumps(source,indent=2))
+          print('ORIGINAL',original,'VERSION',source['assembly_version'],'KEPT',[(r['name'],r['size']) for r in rows if r['retained']])
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: R5_LEGACY_SOURCE
+          name: R5_LEGACY_CODE
           path: out
           retention-days: 2
