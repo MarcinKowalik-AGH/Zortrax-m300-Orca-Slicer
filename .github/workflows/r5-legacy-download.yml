@@ -1,0 +1,45 @@
+name: R5 legacy source extraction
+on:
+  push:
+    branches: [feature/native-m300-r5]
+    paths: [.github/workflows/r5-legacy-download.yml]
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Read archived installer directory
+        run: |
+          mkdir -p out tools tmp
+          python -m pip install remotezip
+          curl --fail --location https://constexpr.org/innoextract/files/innoextract-1.9-linux.tar.xz -o tools/inno.tar.xz
+          tar -xf tools/inno.tar.xz -C tools
+          python - <<'PY'
+          from remotezip import RemoteZip
+          from pathlib import Path
+          import json,hashlib
+          url='https://archive.org/download/zortrax-archive/Zortrax%20Archive.zip'
+          with RemoteZip(url,initial_buffer_size=262144,timeout=60) as z:
+              rows=[{'name':i.filename,'size':i.file_size,'compressed':i.compress_size} for i in z.infolist()]
+              Path('out/archive_index.json').write_text(json.dumps(rows,indent=2))
+              hits=[i for i in z.infolist() if '2.32' in i.filename and i.filename.lower().endswith('.exe')]
+              print('MATCHES',[(i.filename,i.file_size) for i in hits])
+              for i in hits[:1]:
+                  data=z.read(i.filename);Path('tmp/legacy.exe').write_bytes(data)
+                  Path('out/source.json').write_text(json.dumps({'archive':url,'member':i.filename,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()},indent=2))
+          PY
+      - name: Extract only vendor numerical configuration assemblies for analysis
+        run: |
+          exe=$(find tools -path '*amd64/innoextract' | head -1)
+          "$exe" -e -d tmp/extracted tmp/legacy.exe
+          find tmp/extracted -type f | sort > out/installed_files.txt
+          find tmp/extracted -type f \( -iname '*Configuration*.dll' -o -iname '*Printers*.dll' -o -iname '*Materials*.dll' -o -iname 'Zortrax.Data.dll' \) -exec cp {} out/ \;
+          sha256sum out/*.dll > out/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: R5_LEGACY_SOURCE
+          path: out
+          retention-days: 2
