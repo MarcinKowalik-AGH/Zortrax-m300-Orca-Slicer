@@ -1,0 +1,40 @@
+name: R5 vendor metadata discovery
+on:
+  push:
+    branches: [feature/native-m300-r5]
+    paths: [.github/workflows/r5-source-metadata.yml]
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Fetch known vendor and archive metadata
+        run: |
+          mkdir -p out
+          python - <<'PY'
+          import urllib.request,concurrent.futures,json
+          from pathlib import Path
+          urls={
+              'vendor-config':'https://zortrax.s3.amazonaws.com/ZSuiteConfig.json',
+              'firmware-update':'https://zortrax.com/z-suite/z-firmware_update.txt',
+              'archive-search':'https://archive.org/advancedsearch.php?q=zortrax&output=json&rows=50',
+              'official-page':'https://support.zortrax.com/downloads/software/'
+          }
+          def get(item):
+              name,url=item
+              try:
+                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+                  data=urllib.request.urlopen(req,timeout=18).read()
+                  Path('out/'+name+'.txt').write_bytes(data)
+                  print(name,len(data),data[:2000])
+              except Exception as exc:print(name,type(exc).__name__,str(exc))
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:list(pool.map(get,urls.items()))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: R5_VENDOR_METADATA
+          path: out
+          retention-days: 2
