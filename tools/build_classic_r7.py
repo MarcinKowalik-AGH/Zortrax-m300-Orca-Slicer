@@ -25,7 +25,13 @@ GENERIC={
  'PC':('Z-PCABS',280,105,20,6,'PC'),
 }
 
-def encoded(obj):return (json.dumps(obj,ensure_ascii=False,indent=2)+'\n').encode()
+def encoded(obj):
+ # Native vendor loader distinguishes no parent from an explicitly empty
+ # parent name. CLI --load-settings accepted the latter, the GUI does not.
+ # These are flat complete presets: remove only this empty metadata key.
+ if isinstance(obj,dict) and obj.get('from')=='system' and obj.get('inherits')=='':
+  obj=copy.deepcopy(obj);del obj['inherits']
+ return (json.dumps(obj,ensure_ascii=False,indent=2)+'\n').encode()
 def scalar(x):return format(float(x),'.6f').rstrip('0').rstrip('.')
 def pid(name):return str(uuid.uuid5(uuid.NAMESPACE_URL,'m300-classic-r7/'+name))
 def process_name(d,h,label):return f'{h:.2f}mm {label} @{MODEL} {d} nozzle'
@@ -43,6 +49,7 @@ def generate(root=ROOT):
  out={};report={'revision':'R7','orca_version':'2.5.0','source_bundle_sha256':hashlib.sha256(baseline.read_bytes()).hexdigest(),
   'model':MODEL,'diameters':list(DIAMETERS),'quality_processes':[],'generic_materials':list(GENERIC),
   'source_policy':'Zortrax material temperatures/retraction/PA unchanged from R6. Process base R6 Standard; quality/geometric overrides are community adaptations. Generic inputs are uncalibrated starting values.',
+  'native_loader_fix':'Empty inherits key omitted for flat system presets; source numerical settings unchanged.',
   'klipper_changed':False,'user_config_modified_by_builder':False}
  model=copy.deepcopy(data['Zortrax/machine/Zortrax M300.json'])
  model.update(name=MODEL,model_id='ZORTRAX_M300_CLASSIC',family='Zortrax',nozzle_diameter=';'.join(DIAMETERS),default_bed_type='High Temp Plate')
