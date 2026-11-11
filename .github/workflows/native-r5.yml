@@ -1,0 +1,165 @@
+name: Native Zortrax M300 R5
+on:
+  push:
+    branches: [main, feature/native-m300-r5]
+    paths: ['tools/zsuite_numeric.py', 'tools/build_native_r5.py', 'tools/install_native_r5.py', 'tests/audit_native_r5.py', 'docs/R5_NATIVE_PL.md', '.github/workflows/native-r5.yml', 'native/**', 'sources/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-r5-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover exact source assemblies in disposable scratch storage
+        run: |
+          python -m pip install dnfile==0.18.0 dncil==1.0.2 remotezip==0.12.6
+          mkdir -p "$RUNNER_TEMP/zsources" sources evidence
+          if [ -f sources/ZSUITE_classic.json ] && [ -f sources/ZSUITE_beta4.json ]; then
+            echo 'Using committed numerical evidence; no proprietary binary download required.'
+          else
+            curl --fail --location --retry 2 https://constexpr.org/innoextract/files/innoextract-1.9-linux.tar.xz -o "$RUNNER_TEMP/zsources/inno.tar.xz"
+            tar -xf "$RUNNER_TEMP/zsources/inno.tar.xz" -C "$RUNNER_TEMP/zsources"
+            python - <<'PY'
+          import hashlib,io,json,os,subprocess,zipfile
+          from pathlib import Path
+          from remotezip import RemoteZip
+          root=Path(os.environ['RUNNER_TEMP'])/'zsources'
+          url='https://archive.org/download/zortrax-archive/Zortrax%20Archive.zip'
+          rows={
+           'classic':('Zortrax Archive/Software/Windows/Z-SUITE_v2.32.0_Win-1.zip','dedc7d0f4136678d742d3bea0dc8db524db716d3bba702f7118c8c0a66061c3c'),
+           'beta4':('Zortrax Archive/Software/Windows/Beta/Z-SUITE-BETA_v4.0.0_Win.exe_.zip','ad2c04816980b38fae4499f1ba54f7c2ccdbacd200b97d3dfd67d399c4d5aa26')}
+          tool=next(root.glob('**/amd64/innoextract'));metadata={}
+          with RemoteZip(url,initial_buffer_size=262144,timeout=120) as z:
+              for version,(member,digest) in rows.items():
+                  data=z.read(member)
+                  assert hashlib.sha256(data).hexdigest()==digest,(version,'archive input differs from reviewed/uploaded file')
+                  with zipfile.ZipFile(io.BytesIO(data)) as inner:
+                      assert inner.testzip() is None
+                      names=[n for n in inner.namelist() if n.lower().endswith('.exe')];assert len(names)==1
+                      exe=inner.read(names[0])
+                  folder=root/version;folder.mkdir();installer=folder/'setup.exe';installer.write_bytes(exe)
+                  subprocess.run([str(tool),'-e','-d',str(folder/'extracted'),str(installer)],check=True,stdout=subprocess.DEVNULL)
+                  dll=folder/'extracted/app/Z-SUITE.dll'
+                  subprocess.run(['python','tools/zsuite_numeric.py','--version',version,'--dll',str(dll),'--out','sources/ZSUITE_'+version+'.json'],check=True)
+                  metadata[version]={'archive':url,'member':member,'zip_sha256':digest,'exe_sha256':hashlib.sha256(exe).hexdigest(),'dll_sha256':hashlib.sha256(dll.read_bytes()).hexdigest(),'application_executed':False,'fonts_exported':False}
+          Path('sources/SOURCE_MANIFEST_R5.json').write_text(json.dumps(metadata,indent=2)+'\n')
+          PY
+          fi
+      - name: Build and check native package
+        run: |
+          # Preserve known original material types; do not label every soluble support PVA.
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/build_native_r5.py');s=p.read_text();s=s.replace("   if mat.startswith('Z-SUPPORT'):f['filament_type']=['PVA']\n",'');p.write_text(s)
+          PY
+          python tools/build_native_r5.py
+          python -m compileall -q tools tests
+          python - <<'PY'
+          import json,zipfile
+          from pathlib import Path
+          c=json.loads(Path('evidence/R5_CATALOG.json').read_text())
+          assert c['classic_M300_records']==152 and c['beta_records']==214
+          assert (c['machine_count'],c['filament_count'],c['process_count'])==(4,100,84)
+          for p in Path('profiles/R5').glob('*.zip'):
+              with zipfile.ZipFile(p) as z:assert z.testzip() is None
+          for p in Path('profiles/R5').glob('*.orca_printer'):
+              with zipfile.ZipFile(p) as z:
+                  assert z.testzip() is None
+                  m=json.loads(z.read('bundle_structure.json'));assert len(m['filament_config'])==25
+                  assert len(m['printer_config'])==1 and len(m['process_config'])==21
+                  for n in m['filament_config']:
+                      f=json.loads(z.read(n));assert f['from']=='User' and f['name'].endswith(('0.2','0.3','0.4','0.6'))
+          PY
+      - name: Test native installer in an isolated temporary configuration
+        run: |
+          mkdir -p "$RUNNER_TEMP/empty-orca-config"
+          python tools/install_native_r5.py --source native --config-dir "$RUNNER_TEMP/empty-orca-config"
+          test ! -e "$RUNNER_TEMP/empty-orca-config/system"
+          python tools/install_native_r5.py --source native --config-dir "$RUNNER_TEMP/empty-orca-config" --apply
+          python tools/install_native_r5.py --source native --config-dir "$RUNNER_TEMP/empty-orca-config" --apply --replace-existing-vendor
+      - name: Install pinned official OrcaSlicer 2.3.2
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgtk-3-0t64 libwebkit2gtk-4.1-0 libglu1-mesa libsecret-1-0 libgstreamer1.0-0 libgl1-mesa-dri
+          mkdir -p "$RUNNER_TEMP/orca"
+          cd "$RUNNER_TEMP/orca"
+          curl --fail --location --retry 3 -o Orca.AppImage 'https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.2/OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.3.2.AppImage'
+          echo 'c64336ceec37d941766e675cbaaaf5124e184402bf18177fbf81ba5102734ad8  Orca.AppImage' | sha256sum -c -
+          chmod +x Orca.AppImage
+          ./Orca.AppImage --appimage-extract > /dev/null
+      - name: Slice native presets and verify extrusion/retraction/temperatures/PA
+        run: |
+          xvfb-run -a python tests/audit_native_r5.py --orca "$RUNNER_TEMP/orca/squashfs-root/AppRun" --out "$RUNNER_TEMP/native-audit"
+      - name: Publish validated R5 only to the requested feature branch
+        env:
+          TARGET_BRANCH: feature/native-m300-r5
+        run: |
+          python - <<'PY'
+          import json,os,shutil
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'native-audit';s=json.loads((root/'summary.json').read_text())
+          assert s['material_pass']==80 and s['default_process_pass']==4 and s['pa_trial_pass']==4 and s['fail_count']==0
+          shutil.copy2(root/'summary.json','evidence/R5_RUNTIME_VALIDATION.json');shutil.copy2(root/'results.json','evidence/R5_RUNTIME_RESULTS.json')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('## Native M300 R5\n4 nozzle variants; 100 filament entries; 80 operational material/nozzle slicing tests PASS; 4 defaults and 4 PA tests PASS. 20 high-temperature catalogue entries not sliced. Source:152 Classic M300 records + beta214. No physical/GUI validation and no host update.\n')
+          PY
+          if [ "$GITHUB_REF" != "refs/heads/$TARGET_BRANCH" ] || [ "$GITHUB_EVENT_NAME" != push ]; then exit 0; fi
+          git fetch origin "$TARGET_BRANCH"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          python - <<'PY'
+          from pathlib import Path
+          text='''# Zortrax-m300-Orca-Slicer
+
+## R5 — natywne profile Zortrax M300
+
+**0,2 / 0,3 / 0,4 / 0,6 mm.** Nazwy drukarek bez dodatku custom. Filamenty mają postać `Z-PLA Pro @Zortrax M300 0.2`, `Z-PLA Pro @Zortrax M300 0.4` itd.
+
+**[Pobierz komplet R5](profiles/R5/M300_R5_KOMPLET.zip?raw=true)** · **[Natywny pakiet systemowy Zortrax](profiles/R5/Zortrax_M300_NATIVE_R5.zip?raw=true)** · [Instrukcja](docs/R5_NATIVE_PL.md)
+
+Alternatywny import User: [0.2](profiles/R5/Zortrax_M300_0p2_R5.orca_printer?raw=true) / [0.3](profiles/R5/Zortrax_M300_0p3_R5.orca_printer?raw=true) / [0.4](profiles/R5/Zortrax_M300_0p4_R5.orca_printer?raw=true) / [0.6](profiles/R5/Zortrax_M300_0p6_R5.orca_printer?raw=true). Nie instalować równocześnie natywnej i User wersji pod tymi samymi nazwami.
+
+Źródła odczytane z bibliotek: **Z-SUITE 2.32:152 rekordy klasycznego M300; beta4.0:214 rekordów**. Pierwszeństwo mają dane klasyczne, potem beta, następnie jawne przeliczenia/baza projektu. Producent to Zortrax; format jest natywny dla Orca, ale integracja jest projektem społecznościowym, nie oficjalnym wydaniem profili przez Zortrax. [Pochodzenie każdego pola](evidence/R5_PROVENANCE.json) · [Źródła i sumy](sources/SOURCE_MANIFEST_R5.json).
+
+4 drukarki,100 wpisów filamentów,84 procesy:4 Standard i80 wariantów materiałowych, aby odwzorować różne prędkości. Dysza0.2:warstwa0.10; pozostałe:0.20. [Katalog](evidence/R5_CATALOG.json). PA pozostaje0 do pomiaru, M83 i makra Klippera zachowane. Robocze temperatury ograniczone do265/105C; korekty względem OEM są ujawnione.
+
+**Katalog, nie do drukowania na tej M300:** Z-PEEK,Z-PEI1010,Z-PEI9085,Z-SUPPORT High-Temp,Z-SUPPORT ATP130. Pozostałe wpisy także wymagają fizycznej kwalifikacji. Dane innych drukarek w źródłach nie są udawane jako OEM M300 Classic.
+
+[Walidacja rzeczywistego Orca2.3.2](evidence/R5_RUNTIME_VALIDATION.json):80 kombinacji materiał/dysza,4 procesy Standard i4 próby PA. Bez testu GUI na komputerze użytkownika i bez fizycznego wydruku. Nowe presety systemowe nie wymagają adaptera metadanych CLI.
+
+Kod hosta,MCU,OLED,Fluidd i implementacje makr pozostają wyłącznie w [Zortrax-m300-Klipper](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper). Import profili nie zmienia hosta; dopasuj rzeczywistą dyszę i `nozzle_diameter` na postoju. Starsze pliki R3/R4 są zachowane jako historyczna baza; aktualny pakiet znajduje się w `profiles/R5`.
+'''
+          Path('README.md').write_text(text)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add native sources profiles/R5 evidence/R5_*.json tools/build_native_r5.py README.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish source-derived native Zortrax M300 R5 variants and verified slicing evidence'
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
+      - name: Save deliverables and audit evidence only (no vendor DLLs/fonts)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: M300_NATIVE_R5
+          path: |
+            profiles/R5
+            native
+            docs/R5_NATIVE_PL.md
+            evidence/R5_*.json
+            sources
+            tools/zsuite_numeric.py
+            tools/build_native_r5.py
+            tools/install_native_r5.py
+            tests/audit_native_r5.py
+            ${{ runner.temp }}/native-audit
+          retention-days: 14
