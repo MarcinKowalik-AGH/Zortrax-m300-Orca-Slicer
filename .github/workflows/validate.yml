@@ -1,0 +1,106 @@
+name: M300 OrcaSlicer validation
+on:
+  push:
+    branches: [main]
+    paths: ['profiles/**', 'presets/**', 'tests/**', 'tools/**', '.github/workflows/**', 'SHA256SUMS']
+  pull_request:
+    paths: ['profiles/**', 'presets/**', 'tests/**', 'tools/**', '.github/workflows/**', 'SHA256SUMS']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: orca-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: One-time pinned migration (no source repository writes)
+        id: migrate
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f MIGRATION.json ]; then
+            echo 'created=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          test "$GITHUB_EVENT_NAME" = push
+          test "$GITHUB_REF" = refs/heads/main
+          git init "$RUNNER_TEMP/m300-source"
+          git -C "$RUNNER_TEMP/m300-source" fetch --depth=1 'https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper.git' 1f58160e2d0e81c462648e57fa0ee69123313a4f
+          git -C "$RUNNER_TEMP/m300-source" checkout --detach FETCH_HEAD
+          python tools/migrate_from_m300.py --source "$RUNNER_TEMP/m300-source" --target "$GITHUB_WORKSPACE"
+          echo 'created=true' >> "$GITHUB_OUTPUT"
+      - name: Validate all source presets, checksums and standalone repository boundary
+        run: |
+          python tools/validate_profiles.py
+          python -m compileall -q tests tools
+          python tools/build_bundle.py --output "$RUNNER_TEMP/rebuilt.orca_printer"
+          python - <<'PY'
+          from pathlib import Path
+          import os,zipfile
+          source=next(Path('profiles').glob('*.orca_printer'))
+          with zipfile.ZipFile(source) as a,zipfile.ZipFile(Path(os.environ['RUNNER_TEMP'])/'rebuilt.orca_printer') as b:
+              assert set(a.namelist())==set(b.namelist())
+              assert all(a.read(n)==b.read(n) for n in a.namelist())
+          print('PASS: rebuilt preset content matches imported R3')
+          PY
+      - name: Install official pinned OrcaSlicer 2.3.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgtk-3-0t64 libwebkit2gtk-4.1-0 libglu1-mesa libsecret-1-0 libgstreamer1.0-0 libgl1-mesa-dri
+          mkdir -p "$RUNNER_TEMP/orca"
+          cd "$RUNNER_TEMP/orca"
+          curl --fail --location --retry 3 -o Orca.AppImage 'https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.2/OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.3.2.AppImage'
+          echo 'c64336ceec37d941766e675cbaaaf5124e184402bf18177fbf81ba5102734ad8  Orca.AppImage' | sha256sum -c -
+          chmod +x Orca.AppImage
+          ./Orca.AppImage --appimage-extract > /dev/null
+      - name: Slice all profiles and verify actual G-code and PA
+        run: |
+          xvfb-run -a python tests/audit_r3.py \
+            --orca "$RUNNER_TEMP/orca/squashfs-root/AppRun" \
+            --bundle profiles/Zortrax_M300_Classic_0p20_MicroSwiss_R3.orca_printer \
+            --out "$RUNNER_TEMP/orca-audit"
+      - name: Publish verified migration to main (one time only)
+        if: steps.migrate.outputs.created == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          python - <<'PY'
+          import json,os,shutil
+          from pathlib import Path
+          output=Path(os.environ['RUNNER_TEMP'])/'orca-audit'
+          result=json.loads((output/'summary.json').read_text())
+          assert result['material_pass']==17 and result['material_fail']==0 and result['pa_propagation_test']=='PASS'
+          assert result['bundle_sha256']=='3b60cd1ec9d324d5c2ed5a2aec7ced13560d13eff56734167bede1655e4333a4'
+          assert result['host_tests_executed_here'] is False
+          result.update(repository=os.environ['GITHUB_REPOSITORY'],tested_commit=os.environ['GITHUB_SHA'],workflow_run_id=os.environ['GITHUB_RUN_ID'])
+          Path('evidence/MIGRATION_VALIDATION.json').write_text(json.dumps(result,indent=2)+'\n')
+          shutil.copyfile(output/'results.json','evidence/MIGRATION_GCODE_RESULTS.json')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write('## Migration verified\n17 material G-code checks PASS; nonzero PA propagation PASS; R3 bundle byte-identical. No host/MCU code migrated.\n')
+          PY
+          git fetch origin main
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md LICENSE .gitignore SHA256SUMS MIGRATION.json profiles presets docs tests evidence archive tools
+          git commit -m 'Import byte-identical R3 profiles, editable presets, documentation and independently tested slicer audit'
+          git push origin HEAD:main
+      - name: Retain slicing evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m300-orca-standalone-validation
+          path: |
+            ${{ runner.temp }}/orca-audit
+            profiles
+            MIGRATION.json
+          retention-days: 14
