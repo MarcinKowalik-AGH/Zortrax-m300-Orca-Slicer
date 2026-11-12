@@ -34,7 +34,7 @@ There are **26 material names per nozzle**: 19 Zortrax-name materials carried fr
 
 ### Recorded first print test and hot-bed target
 
-During the 11 November 2026 trial, the host reported a Z-PLA **210°C nozzle / 50°C bed** print request. In the archived source profile Z-PLA was **210°C / 30°C**. The historical value must remain visible in the migration document. A user-qualified 50°C setting may be used for this specific test on the 0.4 mm stock nozzle, but should **not be claimed as an OEM Z-SUITE default** or generalized without validation to other nozzle variants and bed surfaces.
+During the 11 November 2026 trial, the host reported a Z-PLA **210°C nozzle / 50°C bed** print request. In the archived source profile Z-PLA was **210°C / 30°C**. The historical value must remain visible in the migration document. **The current R7.1 native Z-PLA 0.4 mm filament preset requests 50°C on all plate selectors** (first and subsequent layers), matching the user-confirmed start. The archived R6/R7 source remains 30°C. The Z-PLA presets for the three other nozzle variants remain unchanged at 30°C, as do all other materials. This override is **not an OEM Z-SUITE default**; verify surface adhesion and print completion before broad use.
 
 If the bed is already warmer than a low requested target, the M300 host's temperature-stability gate may wait until both heater measurements fall within approximately ±2°C. Do not override heater ownership while `START_PRINT` is in progress.
 
