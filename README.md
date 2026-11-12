@@ -1,4 +1,4 @@
-# Zortrax M300 Classic — OrcaSlicer profiles (R7)
+# Zortrax M300 Classic — OrcaSlicer profiles (R7.1)
 
 Community-maintained **native OrcaSlicer 2.5** system profiles for the **Zortrax M300 Classic running the separate Klipper port**. This repository contains **slicer presets and their audit evidence only**. It does **not** install or update Klipper, the Orange Pi, the printer MCU, its bootloader, or Fluidd.
 
@@ -70,14 +70,14 @@ END_PRINT
 
 A Classic M300 running the project's Klipper host successfully heated, homed and **started printing** a Benchy sliced with the **0.4 mm** profile. The first host-side attempt failed before purge with `Move out of range: 3.000 10.000 -0.089 [0.000]`, because an active pad mesh compensated a nominal `Z=0.28` purge move to `Z=-0.089`. The M300 operator subsequently configured **`position_min: -0.5`, `safe_z: 5`, `approach_distance: 6.5`** on that *hardware-qualified host*, and reported that printing began. These are **not OrcaSlicer changes**, and physical safety/clearance must be checked for any other machine. Do not move purge lines or disable pad compensation to work around this error.
 
-The successful-start log requested **210°C hotend / 50°C bed for Z-PLA**. Historical R7 Z-PLA filament data record **30°C bed**; do not confuse the tested print target with the OEM/R6 historical value or treat it as a universal prescription. Print completion and first-layer quality have **not** been documented as passing.
+**R7.1 changes only the native Z-PLA 0.4 mm filament preset**: it now requests **210°C hotend / 50°C bed**, matching the successful-start log. The archived Z-SUITE/R6/R7 source still records **30°C**; the 0.2/0.3/0.6 mm Z-PLA variants and all other material temperatures are unchanged. This is a user-observed field-test adjustment, **not** a universal or manufacturer-certified temperature. Print completion and first-layer quality have **not** been documented as passing.
 
 ## Source data, limits and validation
 
 - [Detailed Z-SUITE → Orca profile mapping](docs/ZSUITE_TO_ORCA_R7.md): displayed-vs-source layer heights, Normal/High/Draft speeds, 30 processes, 26 material rows, limitations and terminology.
 - [Current R7 preset guide](docs/PROFILE_GUIDE_R7.md) · [installation guide](docs/INSTALL_R7.md).
 - [R7 process catalog](evidence/R7_PROCESS_CATALOG.json) · [R7 validation evidence](evidence/R7_VALIDATION.json) · [source database](sources/).
-- Baseline R7: **138/138 slicer checks** and **14 installer checks** passed. A real OrcaSlicer 2.5.0 application in Linux/Xvfb loaded four printer variants, 30 processes, and 104 filaments. These checks **did not** validate the original user's macOS GUI or physical completion of every print.
+- Baseline R7: **138/138 slicer checks** and **14 installer checks** passed. R7.1 adds a **single 0.4 mm Z-PLA bed-temperature override** and English descriptive metadata; those historical runtime numbers must not be mistaken for a new complete R7.1 test run. A real OrcaSlicer 2.5.0 application in Linux/Xvfb loaded four printer variants, 30 processes, and 104 filaments. These checks **did not** validate the original user's macOS GUI or physical completion of every print.
 - The source bundle from R6 and historical R3–R6 files are retained for provenance, **not as the current installation method**.
 - Z-PEEK / Z-PEI 1010 / Z-PEI 9085 remain visible reference entries but **cannot be printed** on the present **305°C target-limit** host setup. Selection or successful slicing does not override that constraint.
 
