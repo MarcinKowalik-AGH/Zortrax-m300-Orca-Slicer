@@ -42,7 +42,7 @@ On the Prepare page, verify all three selectors:
 | Filament | `Z-PLA @Zortrax M300 0.4` or another compatible 0.4 entry |
 | Process | `0.20mm Standard @Zortrax M300 Classic 0.4 nozzle` |
 
-Check your **Build plate** material and exact bed-temperature value in Filament. The profile only requests a target; it does not change host thermal limits.
+Check your **Build plate** material and exact bed-temperature value in Filament. In the R7.1 native presets, **Z-PLA with a 0.4 mm nozzle requests a 50°C bed** on every listed plate type, based on the user's first-print start (the original R6/R7 source was 30°C). All other Z-PLA nozzle variants retain the original 30°C. This is **not** an OEM-prescribed temperature. The slicer only requests a target; it does not change host heater limits.
 
 ## 4. Add Moonraker / Fluidd as the printer host
 
