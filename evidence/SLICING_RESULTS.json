@@ -1,0 +1,5108 @@
+[
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.06mm Fine @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.2",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 460067,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.06,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 340,
+      "return_count": 339,
+      "z_hop": 0.2,
+      "hop_count": 339,
+      "positive_xy_extrusions": 5668,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.0316484457290236,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.08mm SuperDetail @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.2",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 366995,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.08,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 230,
+      "return_count": 229,
+      "z_hop": 0.2,
+      "hop_count": 229,
+      "positive_xy_extrusions": 4684,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.0314798931002016,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.2",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 308416,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.12mm Detail @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.2",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 274698,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.12,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 156,
+      "return_count": 155,
+      "z_hop": 0.2,
+      "hop_count": 155,
+      "positive_xy_extrusions": 3505,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03678666397682257,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.16mm Optimal @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.2",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 224838,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.16,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 118,
+      "return_count": 117,
+      "z_hop": 0.2,
+      "hop_count": 117,
+      "positive_xy_extrusions": 2907,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.04261978557546436,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-ABS @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309715,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-ABS 2 @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309717,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-ASA Pro @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309163,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-ESD @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 316493,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 250,
+      "return_count": 249,
+      "z_hop": 0.6,
+      "hop_count": 249,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03069899235712993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-FLEX @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309260,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-GLASS @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309119,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03069899235712993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-HIPS @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308480,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-NYLON @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308972,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.3,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PCABS @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309338,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.005,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.02974953898525993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PEEK @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309130,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.6,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PEI 1010 @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 310068,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.6,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PEI 9085 @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 310439,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.6,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03006602344254993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PETG @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309093,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.12,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03069899235712993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PHA @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309513,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.4,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PLA @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 336554,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.015,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 368,
+      "return_count": 367,
+      "z_hop": 0.6,
+      "hop_count": 367,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-PLA Pro @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 309537,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.031015476814419924,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-SEMIFLEX @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 336947,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 3.5,
+      "restart_extra": 0.02,
+      "retract_speed": 20.0,
+      "return_speed": 17.0,
+      "retract_count": 368,
+      "return_count": 367,
+      "z_hop": 1.5,
+      "hop_count": 367,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-ULTRAT @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 317470,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 250,
+      "return_count": 249,
+      "z_hop": 0.4,
+      "hop_count": 249,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Z-ULTRAT Plus @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 318685,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 251,
+      "return_count": 250,
+      "z_hop": 0.6,
+      "hop_count": 250,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.029163191010576368,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308416,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PETG @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308507,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=240 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic ABS @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308518,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic ASA @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308518,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic TPU @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308796,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PA @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308497,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=260 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.3,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PC @Zortrax M300 0.2",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 308514,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.2 nozzle",
+    "process": "0.10mm Standard @Zortrax M300 Classic 0.2 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.2",
+    "test": "pa_trial",
+    "status": "PASS",
+    "bytes": 308424,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.2,
+      "layer_height": 0.1,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 198,
+      "return_count": 197,
+      "z_hop": 0.2,
+      "hop_count": 197,
+      "positive_xy_extrusions": 3916,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.03164844572899993,
+      "default_cross_section_limit": 0.16000000000000003,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.08mm SuperDetail @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 292080,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.08,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 242,
+      "return_count": 241,
+      "z_hop": 0.5,
+      "hop_count": 241,
+      "positive_xy_extrusions": 3181,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07070699306146262,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.12mm Detail @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 215221,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.12,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 170,
+      "return_count": 169,
+      "z_hop": 0.5,
+      "hop_count": 169,
+      "positive_xy_extrusions": 2312,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07072522738987377,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.16mm Optimal @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 174666,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.16,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 130,
+      "return_count": 129,
+      "z_hop": 0.5,
+      "hop_count": 129,
+      "positive_xy_extrusions": 1872,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07076164679595033,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm High Quality @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 173398,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 109,
+      "return_count": 108,
+      "z_hop": 0.5,
+      "hop_count": 108,
+      "positive_xy_extrusions": 1791,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 153362,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.5,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Strength @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 253005,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 161,
+      "return_count": 160,
+      "z_hop": 0.5,
+      "hop_count": 160,
+      "positive_xy_extrusions": 2395,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06749739814892175,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.24mm Draft @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 134030,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.24,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 85,
+      "return_count": 84,
+      "z_hop": 0.5,
+      "hop_count": 84,
+      "positive_xy_extrusions": 1414,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.09160722658150915,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-ABS @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153899,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-ABS 2 @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153901,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0025,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-ASA Pro @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 154204,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.01,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-ESD @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 156536,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 128,
+      "return_count": 127,
+      "z_hop": 0.6,
+      "hop_count": 127,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06902829491742873,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-FLEX @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153880,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-GLASS @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153604,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06902829491742873,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-HIPS @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153805,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-NYLON @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 154116,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.3,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PCABS @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153919,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0075,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06688660557631519,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PEEK @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 154878,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.6,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PEI 1010 @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 155353,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.6,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PEI 9085 @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 155228,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.6,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06754558691204243,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PETG @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153966,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06902829491742873,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PHA @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153364,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.4,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PLA @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 163040,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.035,
+      "retract_speed": 21.0,
+      "return_speed": 20.0,
+      "retract_count": 162,
+      "return_count": 161,
+      "z_hop": 0.6,
+      "hop_count": 161,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-PLA Pro @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153899,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.5,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06968727625315597,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-SEMIFLEX @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 163490,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 4.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 20.0,
+      "retract_count": 162,
+      "return_count": 161,
+      "z_hop": 1.5,
+      "hop_count": 161,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-ULTRAT @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153661,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Z-ULTRAT Plus @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 162789,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.01,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 162,
+      "return_count": 161,
+      "z_hop": 0.6,
+      "hop_count": 161,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.06589813357272434,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153362,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.5,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PETG @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153438,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=240 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic ABS @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153441,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic ASA @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153441,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic TPU @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153867,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PA @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153441,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=260 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.3,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PC @Zortrax M300 0.3",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 153445,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.2,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.3 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.3 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.3",
+    "test": "pa_trial",
+    "status": "PASS",
+    "bytes": 153370,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.3,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 107,
+      "return_count": 106,
+      "z_hop": 0.5,
+      "hop_count": 106,
+      "positive_xy_extrusions": 1627,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.07116998425854228,
+      "default_cross_section_limit": 0.36,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.08mm SuperDetail @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 251776,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.08,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 201,
+      "return_count": 200,
+      "z_hop": 0.5,
+      "hop_count": 200,
+      "positive_xy_extrusions": 2755,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12574783389498412,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.12mm Detail @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 193709,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.12,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 185,
+      "return_count": 184,
+      "z_hop": 0.5,
+      "hop_count": 184,
+      "positive_xy_extrusions": 1989,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12575660926895507,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.16mm Optimal @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 159654,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.16,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 135,
+      "return_count": 134,
+      "z_hop": 0.5,
+      "hop_count": 134,
+      "positive_xy_extrusions": 1613,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12579624208366502,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm High Quality @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 197436,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 126,
+      "return_count": 125,
+      "z_hop": 0.5,
+      "hop_count": 125,
+      "positive_xy_extrusions": 2017,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.10951346706990929,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 137497,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.5,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Strength @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 188139,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 114,
+      "return_count": 113,
+      "z_hop": 0.5,
+      "hop_count": 113,
+      "positive_xy_extrusions": 1821,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.10099641679074778,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.24mm Draft @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 122547,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.24,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 91,
+      "return_count": 90,
+      "z_hop": 0.5,
+      "hop_count": 90,
+      "positive_xy_extrusions": 1227,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12574783389498412,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.28mm SuperDraft @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 111031,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.28,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 83,
+      "return_count": 82,
+      "z_hop": 0.5,
+      "hop_count": 82,
+      "positive_xy_extrusions": 1037,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12579624208366502,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-ABS @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137982,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-ABS 2 @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137984,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-ASA Pro @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138042,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.01,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-ESD @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 141657,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 136,
+      "return_count": 135,
+      "z_hop": 0.6,
+      "hop_count": 135,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1227584601594994,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-FLEX @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138419,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-GLASS @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138085,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1227584601594994,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-HIPS @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137899,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-NYLON @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138515,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.3,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PCABS @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138223,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0075,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1190169105755379,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PEEK @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138754,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.6,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PEI 1010 @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138941,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.6,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PEI 9085 @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 139154,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.6,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12026409377019173,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PETG @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138465,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.1227584601594994,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PHA @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137576,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.4,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PLA @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 143201,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.035,
+      "retract_speed": 21.0,
+      "return_speed": 20.0,
+      "retract_count": 140,
+      "return_count": 139,
+      "z_hop": 0.6,
+      "hop_count": 139,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-PLA Pro @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138044,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.5,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12400564335415325,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-SEMIFLEX @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 143170,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 4.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 20.0,
+      "retract_count": 140,
+      "return_count": 139,
+      "z_hop": 1.5,
+      "hop_count": 139,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-ULTRAT @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138008,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Z-ULTRAT Plus @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 142852,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.01,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 140,
+      "return_count": 139,
+      "z_hop": 0.6,
+      "hop_count": 139,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.11723522029746097,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137497,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.5,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PETG @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137734,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=240 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic ABS @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137705,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic ASA @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137705,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic TPU @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 138282,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PA @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137635,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=260 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.3,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PC @Zortrax M300 0.4",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 137741,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.2,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.4 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.4 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.4",
+    "test": "pa_trial",
+    "status": "PASS",
+    "bytes": 137505,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.4,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 110,
+      "return_count": 109,
+      "z_hop": 0.5,
+      "hop_count": 109,
+      "positive_xy_extrusions": 1389,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.12650000974346093,
+      "default_cross_section_limit": 0.6400000000000001,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.12mm Detail @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 224561,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.12,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 179,
+      "return_count": 178,
+      "z_hop": 0.5,
+      "hop_count": 178,
+      "positive_xy_extrusions": 2106,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22694931571065421,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.16mm Optimal @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 183874,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.16,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 150,
+      "return_count": 149,
+      "z_hop": 0.5,
+      "hop_count": 149,
+      "positive_xy_extrusions": 1706,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22689788049517892,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm High Quality @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 152423,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 111,
+      "return_count": 110,
+      "z_hop": 0.5,
+      "hop_count": 110,
+      "positive_xy_extrusions": 1367,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 171180,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.5,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Strength @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 127006,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 61,
+      "return_count": 60,
+      "z_hop": 0.5,
+      "hop_count": 60,
+      "positive_xy_extrusions": 1133,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.24mm Draft @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 152001,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.24,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 105,
+      "return_count": 104,
+      "z_hop": 0.5,
+      "hop_count": 104,
+      "positive_xy_extrusions": 1405,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22696309265777442,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.28mm SuperDraft @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 120207,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.28,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 86,
+      "return_count": 85,
+      "z_hop": 0.5,
+      "hop_count": 85,
+      "positive_xy_extrusions": 1037,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2267597444898396,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.32mm Coarse @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 112625,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.32,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 78,
+      "return_count": 77,
+      "z_hop": 0.5,
+      "hop_count": 77,
+      "positive_xy_extrusions": 958,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22704211681374314,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.36mm Draft @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 105473,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.36,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 65,
+      "return_count": 64,
+      "z_hop": 0.5,
+      "hop_count": 64,
+      "positive_xy_extrusions": 906,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2313436144667131,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "process",
+    "status": "PASS",
+    "bytes": 97177,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.42,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 57,
+      "return_count": 56,
+      "z_hop": 0.5,
+      "hop_count": 56,
+      "positive_xy_extrusions": 823,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.26455131145655036,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-ABS @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172288,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0125,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21015170912097333,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-ABS 2 @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172290,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=275 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0125,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21015170912097333,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-ASA Pro @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171814,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=65 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.01,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21559668790169143,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-ESD @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 189500,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=70 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 238,
+      "return_count": 237,
+      "z_hop": 0.6,
+      "hop_count": 237,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22012397362947947,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-FLEX @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172452,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=230 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-GLASS @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172024,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.1,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22012397362947947,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-HIPS @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172227,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21559668790169143,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-NYLON @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172105,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.5,
+      "restart_extra": 0.0,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.3,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21559668790169143,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PCABS @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171997,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=290 BED_TEMP=85 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0075,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21333304503779738,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PEEK @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172986,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=400 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.6,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21559668790169143,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PEI 1010 @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 173470,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=370 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.0,
+      "retract_speed": 17.0,
+      "return_speed": 17.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.6,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21559668790169143,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PEI 9085 @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 173718,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=360 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.5,
+      "restart_extra": 0.1,
+      "retract_speed": 33.0,
+      "return_speed": 33.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.6,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21559668790169143,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PETG @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172430,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=254 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.5,
+      "restart_extra": 0.005,
+      "retract_speed": 45.0,
+      "return_speed": 45.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22012397362947947,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PHA @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171453,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=205 BED_TEMP=55 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.4,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22238761649337355,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PLA @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 192684,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 2.0,
+      "restart_extra": 0.035,
+      "retract_speed": 21.0,
+      "return_speed": 20.0,
+      "retract_count": 251,
+      "return_count": 250,
+      "z_hop": 0.6,
+      "hop_count": 250,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22238761649337355,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-PLA Pro @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172298,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=207 BED_TEMP=30 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.2,
+      "restart_extra": 0.03,
+      "retract_speed": 37.0,
+      "return_speed": 37.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.5,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.22238761649337355,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-SEMIFLEX @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 193657,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=215 BED_TEMP=10 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 4.5,
+      "restart_extra": 0.0,
+      "retract_speed": 30.0,
+      "return_speed": 20.0,
+      "retract_count": 251,
+      "return_count": 250,
+      "z_hop": 1.5,
+      "hop_count": 250,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-ULTRAT @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171953,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=253 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.9,
+      "restart_extra": 0.0,
+      "retract_speed": 28.0,
+      "return_speed": 28.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21015170912097333,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Z-ULTRAT Plus @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 192535,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.01,
+      "retract_speed": 30.0,
+      "return_speed": 30.0,
+      "retract_count": 251,
+      "return_count": 250,
+      "z_hop": 0.6,
+      "hop_count": 250,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.21015170912097333,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171180,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.5,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PETG @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171356,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=240 BED_TEMP=80 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic ABS @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171168,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=250 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic ASA @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171168,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=255 BED_TEMP=100 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic TPU @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 172304,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=225 BED_TEMP=50 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 0.8,
+      "restart_extra": 0.0,
+      "retract_speed": 20.0,
+      "return_speed": 20.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PA @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171340,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=260 BED_TEMP=90 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.3,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PC @Zortrax M300 0.6",
+    "test": "filament",
+    "status": "PASS",
+    "bytes": 171365,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=280 BED_TEMP=105 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.0
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.2,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  },
+  {
+    "printer": "Zortrax M300 Classic 0.6 nozzle",
+    "process": "0.20mm Standard @Zortrax M300 Classic 0.6 nozzle",
+    "filament": "Generic PLA @Zortrax M300 0.6",
+    "test": "pa_trial",
+    "status": "PASS",
+    "bytes": 171188,
+    "details": {
+      "errors": [],
+      "start": "START_PRINT EXTRUDER_TEMP=210 BED_TEMP=60 MESH=AUTO",
+      "nozzle": 0.6,
+      "layer_height": 0.2,
+      "pressure_advance_commands": [
+        [
+          3,
+          0.0
+        ],
+        [
+          8,
+          0.035
+        ]
+      ],
+      "retraction_length": 1.0,
+      "restart_extra": 0.0,
+      "retract_speed": 35.0,
+      "return_speed": 35.0,
+      "retract_count": 123,
+      "return_count": 122,
+      "z_hop": 0.5,
+      "hop_count": 122,
+      "positive_xy_extrusions": 1609,
+      "max_acceleration": 700.0,
+      "peak_cross_section": 0.2269149022211616,
+      "default_cross_section_limit": 1.44,
+      "cross_section_errors": []
+    }
+  }
+]

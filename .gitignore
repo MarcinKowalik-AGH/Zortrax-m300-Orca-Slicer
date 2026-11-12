@@ -1,5 +1,5 @@
-.migration-source/
 __pycache__/
 *.pyc
-.audit/
-dist/
+.DS_Store
+/dist/
+/out/

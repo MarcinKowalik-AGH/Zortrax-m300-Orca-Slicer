@@ -1,0 +1,19 @@
+zsuite_quality,orca_process,feature,source_field,source_mm_min,source_mm_s,orca_field,orca_mm_s,delta_mm_s,same_numeric_speed
+Normal,0.20mm Standard,Outer wall,SL_ContourSpeed,1400,23.333333,outer_wall_speed,23.333333,-0.0,True
+Normal,0.20mm Standard,Inner wall,IV_ContourSpeed,3000,50.0,inner_wall_speed,50.0,0.0,True
+Normal,0.20mm Standard,Sparse infill,IV_InfillSpeed,3000,50.0,sparse_infill_speed,50.0,0.0,True
+Normal,0.20mm Standard,Top surface,VT_InfillSpeed,2400,40.0,top_surface_speed,40.0,0.0,True
+Normal,0.20mm Standard,Bridge,BR_InfillSpeed,4000,66.666667,bridge_speed,66.666667,0.0,True
+Normal,0.20mm Standard,Travel,IdleMoveSpeed,7200,120.0,travel_speed,120.0,0.0,True
+High,0.20mm High Quality,Outer wall,SL_ContourSpeed,1200,20.0,outer_wall_speed,17.5,-2.5,False
+High,0.20mm High Quality,Inner wall,IV_ContourSpeed,2400,40.0,inner_wall_speed,50.0,10.0,False
+High,0.20mm High Quality,Sparse infill,IV_InfillSpeed,2400,40.0,sparse_infill_speed,50.0,10.0,False
+High,0.20mm High Quality,Top surface,VT_InfillSpeed,1800,30.0,top_surface_speed,20.0,-10.0,False
+High,0.20mm High Quality,Bridge,BR_InfillSpeed,2000,33.333333,bridge_speed,66.666667,33.333334,False
+High,0.20mm High Quality,Travel,IdleMoveSpeed,4800,80.0,travel_speed,120.0,40.0,False
+Draft,0.20mm Standard,Outer wall,SL_ContourSpeed,1500,25.0,outer_wall_speed,23.333333,-1.666667,False
+Draft,0.20mm Standard,Inner wall,IV_ContourSpeed,3200,53.333333,inner_wall_speed,50.0,-3.333333,False
+Draft,0.20mm Standard,Sparse infill,IV_InfillSpeed,3200,53.333333,sparse_infill_speed,50.0,-3.333333,False
+Draft,0.20mm Standard,Top surface,VT_InfillSpeed,4000,66.666667,top_surface_speed,40.0,-26.666667,False
+Draft,0.20mm Standard,Bridge,BR_InfillSpeed,4000,66.666667,bridge_speed,66.666667,0.0,True
+Draft,0.20mm Standard,Travel,IdleMoveSpeed,9000,150.0,travel_speed,120.0,-30.0,False

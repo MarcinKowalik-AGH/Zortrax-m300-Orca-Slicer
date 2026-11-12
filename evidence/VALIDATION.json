@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "profile_revision": "R7.1",
+  "repository_layout": "current-only",
+  "tested_source_commit": "a716002938602190e9d532480895e4b06ada1242",
+  "workflow_run_id": "43257295317",
+  "workflow_url": "https://github.com/MarcinKowalik-AGH/Zortrax-m300-Orca-Slicer/actions/runs/43257295317",
+  "orca_target_version": "2.5.0",
+  "orca_appimage_sha256": "d13eb0a9cd618ed080ab6b82c64c0a60c4501aac91e88d5ac2c3b526fb141a7c",
+  "profile_set_sha256": "10b6bed39c44f63960b8442a0a6609d613dcf7d19e33d1f686141b7d414e2a97",
+  "static": {
+    "status": "PASS",
+    "profile_revision": "R7.1",
+    "profile_json_files": 140,
+    "model_count": 1,
+    "machine_count": 4,
+    "process_count": 30,
+    "filament_count": 104,
+    "source_rows": 152,
+    "profile_bytes_unchanged": true,
+    "host_access": false
+  },
+  "unit_tests": 29,
+  "slicing": {
+    "cases": 138,
+    "pass": 138,
+    "fail": 0,
+    "process_cases": 30,
+    "filament_cases": 104,
+    "pa_cases": 4
+  },
+  "native_loader": {
+    "native_loader_pass": true,
+    "registered_processes": 30,
+    "registered_filaments": 104,
+    "visible_machine_variants": 4,
+    "selected_native_machine": "Zortrax M300 Classic 0.4 nozzle",
+    "missing_processes": [],
+    "missing_filaments": [],
+    "missing_machine_variants": [],
+    "native_errors": [],
+    "cache_generated": true,
+    "actual_gui_platform": "Linux Xvfb",
+    "mac_user_install_test": false
+  },
+  "profile_data_changed_by_cleanup": false,
+  "host_changed": false,
+  "hardware_tests_executed_by_this_run": 0,
+  "mac_user_install_test": false,
+  "operator_evidence": "User reported a print starting on 2026-11-11 after a host-side Z-range correction; completion and quality not confirmed here."
+}
