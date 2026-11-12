@@ -1,6 +1,6 @@
 # Documentation (English)
 
-**Current maintained documentation:**
+**Current maintained documentation (R7.1 descriptive/profile adjustment):**
 
 - [R7 profile guide](PROFILE_GUIDE_R7.md) — model/variant organization, all nozzle sizes, print quality, filament families and limitations.
 - [R7 macOS installation and Moonraker connection](INSTALL_R7.md) — safe setup without modifying `OrcaSlicer.conf` or Creality/other printer selections.
