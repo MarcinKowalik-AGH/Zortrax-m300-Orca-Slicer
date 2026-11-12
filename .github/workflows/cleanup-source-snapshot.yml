@@ -1,0 +1,23 @@
+name: Cleanup source snapshot
+on:
+  push:
+    branches: [maintenance/current-only-english]
+    paths: [.github/workflows/cleanup-source-snapshot.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export the exact baseline for offline review
+        run: |
+          mkdir -p out
+          git archive --format=zip 18d68bb161631004e6909a0f7585fe552b15b302 -o out/current-repository.zip
+          sha256sum out/current-repository.zip > out/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: M300_CLEANUP_SOURCE
+          path: out
+          retention-days: 2
