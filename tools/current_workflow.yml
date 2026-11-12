@@ -1,0 +1,80 @@
+name: Current M300 profiles — validation
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: current-m300-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Current profiles, source mapping, checksums and protected installation
+        run: |
+          mkdir -p out
+          python tools/checksums.py
+          python tools/validate.py > out/static.json
+          python tools/catalog.py --check
+          python -m compileall -q install.py tools tests
+          python -m unittest discover -s tests -p 'test_*.py' -v > out/unit-tests.log 2>&1
+          cat out/unit-tests.log
+      - name: Prepare checksum-pinned OrcaSlicer 2.5.0
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb xdotool scrot libgtk-3-0t64 libwebkit2gtk-4.1-0 libglu1-mesa libsecret-1-0 libgstreamer1.0-0 libgl1-mesa-dri
+          mkdir -p "$RUNNER_TEMP/orca"
+          cd "$RUNNER_TEMP/orca"
+          curl --fail --location --retry 3 -o Orca.AppImage https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.5.0/OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.0.AppImage
+          echo 'd13eb0a9cd618ed080ab6b82c64c0a60c4501aac91e88d5ac2c3b526fb141a7c  Orca.AppImage' | sha256sum -c -
+          chmod +x Orca.AppImage
+          ./Orca.AppImage --appimage-extract > /dev/null
+      - name: Slice all 30 processes, 104 filaments and four PA trials
+        run: |
+          xvfb-run -a python tests/audit_slicer.py --orca "$RUNNER_TEMP/orca/squashfs-root/AppRun" --out "$PWD/out/slicing" > out/slicing-console.log 2>&1
+          tail -4 out/slicing-console.log
+      - name: Exercise the actual native system-vendor loader
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          WEBKIT_DISABLE_DMABUF_RENDERER: '1'
+          SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+        run: |
+          test -s "$SSL_CERT_FILE"
+          mkdir -p out/gui/system
+          cp -a profiles/Zortrax* out/gui/system/
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j={'version':'2.5.0.0','preset_folder':'default','firstguide':{'finish':True},'stealth_mode':True,'models':[{'vendor':'Zortrax','model':'Zortrax M300 Classic','nozzle_diameter':'0.2;0.3;0.4;0.6'}],'filaments':['Generic PLA @Zortrax M300 0.4'],'presets':{'machine':'Zortrax M300 Classic 0.4 nozzle','print':'0.20mm Standard @Zortrax M300 Classic 0.4 nozzle','filaments':['Generic PLA @Zortrax M300 0.4']}}
+          Path('out/gui/OrcaSlicer.conf').write_text(json.dumps(j))
+          PY
+          # Disposable CI GUI only, never the user's Orca process.
+          timeout --kill-after=5s 105s xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 55; xdotool mousemove 197 165 click 1 || true; sleep 10; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; sleep 2; kill -KILL "$pid" 2>/dev/null || true; wait "$pid" || true' || true
+          python tests/check_native_loader.py --source profiles --gui out/gui --out out/loader.json
+      - name: Record actual evidence and package only the current version
+        run: |
+          python tools/record_validation.py --out out
+          python tools/checksums.py --write
+          python tools/checksums.py
+          python tools/package.py
+          cat evidence/VALIDATION.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Retain current package and reproducible evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: M300_CURRENT_VALIDATION
+          path: |
+            dist
+            evidence
+            out
+          retention-days: 14
