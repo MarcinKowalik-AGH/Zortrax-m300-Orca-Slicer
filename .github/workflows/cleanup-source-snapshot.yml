@@ -11,10 +11,12 @@ jobs:
     timeout-minutes: 3
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: 18d68bb161631004e6909a0f7585fe552b15b302
       - name: Export the exact baseline for offline review
         run: |
           mkdir -p out
-          git archive --format=zip 18d68bb161631004e6909a0f7585fe552b15b302 -o out/current-repository.zip
+          git archive --format=zip HEAD -o out/current-repository.zip
           sha256sum out/current-repository.zip > out/SHA256SUMS
       - uses: actions/upload-artifact@v4
         with:
