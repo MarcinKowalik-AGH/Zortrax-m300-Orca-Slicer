@@ -1,0 +1,69 @@
+name: M300 Classic Orca R7.1 — read-only profile validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'native_r7/**'
+      - 'tools/build_classic_r7.py'
+      - 'evidence/R7_PROCESS_CATALOG.json'
+      - 'README.md'
+      - 'docs/**'
+      - 'SHA256SUMS'
+      - '.github/workflows/classic-r7-main-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate the committed SHA-256 manifest
+        run: sha256sum --check --quiet SHA256SUMS
+      - name: Validate reproducible R7 native profiles
+        run: python3 tools/build_classic_r7.py --check
+      - name: Run native R7 installer regressions
+        run: python3 -m unittest discover -s tests -p test_classic_r7_install.py -v
+      - name: Check the explicitly scoped 0.4 mm Z-PLA field-test override
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('native_r7')
+          vendor=json.loads((root/'Zortrax.json').read_text())
+          assert len(vendor['machine_model_list'])==1
+          assert len(vendor['machine_list'])==4
+          assert len(vendor['process_list'])==30
+          assert len(vendor['filament_list'])==104
+          assert vendor['version']=='02.05.00.08'
+          for d in ('0.2','0.3','0.4','0.6'):
+              machine=json.loads((root/'Zortrax/machine'/('Zortrax M300 Classic '+d+' nozzle.json')).read_text())
+              assert machine['printer_variant']==d
+              assert machine['nozzle_diameter']==[d]
+              assert 'MESH=AUTO' in machine['machine_start_gcode']
+              assert 'START_PRINT' in machine['machine_start_gcode']
+              assert machine['machine_end_gcode'].strip()=='END_PRINT'
+              assert 'position_min' not in machine['machine_start_gcode']
+              filament=json.loads((root/'Zortrax/filament'/('Z-PLA @Zortrax M300 '+d+'.json')).read_text())
+              target='50' if d=='0.4' else '30'
+              keys=[k for k in filament if '_plate_temp' in k]
+              assert len(keys)==12
+              assert all(filament[k]==[target] for k in keys)
+              assert filament['nozzle_temperature']==['210']
+              assert filament['pressure_advance']==['0']
+          for ent in vendor['filament_list']+vendor['process_list']+vendor['machine_list']:
+              obj=json.loads((root/'Zortrax'/ent['sub_path']).read_text())
+              assert obj['name']==ent['name']
+              assert obj.get('inherits') != ''
+          report=json.loads(Path('evidence/R7_PROCESS_CATALOG.json').read_text())
+          assert report['r7_1_field_test']['completed_print_verified'] is False
+          assert report['r7_1_field_test']['requested_bed_c']==50
+          print('PASS: 4 machines, 30 processes, 104 filaments, one scoped Z-PLA 0.4 override')
+          PY
