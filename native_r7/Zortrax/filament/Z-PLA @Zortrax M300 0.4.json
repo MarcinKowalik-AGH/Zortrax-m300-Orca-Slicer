@@ -36,10 +36,10 @@
     "0"
   ],
   "cool_plate_temp": [
-    "30"
+    "50"
   ],
   "cool_plate_temp_initial_layer": [
-    "30"
+    "50"
   ],
   "default_filament_colour": [
     ""
@@ -57,10 +57,10 @@
     "1"
   ],
   "eng_plate_temp": [
-    "30"
+    "50"
   ],
   "eng_plate_temp_initial_layer": [
-    "30"
+    "50"
   ],
   "fan_cooling_layer_time": [
     "30"
@@ -157,7 +157,7 @@
     "10"
   ],
   "filament_notes": [
-    "Zortrax material; native M300 Orca integration R6. Source: classic / Inventure. same diameter.  Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release."
+    "Zortrax material; native M300 Orca integration R6. Source: classic / Inventure. same diameter.  Flow multiplier/MVS remain unmeasured project defaults; OEM feed numbers are not treated as flow ratio. PA=0 requires calibration. This is not an official Zortrax Orca release. R7.1 field test (2026-11-11): Z-PLA 0.4 mm used 210C nozzle and 50C bed and started printing after a Klipper-side Z fix. Original Z-SUITE/R6 project bed baseline: 30C. Not an official Zortrax bed target; adhesion and completed print require qualification."
   ],
   "filament_printable": [
     "1"
@@ -263,10 +263,10 @@
     "0"
   ],
   "hot_plate_temp": [
-    "30"
+    "50"
   ],
   "hot_plate_temp_initial_layer": [
-    "30"
+    "50"
   ],
   "idle_temperature": [
     "0"
@@ -324,10 +324,10 @@
     "10"
   ],
   "supertack_plate_temp": [
-    "30"
+    "50"
   ],
   "supertack_plate_temp_initial_layer": [
-    "30"
+    "50"
   ],
   "support_material_interface_fan_speed": [
     "-1"
@@ -336,16 +336,16 @@
     "60"
   ],
   "textured_cool_plate_temp": [
-    "30"
+    "50"
   ],
   "textured_cool_plate_temp_initial_layer": [
-    "30"
+    "50"
   ],
   "textured_plate_temp": [
-    "30"
+    "50"
   ],
   "textured_plate_temp_initial_layer": [
-    "30"
+    "50"
   ],
   "version": "2.5.0.0",
   "volumetric_speed_coefficients": [

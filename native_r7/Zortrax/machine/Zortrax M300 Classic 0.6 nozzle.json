@@ -190,7 +190,7 @@
     "Direct Drive Standard"
   ],
   "printer_model": "Zortrax M300 Classic",
-  "printer_notes": "R7 one-model nozzle variant. Existing M300 G-code and motion limits retained. No host update. Select the physically installed nozzle. Quality preset heights must fit nozzle; PA requires calibration.",
+  "printer_notes": "R7.1 community Klipper-only printer variant. Use only with the physically installed nozzle diameter. START_PRINT invokes host-owned heating, center-contact homing, saved m300_pads mesh (MESH=AUTO) and purge. Homing contact, Z motion limits and mesh geometry must be configured and qualified in Klipper, not Orca. Pressure advance remains 0 until calibrated. No host or firmware is installed by these presets.",
   "printer_settings_id": "Zortrax M300 Classic 0.6 nozzle",
   "printer_structure": "undefine",
   "printer_technology": "FFF",

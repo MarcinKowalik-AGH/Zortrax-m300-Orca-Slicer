@@ -44,13 +44,14 @@ def generate(root=ROOT):
   assert z.testzip() is None
   data={n:json.loads(z.read(n)) for n in z.namelist() if n.endswith('.json')}
  vendor=copy.deepcopy(data['Zortrax.json'])
- vendor.update(version='02.05.00.07',description='M300 Classic community integration. One model/four nozzle variants; quality processes from M300 baseline; no K2 motion settings.')
+ vendor.update(version='02.05.00.08',description="R7.1 M300 Classic OrcaSlicer 2.5 integration: one model, four Klipper nozzle variants, 30 quality processes, 104 filaments. Only 0.4 mm is an OEM Classic Z-SUITE nozzle; Z-PLA 0.4 mm bed target 50C is a community field-test adjustment (archived R7 source 30C), not an OEM claim. No Klipper or Creality motion settings are modified.")
  for group in ('machine_model_list','machine_list','process_list','filament_list'):vendor[group]=[]
  out={};report={'revision':'R7','orca_version':'2.5.0','source_bundle_sha256':hashlib.sha256(baseline.read_bytes()).hexdigest(),
   'model':MODEL,'diameters':list(DIAMETERS),'quality_processes':[],'generic_materials':list(GENERIC),
-  'source_policy':'Zortrax material temperatures/retraction/PA unchanged from R6. Process base R6 Standard; quality/geometric overrides are community adaptations. Generic inputs are uncalibrated starting values.',
+  'source_policy':"Zortrax filament temperatures/retraction/PA retain R6 data EXCEPT the user-observed Z-PLA 0.4 mm plate temperature changed 30C to 50C in R7.1. Process base is R6 Standard; quality/geometric overrides are community adaptations. Generic profiles are uncalibrated starting values.",
   'native_loader_fix':'Empty inherits key omitted for flat system presets; source numerical settings unchanged.',
-  'klipper_changed':False,'user_config_modified_by_builder':False}
+  'klipper_changed':False,'user_config_modified_by_builder':False,
+  'r7_1_field_test':{"date":"2026-11-11","model":"Zortrax M300 Classic","nozzle_mm":0.4,"filament":"Z-PLA @Zortrax M300 0.4","requested_hotend_c":210,"requested_bed_c":50,"r6_and_original_r7_bed_c":30,"result":"user_confirmed_print_started_after_klipper_z_range_correction","completed_print_verified":False,"host_config_changed_by_orca":False,"other_nozzle_variants_unchanged":True}}
  model=copy.deepcopy(data['Zortrax/machine/Zortrax M300.json'])
  model.update(name=MODEL,model_id='ZORTRAX_M300_CLASSIC',family='Zortrax',nozzle_diameter=';'.join(DIAMETERS),default_bed_type='High Temp Plate')
  model['default_materials']=';'.join([f'Z-PLA Pro @Zortrax M300 {d}' for d in DIAMETERS]+[f'Generic PLA @Zortrax M300 {d}' for d in DIAMETERS])
@@ -63,7 +64,7 @@ def generate(root=ROOT):
   p.update(name=name,printer_model=MODEL,printer_settings_id=name,printer_variant=d,setting_id=pid(name),default_print_profile=default,
    min_layer_height=[scalar(.2*dn)],max_layer_height=[scalar(.8*dn)],file_start_gcode=f'; {MODEL} / nozzle {d} / R7\n')
   p['printer_agent']='orca'
-  p['printer_notes']='R7 one-model nozzle variant. Existing M300 G-code and motion limits retained. No host update. Select the physically installed nozzle. Quality preset heights must fit nozzle; PA requires calibration.'
+  p['printer_notes']="R7.1 community Klipper-only printer variant. Use only with the physically installed nozzle diameter. START_PRINT invokes host-owned heating, center-contact homing, saved m300_pads mesh (MESH=AUTO) and purge. Homing contact, Z motion limits and mesh geometry must be configured and qualified in Klipper, not Orca. Pressure advance remains 0 until calibrated. No host or firmware is installed by these presets."
   out[f'Zortrax/machine/{name}.json']=encoded(p)
   vendor['machine_list'].append({'name':name,'sub_path':f'machine/{name}.json'})
   source_process=data[f'Zortrax/process/{"0.10" if d=="0.2" else "0.20"}mm Standard @Zortrax M300 {d}.json']
@@ -101,6 +102,12 @@ def generate(root=ROOT):
    if not f0['name'].endswith(' @Zortrax M300 '+d):continue
    f=copy.deepcopy(f0);f['compatible_printers']=[name]
    assert not f['name'].startswith('Z-SUPPORT')
+   if d == '0.4' and f['name'] == 'Z-PLA @Zortrax M300 0.4':
+    # User-confirmed print start on this stock nozzle; original R6/R7 bed was 30 C.
+    # Preserve historical source files and all other nozzle variants.
+    for key in f:
+     if '_plate_temp' in key:f[key]=['50']
+    f['filament_notes']=[f['filament_notes'][0]+' R7.1 field test (2026-11-11): Z-PLA 0.4 mm used 210C nozzle and 50C bed and started printing after a Klipper-side Z fix. Original Z-SUITE/R6 project bed baseline: 30C. Not an official Zortrax bed target; adhesion and completed print require qualification.']
    out['Zortrax/'+entry['sub_path']]=encoded(f);vendor['filament_list'].append(copy.deepcopy(entry))
   for material,(template,temp,bed,fan,mvs,ftype) in GENERIC.items():
    f=copy.deepcopy(data[f'Zortrax/filament/{template} @Zortrax M300 {d}.json'])

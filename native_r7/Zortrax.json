@@ -1,8 +1,8 @@
 {
   "name": "Zortrax",
-  "version": "02.05.00.07",
+  "version": "02.05.00.08",
   "force_update": "0",
-  "description": "M300 Classic community integration. One model/four nozzle variants; quality processes from M300 baseline; no K2 motion settings.",
+  "description": "R7.1 M300 Classic OrcaSlicer 2.5 integration: one model, four Klipper nozzle variants, 30 quality processes, 104 filaments. Only 0.4 mm is an OEM Classic Z-SUITE nozzle; Z-PLA 0.4 mm bed target 50C is a community field-test adjustment (archived R7 source 30C), not an OEM claim. No Klipper or Creality motion settings are modified.",
   "machine_model_list": [
     {
       "name": "Zortrax M300 Classic",
