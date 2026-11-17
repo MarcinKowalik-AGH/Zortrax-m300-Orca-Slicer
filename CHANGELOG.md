@@ -1,5 +1,12 @@
 # Current release notes
 
+## R7.4.1 — fix Bed Shape “Texture: None” on macOS
+
+Previous R7.4 installed `model/Zortrax_M300_Classic_bed.png` as a vendor asset and referenced it in the common printer-model metadata; however, the **per-nozzle `bed_custom_texture` fields were empty**. OrcaSlicer 2.5 uses those fields for the **Bed Shape → Texture** selection, so the image was not indicated in the UI.
+
+The installer now substitutes the **absolute pathname in the active Mac's OrcaSlicer configuration directory** for all four installed nozzle variants, while the source profiles remain portable. No usernames, manual file selection, global `OrcaSlicer.conf` changes or host edits. Regression and CI GUI-loader checks assert that the installed PNG exists at those paths. Print settings remain identical to R7.4.
+
+
 ## R7.4 — M300 Classic perforated bed image
 
 The M300 Classic system model now references `model/Zortrax_M300_Classic_bed.png`, a compact top-down visual representation based on the provided perforated plate photos and generated illustration (128×128 indexed PNG). The macOS installer copies this file to `vendor/Zortrax/model/` and includes it in normal backup/restore. The image is shared by all four nozzle variants.

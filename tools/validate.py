@@ -8,8 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
- assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.4 baseline'
- assert len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.11'
+ assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.4.1 baseline'
+ assert current['profile_revision']=='R7.4.1' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.11'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
  bed_model=json.loads((root/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
  assert bed_model['bed_texture']=='model/Zortrax_M300_Classic_bed.png'
@@ -32,6 +32,8 @@ def validate(root=ROOT):
    if kind=='process':processes[obj['name']]=obj
    if kind=='filament':filaments[obj['name']]=obj
  for m in machines.values():
+  # Repository remains portable; install.py populates an absolute Mac path.
+  assert m['bed_custom_texture']==''
   d=m['printer_variant'];assert d in ('0.2','0.3','0.4','0.6') and m['nozzle_diameter']==[d]
   assert m['printer_model']=='Zortrax M300 Classic' and m['use_relative_e_distances']=='1'
   assert m['machine_end_gcode'].strip()=='END_PRINT' and m['machine_pause_gcode'].strip()=='PAUSE'
