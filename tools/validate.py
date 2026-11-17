@@ -8,8 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
- assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.5 baseline'
- assert current['profile_revision']=='R7.5' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
+ assert ps==baseline['sha256'],'Preset bytes differ from the reviewed unchanged machine/filament/process data baseline'
+ assert current['profile_revision']=='R7.6' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
  bed_model=json.loads((root/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
  assert bed_model['bed_texture']=='model/Zortrax_M300_Classic_bed.svg'
@@ -21,13 +21,26 @@ def validate(root=ROOT):
  assert drawing.tag=='{http://www.w3.org/2000/svg}svg'
  assert (drawing.get('width'),drawing.get('height'),drawing.get('viewBox'))==('1200','1200','0 0 1200 1200')
  ns='{http://www.w3.org/2000/svg}'
- holes=[e for e in drawing.iter(ns+'circle') if e.get('r')=='2.18']
- assert len(holes)==11556,'SVG must contain exactly 11556 circular perforations'
+ holes=[e for e in drawing.iter(ns+'circle') if e.get('r')=='2.15']
+ assert len(holes)==12100,'SVG must contain exactly 12100 circular perforations'
  xs=sorted({float(e.get('cx')) for e in holes})
  ys=sorted({float(e.get('cy')) for e in holes})
- assert len(xs)==108 and len(ys)==107 and len(xs)*len(ys)==len(holes)
+ assert len(xs)==110 and len(ys)==110 and len(xs)*len(ys)==len(holes)
  assert all(abs(xs[i+1]-xs[i]-9.6)<1e-7 for i in range(len(xs)-1))
  assert all(abs(ys[i+1]-ys[i]-9.6)<1e-7 for i in range(len(ys)-1))
+
+ # Gold rectangles must be under the one continuous field of holes, so the
+ # perforations stay visible on silver and on all five flush contact pads.
+ children=list(drawing)
+ background=next(e for e in children if e.get('id')=='full-bleed-opaque-base')
+ assert tuple(background.get(k) for k in ('x','y','width','height'))==('0','0','1200','1200')
+ pads=next(e for e in children if e.get('id')=='five-flush-gold-pads')
+ perforation_group=next(e for e in children if e.get('id')=='all-perforations-including-gold')
+ assert len(pads)==5 and children.index(pads)<children.index(perforation_group)
+ screw_groups=[e for e in drawing.iter(ns+'g') if e.get('class')=='allen-bolt']
+ centre_collars=[e for e in children if e.get('class')=='centre-hole-free-collar']
+ assert len(screw_groups)==18 and len(centre_collars)==2
+ assert all(children.index(e)>children.index(perforation_group) for e in centre_collars)
  names=set();settings=set();machines={};processes={};filaments={}
  for key,kind in [('machine_model_list','machine_model'),('machine_list','machine'),('process_list','process'),('filament_list','filament')]:
   for entry in v[key]:

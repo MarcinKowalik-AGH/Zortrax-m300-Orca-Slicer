@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "R7.5 original R7.4.1 printer, process and filament print settings retained. The M300 model bed_texture reference now points to a true 1200-unit vector SVG with 11,556 exactly aligned circles; vendor metadata updated.",
+  "scope": "R7.6 artwork review; the 140 JSON printer, process and filament files remain byte-identical to R7.5 baseline; SVG appearance is the only build-plate change.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -143,7 +143,7 @@
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
     "Zortrax.json": "3bc51dc0fc89d4ecbcb9ef598ff0f13cef25ebb1daf0ce54cdc40d25dbe0e1d8"
   },
-  "current_revision": "R7.5",
+  "current_revision": "R7.6",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -186,12 +186,16 @@
   },
   "visual_asset": {
     "path": "Zortrax/model/Zortrax_M300_Classic_bed.svg",
-    "sha256": "15f7743a4a21f9a63f3f4636e09ada7db82a9af09d2d7624394b431d51f126a1",
+    "sha256": "3c6b4a2f33663cf37a2b6e9848ba6339fa1cedcaf798375b3ec1fc7c809ed922",
     "format": "SVG",
     "width": 1200,
     "height": 1200,
-    "hole_radius": 2.18,
+    "hole_radius": 2.15,
     "hole_pitch": 9.6,
-    "holes": 11556
+    "holes": 12100,
+    "gold_pads": 5,
+    "allen_bolts": 18,
+    "center_bolt_hole_free_collars": 2,
+    "opaque_full_bleed": true
   }
 }
