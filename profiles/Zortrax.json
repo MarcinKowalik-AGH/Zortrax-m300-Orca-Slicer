@@ -1,8 +1,8 @@
 {
   "name": "Zortrax",
-  "version": "02.05.00.10",
+  "version": "02.05.00.11",
   "force_update": "0",
-  "description": "R7.3 M300 Classic OrcaSlicer 2.5 integration: one model, four Klipper nozzle variants, 30 quality processes, 104 filaments. Only 0.4 mm is an OEM Classic Z-SUITE nozzle; Z-PLA 0.4 mm bed target 50C is a community field-test adjustment (archived R7 source 30C), not an OEM claim. No Klipper or Creality motion settings are modified. PLA (Z-PLA, Z-PLA Pro, Generic PLA) first layer 230C nozzle / 70C bed on four nozzle sizes; remaining layers unchanged. Community field-test starting point, not OEM recommendation. Selective minimum bed 40C first layer / 35C later layers applies only to Z-SEMIFLEX, Z-GLASS and Z-PETG. Five other reviewed materials retain their higher temperatures. PLA first-layer experiment unchanged. Not official OEM data.",
+  "description": "R7.3 M300 Classic OrcaSlicer 2.5 integration: one model, four Klipper nozzle variants, 30 quality processes, 104 filaments. Only 0.4 mm is an OEM Classic Z-SUITE nozzle; Z-PLA 0.4 mm bed target 50C is a community field-test adjustment (archived R7 source 30C), not an OEM claim. No Klipper or Creality motion settings are modified. PLA (Z-PLA, Z-PLA Pro, Generic PLA) first layer 230C nozzle / 70C bed on four nozzle sizes; remaining layers unchanged. Community field-test starting point, not OEM recommendation. Selective minimum bed 40C first layer / 35C later layers applies only to Z-SEMIFLEX, Z-GLASS and Z-PETG. Five other reviewed materials retain their higher temperatures. PLA first-layer experiment unchanged. Not official OEM data. R7.4: built-in top-down perforated-bed PNG texture for M300 Classic; all four nozzle variants share this model image. No G-code or material settings change.",
   "machine_model_list": [
     {
       "name": "Zortrax M300 Classic",
