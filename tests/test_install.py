@@ -42,7 +42,7 @@ class R7InstallTests(unittest.TestCase):
   plan=m.install_plan(self.root,self.source)
   self.assertIn(asset,plan['writes'])
   self.assertIn(model_asset,plan['writes'])
-  self.assertEqual(plan['writes'][model_asset][:19],b'Zortrax M300 Classic')
+  self.assertTrue(plan['writes'][model_asset].startswith(b'Zortrax M300 Classic'))
   # Orca's Bed Shape dialog reads bed_custom_texture from the selected
   # nozzle printer preset, not bed_texture from the common model metadata.
   for d in ('0.2','0.3','0.4','0.6'):
