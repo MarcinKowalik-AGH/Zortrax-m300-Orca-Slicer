@@ -27,7 +27,7 @@ jobs:
           python tools/validate.py > out/static.json
           python tools/catalog.py --check
           python -m compileall -q install.py tools tests
-          python -m unittest discover -s tests -p 'test_*.py' -v > out/unit-tests.log 2>&1
+          python -m unittest discover -s tests -p 'test_*.py' -v > out/unit-tests.log 2>&1 || { cat out/unit-tests.log; exit 1; }
           cat out/unit-tests.log
       - name: Prepare checksum-pinned OrcaSlicer 2.5.0
         run: |
