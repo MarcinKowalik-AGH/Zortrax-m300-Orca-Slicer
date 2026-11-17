@@ -1,5 +1,14 @@
 # Current release notes
 
+## R7.3 — bed-temperature floors, 17 November 2026
+
+Only Z-SEMIFLEX, Z-GLASS and Z-PETG were below the requested minima. For all four nozzle variants, first-layer bed temperature is now **40°C** and later layers **35°C**, for a total of 12 affected profiles. This is strictly an *increase-only* correction.
+
+Five other reviewed materials remain at their higher values: Z-PHA 55/55°C, Generic TPU 50/50°C, Z-FLEX 50/50°C, Z-ASA Pro 65/65°C, Z-ULTRAT Plus 100/100°C. No nozzle temperatures, speeds, filament properties, pressure advance, motion/raft settings, other presets or Klipper components were changed. Previous R7.2 PLA first-layer settings remain in force.
+
+These new floors are experimental and require physical print verification; they are not official Zortrax material prescriptions.
+
+
 ## R7.2 — PLA first-layer adhesion trial, 17 November 2026
 
 Only the first-layer hotend and bed settings have changed in 12 native PLA-family filament presets: **Z-PLA**, **Z-PLA Pro**, and **Generic PLA** for all four supported nozzle sizes (0.2/0.3/0.4/0.6 mm). The first layer requests **230°C / 70°C**. All later-layer temperatures, IDs, printer/process geometry, cooling, speeds, retractions, flow/PA and Klipper start/end macros are unchanged.

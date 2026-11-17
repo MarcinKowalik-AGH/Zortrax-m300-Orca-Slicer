@@ -1,6 +1,6 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.2 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.3 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
@@ -56,6 +56,18 @@ For a first checkout, use the installation guide. No sudo is needed. The install
 | 0.29 | 0.28mm SuperDraft | Different height and default 10% infill |
 
 Choose the same material, then copy the old project's actual infill density/pattern, shells, supports and raft choices. **Source displayed layer labels and recovered SliceThickness are shown separately.** The [complete generated table](docs/ZSUITE_TO_ORCA.md) includes every recovered Classic M300 row without inventing missing equivalents.
+
+## R7.3: only raise bed temperatures below their minima
+
+**40°C on the first layer / 35°C on later layers are floors, never caps.** Of the eight materials reviewed, three required an increase (each has four nozzle-specific variants):
+
+| Material | Original first/later bed | R7.3 first/later bed |
+|---|---|---|
+| Z-SEMIFLEX | 10/10°C | **40/35°C** |
+| Z-GLASS | 30/30°C | **40/35°C** |
+| Z-PETG | 30/30°C | **40/35°C** |
+
+**Preserved:** Z-PHA 55/55°C; Generic TPU 50/50°C; Z-FLEX 50/50°C; Z-ASA Pro 65/65°C; Z-ULTRAT Plus 100/100°C. All hotend temperatures, other filaments, all process parameters and the R7.2 PLA experiment remain unchanged. The 40/35°C minimum is an unvalidated operator-requested trial, not a manufacturer-certified setting.
 
 ## R7.2: increased PLA first-layer temperatures
 
