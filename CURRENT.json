@@ -1,9 +1,9 @@
 {
-  "profile_revision": "R7.2",
+  "profile_revision": "R7.3",
   "repository_layout": "current-only",
   "layout_date": "2026-11-12",
   "orca_target_version": "2.5.0",
-  "vendor_version": "02.05.00.09",
+  "vendor_version": "02.05.00.10",
   "profile_directory": "profiles",
   "installer": "install.py",
   "source_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
@@ -35,5 +35,33 @@
     "other_filament_profiles_unchanged": true,
     "klipper_host_changed": false,
     "notes": "User-requested first-layer adhesion experiment. PLA spool limits and thermal transition need physical validation; earlier Z-SUITE baselines retained."
+  },
+  "bed_minimum_override": {
+    "date": "2026-11-17",
+    "materials": [
+      "Z-SEMIFLEX",
+      "Z-GLASS",
+      "Z-PETG"
+    ],
+    "nozzle_variants_mm": [
+      "0.2",
+      "0.3",
+      "0.4",
+      "0.6"
+    ],
+    "first_layer_floor_c": 40,
+    "later_layer_floor_c": 35,
+    "changed_filament_profiles": 12,
+    "unaltered_other_reviewed_materials": [
+      "Z-PHA",
+      "Generic TPU",
+      "Z-FLEX",
+      "Z-ASA Pro",
+      "Z-ULTRAT Plus"
+    ],
+    "nozzle_temperatures_unchanged": true,
+    "prior_PLA_experiment_unchanged": true,
+    "hardware_validation": "pending",
+    "klipper_host_changed": false
   }
 }

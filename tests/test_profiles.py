@@ -36,6 +36,16 @@ class CurrentProfileTests(unittest.TestCase):
    for nozzle in ('0.2','0.3','0.4','0.6'):
     x=next(r for r in self.tables['filaments'] if r['filament']==name+' @Zortrax M300 '+nozzle)
     self.assertEqual((x['initial_hotend_c'],x['initial_bed_c']),('230','70'))
+ def test_only_below_floor_materials_are_raised(self):
+  changed=('Z-SEMIFLEX','Z-GLASS','Z-PETG')
+  preserved={'Z-PHA':'55','Generic TPU':'50','Z-FLEX':'50','Z-ASA Pro':'65','Z-ULTRAT Plus':'100'}
+  for nozzle in ('0.2','0.3','0.4','0.6'):
+   for name in changed:
+    r=next(r for r in self.tables['filaments'] if r['filament']==name+' @Zortrax M300 '+nozzle)
+    self.assertEqual((r['initial_bed_c'],r['bed_c']),('40','35'))
+   for name,temperature in preserved.items():
+    r=next(r for r in self.tables['filaments'] if r['filament']==name+' @Zortrax M300 '+nozzle)
+    self.assertEqual((r['initial_bed_c'],r['bed_c']),(temperature,temperature))
  def test_high_temperature_reference_not_marked_qualified(self):
   rs=[r for r in self.tables['filaments'] if r['material'] in ('Z-PEEK','Z-PEI 1010','Z-PEI 9085')];self.assertEqual(len(rs),12);self.assertTrue(all('do not print' in r['host_305c_status'] for r in rs))
  def test_generated_docs_are_current(self):

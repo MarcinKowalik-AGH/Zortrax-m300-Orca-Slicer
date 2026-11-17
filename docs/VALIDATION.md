@@ -33,6 +33,10 @@ These are not Orca settings and are not installed here. They preserve center-con
 
 The recorded print target was Z-PLA / nozzle 0.4 / 210°C nozzle / 50°C bed; the recovered source bed was 30°C. CANCEL_PRINT parked the head and Ready/IDLE was observed. A later successful start was reported. **Print completion and first-layer quality have not been confirmed here.**
 
+## R7.3 selective bed-temperature floors — pending physical confirmation
+
+The change raises only lower existing bed targets (to 40°C initial and 35°C subsequent) in 12 Z-SEMIFLEX, Z-GLASS and Z-PETG nozzle-specific profiles. The five other reviewed materials retain all previous, higher bed values. Other profile parameters, all nozzle temperatures and Klipper are unchanged. CI checks the effective slicing result and later-layer bed-temperature transition. No physical print result is claimed.
+
 ## R7.2 first-layer temperature change — pending physical confirmation
 
 For 12 PLA-family filament profiles the requested first-layer target is **230°C nozzle / 70°C bed**. Subsequent-layer temperatures and all other slicer settings remain unchanged from R7.1. This is an adhesion experiment requested after an unsatisfactory first layer, not a proven correction or official manufacturer setting. The active Mac installation is independent of the GitHub repository: update and re-slice locally after the CI pass. If Orca displays a filament temperature range warning at 230°C, check spool documentation before printing.

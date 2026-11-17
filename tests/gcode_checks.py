@@ -51,6 +51,12 @@ def inspect(g,ef,p,q,f,pa):
    return False
   if not found_heater_codes('M104|M109',normal_hot):errors.append('No automatic PLA later-layer hotend target')
   if not found_heater_codes('M140|M190',normal_bed):errors.append('No automatic PLA later-layer bed target')
+ if f['name'].split(' @',1)[0] in ('Z-SEMIFLEX','Z-GLASS','Z-PETG'):
+  if f['hot_plate_temp_initial_layer']!=['40'] or f['hot_plate_temp']!=['35']:
+   errors.append('R7.3 selective bed floor incorrect')
+  after=commands[max(0,start+1):]
+  if not any(re.match(r'^M(?:140|190)\b',line) and re.search(r'\bS35(?:\.0+)?(?:\s|$)',line) for line in after):
+   errors.append('R7.3 bed temperature not restored after first layer')
  if any(l.split()[0] in ['M82','G10','G11','M201','M203','M205'] or 'ACCEL_TO_DECEL=' in l for l in commands):errors.append('Unwanted firmware command')
  pas=[]
  for i,l in enumerate(commands):

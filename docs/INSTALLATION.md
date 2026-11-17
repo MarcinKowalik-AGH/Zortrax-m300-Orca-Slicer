@@ -46,6 +46,10 @@ Check your **Build plate** material and exact bed-temperature value in Filament.
 
 After installing, select the correct filament and **Slice plate** again. Upload the newly generated G-code: updating a preset cannot alter an already-uploaded file. On the first supervised test, verify the start targets and the drop to subsequent-layer temperatures in Fluidd. Do not manually override a host-owned heater while the protected start procedure runs.
 
+### R7.3 increase-only bed temperature adjustment
+
+For Z-SEMIFLEX, Z-GLASS and Z-PETG, the first-layer bed target is now 40°C and later layers 35°C, across all nozzle variants. Higher temperatures for Z-PHA, Generic TPU, Z-FLEX, Z-ASA Pro and Z-ULTRAT Plus have **not** been lowered. No nozzle temperature was changed. Verify the selected filament and re-slice after installation; this is an operator-requested trial, not an OEM setting.
+
 ## 4. Add Moonraker / Fluidd as the printer host
 
 From the printer connection icon in Orca, select **Host type: Moonraker**. For an Orange Pi configured with the project's normal ports use:
