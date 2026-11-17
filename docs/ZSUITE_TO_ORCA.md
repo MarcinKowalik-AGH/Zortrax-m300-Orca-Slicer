@@ -121,18 +121,18 @@ This table is for **nozzle 0.4 mm**. Source temperatures come from the exact sel
 | Z-ASA Pro | classic / M300 | 255 | 65 | 255 | 65 | Not physically qualified |
 | Z-ESD | classic / M300 | 280 | 70 | 280 | 70 | Not physically qualified |
 | Z-FLEX | beta4 / M300Plus | 230 | 50 | 230 | 50 | Not physically qualified |
-| Z-GLASS | classic / M300 | 254 | 30 | 254 | 30 | Not physically qualified |
+| Z-GLASS | classic / M300 | 254 | 30 | 254 | 35 | Not physically qualified |
 | Z-HIPS | classic / M300 | 255 | 80 | 255 | 80 | Not physically qualified |
 | Z-NYLON | beta4 / M300Plus | 250 | 90 | 250 | 90 | Not physically qualified |
 | Z-PCABS | classic / M200 | 290 | 85 | 290 | 85 | Not physically qualified |
 | Z-PEEK | beta4 / Endureal | 400 | 120 | 400 | 105 | REFERENCE ONLY >305C |
 | Z-PEI 1010 | beta4 / Endureal | 370 | 200 | 370 | 105 | REFERENCE ONLY >305C |
 | Z-PEI 9085 | beta4 / Endureal | 360 | 200 | 360 | 105 | REFERENCE ONLY >305C |
-| Z-PETG | classic / M300 | 254 | 30 | 254 | 30 | Not physically qualified |
+| Z-PETG | classic / M300 | 254 | 30 | 254 | 35 | Not physically qualified |
 | Z-PHA | Project fallback / no named source table recovered | not recovered | not recovered | 205 | 55 | Not physically qualified |
 | Z-PLA | classic / Inventure | 210 | 30 | 210 | 50 | Not physically qualified |
 | Z-PLA Pro | classic / M300 | 207 | 30 | 207 | 30 | Not physically qualified |
-| Z-SEMIFLEX | classic / Inventure | 215 | 10 | 215 | 10 | Not physically qualified |
+| Z-SEMIFLEX | classic / Inventure | 215 | 10 | 215 | 35 | Not physically qualified |
 | Z-ULTRAT | classic / M300 | 253 | 80 | 253 | 80 | Not physically qualified |
 | Z-ULTRAT Plus | classic / Inventure | 225 | 100 | 225 | 100 | Not physically qualified |
 
