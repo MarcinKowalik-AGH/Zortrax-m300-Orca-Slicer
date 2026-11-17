@@ -1,9 +1,9 @@
 {
-  "profile_revision": "R7.3",
+  "profile_revision": "R7.4",
   "repository_layout": "current-only",
   "layout_date": "2026-11-12",
   "orca_target_version": "2.5.0",
-  "vendor_version": "02.05.00.10",
+  "vendor_version": "02.05.00.11",
   "profile_directory": "profiles",
   "installer": "install.py",
   "source_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
@@ -63,5 +63,16 @@
     "prior_PLA_experiment_unchanged": true,
     "hardware_validation": "pending",
     "klipper_host_changed": false
+  },
+  "bed_texture": {
+    "path": "profiles/Zortrax/model/Zortrax_M300_Classic_bed.png",
+    "model_reference": "model/Zortrax_M300_Classic_bed.png",
+    "format": "PNG",
+    "dimensions": [
+      128,
+      128
+    ],
+    "installer": "automatically copied to Orca system/Zortrax/model",
+    "appearance_only": true
   }
 }
