@@ -56,7 +56,7 @@ jobs:
           from pathlib import Path
           from install import install_plan,apply
           # Exercise the actual Mac installer logic in a disposable Linux CI
-          # config, so absolute per-machine PNG paths are validated by Orca.
+          # config, so absolute per-machine SVG paths are validated by Orca.
           cfg=Path('out/gui')
           settings={'version':'2.5.0.0','preset_folder':'default','firstguide':{'finish':True},'stealth_mode':True,'models':[{'vendor':'Zortrax','model':'Zortrax M300 Classic','nozzle_diameter':'0.2;0.3;0.4;0.6'}],'filaments':['Generic PLA @Zortrax M300 0.4'],'presets':{'machine':'Zortrax M300 Classic 0.4 nozzle','print':'0.20mm Standard @Zortrax M300 Classic 0.4 nozzle','filaments':['Generic PLA @Zortrax M300 0.4']}}
           (cfg/'OrcaSlicer.conf').write_text(json.dumps(settings))
@@ -65,8 +65,8 @@ jobs:
               machine=json.loads((cfg/'system/Zortrax/machine'/('Zortrax M300 Classic '+nozzle+' nozzle.json')).read_text())
               custom_texture=Path(machine['bed_custom_texture'])
               assert custom_texture.is_file()
-              assert custom_texture.resolve()==(cfg/'vendor/Zortrax/model/Zortrax_M300_Classic_bed.png').resolve()
-          print('PASS: all 4 installed M300 variants refer to the existing PNG')
+              assert custom_texture.resolve()==(cfg/'vendor/Zortrax/model/Zortrax_M300_Classic_bed.svg').resolve()
+          print('PASS: all 4 installed M300 variants refer to the existing SVG')
           PY
           # Disposable CI GUI only, never the user's Orca process.
           timeout --kill-after=5s 105s xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 55; xdotool mousemove 197 165 click 1 || true; sleep 10; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; sleep 2; kill -KILL "$pid" 2>/dev/null || true; wait "$pid" || true' || true

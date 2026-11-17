@@ -3,7 +3,7 @@
 Default is a plan. Install first; enable M300 through Orca's own UI. Only then
 --archive-offline archives the four known imported bundles. No broad deletion.
 """
-import argparse,copy,datetime,hashlib,json,os,re,shutil,subprocess,sys,tempfile
+import argparse,copy,datetime,hashlib,json,os,re,shutil,subprocess,sys,tempfile,xml.etree.ElementTree as ET
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 GROUPS=('machine_model_list','machine_list','filament_list','process_list')
@@ -57,11 +57,17 @@ def install_plan(root,source):
  texture=model.get('bed_texture','')
  if not texture:raise ValueError('The M300 Classic bed texture is missing from the model')
  asset=safe(source/'Zortrax',texture)
- if asset.suffix.lower()!='.png' or not asset.is_file():
-  raise ValueError('Missing or invalid Zortrax PNG bed texture')
+ if asset.suffix.lower()!='.svg' or not asset.is_file():
+  raise ValueError('Missing or invalid Zortrax vector SVG bed texture')
  data=asset.read_bytes()
- if not 8<len(data)<=5_000_000 or data[:8]!=bytes.fromhex('89504e470d0a1a0a'):
-  raise ValueError('Invalid PNG bed texture')
+ if not 100<len(data)<=5_000_000:
+  raise ValueError('Invalid SVG bed texture size')
+ try:
+  drawing=ET.fromstring(data)
+ except ET.ParseError as exc:
+  raise ValueError('Invalid SVG XML bed texture') from exc
+ if drawing.tag!='{http://www.w3.org/2000/svg}svg':
+  raise ValueError('Bed texture is not an SVG image')
  asset_rel='vendor/Zortrax/'+asset.relative_to(source/'Zortrax').as_posix()
  # The destination is computed from the target OrcaSlicer configuration folder:
  # never hard-code a /Users/<username> path into system presets or the repository.
