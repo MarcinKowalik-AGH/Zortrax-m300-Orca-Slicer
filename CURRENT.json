@@ -72,7 +72,7 @@
       128,
       128
     ],
-    "installer": "automatically copied to Orca system/Zortrax/model",
+    "installer": "automatically copied to Orca vendor/Zortrax/model",
     "appearance_only": true
   }
 }
