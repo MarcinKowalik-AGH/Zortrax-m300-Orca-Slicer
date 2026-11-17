@@ -1,5 +1,5 @@
 """Current profile/source/table contracts. No printer connection."""
-import json,unittest,sys
+import json,unittest,sys,xml.etree.ElementTree as ET
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tools'))
 from catalog import build
@@ -52,12 +52,18 @@ class CurrentProfileTests(unittest.TestCase):
   for name,text in self.outputs.items():self.assertEqual((ROOT/name).read_bytes(),text.encode())
  def test_m300_bed_texture_asset_exists(self):
   model=json.loads((ROOT/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
-  self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.png')
+  self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.svg')
   asset=ROOT/'profiles/Zortrax'/model['bed_texture']
   self.assertTrue(asset.is_file())
-  data=asset.read_bytes()
-  self.assertTrue(data.startswith(bytes.fromhex('89504e470d0a1a0a')))
-  self.assertEqual((int.from_bytes(data[16:20],'big'),int.from_bytes(data[20:24],'big')),(128,128))
+  drawing=ET.fromstring(asset.read_bytes())
+  self.assertEqual(drawing.tag,'{http://www.w3.org/2000/svg}svg')
+  circles=[e for e in drawing.iter('{http://www.w3.org/2000/svg}circle') if e.get('r')=='2.18']
+  self.assertEqual(len(circles),11556)
+  xs=sorted({float(e.get('cx')) for e in circles})
+  ys=sorted({float(e.get('cy')) for e in circles})
+  self.assertEqual((len(xs),len(ys)),(108,107))
+  self.assertTrue(all(abs(xs[i+1]-xs[i]-9.6)<1e-8 for i in range(len(xs)-1)))
+  self.assertTrue(all(abs(ys[i+1]-ys[i]-9.6)<1e-8 for i in range(len(ys)-1)))
  def test_profile_names_preserved(self):
   self.assertTrue(any(e['name']=='Z-PLA Pro @Zortrax M300 0.4' for e in self.vendor['filament_list']));self.assertTrue(any(e['name']=='0.20mm Standard @Zortrax M300 Classic 0.4 nozzle' for e in self.vendor['process_list']))
 if __name__=='__main__':unittest.main()
