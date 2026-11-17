@@ -1,5 +1,13 @@
 # Current release notes
 
+## R7.2 — PLA first-layer adhesion trial, 17 November 2026
+
+Only the first-layer hotend and bed settings have changed in 12 native PLA-family filament presets: **Z-PLA**, **Z-PLA Pro**, and **Generic PLA** for all four supported nozzle sizes (0.2/0.3/0.4/0.6 mm). The first layer requests **230°C / 70°C**. All later-layer temperatures, IDs, printer/process geometry, cooling, speeds, retractions, flow/PA and Klipper start/end macros are unchanged.
+
+This is an operator-requested test, **not verified finished-print quality or a manufacturer-certified calibration**. Original Z-SUITE source values are preserved. The 0.4 mm Z-PLA later-layer temperature remains 210°C / 50°C; all other nozzle/material later-layer temperatures retain their R7.1 values. The vendor index version is updated to **02.05.00.09**. The 12 affected filament JSONs and index are the only modified profile files; 127 others are byte-identical.
+
+After installing R7.2 in Orca on the Mac, select the appropriate PLA filament and **re-slice** before uploading a new G-code file. Do not update the Orange Pi, Klipper or MCU as part of this profile change.
+
 ## R7.1 — current-only repository cleanup, 12 November 2026
 
 This is a repository/documentation cleanup, not a new numerical print calibration. All 140 current profile JSON files, identities and settings match the baseline commit `18d68bb161631004e6909a0f7585fe552b15b302` byte-for-byte.

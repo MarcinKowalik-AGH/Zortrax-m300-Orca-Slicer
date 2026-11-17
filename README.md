@@ -1,6 +1,6 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.1 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.2 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
@@ -57,9 +57,18 @@ For a first checkout, use the installation guide. No sudo is needed. The install
 
 Choose the same material, then copy the old project's actual infill density/pattern, shells, supports and raft choices. **Source displayed layer labels and recovered SliceThickness are shown separately.** The [complete generated table](docs/ZSUITE_TO_ORCA.md) includes every recovered Classic M300 row without inventing missing equivalents.
 
-## No print-setting changes in this cleanup
+## R7.2: increased PLA first-layer temperatures
 
-All **140 current profile JSON files are preserved byte-for-byte**, including names, IDs and numerical settings. The existing R7.1 Z-PLA **0.4 mm** preset requests **210°C nozzle / 50°C bed**, whereas the recovered source bed value is 30°C. This remains a user-reported start-test override, not a new cleanup change or OEM recommendation. Other Z-PLA nozzle variants retain 30°C.
+To test first-layer adhesion, **all 12 Z-PLA, Z-PLA Pro and Generic PLA profiles** (nozzles 0.2 / 0.3 / 0.4 / 0.6 mm) now request **230°C nozzle and 70°C bed on the first layer only**. Every other printing setting, including later-layer temperatures, extrusion, retraction, fan behavior, raft and process speeds, is unchanged.
+
+| Filament | First layer (nozzle / bed) | Later layers (nozzle / bed) |
+|---|---|---|
+| Z-PLA, 0.4 mm nozzle | **230 / 70°C** | **210 / 50°C** |
+| Z-PLA, 0.2/0.3/0.6 mm | **230 / 70°C** | **210 / 30°C** |
+| Z-PLA Pro, all four nozzle variants | **230 / 70°C** | **207 / 30°C** |
+| Generic PLA, all four nozzle variants | **230 / 70°C** | **210 / 60°C** |
+
+The archived Z-SUITE record for Z-PLA remains 210/30°C; the prior 0.4 mm bed override of 50°C also remains for subsequent layers. **230/70°C is a requested, unvalidated trial**, not a Zortrax or generic PLA manufacturer's recommendation. Verify the spool's maximum nozzle temperature and watch adhesion, extrusion and warping. Save and re-slice existing projects; an already-generated G-code file will not change.
 
 `M83`, `START_PRINT`/`END_PRINT`/`PAUSE`, `MESH=AUTO` and **PA=0 pending calibration** remain unchanged. The separate [Klipper project](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Klipper) owns homing, PC7 contact release, Z range and mesh compensation. No purge lines are relocated.
 

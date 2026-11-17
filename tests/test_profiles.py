@@ -28,7 +28,14 @@ class CurrentProfileTests(unittest.TestCase):
  def test_no_invented_pcabs_generic(self):
   rs=[r for r in self.tables['mapped'] if r['zsuite_material']=='PCABS-based filament'];self.assertTrue(all('No direct' in r['orca_filament'] for r in rs))
  def test_pla_point_four_current_and_source_bed(self):
-  r=next(r for r in self.tables['filaments'] if r['filament']=='Z-PLA @Zortrax M300 0.4');self.assertEqual(r['source_bed_c'],30);self.assertEqual(r['bed_c'],'50');self.assertEqual(r['hotend_c'],'210')
+  r=next(r for r in self.tables['filaments'] if r['filament']=='Z-PLA @Zortrax M300 0.4')
+  self.assertEqual(r['source_bed_c'],30)
+  self.assertEqual((r['initial_hotend_c'],r['initial_bed_c']),('230','70'))
+  self.assertEqual((r['hotend_c'],r['bed_c']),('210','50'))
+  for name in ('Z-PLA','Z-PLA Pro','Generic PLA'):
+   for nozzle in ('0.2','0.3','0.4','0.6'):
+    x=next(r for r in self.tables['filaments'] if r['filament']==name+' @Zortrax M300 '+nozzle)
+    self.assertEqual((x['initial_hotend_c'],x['initial_bed_c']),('230','70'))
  def test_high_temperature_reference_not_marked_qualified(self):
   rs=[r for r in self.tables['filaments'] if r['material'] in ('Z-PEEK','Z-PEI 1010','Z-PEI 9085')];self.assertEqual(len(rs),12);self.assertTrue(all('do not print' in r['host_305c_status'] for r in rs))
  def test_generated_docs_are_current(self):

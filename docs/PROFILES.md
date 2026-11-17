@@ -1,4 +1,4 @@
-# Zortrax M300 Classic — native OrcaSlicer R7 profiles
+# Zortrax M300 Classic — native OrcaSlicer R7.2 profiles
 
 ## Preset organization
 
@@ -36,6 +36,12 @@ There are **26 material names per nozzle**: 19 Zortrax-name materials carried fr
 
 During the 11 November 2026 trial, the host reported a Z-PLA **210°C nozzle / 50°C bed** print request. In the archived source profile Z-PLA was **210°C / 30°C**. The historical value must remain visible in the migration document. **The current R7.1 native Z-PLA 0.4 mm filament preset requests 50°C on all plate selectors** (first and subsequent layers), matching the user-confirmed start. The archived R6/R7 source remains 30°C. The Z-PLA presets for the three other nozzle variants remain unchanged at 30°C, as do all other materials. This override is **not an OEM Z-SUITE default**; verify surface adhesion and print completion before broad use.
 
+### R7.2 PLA first-layer targets (12 filament presets)
+
+The first deposited layer requests **230°C at the nozzle and 70°C at the bed** for **Z-PLA, Z-PLA Pro and Generic PLA**, each offered with nozzle variants 0.2, 0.3, 0.4 and 0.6 mm. Only `nozzle_temperature_initial_layer` and the six corresponding `*_plate_temp_initial_layer` settings were changed. Later layers keep their previous filament-specific settings: **Z-PLA 210°C/30°C**, except the 0.4 mm Z-PLA profile **210°C/50°C**; **Z-PLA Pro 207°C/30°C**; **Generic PLA 210°C/60°C**.
+
+These values are a user-requested adhesion experiment, not official Z-SUITE presets or a verified calibration on all 12 combinations. The temperature range metadata for Generic PLA and Z-PLA Pro was not widened: 230°C may exceed the previously recorded suggested upper range. Check the actual filament spool's temperature limits and re-slice existing projects. Orca's startup passes the initial-layer targets to the host `START_PRINT` macro. Verify in G-code that later-layer commands restore each material's regular targets.
+
 If the bed is already warmer than a low requested target, the M300 host's temperature-stability gate may wait until both heater measurements fall within approximately ±2°C. Do not override heater ownership while `START_PRINT` is in progress.
 
 ## Klipper integration is deliberately separate
@@ -66,4 +72,4 @@ See [Installation](INSTALLATION.md) · [full Z-SUITE crosswalk](ZSUITE_TO_ORCA.m
 
 ## Current validation and cleanup
 
-All 140 profile files are preserved byte-for-byte. The older test figures above describe historical R7; current checks are recorded separately in [validation evidence](VALIDATION.md). Repository cleanup does not perform a new physical test or change the operator's host.
+The R7.1 cleanup originally kept all 140 profiles byte-identical. R7.2 changes only seven first-layer temperature values in each of 12 PLA filament JSONs and updates the vendor index description/version; the other 127 profile files remain byte-identical. Software evidence and remaining hardware qualification requirements are described in [validation evidence](VALIDATION.md). This release does not alter the Klipper host.

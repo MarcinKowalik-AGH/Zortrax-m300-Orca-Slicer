@@ -42,7 +42,9 @@ On the Prepare page, verify all three selectors:
 | Filament | `Z-PLA @Zortrax M300 0.4` or another compatible 0.4 entry |
 | Process | `0.20mm Standard @Zortrax M300 Classic 0.4 nozzle` |
 
-Check your **Build plate** material and exact bed-temperature value in Filament. In the R7.1 native presets, **Z-PLA with a 0.4 mm nozzle requests a 50°C bed** on every listed plate type, based on the user's first-print start (the original R6/R7 source was 30°C). All other Z-PLA nozzle variants retain the original 30°C. This is **not** an OEM-prescribed temperature. The slicer only requests a target; it does not change host heater limits.
+Check your **Build plate** material and exact bed-temperature value in Filament. In the R7.1 native presets, **Z-PLA with a 0.4 mm nozzle requests a 50°C bed** on every listed plate type, based on the user's first-print start (the original R6/R7 source was 30°C). All other Z-PLA nozzle variants retain the original 30°C. This was the **R7.1** behavior, not an OEM-prescribed temperature. **R7.2 now requests 230°C nozzle and 70°C bed for the first layer of Z-PLA, Z-PLA Pro and Generic PLA for every nozzle variant**, while keeping all subsequent-layer settings unchanged. For example, the regular Z-PLA 0.4 mm temperatures remain 210°C/50°C and Generic PLA remains 210°C/60°C. The slicer only requests a target; it does not change host heater limits.
+
+After installing, select the correct filament and **Slice plate** again. Upload the newly generated G-code: updating a preset cannot alter an already-uploaded file. On the first supervised test, verify the start targets and the drop to subsequent-layer temperatures in Fluidd. Do not manually override a host-owned heater while the protected start procedure runs.
 
 ## 4. Add Moonraker / Fluidd as the printer host
 
