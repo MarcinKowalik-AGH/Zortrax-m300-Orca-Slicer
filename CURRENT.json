@@ -1,9 +1,9 @@
 {
-  "profile_revision": "R7.4.1",
+  "profile_revision": "R7.5",
   "repository_layout": "current-only",
   "layout_date": "2026-11-12",
   "orca_target_version": "2.5.0",
-  "vendor_version": "02.05.00.11",
+  "vendor_version": "02.05.00.12",
   "profile_directory": "profiles",
   "installer": "install.py",
   "source_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
@@ -65,19 +65,21 @@
     "klipper_host_changed": false
   },
   "bed_texture": {
-    "path": "profiles/Zortrax/model/Zortrax_M300_Classic_bed.png",
-    "model_reference": "model/Zortrax_M300_Classic_bed.png",
-    "format": "PNG",
-    "dimensions": [
-      128,
-      128
+    "path": "profiles/Zortrax/model/Zortrax_M300_Classic_bed.svg",
+    "model_reference": "model/Zortrax_M300_Classic_bed.svg",
+    "format": "SVG",
+    "vector_viewbox": [
+      0,
+      0,
+      1200,
+      1200
     ],
-    "installer": "automatically copied to Orca vendor/Zortrax/model",
+    "regular_holes": 11556,
+    "lattice_pitch_svg_units": 9.6,
+    "render_at_display_resolution": true,
+    "original_128px_PNG_replaced": true,
+    "installer": "copies SVG to vendor/Zortrax/model and sets absolute bed_custom_texture on all 4 installed M300 variants",
     "appearance_only": true,
-    "installed_machine_option": "bed_custom_texture",
-    "installed_variants": 4,
-    "path_resolution": "absolute path computed from the active OrcaSlicer config directory by install.py",
-    "source_machine_variant_field": "empty (portable)",
-    "macos_visual_check": "pending operator confirmation"
+    "physical_mac_visual_check": "pending"
   }
 }

@@ -1,12 +1,12 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.4.1 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.5 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
 **This repository installs slicer profiles on the Mac only. It never updates the Orange Pi, Klipper, MCU, bootloader, UART, OLED or Fluidd.**
 
-**R7.4.1 fixes the perforated-bed PNG display in OrcaSlicer 2.5.** The installer copies the image into Orca's vendor resources **and now sets the actual `bed_custom_texture` in each installed 0.2/0.3/0.4/0.6 mm printer preset** to the absolute image path on that Mac. Earlier R7.4 copied the image but did not populate the `Texture` field in **Printer settings → Printable area → Set… → Bed Shape**. No manual image selection or hard-coded Mac username is needed. This is visual only; no G-code, mesh, temperature, or Klipper changes.
+**R7.5 features a genuine SVG vector drawing of the Zortrax M300 perforated bed.** The **11,556 perfectly round holes** lie on a mathematically regular **9.6-unit grid**; the five woven gold contact pads, aluminium frame and fasteners remain visible. OrcaSlicer 2.5 renders the SVG at the display resolution, eliminating the blurry 128×128-pixel image. The installer copies the SVG and fills `bed_custom_texture` in each installed 0.2/0.3/0.4/0.6 mm printer variant with a Mac-specific absolute path (no manual loading). Only the bed appearance changes; all print settings, dimensions and Klipper remain unchanged.
 
 ## Install on macOS — first-time installation or update
 

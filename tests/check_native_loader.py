@@ -30,8 +30,8 @@ def check(source,gui):
    machine=json.loads(preset_path.read_text())
    filename=Path(machine['bed_custom_texture'])
    good=(filename.is_absolute() and filename.is_file()
-         and filename.resolve()==(gui/'vendor/Zortrax/model/Zortrax_M300_Classic_bed.png').resolve()
-         and filename.read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')))
+         and filename.resolve()==(gui/'vendor/Zortrax/model/Zortrax_M300_Classic_bed.svg').resolve()
+         and filename.read_bytes().startswith(b'<?xml'))
    texture_paths_valid &= bool(good)
    texture_files.append({'nozzle':d,'path':str(filename),'valid':bool(good)})
   except (OSError,ValueError,KeyError,TypeError):

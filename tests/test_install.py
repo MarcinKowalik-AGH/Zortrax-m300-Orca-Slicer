@@ -35,7 +35,7 @@ class R7InstallTests(unittest.TestCase):
  def test_complete_native_structure(self):
   m.apply(m.install_plan(self.root,self.source));v=m.read(self.root/'system/Zortrax.json');self.assertEqual([len(v[k]) for k in m.GROUPS],[1,4,104,30])
  def test_bed_texture_is_installed_and_reversible(self):
-  asset='vendor/Zortrax/model/Zortrax_M300_Classic_bed.png'
+  asset='vendor/Zortrax/model/Zortrax_M300_Classic_bed.svg'
   absolute=str((self.root/asset).resolve())
   plan=m.install_plan(self.root,self.source)
   self.assertIn(asset,plan['writes'])
@@ -48,9 +48,9 @@ class R7InstallTests(unittest.TestCase):
    self.assertTrue(Path(obj['bed_custom_texture']).is_absolute())
    self.assertEqual(m.read(self.source/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json'))['bed_custom_texture'],'')
   backup=m.apply(plan)
-  self.assertTrue((self.root/asset).read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')))
+  self.assertTrue((self.root/asset).read_bytes().startswith(b'<?xml'))
   model=m.read(self.root/'system/Zortrax/machine/Zortrax M300 Classic.json')
-  self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.png')
+  self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.svg')
   for d in ('0.2','0.3','0.4','0.6'):
    obj=m.read(self.root/'system'/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json'))
    self.assertEqual(obj['bed_custom_texture'],absolute)

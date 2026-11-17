@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Validate current profiles, provenance, generated tables and documentation offline."""
-import hashlib,json,re
+import hashlib,json,re,xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import unquote
 from catalog import build
@@ -8,17 +8,26 @@ ROOT=Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
- assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.4.1 baseline'
- assert current['profile_revision']=='R7.4.1' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.11'
+ assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.5 baseline'
+ assert current['profile_revision']=='R7.5' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
  bed_model=json.loads((root/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
- assert bed_model['bed_texture']=='model/Zortrax_M300_Classic_bed.png'
+ assert bed_model['bed_texture']=='model/Zortrax_M300_Classic_bed.svg'
  asset=(root/'profiles/Zortrax'/bed_model['bed_texture']).resolve()
  assert asset.is_relative_to((root/'profiles/Zortrax').resolve())
  data=asset.read_bytes()
- assert data[:8]==bytes.fromhex('89504e470d0a1a0a')
- assert len(data)==5982 and hashlib.sha256(data).hexdigest()==baseline['visual_asset']['sha256']
- assert (int.from_bytes(data[16:20],'big'),int.from_bytes(data[20:24],'big'))==(128,128)
+ assert len(data)>100000 and hashlib.sha256(data).hexdigest()==baseline['visual_asset']['sha256']
+ drawing=ET.fromstring(data)
+ assert drawing.tag=='{http://www.w3.org/2000/svg}svg'
+ assert (drawing.get('width'),drawing.get('height'),drawing.get('viewBox'))==('1200','1200','0 0 1200 1200')
+ ns='{http://www.w3.org/2000/svg}'
+ holes=[e for e in drawing.iter(ns+'circle') if e.get('r')=='2.18']
+ assert len(holes)==11556,'SVG must contain exactly 11556 circular perforations'
+ xs=sorted({float(e.get('cx')) for e in holes})
+ ys=sorted({float(e.get('cy')) for e in holes})
+ assert len(xs)==108 and len(ys)==107 and len(xs)*len(ys)==len(holes)
+ assert all(abs(xs[i+1]-xs[i]-9.6)<1e-7 for i in range(len(xs)-1))
+ assert all(abs(ys[i+1]-ys[i]-9.6)<1e-7 for i in range(len(ys)-1))
  names=set();settings=set();machines={};processes={};filaments={}
  for key,kind in [('machine_model_list','machine_model'),('machine_list','machine'),('process_list','process'),('filament_list','filament')]:
   for entry in v[key]:
