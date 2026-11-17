@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "Current R7.2 reviewed preset bytes; 12 PLA filament files differ from the R7.1 baseline ONLY in 7 first-layer temperature fields each (230C nozzle, 70C bed). Vendor index version/description updated. All other print parameters and preset identities are unchanged.",
+  "scope": "Current R7.3 reviewed profile hashes. Compared with R7.2, 12 Z-SEMIFLEX/Z-GLASS/Z-PETG presets have selectively increased bed temperatures (40C first layer, 35C later), while all other preset contents remain unchanged. Previous R7.2 PLA changes retained.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -50,10 +50,10 @@
     "Zortrax/filament/Z-FLEX @Zortrax M300 0.3.json": "c51d07fa15b08ace796238cff7cd5f13cff30431d06936383e9a2edcaf5f67c0",
     "Zortrax/filament/Z-FLEX @Zortrax M300 0.4.json": "853e40c0f2d3f5639c525d4e076e390e7e15fe4bca1af2ab99a9c6e1aa4aa61a",
     "Zortrax/filament/Z-FLEX @Zortrax M300 0.6.json": "bdcda9630b3dfb2d4f6d0adca67b3e0befe4bd486fec9704329ef0fe6bdcde57",
-    "Zortrax/filament/Z-GLASS @Zortrax M300 0.2.json": "4823bb70acfe3098a7d114a6a6b1e78d8f4ba3d8d0090781a5249afa1a7bfaad",
-    "Zortrax/filament/Z-GLASS @Zortrax M300 0.3.json": "eff78e777c338991eaae98e2caec74289b288413fcb0f721dc65bdaa664b6e40",
-    "Zortrax/filament/Z-GLASS @Zortrax M300 0.4.json": "9e175e658bc0ad6b3d98145e9ee20f1b1aa4a7772049f79e67c308eda70221e9",
-    "Zortrax/filament/Z-GLASS @Zortrax M300 0.6.json": "c834a443ffbad2bb78666d5e6196c7820a9d8a625579e88858164e7825d21f37",
+    "Zortrax/filament/Z-GLASS @Zortrax M300 0.2.json": "75b144a139af7626dffe5570679892cf6d9ca1928bb00cd4cc79205bc9ee75dd",
+    "Zortrax/filament/Z-GLASS @Zortrax M300 0.3.json": "90ee86af082a604174bc7bb0e2b0037b9d0bf2b8564734227648eb3630fb0881",
+    "Zortrax/filament/Z-GLASS @Zortrax M300 0.4.json": "a5bce4351ae70e6a870b5374bd116e1aed360c730ebf7632d65395e18ecd292a",
+    "Zortrax/filament/Z-GLASS @Zortrax M300 0.6.json": "21db741f820bbc4a81572dd322d392372205b5830c82c52025a7e5bbb8f47706",
     "Zortrax/filament/Z-HIPS @Zortrax M300 0.2.json": "ac15f354c6ef8a4e8702311331001671f97b557c3fc22bf62c01cc2da1c22e9d",
     "Zortrax/filament/Z-HIPS @Zortrax M300 0.3.json": "6ee83a3ac459fb979d1dde758dca2b734d2a84acbcfe613021a1111a0267d54d",
     "Zortrax/filament/Z-HIPS @Zortrax M300 0.4.json": "5c2221c5995f55f6d36eb99fbb19b687906f25fceedf40731a169e99472cf6ce",
@@ -78,10 +78,10 @@
     "Zortrax/filament/Z-PEI 9085 @Zortrax M300 0.3.json": "85fe01d694b218d495a61642f326d35ce8fdbd8a854ea330105821a9cd3bd27f",
     "Zortrax/filament/Z-PEI 9085 @Zortrax M300 0.4.json": "aa7354626299e2b65fd12af7b33d7c23be1b9c3ba449a1ee768aec8bd2a163ae",
     "Zortrax/filament/Z-PEI 9085 @Zortrax M300 0.6.json": "f80a3afc49d4c98cec130059d765a94f044a9c4ae2a8547c9f0c3904e822c726",
-    "Zortrax/filament/Z-PETG @Zortrax M300 0.2.json": "1990b62af9db4695a819066f5904c241ee61e1e392fb0039ca6fe867a3252613",
-    "Zortrax/filament/Z-PETG @Zortrax M300 0.3.json": "851af2e7d3cd2284ff6cdb6a14df106ed9cfd825a8abbbab435f303b9b808bde",
-    "Zortrax/filament/Z-PETG @Zortrax M300 0.4.json": "eab5824da7f1f9f0b6f1071a92a9b6089b34495b413fd498b6cadf58a4c70cdb",
-    "Zortrax/filament/Z-PETG @Zortrax M300 0.6.json": "c95a19941a07a0b7a81d4c874736dc6a0590c6fbc16c6937a9fde71f16be722d",
+    "Zortrax/filament/Z-PETG @Zortrax M300 0.2.json": "c58a9d3b467fda50eaea1e3bba7a0990c265d1123fd6799da7a10978b2863ecd",
+    "Zortrax/filament/Z-PETG @Zortrax M300 0.3.json": "8e0899b7e6f797f3735b7f95d8bc8c87771dc73354aaaed602017b65611fc4f1",
+    "Zortrax/filament/Z-PETG @Zortrax M300 0.4.json": "c20b3c8fae0118a3d6d02aa38d72a0b65409091cf7f08df998ab725ab543108a",
+    "Zortrax/filament/Z-PETG @Zortrax M300 0.6.json": "b0e8b2fd7ce15934ee10b904c062de1fda1f60dc79c2978c67bc6247f2dbc403",
     "Zortrax/filament/Z-PHA @Zortrax M300 0.2.json": "fde22c0de4e5240994b569a1bb2a631b3586471c7600ea6456d6258b41642f62",
     "Zortrax/filament/Z-PHA @Zortrax M300 0.3.json": "d2c2cdb7c6e9ea6455934b40672fd8228bfa443a97a9312052a52c0059387543",
     "Zortrax/filament/Z-PHA @Zortrax M300 0.4.json": "2b70123d892b31192284a70ba0f7a0a9d482c29294247a5db99d558b72ade735",
@@ -94,10 +94,10 @@
     "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.3.json": "55e225af7b5f6446e1c23a95e38d49653e5142d4096a80cbeab16e67c41a59bc",
     "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.4.json": "8486430193cb426f38cdf883c5cb71c1e71f10524c513fe2b261bece4ec3f3aa",
     "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.6.json": "540ea165888da669fa9e849a20c05388b0ad97b02328a771c5751ee3c74b2ecb",
-    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.2.json": "d53622bb3f129c4c55cd309cd322600d2ffabc2c2ac15fad07307944588cfd51",
-    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.3.json": "3688760367b431e3857192b715093be4abea072542b025cadccf7da75a211e33",
-    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.4.json": "eb68e0ea22e787c30174b27ecc96ed6318fd09e2801a873cc4cdc229f5205ca0",
-    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.6.json": "1f47711a7fe0d6ab172ae146f6e07227586268d06caa316f3193c060d5b59f0f",
+    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.2.json": "b6e49493ba9c20431c631532494ce5c9e372f7437f053a20ec3219dd1f532ff5",
+    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.3.json": "fb051cbb7171149abb3886f06c581e5afbb102bc2150ac23c7dee24b8ce160ea",
+    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.4.json": "8eb19d09819d8bff9c754f0736565a2e87604c49b0408584ac53e9f82e64b8e8",
+    "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.6.json": "294d2dfb21fb6c2dc1d4464daf0632f4981d9eab5eba67033fcee23a71740e8f",
     "Zortrax/filament/Z-ULTRAT @Zortrax M300 0.2.json": "6f1337b1173790318b3800c7fd351b7bb067fa6a03a16e0131cc1aec60c68500",
     "Zortrax/filament/Z-ULTRAT @Zortrax M300 0.3.json": "3c5323f63d90561432dab86a5c1bc8b78ae4f297c5176dc79d61266bb8de1957",
     "Zortrax/filament/Z-ULTRAT @Zortrax M300 0.4.json": "b2d41081636b9fd84fad616b1d5c26ef2487e9fcd5d723324f0ef8374cd5ff8c",
@@ -141,9 +141,9 @@
     "Zortrax/process/0.32mm Coarse @Zortrax M300 Classic 0.6 nozzle.json": "0b0fcca78667ff53fcd07458efa405b6b2d19afdf8857988e65ce1833e855ed9",
     "Zortrax/process/0.36mm Draft @Zortrax M300 Classic 0.6 nozzle.json": "8c7f065a4909573a05bea493f53965895c1f78ea20e594698888eea5ae6eb7c5",
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
-    "Zortrax.json": "9e2291ec626b5ded7fc6e4df1d0568e3d20a4019dd2ee8c1c19759d342871f7b"
+    "Zortrax.json": "8b41128ee9f9429fde343211b2ee8eccb4765328a3ef20d89a6f2fb7288b9d93"
   },
-  "current_revision": "R7.2",
+  "current_revision": "R7.3",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -160,5 +160,28 @@
     "nozzle_c": 230,
     "bed_c": 70,
     "modified_filament_profiles": 12
+  },
+  "bed_minimum_change": {
+    "materials": [
+      "Z-SEMIFLEX",
+      "Z-GLASS",
+      "Z-PETG"
+    ],
+    "nozzle_variants_mm": [
+      "0.2",
+      "0.3",
+      "0.4",
+      "0.6"
+    ],
+    "first_layer_floor_c": 40,
+    "later_layer_floor_c": 35,
+    "changed_profiles": 12,
+    "unaffected_materials": [
+      "Z-PHA",
+      "Generic TPU",
+      "Z-FLEX",
+      "Z-ASA Pro",
+      "Z-ULTRAT Plus"
+    ]
   }
 }
