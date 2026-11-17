@@ -32,7 +32,7 @@ The installer validates the target environment and creates a reversible backup. 
 
 ## Automatic Zortrax M300 bed appearance
 
-The R7.4 installer also deploys the top-down `Zortrax_M300_Classic_bed.png` into OrcaSlicer's `system/Zortrax/model/` vendor directory. The common printer-model profile references it automatically, so there is **no need to select the PNG manually**. Reopen OrcaSlicer after installing. This texture is purely visual and never affects printer dimensions, homing, calibration or slicing behavior.
+The R7.4 installer also deploys the top-down `Zortrax_M300_Classic_bed.png` into OrcaSlicer's `vendor/Zortrax/model/` vendor directory. The common printer-model profile references it automatically, so there is **no need to select the PNG manually**. Reopen OrcaSlicer after installing. This texture is purely visual and never affects printer dimensions, homing, calibration or slicing behavior.
 
 ## 3. Enable and select the model
 
