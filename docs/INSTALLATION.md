@@ -32,11 +32,11 @@ The installer validates the target environment and creates a reversible backup. 
 
 ## Automatic Zortrax M300 bed appearance
 
-**R7.5 replaces the blurry 128×128-pixel PNG with a genuine vector SVG:** `Zortrax_M300_Classic_bed.svg`. The SVG has 11,556 precisely circular, regular perforations and can be rasterized at the full display resolution by OrcaSlicer 2.5. The installer copies the SVG into `$HOME/Library/Application Support/OrcaSlicer/vendor/Zortrax/model/`, then fills `bed_custom_texture` with the **absolute path on the current Mac** for all four installed nozzle variants. The source JSON files on GitHub remain portable; `install.py --apply` performs the substitution.
+**R7.6** is an opaque, full-bleed **vector SVG**, not an enlarged screenshot: `Zortrax_M300_Classic_bed.svg`. It contains **12,100 regular circular perforations** that remain visible on **all five gold pads**, a flat (non-recessed) silver surround, **18 Allen/hex fasteners**, and hole-free rings around the two centre bolts. The updated opacity hides the default Orca layer **inside the 300×300 mm texture**.
 
-After installation, **fully restart OrcaSlicer**. Select a **system** `Zortrax M300 Classic <diameter> nozzle` printer, open **Printer settings → Printable area → Set… → Bed Shape**. The **Texture** field should show `Zortrax_M300_Classic_bed.svg`, and the preview should use the Zortrax bed artwork. If the field still reads `None`, verify the selected printer is not an older saved user preset, and confirm that the image and installed machine JSON exist in the OrcaSlicer configuration directory. No manual PNG import is necessary.
+The installer copies the SVG to `$HOME/Library/Application Support/OrcaSlicer/vendor/Zortrax/model/`, then writes the Mac's **absolute SVG path into `bed_custom_texture`** on all four installed printer variants. The source JSONs remain portable. **Quit Orca fully (Cmd+Q), update and reinstall, then restart it.** In the selected **system** printer profile, open **Printer settings → Printable area → Set… → Bed Shape**; the **Texture** field should show `Zortrax_M300_Classic_bed.svg`. If it still says `None`, check whether an older user-saved printer was selected.
 
-This texture affects only the interface: the 300×300 mm printable area, plate mesh, toolhead motion and Klipper configuration are unchanged.
+**The black grid beyond the printable 300×300 mm square belongs to OrcaSlicer**, not to the SVG. An SVG cannot paint outside the defined printable area. You can switch off grid lines in **View → Show Gridlines**; the remaining workspace background is controlled by Orca itself. Do not change `printable_area` just to hide the UI. Machine geometry, slicing, G-code, Orca global settings and Klipper are unchanged.
 
 ## 3. Enable and select the model
 

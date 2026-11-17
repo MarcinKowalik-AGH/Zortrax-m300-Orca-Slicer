@@ -57,13 +57,35 @@ class CurrentProfileTests(unittest.TestCase):
   self.assertTrue(asset.is_file())
   drawing=ET.fromstring(asset.read_bytes())
   self.assertEqual(drawing.tag,'{http://www.w3.org/2000/svg}svg')
-  circles=[e for e in drawing.iter('{http://www.w3.org/2000/svg}circle') if e.get('r')=='2.18']
-  self.assertEqual(len(circles),11556)
+  circles=[e for e in drawing.iter('{http://www.w3.org/2000/svg}circle') if e.get('r')=='2.15']
+  self.assertEqual(len(circles),12100)
   xs=sorted({float(e.get('cx')) for e in circles})
   ys=sorted({float(e.get('cy')) for e in circles})
-  self.assertEqual((len(xs),len(ys)),(108,107))
+  self.assertEqual((len(xs),len(ys)),(110,110))
   self.assertTrue(all(abs(xs[i+1]-xs[i]-9.6)<1e-8 for i in range(len(xs)-1)))
   self.assertTrue(all(abs(ys[i+1]-ys[i]-9.6)<1e-8 for i in range(len(ys)-1)))
+ def test_bed_texture_gold_pads_hex_and_full_bleed(self):
+  ns='{http://www.w3.org/2000/svg}'
+  svg=ET.fromstring((ROOT/'profiles/Zortrax/model/Zortrax_M300_Classic_bed.svg').read_bytes())
+  children=list(svg)
+  base=next(e for e in children if e.get('id')=='full-bleed-opaque-base')
+  self.assertEqual(tuple(base.get(k) for k in ('x','y','width','height')),('0','0','1200','1200'))
+  self.assertEqual(base.get('fill'),'#c3d2de')
+  pads=next(e for e in children if e.get('id')=='five-flush-gold-pads')
+  grid=next(e for e in children if e.get('id')=='all-perforations-including-gold')
+  self.assertEqual(len(pads),5)
+  self.assertLess(children.index(pads),children.index(grid))
+  coords=[(float(c.get('cx')),float(c.get('cy'))) for c in grid]
+  self.assertEqual(len(coords),12100)
+  for pad in pads:
+   x,y,w,h=(float(pad.get(k)) for k in ('x','y','width','height'))
+   self.assertGreater(sum(x<cx<x+w and y<cy<y+h for cx,cy in coords),200)
+  bolts=[g for g in svg.iter(ns+'g') if g.get('class')=='allen-bolt']
+  collars=[g for g in svg.iter(ns+'g') if g.get('class')=='centre-hole-free-collar']
+  self.assertEqual(len(bolts),18)
+  self.assertEqual(len(collars),2)
+  self.assertTrue(all(len([e for e in g if e.tag==ns+'path' and ' L' in e.get('d','')])==1 for g in bolts))
+  self.assertTrue(all(children.index(g)>children.index(grid) for g in collars))
  def test_profile_names_preserved(self):
   self.assertTrue(any(e['name']=='Z-PLA Pro @Zortrax M300 0.4' for e in self.vendor['filament_list']));self.assertTrue(any(e['name']=='0.20mm Standard @Zortrax M300 Classic 0.4 nozzle' for e in self.vendor['process_list']))
 if __name__=='__main__':unittest.main()

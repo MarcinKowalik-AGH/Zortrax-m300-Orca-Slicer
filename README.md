@@ -1,12 +1,14 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.5 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.6 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
 **This repository installs slicer profiles on the Mac only. It never updates the Orange Pi, Klipper, MCU, bootloader, UART, OLED or Fluidd.**
 
-**R7.5 features a genuine SVG vector drawing of the Zortrax M300 perforated bed.** The **11,556 perfectly round holes** lie on a mathematically regular **9.6-unit grid**; the five woven gold contact pads, aluminium frame and fasteners remain visible. OrcaSlicer 2.5 renders the SVG at the display resolution, eliminating the blurry 128×128-pixel image. The installer copies the SVG and fills `bed_custom_texture` in each installed 0.2/0.3/0.4/0.6 mm printer variant with a Mac-specific absolute path (no manual loading). Only the bed appearance changes; all print settings, dimensions and Klipper remain unchanged.
+**R7.6: corrected full-resolution, mathematically precise M300 build plate.** A full-bleed opaque SVG contains **12,100 evenly spaced circular holes**, including holes on **all five flush golden pads**; the silver border and perforated sheet share one flat plane. All **18 bolts use hex/Allen sockets**; the two middle bolts have solid non-perforated collars. No bitmap screenshot or artificial recess. The existing installer places the SVG in `bed_custom_texture` for every 0.2/0.3/0.4/0.6 mm nozzle variant. The **300×300 mm printable area**, print settings and Klipper are unchanged.
+
+**Side margins:** R7.5 accidentally left transparent image pixels, now removed. OrcaSlicer can still display its **own** gridded workspace *outside* the printable square. To hide the gridlines use **View → Show Gridlines** (off); the SVG cannot paint outside the 300×300 mm square. Never enlarge the printable area to hide a UI background.
 
 ## Install on macOS — first-time installation or update
 

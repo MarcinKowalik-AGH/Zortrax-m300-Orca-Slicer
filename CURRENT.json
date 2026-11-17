@@ -1,5 +1,5 @@
 {
-  "profile_revision": "R7.5",
+  "profile_revision": "R7.6",
   "repository_layout": "current-only",
   "layout_date": "2026-11-12",
   "orca_target_version": "2.5.0",
@@ -74,12 +74,22 @@
       1200,
       1200
     ],
-    "regular_holes": 11556,
+    "regular_holes": 12100,
     "lattice_pitch_svg_units": 9.6,
     "render_at_display_resolution": true,
     "original_128px_PNG_replaced": true,
     "installer": "copies SVG to vendor/Zortrax/model and sets absolute bed_custom_texture on all 4 installed M300 variants",
     "appearance_only": true,
-    "physical_mac_visual_check": "pending"
+    "physical_mac_visual_check": "pending (rendered with Inkscape; Orca macOS result not physically viewed)",
+    "grid_columns": 110,
+    "grid_rows": 110,
+    "uniform_holes_on_gold_pads": true,
+    "gold_pads": 5,
+    "allen_bolts": 18,
+    "centre_bolts_with_hole_free_collars": 2,
+    "opaque_full_bleed": true,
+    "flat_surface_no_recess": true,
+    "generator": "tools/generate_bed_texture.js",
+    "note": "The slicer's dark grid outside the 300x300 printable square is not part of the image; View > Show Gridlines can hide the grid lines. Never enlarge printable_area for cosmetic reasons."
   }
 }
