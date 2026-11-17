@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "Current R7.3 reviewed profile hashes. Compared with R7.2, 12 Z-SEMIFLEX/Z-GLASS/Z-PETG presets have selectively increased bed temperatures (40C first layer, 35C later), while all other preset contents remain unchanged. Previous R7.2 PLA changes retained.",
+  "scope": "Current R7.4 baseline: a cosmetic texture reference added to the shared M300 Classic machine_model and the vendor index; 1024px native PNG installed separately. All four printer variants, 30 processes, 104 filaments and their G-code/print settings are byte-for-byte unchanged from R7.3.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -110,7 +110,7 @@
     "Zortrax/machine/Zortrax M300 Classic 0.3 nozzle.json": "20712c1962efc6f92bea0f93d29fae3699a923781f5abeadfe5d458793b85e4d",
     "Zortrax/machine/Zortrax M300 Classic 0.4 nozzle.json": "1a6133e539163924109424c51e7ee583501cad135cbae41aba6e16f697d7c512",
     "Zortrax/machine/Zortrax M300 Classic 0.6 nozzle.json": "28f6b114a8c3a9faab05328042d70e97973b862befa87c2eefd766364866580c",
-    "Zortrax/machine/Zortrax M300 Classic.json": "730760aff5157cb43054c604143719f88d57b29687e5b1eb54d178f5141693c5",
+    "Zortrax/machine/Zortrax M300 Classic.json": "63af10496249cd3feecc30144144cb303bd1ac3038276977b09fc3ca848d7530",
     "Zortrax/process/0.06mm Fine @Zortrax M300 Classic 0.2 nozzle.json": "68facaf1d9b8c39f5b053ee2aaeac4521153188a93027a6889c55f41cbb62a60",
     "Zortrax/process/0.08mm SuperDetail @Zortrax M300 Classic 0.2 nozzle.json": "b85f3aee4e50b2df6b5f57e0ef7d9365fe56d5ca404e1a6ead2986d752c350ed",
     "Zortrax/process/0.08mm SuperDetail @Zortrax M300 Classic 0.3 nozzle.json": "cf5191be239e5e6df18e0faf9a0c4944c587e481ce208080570b4795ab7fc78b",
@@ -141,9 +141,9 @@
     "Zortrax/process/0.32mm Coarse @Zortrax M300 Classic 0.6 nozzle.json": "0b0fcca78667ff53fcd07458efa405b6b2d19afdf8857988e65ce1833e855ed9",
     "Zortrax/process/0.36mm Draft @Zortrax M300 Classic 0.6 nozzle.json": "8c7f065a4909573a05bea493f53965895c1f78ea20e594698888eea5ae6eb7c5",
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
-    "Zortrax.json": "8b41128ee9f9429fde343211b2ee8eccb4765328a3ef20d89a6f2fb7288b9d93"
+    "Zortrax.json": "4e951becd93df636f16700da8a028880bbc6aa2faa02926cb3dea099955dead8"
   },
-  "current_revision": "R7.3",
+  "current_revision": "R7.4",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -183,5 +183,16 @@
       "Z-ASA Pro",
       "Z-ULTRAT Plus"
     ]
+  },
+  "bed_visualization": {
+    "model": "Zortrax M300 Classic",
+    "bed_texture": "resources/bed/Zortrax_M300_Classic_bed.png",
+    "asset_sha256": "cd9a0b0d4db595c30fd6e298d3c563179a8b1932de72f9db21a9bb2798402007",
+    "asset_size": 2904686,
+    "preset_changes_only": [
+      "Zortrax/machine/Zortrax M300 Classic.json",
+      "Zortrax.json"
+    ],
+    "remaining_presets_unchanged": true
   }
 }
