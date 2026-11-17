@@ -28,6 +28,29 @@ class R7InstallTests(unittest.TestCase):
   return rel
  def activate(self):
   j=m.read(self.root/'OrcaSlicer.conf');j['models'].append({'vendor':'Zortrax','model':m.MODEL,'nozzle_diameter':'0.2;0.3;0.4;0.6'});self.write('OrcaSlicer.conf',j)
+ def test_bed_texture_copied_and_reversible(self):
+  rel='system/Zortrax/resources/bed/Zortrax_M300_Classic_bed.png'
+  plan=m.install_plan(self.root,self.source)
+  self.assertIn(rel,plan['writes'])
+  self.assertEqual(plan['writes'][rel][:8],b'\x89PNG\r\n\x1a\n')
+  before=self.protected()
+  backup=m.apply(plan)
+  self.assertEqual((self.root/rel).read_bytes(),(self.source/'Zortrax/resources/bed/Zortrax_M300_Classic_bed.png').read_bytes())
+  model=m.read(self.root/'system/Zortrax/machine/Zortrax M300 Classic.json')
+  self.assertEqual(model['bed_texture'],'resources/bed/Zortrax_M300_Classic_bed.png')
+  self.assertEqual(self.protected(),before)
+  self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
+  m.restore(backup)
+  self.assertFalse((self.root/rel).exists())
+ def test_missing_bed_png_does_not_change_existing_orca(self):
+  import shutil
+  other=Path(self.tmp.name)/'source'
+  shutil.copytree(self.source,other)
+  (other/'Zortrax/resources/bed/Zortrax_M300_Classic_bed.png').unlink()
+  before=m.digest(self.root)
+  with self.assertRaisesRegex(ValueError,'bed texture missing'):
+   m.install_plan(self.root,other)
+  self.assertEqual(m.digest(self.root),before)
  def test_plan_is_read_only(self):
   before=m.digest(self.root);m.install_plan(self.root,self.source);self.assertEqual(m.digest(self.root),before)
  def test_config_and_creality_unchanged(self):

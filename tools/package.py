@@ -12,5 +12,5 @@ def main():
    info=zipfile.ZipInfo(p.relative_to(ROOT).as_posix(),(2026,11,12,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;z.writestr(info,p.read_bytes())
  with zipfile.ZipFile(path) as z:assert z.testzip() is None
  (target/'SHA256SUMS').write_text(hashlib.sha256(path.read_bytes()).hexdigest()+'  '+path.name+'\n')
- print(json.dumps({'package':str(path),'bytes':path.stat().st_size,'profile_revision':'R7.3','host_changed':False}))
+ print(json.dumps({'package':str(path),'bytes':path.stat().st_size,'profile_revision':'R7.4','host_changed':False}))
 if __name__=='__main__':main()

@@ -20,11 +20,18 @@ def check(source,gui):
  selected=[s for s in selected if s in expected['machine_list']]
  errors=[line for line in logs.splitlines() if '[error]' in line and ('Zortrax' in line or 'M300 Classic' in line)]
  cache=gui/'system/Zortrax.opc'
- result={'native_loader_pass':not(missing_process or missing_filaments or missing_machines or errors) and bool(selected) and cache.is_file() and cache.stat().st_size>1000,
+ model=json.loads((source/'Zortrax/machine/Zortrax M300 Classic.json').read_text())
+ texture=model['bed_texture']
+ texture_source=source/'Zortrax'/texture
+ texture_installed=gui/'system/Zortrax'/texture
+ # Native GUI is started with a complete disposable vendor folder; verify that
+ # the actual PNG is present, not merely a valid model metadata reference.
+ texture_ok=bool(texture) and texture_source.is_file() and texture_installed.is_file() and texture_source.read_bytes()==texture_installed.read_bytes()
+ result={'native_loader_pass':not(missing_process or missing_filaments or missing_machines or errors) and bool(selected) and cache.is_file() and cache.stat().st_size>1000 and texture_ok,
   'registered_processes':len(expected['process_list']&registered),'registered_filaments':len(expected['filament_list']&registered),
   'visible_machine_variants':len(expected['machine_list']&visible),'selected_native_machine':selected[-1] if selected else None,
   'missing_processes':missing_process,'missing_filaments':missing_filaments,'missing_machine_variants':missing_machines,
-  'native_errors':errors,'cache_generated':cache.is_file(),'actual_gui_platform':'Linux Xvfb','mac_user_install_test':False}
+  'native_errors':errors,'cache_generated':cache.is_file(),'bed_texture_copied_into_gui':texture_ok,'actual_gui_platform':'Linux Xvfb','mac_user_install_test':False}
  return result
 
 if __name__=='__main__':

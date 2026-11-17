@@ -8,6 +8,16 @@ class CurrentProfileTests(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
   cls.outputs,cls.tables=build();cls.vendor=json.loads((ROOT/'profiles/Zortrax.json').read_text())
+ def test_native_m300_bed_texture(self):
+  from struct import unpack
+  p=ROOT/'profiles/Zortrax/machine/Zortrax M300 Classic.json'
+  model=json.loads(p.read_text())
+  self.assertEqual(model['bed_texture'],'resources/bed/Zortrax_M300_Classic_bed.png')
+  texture=ROOT/'profiles/Zortrax'/model['bed_texture']
+  image=texture.read_bytes()
+  self.assertEqual(image[:8],b'\x89PNG\r\n\x1a\n')
+  self.assertEqual(unpack('>II',image[16:24]),(1024,1024))
+  self.assertEqual(model['name'],'Zortrax M300 Classic')
  def test_full_repository_contract(self):self.assertEqual(validate()['status'],'PASS')
  def test_all_152_source_rows_once(self):
   ids=[r['source_id'] for r in self.tables['mapped']];self.assertEqual(len(ids),152);self.assertEqual(len(set(ids)),152)
