@@ -13,9 +13,13 @@ The most recent check can be found in the repository's [GitHub Actions](https://
 
 The workflow never connects to a printer or executes generated G-code. It uses a checksum-pinned Orca 2.5.0 binary. Current unit tests include 14 installer and 15 source/profile contracts. High-temperature reference filaments are sliced only for software inspection.
 
-## R7.4 bed texture
+## R7.4.1 bed texture — verified installer path, Mac appearance pending
 
-Static validation confirms that the M300 Classic model references a vendor-relative PNG with a valid PNG header, expected dimensions and SHA-256. Installer tests verify that the image is installed, remains idempotent and is removed on rollback. GUI profile loading is checked by CI; the final appearance should additionally be confirmed in OrcaSlicer on macOS.
+The previous R7.4 verified that a valid 128×128 PNG was packaged and copied, but it did **not** test the field shown in Orca's **Bed Shape → Texture** dialog. The user observed `None`. OrcaSlicer 2.5 displays the preset's `bed_custom_texture` value in that dialog.
+
+R7.4.1 keeps the vendor PNG and portable source machine presets, but updates `install.py` to write an absolute Mac-specific PNG path into `bed_custom_texture` for each of the four *installed* printer variants. Installer regression tests verify all four paths, file existence, idempotence, rollback and preservation of other printers. The CI native-loader test now loads profiles using this actual install-time transformation and validates the texture paths in the disposable GUI configuration.
+
+These automated checks confirm the installed configuration and application loading on Linux/Xvfb. A screenshot from the user's Mac showing the bed artwork remains the final visual confirmation; do not equate successful file copying alone with rendered output.
 
 ## Operator evidence — 11 November 2026
 

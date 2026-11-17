@@ -32,7 +32,11 @@ The installer validates the target environment and creates a reversible backup. 
 
 ## Automatic Zortrax M300 bed appearance
 
-The R7.4 installer also deploys the top-down `Zortrax_M300_Classic_bed.png` into OrcaSlicer's `vendor/Zortrax/model/` vendor directory. The common printer-model profile references it automatically, so there is **no need to select the PNG manually**. Reopen OrcaSlicer after installing. This texture is purely visual and never affects printer dimensions, homing, calibration or slicing behavior.
+**R7.4.1 fixes the texture remaining “None” in the Bed Shape dialog.** The installer automatically copies `Zortrax_M300_Classic_bed.png` into `$HOME/Library/Application Support/OrcaSlicer/vendor/Zortrax/model/`. It then fills `bed_custom_texture` with the **absolute path on the current Mac**, separately in the installed 0.2, 0.3, 0.4 and 0.6 mm printer presets. The portable JSON files stored in GitHub deliberately leave this machine-specific field empty; the installer performs the substitution when run with `--apply`.
+
+After installation, **fully restart OrcaSlicer**. Select a **system** `Zortrax M300 Classic <diameter> nozzle` printer, open **Printer settings → Printable area → Set… → Bed Shape**. The **Texture** field should show `Zortrax_M300_Classic_bed.png`, and the preview should use the Zortrax bed artwork. If the field still reads `None`, verify the selected printer is not an older saved user preset, and confirm that the image and installed machine JSON exist in the OrcaSlicer configuration directory. No manual PNG import is necessary.
+
+This texture affects only the interface: the 300×300 mm printable area, plate mesh, toolhead motion and Klipper configuration are unchanged.
 
 ## 3. Enable and select the model
 

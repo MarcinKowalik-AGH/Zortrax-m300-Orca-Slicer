@@ -1,5 +1,5 @@
 {
-  "profile_revision": "R7.4",
+  "profile_revision": "R7.4.1",
   "repository_layout": "current-only",
   "layout_date": "2026-11-12",
   "orca_target_version": "2.5.0",
@@ -73,6 +73,11 @@
       128
     ],
     "installer": "automatically copied to Orca vendor/Zortrax/model",
-    "appearance_only": true
+    "appearance_only": true,
+    "installed_machine_option": "bed_custom_texture",
+    "installed_variants": 4,
+    "path_resolution": "absolute path computed from the active OrcaSlicer config directory by install.py",
+    "source_machine_variant_field": "empty (portable)",
+    "macos_visual_check": "pending operator confirmation"
   }
 }
