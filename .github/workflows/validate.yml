@@ -23,8 +23,6 @@ jobs:
       - name: Current profiles, source mapping, checksums and protected installation
         run: |
           mkdir -p out
-          python tools/checksums.py --write
-          git diff -- SHA256SUMS
           python tools/checksums.py
           python tools/validate.py > out/static.json
           python tools/catalog.py --check
@@ -54,6 +52,8 @@ jobs:
           test -s "$SSL_CERT_FILE"
           mkdir -p out/gui/system
           cp -a profiles/Zortrax* out/gui/system/
+          mkdir -p out/gui/vendor/Zortrax/model
+          cp profiles/Zortrax/model/Zortrax_M300_Classic_bed.png out/gui/vendor/Zortrax/model/
           python - <<'PY'
           import json
           from pathlib import Path
