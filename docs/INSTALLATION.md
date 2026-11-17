@@ -30,6 +30,12 @@ python3 "$HOME/Zortrax-m300-Orca-Slicer/install.py" --apply
 
 The installer validates the target environment and creates a reversible backup. It does **not** rewrite `OrcaSlicer.conf` or activate printer subscriptions behind the user's back. The optional `--archive-offline --apply` mode must not be used until the new profiles have been tested in Orca.
 
+### M300 build-plate picture
+
+The installer now copies the M300 Classic's PNG bed texture as well as the JSON presets. There is no extra download or image-selection step: after installation and restarting OrcaSlicer, choose **Zortrax M300 Classic** with your actual nozzle diameter. If the default grid remains visible, check whether a personal custom bed texture overrides the system preset and restart Orca before changing other settings.
+
+The file is saved inside your normal OrcaSlicer profile directory (`system/Zortrax/resources/bed/`) and is covered by the installer's rollback backup. It is only artwork, not a bed mesh or Z offset.
+
 ## 3. Enable and select the model
 
 Restart OrcaSlicer 2.5 and open **Printer → Select/Remove printers (system presets)**. Find **Zortrax → Zortrax M300 Classic**, select the nozzle variant matching the physical machine (0.2, 0.3, 0.4 or 0.6 mm), and **leave other manufacturers selected**.

@@ -8,9 +8,18 @@ ROOT=Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
- assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.3 baseline'
- assert len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.10'
+ assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.4 baseline'
+ assert len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.11'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
+ model=json.loads((root/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
+ texture=model.get('bed_texture')
+ assert texture=='resources/bed/Zortrax_M300_Classic_bed.png'
+ png_file=root/'profiles/Zortrax'/texture
+ blob=png_file.read_bytes()
+ assert len(blob)>100000 and blob[:8]==b'\x89PNG\r\n\x1a\n'
+ assert int.from_bytes(blob[16:20],'big')==1024 and int.from_bytes(blob[20:24],'big')==1024
+ assert hashlib.sha256(blob).hexdigest()=='cd9a0b0d4db595c30fd6e298d3c563179a8b1932de72f9db21a9bb2798402007'
+ assert current['bed_visualization']['file']=='profiles/Zortrax/'+texture
  names=set();settings=set();machines={};processes={};filaments={}
  for key,kind in [('machine_model_list','machine_model'),('machine_list','machine'),('process_list','process'),('filament_list','filament')]:
   for entry in v[key]:
@@ -78,5 +87,5 @@ def validate(root=ROOT):
  assert not any((root/p).exists() for p in forbidden),'Obsolete distribution remains'
  assert not list(root.rglob('*_PL.md')) and not list(root.rglob('*.orca_printer'))
  assert not any(p.suffix.lower() in ('.ttf','.otf','.woff','.woff2','.dll','.exe') for p in root.rglob('*'))
- return {'status':'PASS','profile_revision':current['profile_revision'],'profile_json_files':len(ps),'model_count':1,'machine_count':len(machines),'process_count':len(processes),'filament_count':len(filaments),'source_rows':len(tables['mapped']),'profile_bytes_unchanged':False,'pla_first_layer_profiles_updated':12,'later_layer_temperatures_unchanged_for_PLA':True,'bed_floor_profiles_updated':12,'higher_bed_temperatures_preserved':True,'host_access':False}
+ return {'status':'PASS','profile_revision':current['profile_revision'],'profile_json_files':len(ps),'model_count':1,'machine_count':len(machines),'process_count':len(processes),'filament_count':len(filaments),'source_rows':len(tables['mapped']),'profile_bytes_unchanged':False,'pla_first_layer_profiles_updated':12,'later_layer_temperatures_unchanged_for_PLA':True,'bed_floor_profiles_updated':12,'higher_bed_temperatures_preserved':True,'bed_texture_png_valid':True,'host_access':False}
 if __name__=='__main__':print(json.dumps(validate(),indent=2))
