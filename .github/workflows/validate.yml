@@ -23,6 +23,8 @@ jobs:
       - name: Current profiles, source mapping, checksums and protected installation
         run: |
           mkdir -p out
+          python tools/checksums.py --write
+          git diff -- SHA256SUMS
           python tools/checksums.py
           python tools/validate.py > out/static.json
           python tools/catalog.py --check
