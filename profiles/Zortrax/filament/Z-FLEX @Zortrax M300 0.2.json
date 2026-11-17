@@ -35,12 +35,8 @@
   "complete_print_exhaust_fan_speed": [
     "0"
   ],
-  "cool_plate_temp": [
-    "50"
-  ],
-  "cool_plate_temp_initial_layer": [
-    "50"
-  ],
+  "cool_plate_temp": ["35"],
+  "cool_plate_temp_initial_layer": ["40"],
   "default_filament_colour": [
     ""
   ],
@@ -56,12 +52,8 @@
   "enable_pressure_advance": [
     "1"
   ],
-  "eng_plate_temp": [
-    "50"
-  ],
-  "eng_plate_temp_initial_layer": [
-    "50"
-  ],
+  "eng_plate_temp": ["35"],
+  "eng_plate_temp_initial_layer": ["40"],
   "fan_cooling_layer_time": [
     "30"
   ],
@@ -262,12 +254,8 @@
   "full_fan_speed_layer": [
     "0"
   ],
-  "hot_plate_temp": [
-    "50"
-  ],
-  "hot_plate_temp_initial_layer": [
-    "50"
-  ],
+  "hot_plate_temp": ["35"],
+  "hot_plate_temp_initial_layer": ["40"],
   "idle_temperature": [
     "0"
   ],
@@ -323,30 +311,18 @@
   "slow_down_min_speed": [
     "10"
   ],
-  "supertack_plate_temp": [
-    "50"
-  ],
-  "supertack_plate_temp_initial_layer": [
-    "50"
-  ],
+  "supertack_plate_temp": ["35"],
+  "supertack_plate_temp_initial_layer": ["40"],
   "support_material_interface_fan_speed": [
     "-1"
   ],
   "temperature_vitrification": [
     "60"
   ],
-  "textured_cool_plate_temp": [
-    "50"
-  ],
-  "textured_cool_plate_temp_initial_layer": [
-    "50"
-  ],
-  "textured_plate_temp": [
-    "50"
-  ],
-  "textured_plate_temp_initial_layer": [
-    "50"
-  ],
+  "textured_cool_plate_temp": ["35"],
+  "textured_cool_plate_temp_initial_layer": ["40"],
+  "textured_plate_temp": ["35"],
+  "textured_plate_temp_initial_layer": ["40"],
   "version": "2.5.0.0",
   "volumetric_speed_coefficients": [
     ""
