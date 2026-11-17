@@ -35,7 +35,7 @@ class R7InstallTests(unittest.TestCase):
  def test_complete_native_structure(self):
   m.apply(m.install_plan(self.root,self.source));v=m.read(self.root/'system/Zortrax.json');self.assertEqual([len(v[k]) for k in m.GROUPS],[1,4,104,30])
  def test_bed_texture_is_installed_and_reversible(self):
-  asset='system/Zortrax/model/Zortrax_M300_Classic_bed.png'
+  asset='vendor/Zortrax/model/Zortrax_M300_Classic_bed.png'
   plan=m.install_plan(self.root,self.source)
   self.assertIn(asset,plan['writes'])
   backup=m.apply(plan)
