@@ -52,7 +52,7 @@ def main():
   result={'printer':pn,'process':qn,'filament':fn,'test':kind,'status':'FAIL' if detail['errors'] else 'PASS','bytes':len(g),'details':detail}
   results.append(result);print(json.dumps({k:result[k] for k in ('printer','process','filament','test','status')}),detail['errors'],flush=True)
   (out/'results.json').write_text(json.dumps(results,indent=2))
- summary={'revision':'R7.2','engine':'OrcaSlicer 2.5.0','model_count':1,'nozzle_variants':4,'filament_count':104,'process_count':30,'matrices':matrices,
+ summary={'revision':'R7.3','engine':'OrcaSlicer 2.5.0','model_count':1,'nozzle_variants':4,'filament_count':104,'process_count':30,'matrices':matrices,
   'tests':len(results),'pass':sum(r['status']=='PASS' for r in results),'fail':sum(r['status']=='FAIL' for r in results),
   'hardware_test':False,'mac_user_gui_test':False,'klipper_changed':False,'metadata_adapter':False,
   'note':'High-temperature filaments are listed and sliced for software checks only; not qualified at M300305/105 limits.',
