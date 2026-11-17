@@ -2,6 +2,9 @@
 'use strict';
 // Deterministic physical-layout and printable-crop vector art.
 // Requires Node.js only for manual regeneration, NOT for Mac installation.
+// Measured 210 mm clear gap between INNER edges of 60 mm corner pads in X/Y.
+// Thus the pads are 15 mm in from the real 360 mm plate edges.
+// The 300x305 printable SVG is a mathematically exact crop of that plate.
 const fs=require('node:fs');
 const path=require('node:path');
 function generateSvgs(){
@@ -25,10 +28,19 @@ function generateSvgs(){
   // Image displayed on actual printable polygon, 300 mm x 305 mm.
   // Top of image is printer Y=305, bottom Y=0 (front).
   head(A,1200,1220,'Zortrax M300 Classic - measured plate, 300 x 305 printable crop');
-  A.push('<desc>SVG shows only the real printable surface. Physical 360 mm surround is a separately installed STL. Corner pads are measured 60 x 60 mm and centre pad 50 x 50 mm. Pad locations near corners are inferred from user photograph.</desc>');
+  A.push('<desc>SVG is the true X=30..330, Y=30..335 mm crop of the 360 mm plate. Corner pads measure 60x60 mm; inner pad gap 210 mm in both axes. No silver strip appears between rear printable boundary and gold pads. Central gold pad is 50x50 mm.</desc>');
   A.push('<rect id="full-bleed-opaque-base" x="0" y="0" width="1200" height="1220" fill="url(#metal)"/>');
   A.push('<g id="five-flush-gold-pads" fill="url(#gold)" stroke="#99845d" stroke-width="1.0">');
-  [[0,20,240,240],[960,20,240,240],[0,980,240,240],[960,980,240,240],[500,520,200,200]].forEach(([x,y,w,h])=>A.push(`<rect class="gold-perforated-area" x="${x}" y="${y}" width="${w}" height="${h}"/>`));
+  // Full plate corner pads: X/Y = [15,75] and [285,345] mm.
+  // Printable crop is physically X=[30,330], Y=[30,335] mm,
+  // so the four visible corner areas are exactly:
+  // rear left (0,0,180,200), rear right (1020,0,180,200),
+  // front left (0,1040,180,180), front right (1020,1040,180,180).
+  // Crucially both rear pads TOUCH y=0: no false silver stripe behind them.
+  const croppedGoldPads=[[0,0,180,200],[1020,0,180,200],
+                         [0,1040,180,180],[1020,1040,180,180],
+                         [500,520,200,200]];
+  croppedGoldPads.forEach(([x,y,w,h])=>A.push(`<rect class="gold-perforated-area" x="${x}" y="${y}" width="${w}" height="${h}"/>`));
   A.push('</g>');
   A.push('<g id="all-perforations-including-gold" fill="#314a59" stroke="#f5f9fc" stroke-width=".65">');
   for(let iy=0;iy<102;iy++)for(let ix=0;ix<100;ix++)A.push(`<circle cx="${6+12*ix}" cy="${6+12*iy}" r="2.9"/>`);
@@ -44,7 +56,12 @@ function generateSvgs(){
   P.push('<rect x="3" y="3" width="1434" height="1434" rx="19" fill="url(#metal)" stroke="#71899b" stroke-width="4"/>');
   P.push('<rect id="perforation-rectangle" x="56" y="64" width="1328" height="1316" fill="none" stroke="#94a8b5" stroke-width="2"/>');
   P.push('<g id="five-flush-gold-pads" fill="url(#gold)" stroke="#99845d" stroke-width="1.3">');
-  [[120,120,240,240],[1080,120,240,240],[120,1080,240,240],[1080,1080,240,240],[620,620,200,200]].forEach(([x,y,w,h])=>P.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`));
+  // The full 360 mm reference matches the 210 mm clear gap exactly:
+  // 15 mm outer margin + 60 mm pad + 210 mm gap + 60 mm pad + 15 mm = 360.
+  const physicalGoldPads=[[60,60,240,240],[1140,60,240,240],
+                          [60,1140,240,240],[1140,1140,240,240],
+                          [620,620,200,200]];
+  physicalGoldPads.forEach(([x,y,w,h])=>P.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`));
   P.push('</g><g id="all-perforations-including-gold" fill="#314a59" stroke="#f5f9fc" stroke-width=".65">');
   for(let fy=16.5;fy<=340.5;fy+=3)for(let fx=16.5;fx<=343.5;fx+=3)P.push(`<circle cx="${fx*4}" cy="${(360-fy)*4}" r="2.9"/>`);
   P.push('</g>');

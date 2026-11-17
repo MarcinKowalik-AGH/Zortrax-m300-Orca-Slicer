@@ -4,13 +4,13 @@
 <defs><linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#e6eef5"/><stop offset=".52" stop-color="#d4e0eb"/><stop offset="1" stop-color="#bacbd9"/></linearGradient>
 <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#dfcba0"/><stop offset=".5" stop-color="#c9b280"/><stop offset="1" stop-color="#b69c6c"/></linearGradient>
 <radialGradient id="bolt"><stop stop-color="#f7fbfc"/><stop offset=".55" stop-color="#a2b7c7"/><stop offset="1" stop-color="#758a99"/></radialGradient></defs>
-<desc>SVG shows only the real printable surface. Physical 360 mm surround is a separately installed STL. Corner pads are measured 60 x 60 mm and centre pad 50 x 50 mm. Pad locations near corners are inferred from user photograph.</desc>
+<desc>SVG is the true X=30..330, Y=30..335 mm crop of the 360 mm plate. Corner pads measure 60x60 mm; inner pad gap 210 mm in both axes. No silver strip appears between rear printable boundary and gold pads. Central gold pad is 50x50 mm.</desc>
 <rect id="full-bleed-opaque-base" x="0" y="0" width="1200" height="1220" fill="url(#metal)"/>
 <g id="five-flush-gold-pads" fill="url(#gold)" stroke="#99845d" stroke-width="1.0">
-<rect class="gold-perforated-area" x="0" y="20" width="240" height="240"/>
-<rect class="gold-perforated-area" x="960" y="20" width="240" height="240"/>
-<rect class="gold-perforated-area" x="0" y="980" width="240" height="240"/>
-<rect class="gold-perforated-area" x="960" y="980" width="240" height="240"/>
+<rect class="gold-perforated-area" x="0" y="0" width="180" height="200"/>
+<rect class="gold-perforated-area" x="1020" y="0" width="180" height="200"/>
+<rect class="gold-perforated-area" x="0" y="1040" width="180" height="180"/>
+<rect class="gold-perforated-area" x="1020" y="1040" width="180" height="180"/>
 <rect class="gold-perforated-area" x="500" y="520" width="200" height="200"/>
 </g>
 <g id="all-perforations-including-gold" fill="#314a59" stroke="#f5f9fc" stroke-width=".65">

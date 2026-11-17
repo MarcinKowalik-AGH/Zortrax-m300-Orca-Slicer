@@ -1,10 +1,12 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.9 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.10 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
 **This repository installs slicer profiles on the Mac only. It never updates the Orange Pi, Klipper, MCU, bootloader, UART, OLED or Fluidd.**
+
+**R7.10: measured 210 mm clear gap between the inner edges of the golden corner pads in both X and Y.** With 60 × 60 mm pads on a measured 360 × 360 mm sheet, their outer margins are exactly **15 mm on every side** (assuming symmetric placement). Corner-pad physical ranges are X/Y 15–75 mm and 285–345 mm. Orca's 300 × 305 mm printable SVG is cropped from the physical plate without rescaling: **the two rear golden pads touch the top of the visible print region (SVG y=0)**, eliminating the false silver stripe between the dark non-printable rim and the gold pads. The centre 50 × 50 mm pad is unchanged; Klipper, machine limits, STL and other print settings remain unchanged.
 
 **R7.9: corrected perimeter screw geometry and honest cache reporting.** The measured 360 mm plate model now places **16 hex-socket screws** on the outer flange, ~6 mm from the edges, on five approximately evenly spaced positions along each side (four corner screws counted only once). This replaces the R7.8 screws incorrectly positioned ~17 mm in from the actual edges. Heads now contain visibly recessed **hexagonal** sockets. The installer **does not delete Orca's compiled `system/Zortrax.opc` cache on an unchanged reinstall**, and logs the actual profile revision.
 

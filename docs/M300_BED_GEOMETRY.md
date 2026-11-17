@@ -10,8 +10,10 @@
 | Rear perforation margin | **16 mm** | operator-measured |
 | Perforated field | **332 × 329 mm** | calculated |
 | Four corner gold pads | **60 × 60 mm each** | operator-measured |
+| Gap between INNER pad edges (X and Y) | **210 × 210 mm** | operator-measured |
+| Symmetric corner pad inset from physical edges | **15 mm all around** | derived from 360 − 60 − 210 − 60 |
 | Centre gold pad | **50 × 50 mm** | operator-measured |
-| Exact pad locations relative to corners | 30 mm inset, approximately | **estimated from screenshot**, not measured |
+| Corner pad physical ranges | **15–75 mm and 285–345 mm on both axes** | derived from measured gap and centred symmetry |
 | Safe nozzle range in Klipper | X: 0…300, Y: 0…305 mm | user-confirmed |
 | Y=315 mm | service/head-cleaning travel, not print placement | out of scope |
 | STL physical metal thickness | **3.0 mm** | operator-requested |
@@ -46,6 +48,29 @@ The original photograph also includes some **larger empty mounting holes**, whic
 The [full-plate SVG drawing](Zortrax_M300_360mm_plate_layout.svg) shows the outer, non-printable margin with a 15% black overlay to communicate the desired appearance. **It is a reference drawing**, not the active SVG clipped to X=0…300, Y=0…305.
 
 In **stock OrcaSlicer 2.5**, the renderer hardcodes the appearance of external STL bed models using `Bed3D::DEFAULT_MODEL_COLOR` and the SVG is limited to the printable polygon. As a consequence, neither modifying a colorless STL nor enlarging the SVG viewBox can make the outside 360 mm metal zone exactly 15% darker than the bright central SVG. Achieving that requires a renderer change or a future native Orca feature. We keep the **functional X 0–300 / Y 0–305** print limits and do not misrepresent the shaded reference as a successful GUI change.
+
+## Corner-pad placement verified against measured 210 mm gaps (R7.10)
+
+The 360 mm sheet is treated as centred with four 60 mm square contact pads,
+separated by a measured 210 mm free gap between the **inner** edges in both axes.
+This leaves `(360−60−210−60)/2 = 15 mm` from each outer plate edge to the
+nearest gold contact pad. In physical coordinates from the front-left corner,
+the four pads occupy:
+- front-left X/Y 15…75 mm,
+- front-right X 285…345 / Y 15…75 mm,
+- rear-left X 15…75 / Y 285…345 mm,
+- rear-right X/Y 285…345 mm.
+
+The texture only shows the physically safe X=30…330, Y=30…335 mm crop, so:
+- the **rear** gold pads reach SVG `y=0`, with NO silver gap towards the dark
+  exterior STL strip,
+- the **front** pads reach `y=1220`,
+- the left/right pads touch `x=0/1200`, respectively,
+- centre 50 mm pad stays at SVG `(500,520)` with 200×200 SVG size.
+
+The actual 60 mm pad footprint outside the safe print envelope remains a part of
+the visually darker STL region and **does not** authorize any extra print travel.
+Physical `printable_area`, X 300, Y 305 and all Klipper limits are unchanged.
 
 ## Rendering model
 

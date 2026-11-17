@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "R7.9 visual-only update: sixteen hex-socket screws moved to approx 6mm from real metal edges at 6/93/180/267/354mm coordinates; 15% darker excluded-zone is documented in full-size reference SVG only because stock Orca 2.5 hardcodes STL model color. Native 140 JSON profile settings, 300x305 printable area, SVG crop, print settings, G-code and Klipper untouched. No-op installer no longer deletes cache.",
+  "scope": "R7.10: correct four gold corner pads using 210mm measured inner-edge spacing in X and Y. Four 60mm pads lie physically 15..75 or 285..345 mm; cropped to 300x305 print texture, rear gold pads contact y=0 without a silver gap. Centre pad stays 50mm. No STL, native 140 JSON profiles, 300x305 printable area, Klipper, G-code, print materials or other settings altered.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -143,7 +143,7 @@
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
     "Zortrax.json": "3bc51dc0fc89d4ecbcb9ef598ff0f13cef25ebb1daf0ce54cdc40d25dbe0e1d8"
   },
-  "current_revision": "R7.9",
+  "current_revision": "R7.10",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -186,7 +186,7 @@
   },
   "visual_asset": {
     "path": "Zortrax/model/Zortrax_M300_Classic_bed.svg",
-    "sha256": "77001e94b035d368cd76a3bee40effa595f6f71eb4f57dead70c7450f18d6817",
+    "sha256": "d720dfbe33a48668a103749c478d308aa609ef299b1367699b73c57d85c54feb",
     "format": "SVG",
     "width": 1200,
     "height": 1220,
@@ -204,7 +204,48 @@
     "printable_mm": [
       300,
       305
-    ]
+    ],
+    "corner_pad_inner_gap_mm": {
+      "x": 210,
+      "y": 210
+    },
+    "corner_pad_physical_bounds_mm": {
+      "low": [
+        15,
+        75
+      ],
+      "high": [
+        285,
+        345
+      ]
+    },
+    "cropped_corner_rects_px": [
+      [
+        0,
+        0,
+        180,
+        200
+      ],
+      [
+        1020,
+        0,
+        180,
+        200
+      ],
+      [
+        0,
+        1040,
+        180,
+        180
+      ],
+      [
+        1020,
+        1040,
+        180,
+        180
+      ]
+    ],
+    "rear_gold_reaches_print_texture_y0": true
   },
   "visual_model": {
     "generator": "tools/bed_geometry.py",

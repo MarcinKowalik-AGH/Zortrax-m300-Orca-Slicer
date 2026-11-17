@@ -1,5 +1,13 @@
 # Current release notes
 
+## R7.10 — gold pads with measured 210 mm inner gap; no rear white strip (17 November 2026)
+
+The operator measured a **210 mm free distance between inner edges** of the four 60 × 60 mm golden corner pads, on both X and Y. The pads are now symmetrically located 15 mm from the physical 360 mm sheet edges: X/Y 15…75 and 285…345 mm. This replaces screenshot-guessed pad offsets from R7.9. The 50 × 50 mm centre pad remains unchanged.
+
+The interactive `bed_custom_texture` is an exact 300 × 305 mm crop of the physical plate, not a scaled 360 mm image. The two **rear gold pads begin at texture `y=0`**. The false light/silver gap between the dark non-printable STL margin and the gold pads is eliminated. The reference full-bed SVG uses the same measured pad coordinates.
+
+No STL model, 16 perimeter Allen screws, 3 mm metal thickness, electrical connector, printing limits, 140 native system JSON profiles, Klipper, G-code or filament/process settings were changed. The request for a 15% lighter external STL area remains subject to the documented stock Orca 2.5 renderer limitation.
+
 ## R7.9 — perimeter Allen screws corrected; truthful no-op install (17 November 2026)
 
 Rectified the original Zortrax plate photo and compared it with the operator's screw close-ups. The prior 16 screw head centres were approximately 17 mm from metal edges, incorrectly placing them near the perforations. The physical outer border's screws are now drawn **~6 mm from the flange**, on five approximately equally spaced stations per outer side (16 unique screws total). A 24-facet circular head now has a **recessed, six-sided Allen socket** in the actual generated STL. Locations are photographic estimates, not caliper-measured hole coordinates.

@@ -75,6 +75,23 @@ class CurrentProfileTests(unittest.TestCase):
   grid=next(e for e in children if e.get('id')=='all-perforations-including-gold')
   self.assertEqual(len(pads),5)
   self.assertLess(children.index(pads),children.index(grid))
+  # 60mm pads with 210mm clear inner gap on the measured 360mm sheet.
+  # The SVG is the X=30..330, Y=30..335 printable crop; rear pads
+  # must touch y=0 with NO silver strip between gold and excluded metal.
+  coords=[tuple(float(p.get(a)) for a in ('x','y','width','height')) for p in pads]
+  self.assertEqual(coords,[(0,0,180,200),(1020,0,180,200),
+                           (0,1040,180,180),(1020,1040,180,180),
+                           (500,520,200,200)])
+  self.assertEqual(coords[0][1],0)
+  self.assertEqual(coords[1][1],0)
+  whole=ET.fromstring((ROOT/'docs/Zortrax_M300_360mm_plate_layout.svg').read_bytes())
+  group=next(g for g in whole if g.get('id')=='five-flush-gold-pads')
+  physical=[tuple(float(p.get(a)) for a in ('x','y','width','height')) for p in group]
+  self.assertEqual(physical,[(60,60,240,240),(1140,60,240,240),
+                             (60,1140,240,240),(1140,1140,240,240),
+                             (620,620,200,200)])
+  self.assertEqual((1140-60-240)/4,210) # physical X gap
+  self.assertEqual((1140-60-240)/4,210) # physical Y gap
   coords=[(float(c.get('cx')),float(c.get('cy'))) for c in grid]
   self.assertEqual(len(coords),10200)
   for pad in pads:

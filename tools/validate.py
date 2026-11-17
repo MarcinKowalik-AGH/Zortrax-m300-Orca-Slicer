@@ -14,7 +14,7 @@ def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
  assert ps==baseline['sha256'],'Preset bytes differ from the reviewed unchanged machine/filament/process data baseline'
- assert current['profile_revision']=='R7.9' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
+ assert current['profile_revision']=='R7.10' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
  bed_model=json.loads((root/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
  assert bed_model['bed_texture']=='model/Zortrax_M300_Classic_bed.svg'
@@ -42,6 +42,18 @@ def validate(root=ROOT):
  pads=next(e for e in children if e.get('id')=='five-flush-gold-pads')
  perforation_group=next(e for e in children if e.get('id')=='all-perforations-including-gold')
  assert len(pads)==5 and children.index(pads)<children.index(perforation_group)
+ cropped=[tuple(float(p.get(a)) for a in ('x','y','width','height')) for p in pads]
+ assert cropped==[(0,0,180,200),(1020,0,180,200),
+                  (0,1040,180,180),(1020,1040,180,180),
+                  (500,520,200,200)],'Pad geometry must be an exact print-safe crop'
+ assert cropped[0][1]==cropped[1][1]==0,'No silver strip behind rear pads'
+ physical_drawing=ET.fromstring((root/'docs/Zortrax_M300_360mm_plate_layout.svg').read_bytes())
+ physical_group=next(g for g in physical_drawing if g.get('id')=='five-flush-gold-pads')
+ physical_pads=[tuple(float(p.get(a)) for a in ('x','y','width','height')) for p in physical_group]
+ assert physical_pads==[(60,60,240,240),(1140,60,240,240),
+                       (60,1140,240,240),(1140,1140,240,240),
+                       (620,620,200,200)]
+ assert (1140-60-240)/4==210.0
  screw_groups=[e for e in drawing.iter(ns+'g') if e.get('class')=='allen-bolt']
  centre_collars=[e for e in children if e.get('class')=='centre-hole-free-collar']
  assert len(screw_groups)==2 and len(centre_collars)==2
