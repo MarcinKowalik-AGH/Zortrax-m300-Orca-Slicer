@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "All 140 current profile bytes and identities are unchanged; paths move from native_r7/ to profiles/.",
+  "scope": "Current R7.2 reviewed preset bytes; 12 PLA filament files differ from the R7.1 baseline ONLY in 7 first-layer temperature fields each (230C nozzle, 70C bed). Vendor index version/description updated. All other print parameters and preset identities are unchanged.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -22,10 +22,10 @@
     "Zortrax/filament/Generic PETG @Zortrax M300 0.3.json": "3b6469c1304f7b87f8be7881ca95e4a0f48b8e9834e1f0d8c22b8c505c0459a9",
     "Zortrax/filament/Generic PETG @Zortrax M300 0.4.json": "8ceaec87da0bfe618a8d72e47c1679c8b59aae76e77b36fa552f704ab4e5a5b7",
     "Zortrax/filament/Generic PETG @Zortrax M300 0.6.json": "e0095ae1230ec107778269066b7841cb89eb9b6f8fac16f37bded0f105a782d0",
-    "Zortrax/filament/Generic PLA @Zortrax M300 0.2.json": "00dae33e3d7cc38cac029b6f9b9fe56d6082a1852173550b7dcb663fe357800a",
-    "Zortrax/filament/Generic PLA @Zortrax M300 0.3.json": "8ceee2be82333c61bd4a173d045d0e286cbed79522c1b19952c267b75241886c",
-    "Zortrax/filament/Generic PLA @Zortrax M300 0.4.json": "cdacb1a2172d9d02bafbc1b20568e4e7a98f79eefab706a2ce2e0f93a2e39626",
-    "Zortrax/filament/Generic PLA @Zortrax M300 0.6.json": "84cd0574bd941af87ace15086ac4961e711b13b2dc60fe034c997b34625bc151",
+    "Zortrax/filament/Generic PLA @Zortrax M300 0.2.json": "669c721ad1c0d1c24ef49cdc1b249682f057f1d325f6ffd119c5f17bfa9b2904",
+    "Zortrax/filament/Generic PLA @Zortrax M300 0.3.json": "c621df2336df478a821c5e4f06b45407449f798383be9dec31268daf79f55345",
+    "Zortrax/filament/Generic PLA @Zortrax M300 0.4.json": "fae954282ee2bf69ebedd1055c3fd6d843239775427ee5ca95f41bcbeb7bcf2d",
+    "Zortrax/filament/Generic PLA @Zortrax M300 0.6.json": "d28a18d742c9bfe4eb347f3af8580013bfd04de74a9f41990ef4175346f3f0cf",
     "Zortrax/filament/Generic TPU @Zortrax M300 0.2.json": "66593e866191cc1fd4404ba5e816e19a1020e0f7611d4b3b710b13e26272909d",
     "Zortrax/filament/Generic TPU @Zortrax M300 0.3.json": "2fadc589861741164b84299854499f2a7471353c3fd66f95bd55fcd0f1eaf223",
     "Zortrax/filament/Generic TPU @Zortrax M300 0.4.json": "cd3ba7e5818b97aa9db84d90f614d2f67a8fe85ac748711cbbc12860746eb9f8",
@@ -86,14 +86,14 @@
     "Zortrax/filament/Z-PHA @Zortrax M300 0.3.json": "d2c2cdb7c6e9ea6455934b40672fd8228bfa443a97a9312052a52c0059387543",
     "Zortrax/filament/Z-PHA @Zortrax M300 0.4.json": "2b70123d892b31192284a70ba0f7a0a9d482c29294247a5db99d558b72ade735",
     "Zortrax/filament/Z-PHA @Zortrax M300 0.6.json": "2753fbd56865671281e1b57ca075db7feea49f85f76935d8bc96885e6d878acd",
-    "Zortrax/filament/Z-PLA @Zortrax M300 0.2.json": "dbf03fe2a5d6a280a31e6cd3300461a819c7b78104832ab139886c310b9b4f1f",
-    "Zortrax/filament/Z-PLA @Zortrax M300 0.3.json": "bb908e1b11284158149fca0329b3b4ac15519752e8d4fd6ebfb08deb76a2030c",
-    "Zortrax/filament/Z-PLA @Zortrax M300 0.4.json": "f77b40d7b95e7634f990c7f930da2db1f769f0e966770bb323208dc8d04828cc",
-    "Zortrax/filament/Z-PLA @Zortrax M300 0.6.json": "ff7514b2af58ad7b378a8503cef986dc51d4c519f50d7c552ce86041582864e4",
-    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.2.json": "098b88c1b991cca15c3bb72959dfe3f0e88e08072a82c5373d791abaa433a811",
-    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.3.json": "df0a97238f25e355274a342e3a5ee853350e919e991943f9d5c3bd31016edd51",
-    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.4.json": "b5419304a01acd455afab217657175c933d148b6491ff986d545c054e47a239e",
-    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.6.json": "ba8147ee5849a5584e922e713ea32aa47c0901af3c6d6473b337cd51aa5f39c5",
+    "Zortrax/filament/Z-PLA @Zortrax M300 0.2.json": "8917afb937f0272addb5d7c7a7200a40188822e69dfe6fb0fd8ad037ffde254c",
+    "Zortrax/filament/Z-PLA @Zortrax M300 0.3.json": "49033929ccfcdfdc2df77574d57bfd97fe41f513f6e0274ceab3e9f3cb8321e4",
+    "Zortrax/filament/Z-PLA @Zortrax M300 0.4.json": "e1c376a8e1fe90f6d5cb583745698ba87034c904c3330f79fabc163df200a2fe",
+    "Zortrax/filament/Z-PLA @Zortrax M300 0.6.json": "0789079149d57ead369856f794d6c3101a0ca33bd7048ea70f0d52d963d2c422",
+    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.2.json": "ece8f86501103ddc188e8594e19b22dda8df6ce10cf4e8e56a98d01502918530",
+    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.3.json": "55e225af7b5f6446e1c23a95e38d49653e5142d4096a80cbeab16e67c41a59bc",
+    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.4.json": "8486430193cb426f38cdf883c5cb71c1e71f10524c513fe2b261bece4ec3f3aa",
+    "Zortrax/filament/Z-PLA Pro @Zortrax M300 0.6.json": "540ea165888da669fa9e849a20c05388b0ad97b02328a771c5751ee3c74b2ecb",
     "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.2.json": "d53622bb3f129c4c55cd309cd322600d2ffabc2c2ac15fad07307944588cfd51",
     "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.3.json": "3688760367b431e3857192b715093be4abea072542b025cadccf7da75a211e33",
     "Zortrax/filament/Z-SEMIFLEX @Zortrax M300 0.4.json": "eb68e0ea22e787c30174b27ecc96ed6318fd09e2801a873cc4cdc229f5205ca0",
@@ -141,6 +141,24 @@
     "Zortrax/process/0.32mm Coarse @Zortrax M300 Classic 0.6 nozzle.json": "0b0fcca78667ff53fcd07458efa405b6b2d19afdf8857988e65ce1833e855ed9",
     "Zortrax/process/0.36mm Draft @Zortrax M300 Classic 0.6 nozzle.json": "8c7f065a4909573a05bea493f53965895c1f78ea20e594698888eea5ae6eb7c5",
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
-    "Zortrax.json": "232076549dc440c076b242ea55b1c329e8bba68d2190dbfb789126d8791e0919"
+    "Zortrax.json": "9e2291ec626b5ded7fc6e4df1d0568e3d20a4019dd2ee8c1c19759d342871f7b"
+  },
+  "current_revision": "R7.2",
+  "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
+  "first_layer_change": {
+    "materials": [
+      "Z-PLA",
+      "Z-PLA Pro",
+      "Generic PLA"
+    ],
+    "nozzles_mm": [
+      "0.2",
+      "0.3",
+      "0.4",
+      "0.6"
+    ],
+    "nozzle_c": 230,
+    "bed_c": 70,
+    "modified_filament_profiles": 12
   }
 }
