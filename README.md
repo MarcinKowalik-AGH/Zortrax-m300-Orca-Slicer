@@ -1,14 +1,18 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.6 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.7 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
 **This repository installs slicer profiles on the Mac only. It never updates the Orange Pi, Klipper, MCU, bootloader, UART, OLED or Fluidd.**
 
-**R7.6: corrected full-resolution, mathematically precise M300 build plate.** A full-bleed opaque SVG contains **12,100 evenly spaced circular holes**, including holes on **all five flush golden pads**; the silver border and perforated sheet share one flat plane. All **18 bolts use hex/Allen sockets**; the two middle bolts have solid non-perforated collars. No bitmap screenshot or artificial recess. The existing installer places the SVG in `bed_custom_texture` for every 0.2/0.3/0.4/0.6 mm nozzle variant. The **300×300 mm printable area**, print settings and Klipper are unchanged.
+**R7.7 — measured Zortrax M300 physical bed, safe print area unchanged in Klipper.** The actual build plate is **360 × 360 mm**, with a **332 × 329 mm** perforated region (14 mm margins left/right; 15 mm front and 16 mm rear). The gold contact pads measure **60 × 60 mm** in the corners and **50 × 50 mm** in the centre. Their *positions* are estimated from the provided photograph, while their sizes and the bed margins are measured.
 
-**Side margins:** R7.5 accidentally left transparent image pixels, now removed. OrcaSlicer can still display its **own** gridded workspace *outside* the printable square. To hide the gridlines use **View → Show Gridlines** (off); the SVG cannot paint outside the 300×300 mm square. Never enlarge the printable area to hide a UI background.
+**Orca print placement is precisely X=0…300 mm and Y=0…305 mm.** Relative to the centre of the real plate, X spans −150…+150 mm and Y spans **−150…+155 mm**. The 360 mm plate therefore extends 30 mm past the print area on each X side, 30 mm in front and 25 mm behind. The separate STL makes the physical surround visible outside the print polygon, including regular perforations in the surround and hex-socket frame screws. A cropped, precisely regular SVG supplies gold pads, perforations and two central screw collars *inside* the printable region. Orca's *Model* and *Texture* settings are separate; the Mac installer creates both assets and assigns their absolute paths for each nozzle variant.
+
+[**View the measured 360 mm plate with the true 300 × 305 mm limit**](docs/Zortrax_M300_360mm_plate_layout.svg) · [Dimensions and coordinate transform](docs/M300_BED_GEOMETRY.md)
+
+**No Klipper/Orange Pi/MCU or firmware changes.** The printer's service travel towards Y=315 is deliberately outside Orca's 305 mm printable limit. All printing, temperature, start/end G-code, mesh and process settings are preserved. The one slicer-geometry correction is the Y printable bound, previously entered as 300 mm in the four Orca nozzle JSON files, now 305 mm.
 
 ## Install on macOS — first-time installation or update
 

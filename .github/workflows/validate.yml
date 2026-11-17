@@ -64,9 +64,13 @@ jobs:
           for nozzle in ('0.2','0.3','0.4','0.6'):
               machine=json.loads((cfg/'system/Zortrax/machine'/('Zortrax M300 Classic '+nozzle+' nozzle.json')).read_text())
               custom_texture=Path(machine['bed_custom_texture'])
+              custom_model=Path(machine['bed_custom_model'])
               assert custom_texture.is_file()
+              assert custom_model.is_file()
+              assert custom_model.read_bytes().startswith(b'Zortrax M300 Classic')
+              assert machine['printable_area']==['0x0','300x0','300x305','0x305']
               assert custom_texture.resolve()==(cfg/'vendor/Zortrax/model/Zortrax_M300_Classic_bed.svg').resolve()
-          print('PASS: all 4 installed M300 variants refer to the existing SVG')
+          print('PASS: all 4 M300 variants have true 300x305 placement limits and a 360mm physical STL bed')
           PY
           # Disposable CI GUI only, never the user's Orca process.
           timeout --kill-after=5s 105s xvfb-run -a bash -c '"$RUNNER_TEMP/orca/squashfs-root/AppRun" --datadir "$PWD/out/gui" --debug 5 > out/gui-console.log 2>&1 & pid=$!; sleep 55; xdotool mousemove 197 165 click 1 || true; sleep 10; scrot out/gui-loader.png || true; kill "$pid" 2>/dev/null || true; sleep 2; kill -KILL "$pid" 2>/dev/null || true; wait "$pid" || true' || true

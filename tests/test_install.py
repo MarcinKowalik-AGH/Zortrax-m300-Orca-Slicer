@@ -37,27 +37,36 @@ class R7InstallTests(unittest.TestCase):
  def test_bed_texture_is_installed_and_reversible(self):
   asset='vendor/Zortrax/model/Zortrax_M300_Classic_bed.svg'
   absolute=str((self.root/asset).resolve())
+  model_asset='vendor/Zortrax/model/Zortrax_M300_Classic_visual_bed_360mm.stl'
+  abs_model=str((self.root/model_asset).resolve())
   plan=m.install_plan(self.root,self.source)
   self.assertIn(asset,plan['writes'])
+  self.assertIn(model_asset,plan['writes'])
+  self.assertEqual(plan['writes'][model_asset][:19],b'Zortrax M300 Classic')
   # Orca's Bed Shape dialog reads bed_custom_texture from the selected
   # nozzle printer preset, not bed_texture from the common model metadata.
   for d in ('0.2','0.3','0.4','0.6'):
    rel='system/Zortrax/machine/Zortrax M300 Classic '+d+' nozzle.json'
    obj=json.loads(plan['writes'][rel])
    self.assertEqual(obj['bed_custom_texture'],absolute)
+   self.assertEqual(obj['bed_custom_model'],abs_model)
    self.assertTrue(Path(obj['bed_custom_texture']).is_absolute())
    self.assertEqual(m.read(self.source/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json'))['bed_custom_texture'],'')
   backup=m.apply(plan)
   self.assertTrue((self.root/asset).read_bytes().startswith(b'<?xml'))
+  self.assertTrue((self.root/model_asset).read_bytes().startswith(b'Zortrax M300 Classic'))
   model=m.read(self.root/'system/Zortrax/machine/Zortrax M300 Classic.json')
   self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.svg')
   for d in ('0.2','0.3','0.4','0.6'):
    obj=m.read(self.root/'system'/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json'))
    self.assertEqual(obj['bed_custom_texture'],absolute)
    self.assertTrue(Path(obj['bed_custom_texture']).is_file())
+   self.assertEqual(obj['bed_custom_model'],abs_model)
+   self.assertTrue(Path(obj['bed_custom_model']).is_file())
   self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
   m.restore(backup)
   self.assertFalse((self.root/asset).exists())
+  self.assertFalse((self.root/model_asset).exists())
   for d in ('0.2','0.3','0.4','0.6'):
    self.assertFalse((self.root/'system'/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json')).exists())
  def test_idempotent(self):

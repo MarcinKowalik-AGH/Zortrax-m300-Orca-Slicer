@@ -4,12 +4,13 @@ import hashlib,json,re,xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import unquote
 from catalog import build
+from bed_geometry import PHYSICAL_MM,PRINTABLE_MM,PRINTABLE_PHYSICAL_BOUNDS_MM,PERFORATED_PHYSICAL_BOUNDS_MM,generate_visual_stl
 ROOT=Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
  assert ps==baseline['sha256'],'Preset bytes differ from the reviewed unchanged machine/filament/process data baseline'
- assert current['profile_revision']=='R7.6' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
+ assert current['profile_revision']=='R7.7' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
  bed_model=json.loads((root/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
  assert bed_model['bed_texture']=='model/Zortrax_M300_Classic_bed.svg'
@@ -19,28 +20,37 @@ def validate(root=ROOT):
  assert len(data)>100000 and hashlib.sha256(data).hexdigest()==baseline['visual_asset']['sha256']
  drawing=ET.fromstring(data)
  assert drawing.tag=='{http://www.w3.org/2000/svg}svg'
- assert (drawing.get('width'),drawing.get('height'),drawing.get('viewBox'))==('1200','1200','0 0 1200 1200')
+ assert (drawing.get('width'),drawing.get('height'),drawing.get('viewBox'))==('1200','1220','0 0 1200 1220')
  ns='{http://www.w3.org/2000/svg}'
- holes=[e for e in drawing.iter(ns+'circle') if e.get('r')=='2.15']
- assert len(holes)==12100,'SVG must contain exactly 12100 circular perforations'
+ holes=[e for e in drawing.iter(ns+'circle') if e.get('r')=='2.9']
+ assert len(holes)==10200,'SVG must contain exactly 10200 circular perforations'
  xs=sorted({float(e.get('cx')) for e in holes})
  ys=sorted({float(e.get('cy')) for e in holes})
- assert len(xs)==110 and len(ys)==110 and len(xs)*len(ys)==len(holes)
- assert all(abs(xs[i+1]-xs[i]-9.6)<1e-7 for i in range(len(xs)-1))
- assert all(abs(ys[i+1]-ys[i]-9.6)<1e-7 for i in range(len(ys)-1))
+ assert len(xs)==100 and len(ys)==102 and len(xs)*len(ys)==len(holes)
+ assert all(abs(xs[i+1]-xs[i]-12.0)<1e-7 for i in range(len(xs)-1))
+ assert all(abs(ys[i+1]-ys[i]-12.0)<1e-7 for i in range(len(ys)-1))
 
  # Gold rectangles must be under the one continuous field of holes, so the
  # perforations stay visible on silver and on all five flush contact pads.
  children=list(drawing)
  background=next(e for e in children if e.get('id')=='full-bleed-opaque-base')
- assert tuple(background.get(k) for k in ('x','y','width','height'))==('0','0','1200','1200')
+ assert tuple(background.get(k) for k in ('x','y','width','height'))==('0','0','1200','1220')
  pads=next(e for e in children if e.get('id')=='five-flush-gold-pads')
  perforation_group=next(e for e in children if e.get('id')=='all-perforations-including-gold')
  assert len(pads)==5 and children.index(pads)<children.index(perforation_group)
  screw_groups=[e for e in drawing.iter(ns+'g') if e.get('class')=='allen-bolt']
  centre_collars=[e for e in children if e.get('class')=='centre-hole-free-collar']
- assert len(screw_groups)==18 and len(centre_collars)==2
+ assert len(screw_groups)==2 and len(centre_collars)==2
  assert all(children.index(e)>children.index(perforation_group) for e in centre_collars)
+
+ assert PHYSICAL_MM==(360.,360.) and PRINTABLE_MM==(300.,305.)
+ assert PRINTABLE_PHYSICAL_BOUNDS_MM==(30.,330.,30.,335.)
+ assert PERFORATED_PHYSICAL_BOUNDS_MM==(14.,346.,15.,344.)
+ mesh=generate_visual_stl()
+ assert mesh.startswith(b'Zortrax M300 Classic')
+ assert 1_000_000<len(mesh)<12_000_000 and len(mesh)==84+50*int.from_bytes(mesh[80:84],'little')
+ guide=ET.fromstring((root/'docs/Zortrax_M300_360mm_plate_layout.svg').read_bytes())
+ assert any(e.get('id')=='actual-printable-area-300x305' for e in guide.iter())
  names=set();settings=set();machines={};processes={};filaments={}
  for key,kind in [('machine_model_list','machine_model'),('machine_list','machine'),('process_list','process'),('filament_list','filament')]:
   for entry in v[key]:
@@ -55,7 +65,9 @@ def validate(root=ROOT):
    if kind=='filament':filaments[obj['name']]=obj
  for m in machines.values():
   # Repository remains portable; install.py populates an absolute Mac path.
-  assert m['bed_custom_texture']==''
+  assert m['bed_custom_texture']=='' and m['bed_custom_model']==''
+  # Measured safe envelope and actual plate are intentionally different.
+  assert m['printable_area']==['0x0','300x0','300x305','0x305']
   d=m['printer_variant'];assert d in ('0.2','0.3','0.4','0.6') and m['nozzle_diameter']==[d]
   assert m['printer_model']=='Zortrax M300 Classic' and m['use_relative_e_distances']=='1'
   assert m['machine_end_gcode'].strip()=='END_PRINT' and m['machine_pause_gcode'].strip()=='PAUSE'
@@ -110,5 +122,5 @@ def validate(root=ROOT):
  assert not any((root/p).exists() for p in forbidden),'Obsolete distribution remains'
  assert not list(root.rglob('*_PL.md')) and not list(root.rglob('*.orca_printer'))
  assert not any(p.suffix.lower() in ('.ttf','.otf','.woff','.woff2','.dll','.exe') for p in root.rglob('*'))
- return {'status':'PASS','profile_revision':current['profile_revision'],'profile_json_files':len(ps),'model_count':1,'machine_count':len(machines),'process_count':len(processes),'filament_count':len(filaments),'source_rows':len(tables['mapped']),'profile_bytes_unchanged':False,'native_bed_texture_present':True,'pla_first_layer_profiles_updated':12,'later_layer_temperatures_unchanged_for_PLA':True,'bed_floor_profiles_updated':12,'higher_bed_temperatures_preserved':True,'host_access':False}
+ return {'status':'PASS','physical_bed_mm':[360,360],'printable_area_mm':[300,305],'host_unchanged':True,'profile_revision':current['profile_revision'],'profile_json_files':len(ps),'model_count':1,'machine_count':len(machines),'process_count':len(processes),'filament_count':len(filaments),'source_rows':len(tables['mapped']),'profile_bytes_unchanged':False,'native_bed_texture_present':True,'pla_first_layer_profiles_updated':12,'later_layer_temperatures_unchanged_for_PLA':True,'bed_floor_profiles_updated':12,'higher_bed_temperatures_preserved':True,'host_access':False}
 if __name__=='__main__':print(json.dumps(validate(),indent=2))

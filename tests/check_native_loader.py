@@ -24,6 +24,7 @@ def check(source,gui):
  # profiles. The Bed Shape dialog uses an absolute bed_custom_texture filename.
  texture_files=[]
  texture_paths_valid=True
+ model_paths_valid=True
  for d in ('0.2','0.3','0.4','0.6'):
   preset_path=gui/'system/Zortrax/machine'/('Zortrax M300 Classic '+d+' nozzle.json')
   try:
@@ -33,15 +34,21 @@ def check(source,gui):
          and filename.resolve()==(gui/'vendor/Zortrax/model/Zortrax_M300_Classic_bed.svg').resolve()
          and filename.read_bytes().startswith(b'<?xml'))
    texture_paths_valid &= bool(good)
-   texture_files.append({'nozzle':d,'path':str(filename),'valid':bool(good)})
+   model_file=Path(machine['bed_custom_model'])
+   model_good=(model_file.is_absolute() and model_file.is_file()
+       and model_file.resolve()==(gui/'vendor/Zortrax/model/Zortrax_M300_Classic_visual_bed_360mm.stl').resolve()
+       and model_file.read_bytes().startswith(b'Zortrax M300 Classic'))
+   model_paths_valid &= bool(model_good)
+   texture_files.append({'nozzle':d,'path':str(filename),'valid':bool(good),'model_valid':bool(model_good)})
   except (OSError,ValueError,KeyError,TypeError):
    texture_paths_valid=False
+   model_paths_valid=False
    texture_files.append({'nozzle':d,'valid':False})
- result={'native_loader_pass':not(missing_process or missing_filaments or missing_machines or errors) and bool(selected) and cache.is_file() and cache.stat().st_size>1000 and texture_paths_valid,
+ result={'native_loader_pass':not(missing_process or missing_filaments or missing_machines or errors) and bool(selected) and cache.is_file() and cache.stat().st_size>1000 and texture_paths_valid and model_paths_valid,
   'registered_processes':len(expected['process_list']&registered),'registered_filaments':len(expected['filament_list']&registered),
   'visible_machine_variants':len(expected['machine_list']&visible),'selected_native_machine':selected[-1] if selected else None,
   'missing_processes':missing_process,'missing_filaments':missing_filaments,'missing_machine_variants':missing_machines,
-  'native_errors':errors,'cache_generated':cache.is_file(),'bed_texture_paths_valid':texture_paths_valid,'bed_texture_variants':texture_files,'actual_gui_platform':'Linux Xvfb','mac_user_install_test':False}
+  'native_errors':errors,'cache_generated':cache.is_file(),'bed_texture_paths_valid':texture_paths_valid,'bed_model_paths_valid':model_paths_valid,'bed_texture_variants':texture_files,'actual_gui_platform':'Linux Xvfb','mac_user_install_test':False}
  return result
 
 if __name__=='__main__':

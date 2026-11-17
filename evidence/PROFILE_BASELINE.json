@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "R7.6 artwork review; the 140 JSON printer, process and filament files remain byte-identical to R7.5 baseline; SVG appearance is the only build-plate change.",
+  "scope": "R7.7: physical 360x360 mm STL surround is generated on the Mac; only the 4 M300 printer JSON printable_area upper-Y corners increase from 300 to confirmed safe 305 mm. The 136 other JSON profiles, filament temperatures, processes, start G-code, Klipper host and MCU remain unchanged.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -106,10 +106,10 @@
     "Zortrax/filament/Z-ULTRAT Plus @Zortrax M300 0.3.json": "e2fb9cfb3f8741ccd4f24239cbae52676efc6f50dd344e5687c545a390cf0339",
     "Zortrax/filament/Z-ULTRAT Plus @Zortrax M300 0.4.json": "d0d7866d9f81f0954d05c6c07ebd3d65f95501529a97cd4afc5f635207325ad7",
     "Zortrax/filament/Z-ULTRAT Plus @Zortrax M300 0.6.json": "06039c0e1e4edeacf8e6600fe87a776c94eb30fd8b2eded1cb63ce4c12603382",
-    "Zortrax/machine/Zortrax M300 Classic 0.2 nozzle.json": "8dd96b98751b16d1a07a3ac334ca5dda1960d275b106d988ac08bbdab5507a12",
-    "Zortrax/machine/Zortrax M300 Classic 0.3 nozzle.json": "20712c1962efc6f92bea0f93d29fae3699a923781f5abeadfe5d458793b85e4d",
-    "Zortrax/machine/Zortrax M300 Classic 0.4 nozzle.json": "1a6133e539163924109424c51e7ee583501cad135cbae41aba6e16f697d7c512",
-    "Zortrax/machine/Zortrax M300 Classic 0.6 nozzle.json": "28f6b114a8c3a9faab05328042d70e97973b862befa87c2eefd766364866580c",
+    "Zortrax/machine/Zortrax M300 Classic 0.2 nozzle.json": "394e7874d1385262af7682a31170b32ab75bb2a91ac7bc520d0a8132a2296c97",
+    "Zortrax/machine/Zortrax M300 Classic 0.3 nozzle.json": "b281306308c4351fec21175c8cf0858dde730323dbf47e3fc2c702c7eab21f08",
+    "Zortrax/machine/Zortrax M300 Classic 0.4 nozzle.json": "f39507f094bad8b46d295197e64b945cf1d7759dc23118656326b05d37725c2f",
+    "Zortrax/machine/Zortrax M300 Classic 0.6 nozzle.json": "abf5b13790c18e70ceb4086f5ba0cb56f80d80de11ddbe2a5fd344e6f4fce32a",
     "Zortrax/machine/Zortrax M300 Classic.json": "42d9fc88ddadbbc9c628f3b3170fc757531e0160f66731d4ee0dca00b58a67b8",
     "Zortrax/process/0.06mm Fine @Zortrax M300 Classic 0.2 nozzle.json": "68facaf1d9b8c39f5b053ee2aaeac4521153188a93027a6889c55f41cbb62a60",
     "Zortrax/process/0.08mm SuperDetail @Zortrax M300 Classic 0.2 nozzle.json": "b85f3aee4e50b2df6b5f57e0ef7d9365fe56d5ca404e1a6ead2986d752c350ed",
@@ -143,7 +143,7 @@
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
     "Zortrax.json": "3bc51dc0fc89d4ecbcb9ef598ff0f13cef25ebb1daf0ce54cdc40d25dbe0e1d8"
   },
-  "current_revision": "R7.6",
+  "current_revision": "R7.7",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -186,16 +186,37 @@
   },
   "visual_asset": {
     "path": "Zortrax/model/Zortrax_M300_Classic_bed.svg",
-    "sha256": "3c6b4a2f33663cf37a2b6e9848ba6339fa1cedcaf798375b3ec1fc7c809ed922",
+    "sha256": "77001e94b035d368cd76a3bee40effa595f6f71eb4f57dead70c7450f18d6817",
     "format": "SVG",
     "width": 1200,
-    "height": 1200,
-    "hole_radius": 2.15,
-    "hole_pitch": 9.6,
-    "holes": 12100,
+    "height": 1220,
+    "hole_radius": 2.9,
+    "hole_pitch": 12,
+    "holes": 10200,
     "gold_pads": 5,
-    "allen_bolts": 18,
+    "allen_bolts": 2,
     "center_bolt_hole_free_collars": 2,
-    "opaque_full_bleed": true
+    "opaque_full_bleed": true,
+    "physical_bed_mm": [
+      360,
+      360
+    ],
+    "printable_mm": [
+      300,
+      305
+    ]
+  },
+  "visual_model": {
+    "generator": "tools/bed_geometry.py",
+    "format": "binary STL, generated locally during profile installation",
+    "physical_bed_mm": [
+      360,
+      360
+    ],
+    "visual_perforation_outer_field_mm": [
+      332,
+      329
+    ],
+    "read_from_host": false
   }
 }

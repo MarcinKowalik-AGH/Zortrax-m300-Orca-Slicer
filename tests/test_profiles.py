@@ -1,5 +1,5 @@
 """Current profile/source/table contracts. No printer connection."""
-import json,unittest,sys,xml.etree.ElementTree as ET
+import json,unittest,sys,struct,xml.etree.ElementTree as ET
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tools'))
 from catalog import build
@@ -57,35 +57,68 @@ class CurrentProfileTests(unittest.TestCase):
   self.assertTrue(asset.is_file())
   drawing=ET.fromstring(asset.read_bytes())
   self.assertEqual(drawing.tag,'{http://www.w3.org/2000/svg}svg')
-  circles=[e for e in drawing.iter('{http://www.w3.org/2000/svg}circle') if e.get('r')=='2.15']
-  self.assertEqual(len(circles),12100)
+  circles=[e for e in drawing.iter('{http://www.w3.org/2000/svg}circle') if e.get('r')=='2.9']
+  self.assertEqual(len(circles),10200)
   xs=sorted({float(e.get('cx')) for e in circles})
   ys=sorted({float(e.get('cy')) for e in circles})
-  self.assertEqual((len(xs),len(ys)),(110,110))
-  self.assertTrue(all(abs(xs[i+1]-xs[i]-9.6)<1e-8 for i in range(len(xs)-1)))
-  self.assertTrue(all(abs(ys[i+1]-ys[i]-9.6)<1e-8 for i in range(len(ys)-1)))
+  self.assertEqual((len(xs),len(ys)),(100,102))
+  self.assertTrue(all(abs(xs[i+1]-xs[i]-12)<1e-8 for i in range(len(xs)-1)))
+  self.assertTrue(all(abs(ys[i+1]-ys[i]-12)<1e-8 for i in range(len(ys)-1)))
  def test_bed_texture_gold_pads_hex_and_full_bleed(self):
   ns='{http://www.w3.org/2000/svg}'
   svg=ET.fromstring((ROOT/'profiles/Zortrax/model/Zortrax_M300_Classic_bed.svg').read_bytes())
   children=list(svg)
   base=next(e for e in children if e.get('id')=='full-bleed-opaque-base')
-  self.assertEqual(tuple(base.get(k) for k in ('x','y','width','height')),('0','0','1200','1200'))
-  self.assertEqual(base.get('fill'),'#c3d2de')
+  self.assertEqual(tuple(base.get(k) for k in ('x','y','width','height')),('0','0','1200','1220'))
+  self.assertEqual(base.get('fill'),'url(#metal)')
   pads=next(e for e in children if e.get('id')=='five-flush-gold-pads')
   grid=next(e for e in children if e.get('id')=='all-perforations-including-gold')
   self.assertEqual(len(pads),5)
   self.assertLess(children.index(pads),children.index(grid))
   coords=[(float(c.get('cx')),float(c.get('cy'))) for c in grid]
-  self.assertEqual(len(coords),12100)
+  self.assertEqual(len(coords),10200)
   for pad in pads:
    x,y,w,h=(float(pad.get(k)) for k in ('x','y','width','height'))
    self.assertGreater(sum(x<cx<x+w and y<cy<y+h for cx,cy in coords),200)
   bolts=[g for g in svg.iter(ns+'g') if g.get('class')=='allen-bolt']
   collars=[g for g in svg.iter(ns+'g') if g.get('class')=='centre-hole-free-collar']
-  self.assertEqual(len(bolts),18)
+  self.assertEqual(len(bolts),2)
   self.assertEqual(len(collars),2)
   self.assertTrue(all(len([e for e in g if e.tag==ns+'path' and ' L' in e.get('d','')])==1 for g in bolts))
   self.assertTrue(all(children.index(g)>children.index(grid) for g in collars))
+
+ def test_measured_360mm_visual_bed_and_300x305_printable_limit(self):
+  from tools.bed_geometry import (
+   PHYSICAL_MM,PRINTABLE_MM,PRINTABLE_PHYSICAL_BOUNDS_MM,
+   PERFORATED_PHYSICAL_BOUNDS_MM,PAD_CORNER_MM,PAD_CENTRE_MM,
+   generate_visual_stl)
+  self.assertEqual(PHYSICAL_MM,(360.,360.))
+  self.assertEqual(PRINTABLE_MM,(300.,305.))
+  self.assertEqual(PRINTABLE_PHYSICAL_BOUNDS_MM,(30.,330.,30.,335.))
+  self.assertEqual(PERFORATED_PHYSICAL_BOUNDS_MM,(14.,346.,15.,344.))
+  self.assertEqual(PAD_CORNER_MM,(60.,60.))
+  self.assertEqual(PAD_CENTRE_MM,(50.,50.))
+  for d in ('0.2','0.3','0.4','0.6'):
+   m=json.loads((ROOT/'profiles/Zortrax/machine'/('Zortrax M300 Classic '+d+' nozzle.json')).read_text())
+   self.assertEqual(m['printable_area'],['0x0','300x0','300x305','0x305'])
+   self.assertEqual(m['bed_custom_model'],'')
+   self.assertEqual(m['bed_custom_texture'],'')
+  data=generate_visual_stl()
+  self.assertTrue(data.startswith(b'Zortrax M300 Classic'))
+  count=struct.unpack_from('<I',data,80)[0]
+  self.assertEqual(len(data),84+50*count)
+  self.assertGreater(count,40000)
+  # In the local STL coordinates the real 360x360 bed is centred 2.5 mm
+  # toward the front of the 300x305 printable rectangle.
+  vertices=(v for tri in struct.iter_unpack('<12fH',data[84:])
+             for v in (tri[3:6],tri[6:9],tri[9:12]))
+  xs=[];ys=[]
+  for vertex in vertices:
+   xs.append(vertex[0]);ys.append(vertex[1])
+  self.assertAlmostEqual(min(xs),-180.,places=3)
+  self.assertAlmostEqual(max(xs),180.,places=3)
+  self.assertAlmostEqual(min(ys),-182.5,places=3)
+  self.assertAlmostEqual(max(ys),177.5,places=3)
  def test_profile_names_preserved(self):
   self.assertTrue(any(e['name']=='Z-PLA Pro @Zortrax M300 0.4' for e in self.vendor['filament_list']));self.assertTrue(any(e['name']=='0.20mm Standard @Zortrax M300 Classic 0.4 nozzle' for e in self.vendor['process_list']))
 if __name__=='__main__':unittest.main()

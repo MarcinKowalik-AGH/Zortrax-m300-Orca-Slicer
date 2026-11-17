@@ -32,11 +32,15 @@ The installer validates the target environment and creates a reversible backup. 
 
 ## Automatic Zortrax M300 bed appearance
 
-**R7.6** is an opaque, full-bleed **vector SVG**, not an enlarged screenshot: `Zortrax_M300_Classic_bed.svg`. It contains **12,100 regular circular perforations** that remain visible on **all five gold pads**, a flat (non-recessed) silver surround, **18 Allen/hex fasteners**, and hole-free rings around the two centre bolts. The updated opacity hides the default Orca layer **inside the 300×300 mm texture**.
+**R7.7 measured physical bed**: 360 × 360 mm. The perforated field is 332 × 329 mm, inset 14 mm at each X edge, 15 mm at the front and 16 mm at the rear. The four corner pads are 60 × 60 mm and the central gold pad is 50 × 50 mm. Gold pad *locations*, distinct from their measured sizes, are estimated from the screenshot. The source for the real-scale diagram is [here](../docs/Zortrax_M300_360mm_plate_layout.svg); the complete coordinate derivation is [here](M300_BED_GEOMETRY.md).
 
-The installer copies the SVG to `$HOME/Library/Application Support/OrcaSlicer/vendor/Zortrax/model/`, then writes the Mac's **absolute SVG path into `bed_custom_texture`** on all four installed printer variants. The source JSONs remain portable. **Quit Orca fully (Cmd+Q), update and reinstall, then restart it.** In the selected **system** printer profile, open **Printer settings → Printable area → Set… → Bed Shape**; the **Texture** field should show `Zortrax_M300_Classic_bed.svg`. If it still says `None`, check whether an older user-saved printer was selected.
+**Two independent visual assets**, both assigned automatically by `python3 install.py --apply`:
+- `bed_custom_texture`: an opaque, perforated **SVG cropped precisely to the 300 × 305 mm print region**. It shows five perforated gold pads and two centre Allen screws with hole-free collars.
+- `bed_custom_model`: a generated binary **STL of the *outer physical 360 mm metal surround***, with perforations and 16 outer frame Allen screws. The installer uses only Python's standard library via `tools/bed_geometry.py`, writes the STL to `$HOME/Library/Application Support/OrcaSlicer/vendor/Zortrax/model/`, then sets its absolute Mac pathname in all four installed M300 printer variants. No Node.js, CAD software or manual STL loading is needed on the Mac.
 
-**The black grid beyond the printable 300×300 mm square belongs to OrcaSlicer**, not to the SVG. An SVG cannot paint outside the defined printable area. You can switch off grid lines in **View → Show Gridlines**; the remaining workspace background is controlled by Orca itself. Do not change `printable_area` just to hide the UI. Machine geometry, slicing, G-code, Orca global settings and Klipper are unchanged.
+**Effective print area** remains X=0…300 mm; the previously too-small Orca Y upper boundary is corrected to **Y=305 mm**. The actual physical metal lies X=−30…330 mm, Y=−30…330 mm; this does **not** authorize nozzle movement beyond the host's known safe limits. Y=315 remains service-only and not a slicer permission. `bed_mesh_max`, Klipper settings, nozzle temperatures, motion constraints, G-code, start/end macros and unrelated machine profiles are untouched.
+
+After `git pull` and the macOS installer, fully close and reopen OrcaSlicer. Select a **system** `Zortrax M300 Classic <diameter> nozzle` variant and inspect **Printer settings → Printable area → Set… → Bed Shape**. The Texture should point at the SVG and Model at the generated STL. The printed part must still be constrained to 300 × 305 mm, while the surrounding non-printable plate is visible outside it. A saved user-cloned printer can override the system preset; check the actual selected profile.
 
 ## 3. Enable and select the model
 

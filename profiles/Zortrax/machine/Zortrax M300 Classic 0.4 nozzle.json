@@ -178,8 +178,8 @@
   "printable_area": [
     "0x0",
     "300x0",
-    "300x300",
-    "0x300"
+    "300x305",
+    "0x305"
   ],
   "printable_height": "300",
   "printer_agent": "orca",

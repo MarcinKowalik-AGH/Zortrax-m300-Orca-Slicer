@@ -1,75 +1,65 @@
 #!/usr/bin/env node
-// Deterministic source for the R7.6 M300 Classic vector bed texture.
-// Top-view appearance only; never change the functional 300x300 printable area.
 'use strict';
+// Deterministic physical-layout and printable-crop vector art.
+// Requires Node.js only for manual regeneration, NOT for Mac installation.
 const fs=require('node:fs');
 const path=require('node:path');
-function generateSvg() {
-  const out=[];
-  const a=s=>out.push(s);
-  a('<?xml version="1.0" encoding="UTF-8"?>');
-  a('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">');
-  a('<title>Zortrax M300 Classic — flat perforated build plate with Allen bolts</title>');
-  a('<desc>Opaque, full-bleed top view. Five flush gold perforated areas, 12100 circular holes on one orthogonal lattice, sixteen frame hex-socket bolts and two centre bolts with solid hole-free collars.</desc>');
-  a('<defs>');
-  a(' <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e6eef5"/><stop offset="52%" stop-color="#d4e0eb"/><stop offset="100%" stop-color="#bacbd9"/></linearGradient>');
-  a(' <linearGradient id="gold" x1="0%" y1="0%" x2="88%" y2="100%"><stop offset="0%" stop-color="#deca9a"/><stop offset="45%" stop-color="#c7b17f"/><stop offset="100%" stop-color="#b59c6a"/></linearGradient>');
-  a(' <radialGradient id="bolt" cx="30%" cy="24%" r="86%"><stop offset="0%" stop-color="#f5f9fc"/><stop offset="55%" stop-color="#a4b8c7"/><stop offset="100%" stop-color="#738796"/></radialGradient>');
-  a('</defs>');
-  a('<rect id="full-bleed-opaque-base" x="0" y="0" width="1200" height="1200" fill="#c3d2de"/>');
-  a('<rect id="continuous-flat-plate" x="1.8" y="1.8" width="1196.4" height="1196.4" rx="23" fill="url(#silver)" stroke="#7d909e" stroke-width="3.2"/>');
-  a('<rect x="9" y="9" width="1182" height="1182" rx="20" fill="none" stroke="#edf4f9" stroke-width="2" opacity=".88"/>');
-  a('<rect x="65" y="65" width="1070" height="1070" rx="2" fill="none" stroke="#94a9b8" stroke-width="1.2" opacity=".70"/>');
-  a('<g id="five-flush-gold-pads" fill="url(#gold)" stroke="#99875f" stroke-width=".95">');
-  for (const [x,y,w,h] of [[100,100,200,200],[900,100,200,200],[100,900,200,200],[900,900,200,200],[518,518,164,164]]) {
-    a(` <rect class="gold-perforated-area" x="${x}" y="${y}" width="${w}" height="${h}"/>`);
-  }
-  a('</g>');
-  a('<g id="all-perforations-including-gold" fill="#314958" stroke="#f5f9fc" stroke-width=".42">');
-  for(let iy=0; iy<110; iy++) {
-    const y=(76.8+iy*9.6).toFixed(1);
-    for(let ix=0; ix<110; ix++) {
-      const x=(76.8+ix*9.6).toFixed(1);
-      a(` <circle cx="${x}" cy="${y}" r="2.15"/>`);
-    }
-  }
-  a('</g>');
-  function hexPath(cx,cy,r) {
-    let d='';
-    for(let i=0;i<6;i++) {
-      const angle=Math.PI*(-90+i*60)/180;
-      d+=(i?' L':'M')+(cx+r*Math.cos(angle)).toFixed(2)+' '+(cy+r*Math.sin(angle)).toFixed(2);
-    }
-    return d+' Z';
-  }
-  function allen(cx,cy,border) {
-    a(`<g class="allen-bolt" data-x="${cx}" data-y="${cy}">`);
-    a(` <circle cx="${cx}" cy="${cy}" r="${border?12.0:10.5}" fill="#8195a3" stroke="#edf5fa" stroke-width="1.5"/>`);
-    a(` <circle cx="${cx}" cy="${cy}" r="${border?9.8:8.7}" fill="url(#bolt)" stroke="#677b89" stroke-width="1.15"/>`);
-    a(` <path d="${hexPath(cx,cy,border?5.45:4.8)}" fill="#3c4d58" stroke="#e3edf2" stroke-width="1.05" stroke-linejoin="round"/>`);
-    a('</g>');
-  }
-  for(const cx of [478,722]) {
-    a(`<g class="centre-hole-free-collar"><circle cx="${cx}" cy="600" r="20" fill="#d5e1ea" stroke="#8da1b0" stroke-width="1.4"/><circle cx="${cx}" cy="600" r="15.5" fill="none" stroke="#eff5f8" stroke-width="1.7"/></g>`);
-    allen(cx,600,false);
-  }
-  a('<g id="frame-allen-bolts">');
-  for(const x of [56,335,600,865,1144]) {
-    allen(x,54,true);
-    allen(x,1146,true);
-  }
-  for(const y of [325,600,875]) {
-    allen(54,y,true);
-    allen(1146,y,true);
-  }
-  a('</g>');
-  a('</svg>');
-  return out.join('\n')+'\n';
+function generateSvgs(){
+  const A=[],P=[];
+  const head=(out,w,h,title)=>{
+    out.push('<?xml version="1.0" encoding="UTF-8"?>');
+    out.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`);
+    out.push(`<title>${title}</title>`);
+    out.push('<defs><linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#e6eef5"/><stop offset=".52" stop-color="#d4e0eb"/><stop offset="1" stop-color="#bacbd9"/></linearGradient>');
+    out.push('<linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#dfcba0"/><stop offset=".5" stop-color="#c9b280"/><stop offset="1" stop-color="#b69c6c"/></linearGradient>');
+    out.push('<radialGradient id="bolt"><stop stop-color="#f7fbfc"/><stop offset=".55" stop-color="#a2b7c7"/><stop offset="1" stop-color="#758a99"/></radialGradient></defs>');
+  };
+  const bolt=(out,x,y)=>{
+    let h='';for(let i=0;i<6;i++){let a=Math.PI*(-.5+i/3);h+=(i?' L':'M')+(x+6*Math.cos(a)).toFixed(2)+' '+(y+6*Math.sin(a)).toFixed(2);}
+    out.push(`<g class="allen-bolt"><circle cx="${x}" cy="${y}" r="13" fill="#859aab" stroke="#edf4fa" stroke-width="2"/><circle cx="${x}" cy="${y}" r="10" fill="url(#bolt)" stroke="#698092" stroke-width="1.5"/><path d="${h} Z" fill="#435968" stroke="#e3eef4" stroke-width="1.3"/></g>`);
+  };
+  const collar=(out,x,y)=>{
+    out.push(`<g class="centre-hole-free-collar"><circle cx="${x}" cy="${y}" r="27" fill="#d6e2eb" stroke="#8a9caa" stroke-width="2"/><circle cx="${x}" cy="${y}" r="21" fill="none" stroke="#eff5f9" stroke-width="2"/></g>`);
+    bolt(out,x,y);
+  };
+  // Image displayed on actual printable polygon, 300 mm x 305 mm.
+  // Top of image is printer Y=305, bottom Y=0 (front).
+  head(A,1200,1220,'Zortrax M300 Classic - measured plate, 300 x 305 printable crop');
+  A.push('<desc>SVG shows only the real printable surface. Physical 360 mm surround is a separately installed STL. Corner pads are measured 60 x 60 mm and centre pad 50 x 50 mm. Pad locations near corners are inferred from user photograph.</desc>');
+  A.push('<rect id="full-bleed-opaque-base" x="0" y="0" width="1200" height="1220" fill="url(#metal)"/>');
+  A.push('<g id="five-flush-gold-pads" fill="url(#gold)" stroke="#99845d" stroke-width="1.0">');
+  [[0,20,240,240],[960,20,240,240],[0,980,240,240],[960,980,240,240],[500,520,200,200]].forEach(([x,y,w,h])=>A.push(`<rect class="gold-perforated-area" x="${x}" y="${y}" width="${w}" height="${h}"/>`));
+  A.push('</g>');
+  A.push('<g id="all-perforations-including-gold" fill="#314a59" stroke="#f5f9fc" stroke-width=".65">');
+  for(let iy=0;iy<102;iy++)for(let ix=0;ix<100;ix++)A.push(`<circle cx="${6+12*ix}" cy="${6+12*iy}" r="2.9"/>`);
+  A.push('</g>');
+  [450,750].forEach(x=>collar(A,x,620));
+  A.push('<rect x="1.25" y="1.25" width="1197.5" height="1217.5" fill="none" stroke="#94aab8" stroke-width="1.5" opacity=".7"/>');
+  A.push('</svg>');
+  // Full-size plan for verifying exact measured sizes and safe printable inset.
+  head(P,1440,1440,'Zortrax M300 Classic - physical 360 mm platform, printable 300 x 305 mm');
+  P.push('<rect x="0" y="0" width="1440" height="1440" fill="#c5d5e1"/>');
+  P.push('<rect x="3" y="3" width="1434" height="1434" rx="19" fill="url(#metal)" stroke="#71899b" stroke-width="4"/>');
+  P.push('<rect id="perforation-rectangle" x="56" y="64" width="1328" height="1316" fill="none" stroke="#94a8b5" stroke-width="2"/>');
+  P.push('<g id="five-flush-gold-pads" fill="url(#gold)" stroke="#99845d" stroke-width="1.3">');
+  [[120,120,240,240],[1080,120,240,240],[120,1080,240,240],[1080,1080,240,240],[620,620,200,200]].forEach(([x,y,w,h])=>P.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`));
+  P.push('</g><g id="all-perforations-including-gold" fill="#314a59" stroke="#f5f9fc" stroke-width=".65">');
+  for(let fy=16.5;fy<=340.5;fy+=3)for(let fx=16.5;fx<=343.5;fx+=3)P.push(`<circle cx="${fx*4}" cy="${(360-fy)*4}" r="2.9"/>`);
+  P.push('</g>');
+  [142.5,217.5].forEach(x=>collar(P,x*4,720));
+  let frame=[];
+  for(let x of [17,97,180,263,343])frame.push([x,16],[x,344]);
+  for(let y of [98,180,262])frame.push([17,y],[343,y]);
+  frame.forEach(([x,y])=>bolt(P,x*4,(360-y)*4));
+  P.push('<rect id="actual-printable-area-300x305" x="120" y="100" width="1200" height="1220" fill="none" stroke="#ff5a31" stroke-width="5"/>');
+  P.push('</svg>');
+  return {texture:A.join('\n')+'\n',layout:P.join('\n')+'\n'};
 }
-if(require.main===module) {
-  const dest=process.argv[2]||path.join(__dirname,'../profiles/Zortrax/model/Zortrax_M300_Classic_bed.svg');
-  fs.mkdirSync(path.dirname(dest),{recursive:true});
-  fs.writeFileSync(dest,generateSvg(),'utf8');
-  process.stdout.write('Generated: '+dest+'\n');
+if(require.main===module){
+ const root=path.resolve(__dirname,'..'),a=generateSvgs();
+ for(const [name,data] of [
+ ['profiles/Zortrax/model/Zortrax_M300_Classic_bed.svg',a.texture],
+ ['docs/Zortrax_M300_360mm_plate_layout.svg',a.layout]]){
+ const dest=path.join(root,name);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,data);console.log(name);}
 }
-module.exports={generateSvg};
+module.exports={generateSvgs};

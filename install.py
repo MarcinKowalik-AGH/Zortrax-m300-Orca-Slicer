@@ -5,6 +5,7 @@ Default is a plan. Install first; enable M300 through Orca's own UI. Only then
 """
 import argparse,copy,datetime,hashlib,json,os,re,shutil,subprocess,sys,tempfile,xml.etree.ElementTree as ET
 from pathlib import Path
+from tools.bed_geometry import generate_visual_stl
 ROOT=Path(__file__).resolve().parent
 GROUPS=('machine_model_list','machine_list','filament_list','process_list')
 MODEL='Zortrax M300 Classic'
@@ -68,10 +69,18 @@ def install_plan(root,source):
   raise ValueError('Invalid SVG XML bed texture') from exc
  if drawing.tag!='{http://www.w3.org/2000/svg}svg':
   raise ValueError('Bed texture is not an SVG image')
+ # A separate full-size mesh extends visually outside the actual 300x305
+ # printable polygon. Generated as an STL with stdlib only; it is never sliced.
+ model_relative='model/Zortrax_M300_Classic_visual_bed_360mm.stl'
+ model_rel='vendor/Zortrax/'+model_relative
+ model_data=generate_visual_stl()
+ if not 100_000 < len(model_data) < 12_000_000 or not model_data.startswith(b'Zortrax M300 Classic'):
+  raise ValueError('Invalid measured 360 mm STL geometry')
  asset_rel='vendor/Zortrax/'+asset.relative_to(source/'Zortrax').as_posix()
  # The destination is computed from the target OrcaSlicer configuration folder:
  # never hard-code a /Users/<username> path into system presets or the repository.
  absolute_texture=str(safe(root,asset_rel))
+ absolute_model=str(safe(root,model_rel))
  for group in GROUPS:
   for e in vendor[group]:
    p=safe(source/'Zortrax',e['sub_path']);obj=read(p)
@@ -80,14 +89,16 @@ def install_plan(root,source):
    if group=='machine_list' and obj.get('printer_model')==MODEL:
     # Keep the repository preset portable; substitute only into the installed
     # copy so all four nozzle variants display the texture on this Mac.
-    if obj.get('bed_custom_texture','') not in ('',None):
+    if obj.get('bed_custom_texture','') not in ('',None) or obj.get('bed_custom_model','') not in ('',None):
      raise ValueError('Unexpected preconfigured custom bed texture in source')
     obj=copy.deepcopy(obj)
     obj['bed_custom_texture']=absolute_texture
+    obj['bed_custom_model']=absolute_model
     content=enc(obj)
    writes['system/Zortrax/'+e['sub_path']]=content;names.add(obj['name'])
  # Copying the referenced texture is part of the same backup/restore transaction.
  writes[asset_rel]=data
+ writes[model_rel]=model_data
  old=safe(root,'system/Zortrax.json');merged=copy.deepcopy(vendor)
  if old.exists():
   previous=read(old)
