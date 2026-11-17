@@ -34,6 +34,17 @@ class R7InstallTests(unittest.TestCase):
   before=self.protected();m.apply(m.install_plan(self.root,self.source));self.assertEqual(self.protected(),before)
  def test_complete_native_structure(self):
   m.apply(m.install_plan(self.root,self.source));v=m.read(self.root/'system/Zortrax.json');self.assertEqual([len(v[k]) for k in m.GROUPS],[1,4,104,30])
+ def test_bed_texture_is_installed_and_reversible(self):
+  asset='system/Zortrax/model/Zortrax_M300_Classic_bed.png'
+  plan=m.install_plan(self.root,self.source)
+  self.assertIn(asset,plan['writes'])
+  backup=m.apply(plan)
+  self.assertTrue((self.root/asset).read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')))
+  model=m.read(self.root/'system/Zortrax/machine/Zortrax M300 Classic.json')
+  self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.png')
+  self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
+  m.restore(backup)
+  self.assertFalse((self.root/asset).exists())
  def test_idempotent(self):
   m.apply(m.install_plan(self.root,self.source));self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
  def test_exact_restore(self):
