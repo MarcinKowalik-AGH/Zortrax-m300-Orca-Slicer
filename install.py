@@ -68,7 +68,7 @@ def install_plan(root,source):
   asset=safe(source/'Zortrax',rel)
   if not asset.is_file():raise ValueError('Required M300 bed texture missing: '+str(asset))
   data=asset.read_bytes()
-  if len(data)>8*1024*1024 or not data.startswith(b'\\x89PNG\\r\\n\\x1a\\n'):
+  if len(data)>8*1024*1024 or not data.startswith(b'\x89PNG\r\n\x1a\n'):
    raise ValueError('Invalid M300 bed PNG: '+str(asset))
   writes['system/Zortrax/'+rel.as_posix()]=data
  old=safe(root,'system/Zortrax.json');merged=copy.deepcopy(vendor)
