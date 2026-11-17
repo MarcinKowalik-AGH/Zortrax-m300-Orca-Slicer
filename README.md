@@ -6,6 +6,46 @@ Native system profiles for the **Zortrax M300 Classic with the project's Klipper
 
 **This repository installs slicer profiles on the Mac only. It never updates the Orange Pi, Klipper, MCU, bootloader, UART, OLED or Fluidd.**
 
+## Install on macOS — first-time installation or update
+
+These commands work on **any Mac with OrcaSlicer 2.5 installed**. The `$HOME` variable automatically points to the current user's home folder, so **no personal username or fixed `/Users/...` path is needed**.
+
+**Before either procedure:** save your projects and fully quit OrcaSlicer with **Cmd+Q**. Use the **local Mac Terminal**, not an SSH session on the printer's Orange Pi. Do **not** use `sudo`.
+
+### A. First installation on a new Mac
+
+If OrcaSlicer is installed but **this repository has not been downloaded on this Mac**, run:
+
+```bash
+git clone https://github.com/MarcinKowalik-AGH/Zortrax-m300-Orca-Slicer.git "$HOME/Zortrax-m300-Orca-Slicer" &&
+python3 "$HOME/Zortrax-m300-Orca-Slicer/install.py" --apply
+```
+
+The first command downloads the current profiles; the second installs them. You only need to clone once on each computer.
+
+### B. Update on a Mac with an existing checkout
+
+If the repository folder **already exists** on this Mac, run:
+
+```bash
+git -C "$HOME/Zortrax-m300-Orca-Slicer" pull --ff-only origin main &&
+python3 "$HOME/Zortrax-m300-Orca-Slicer/install.py" --apply
+```
+
+### C. Enable the printer in OrcaSlicer
+
+Launch OrcaSlicer 2.5, open **Printer → Select/Remove printers (system presets)**, and enable **Zortrax → Zortrax M300 Classic**. Select your **physically installed 0.2, 0.3, 0.4 or 0.6 mm nozzle**. Keep any other printer brands enabled.
+
+### Troubleshooting
+
+- **`fatal: cannot change to ... No such file or directory`**: the repository is missing from that location. Use **A. First installation**, not the `git pull` command.
+- **`git clone` says the destination already exists**: do not delete the folder. Check whether it contains the correct repository and use **B. Update** if so.
+- **`git pull --ff-only` reports local modifications**: inspect those changes; do not use `git reset --hard`.
+- **`git` or `python3` is missing**: install or enable the required command-line tools first.
+- Installing new profiles does **not** modify previously generated G-code. Select the filament and **slice again** for subsequent prints.
+
+Only native OrcaSlicer presets are installed. The installer preserves other printers and global Orca settings, creates a backup, and **does not change Klipper, Orange Pi, MCU firmware or printer motion limits**. See the [full installation, connection and rollback guide](docs/INSTALLATION.md).
+
 ## One current profile set
 
 | Component | Contents |
@@ -30,18 +70,9 @@ Classic M300 source records contain **only the 0.4 mm nozzle**. Other variants a
 | [Settings dictionary](docs/SETTINGS_REFERENCE.md) | What transfers, what needs manual review, and unresolved mappings |
 | [Validation](docs/VALIDATION.md) | Current software evidence versus limited operator-reported hardware results |
 
-## Update on the Mac
+## Additional installation notes
 
-Save your projects and **quit OrcaSlicer using Cmd+Q**. Run in the **Mac's local Terminal**, not SSH to the Orange Pi:
-
-```bash
-git -C "$HOME/Zortrax-m300-Orca-Slicer" pull --ff-only origin main &&
-python3 "$HOME/Zortrax-m300-Orca-Slicer/install.py" --apply
-```
-
-For a first checkout, use the installation guide. No sudo is needed. The installer preserves `OrcaSlicer.conf`, independent user presets and other printer brands. Enable **Zortrax → Zortrax M300 Classic** in Orca's own **Select/Remove printers** dialog and leave Creality/Inventure selected. Backups and the optional old-offline-bundle archive operation are reversible.
-
-**Use root `install.py` only.** Old versioned installers, global-config repair tools and R3–R6 ZIPs have been removed from the current tree. Earlier files remain recoverable in [Git history](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Orca-Slicer/tree/18d68bb161631004e6909a0f7585fe552b15b302); history has not been rewritten.
+Use **only the root `install.py`**. Old versioned installers, global-config repair tools and R3–R6 ZIPs have been removed from the current tree. Earlier files remain available in [Git history](https://github.com/MarcinKowalik-AGH/Zortrax-m300-Orca-Slicer/tree/18d68bb161631004e6909a0f7585fe552b15b302); history has not been rewritten.
 
 ## Quick process correspondence — nozzle 0.4 mm
 
