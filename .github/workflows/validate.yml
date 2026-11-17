@@ -52,6 +52,8 @@ jobs:
           test -s "$SSL_CERT_FILE"
           mkdir -p out/gui/system
           cp -a profiles/Zortrax* out/gui/system/
+          mkdir -p out/gui/vendor/Zortrax/model
+          cp profiles/Zortrax/model/Zortrax_M300_Classic_bed.png out/gui/vendor/Zortrax/model/
           python - <<'PY'
           import json
           from pathlib import Path

@@ -71,7 +71,7 @@ def build(root=ROOT):
  d4=[r for r in filaments if r['nozzle_mm']=='0.4']
  text='''# Z-SUITE → OrcaSlicer: M300 Classic migration tables
 
-**Current profile set: R7.3 · OrcaSlicer target: 2.5.0.** Values below are generated from committed source records and current preset files, not remembered defaults. Source terminology is preserved: **material, displayed layer, quality and infill mode**. An original Z-SUITE selection is split between **Printer/Variant**, **Filament** and **Process** in Orca.
+**Current profile set: R7.4 · OrcaSlicer target: 2.5.0.** Values below are generated from committed source records and current preset files, not remembered defaults. Source terminology is preserved: **material, displayed layer, quality and infill mode**. An original Z-SUITE selection is split between **Printer/Variant**, **Filament** and **Process** in Orca.
 
 **There is no complete 1:1 conversion.** A recovered source field, a matching numerical value and a recommended functional process are three different claims. Neither field recovery nor an individual match proves identical toolpaths or print quality. Process suggestions are explicitly project judgments.
 

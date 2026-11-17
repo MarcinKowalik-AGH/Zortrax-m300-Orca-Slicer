@@ -50,6 +50,14 @@ class CurrentProfileTests(unittest.TestCase):
   rs=[r for r in self.tables['filaments'] if r['material'] in ('Z-PEEK','Z-PEI 1010','Z-PEI 9085')];self.assertEqual(len(rs),12);self.assertTrue(all('do not print' in r['host_305c_status'] for r in rs))
  def test_generated_docs_are_current(self):
   for name,text in self.outputs.items():self.assertEqual((ROOT/name).read_bytes(),text.encode())
+ def test_m300_bed_texture_asset_exists(self):
+  model=json.loads((ROOT/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
+  self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.png')
+  asset=ROOT/'profiles/Zortrax'/model['bed_texture']
+  self.assertTrue(asset.is_file())
+  data=asset.read_bytes()
+  self.assertTrue(data.startswith(bytes.fromhex('89504e470d0a1a0a')))
+  self.assertEqual((int.from_bytes(data[16:20],'big'),int.from_bytes(data[20:24],'big')),(128,128))
  def test_profile_names_preserved(self):
   self.assertTrue(any(e['name']=='Z-PLA Pro @Zortrax M300 0.4' for e in self.vendor['filament_list']));self.assertTrue(any(e['name']=='0.20mm Standard @Zortrax M300 Classic 0.4 nozzle' for e in self.vendor['process_list']))
 if __name__=='__main__':unittest.main()

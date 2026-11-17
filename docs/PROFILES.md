@@ -1,5 +1,9 @@
 # Zortrax M300 Classic — native OrcaSlicer R7.3 profiles
 
+## Visual build plate texture
+
+The shared machine model (all four nozzle diameters) references `model/Zortrax_M300_Classic_bed.png`, based on the perforated plate reference: silver/blue metallic surface, perimeter holes and five corner/center contact fields. The guarded macOS installer copies it together with profiles. This graphic is a visual approximation rather than calibrated mechanical geometry.
+
 ## Preset organization
 
 OrcaSlicer 2.5 shows **one printer model** named **Zortrax M300 Classic**, and a **nozzle Variant** selector of **0.2 / 0.3 / 0.4 / 0.6 mm**. Four internal `machine` JSON files describe the four physically interchangeable nozzle configurations, not four unrelated printer models. Do not change the selected diameter unless the installed nozzle and the host's `[extruder] nozzle_diameter` actually match it.

@@ -13,6 +13,10 @@ The most recent check can be found in the repository's [GitHub Actions](https://
 
 The workflow never connects to a printer or executes generated G-code. It uses a checksum-pinned Orca 2.5.0 binary. Current unit tests include 14 installer and 15 source/profile contracts. High-temperature reference filaments are sliced only for software inspection.
 
+## R7.4 bed texture
+
+Static validation confirms that the M300 Classic model references a vendor-relative PNG with a valid PNG header, expected dimensions and SHA-256. Installer tests verify that the image is installed, remains idempotent and is removed on rollback. GUI profile loading is checked by CI; the final appearance should additionally be confirmed in OrcaSlicer on macOS.
+
 ## Operator evidence — 11 November 2026
 
 The user reported a Benchy starting after a Klipper-side correction. The preceding failure was `Move out of range: 3.000 10.000 -0.089 [0.000]` during purge with an active `m300_pads` mesh. Nominal purge Z=0.28 mm plus a local correction near -0.369 mm was rejected by the former zero lower axis bound.

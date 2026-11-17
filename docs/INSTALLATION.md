@@ -30,6 +30,10 @@ python3 "$HOME/Zortrax-m300-Orca-Slicer/install.py" --apply
 
 The installer validates the target environment and creates a reversible backup. It does **not** rewrite `OrcaSlicer.conf` or activate printer subscriptions behind the user's back. The optional `--archive-offline --apply` mode must not be used until the new profiles have been tested in Orca.
 
+## Automatic Zortrax M300 bed appearance
+
+The R7.4 installer also deploys the top-down `Zortrax_M300_Classic_bed.png` into OrcaSlicer's `vendor/Zortrax/model/` vendor directory. The common printer-model profile references it automatically, so there is **no need to select the PNG manually**. Reopen OrcaSlicer after installing. This texture is purely visual and never affects printer dimensions, homing, calibration or slicing behavior.
+
 ## 3. Enable and select the model
 
 Restart OrcaSlicer 2.5 and open **Printer → Select/Remove printers (system presets)**. Find **Zortrax → Zortrax M300 Classic**, select the nozzle variant matching the physical machine (0.2, 0.3, 0.4 or 0.6 mm), and **leave other manufacturers selected**.

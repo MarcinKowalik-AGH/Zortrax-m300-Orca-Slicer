@@ -55,6 +55,20 @@ def install_plan(root,source):
    p=safe(source/'Zortrax',e['sub_path']);obj=read(p)
    if obj['name']!=e['name'] or not scoped(obj):raise ValueError('Source scope/index mismatch')
    writes['system/Zortrax/'+e['sub_path']]=p.read_bytes();names.add(obj['name'])
+ # Model bed texture loads from Orca's data_dir/vendor/<vendor>, not system.
+ # Include it in the same
+ # transactional install, backup and rollback as the printer profiles.
+ model=read(safe(source/'Zortrax',vendor['machine_model_list'][0]['sub_path']))
+ texture=model.get('bed_texture','')
+ if texture:
+  asset=safe(source/'Zortrax',texture)
+  if asset.suffix.lower() not in ('.png','.svg') or not asset.is_file():
+   raise ValueError('Missing or invalid Zortrax bed texture')
+  data=asset.read_bytes()
+  if len(data)>5_000_000:raise ValueError('Bed texture exceeds 5 MB')
+  if asset.suffix.lower()=='.png' and data[:8]!=bytes.fromhex('89504e470d0a1a0a'):
+   raise ValueError('Invalid PNG texture signature')
+  writes['vendor/Zortrax/'+asset.relative_to(source/'Zortrax').as_posix()]=data
  old=safe(root,'system/Zortrax.json');merged=copy.deepcopy(vendor)
  if old.exists():
   previous=read(old)
@@ -107,7 +121,7 @@ def archive_plan(root):
 
 def make_plan(root,writes,remove,mode):
  allowed=set(writes)|set(remove)
- if any(r=='OrcaSlicer.conf' or not (r.startswith('system/Zortrax') or (mode=='archive-offline' and '/_local/' in r)) for r in allowed):raise ValueError('Refused scope')
+ if any(r=='OrcaSlicer.conf' or not (r.startswith('system/Zortrax') or r.startswith('vendor/Zortrax/model/') or (mode=='archive-offline' and '/_local/' in r)) for r in allowed):raise ValueError('Refused scope')
  return {'root':root,'writes':writes,'remove':sorted(remove),'before':{r:digest(safe(root,r)) for r in sorted(allowed)},'mode':mode,'conf_hash':digest(root/'OrcaSlicer.conf'),'warnings':[]}
 
 def atom(path,data):
