@@ -46,20 +46,20 @@ class R7InstallTests(unittest.TestCase):
    obj=json.loads(plan['writes'][rel])
    self.assertEqual(obj['bed_custom_texture'],absolute)
    self.assertTrue(Path(obj['bed_custom_texture']).is_absolute())
-   self.assertEqual(m.read(self.source/'Zortrax/machine/('Zortrax M300 Classic '+d+' nozzle.json'))['bed_custom_texture'],'')
+   self.assertEqual(m.read(self.source/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json'))['bed_custom_texture'],'')
   backup=m.apply(plan)
   self.assertTrue((self.root/asset).read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')))
   model=m.read(self.root/'system/Zortrax/machine/Zortrax M300 Classic.json')
   self.assertEqual(model['bed_texture'],'model/Zortrax_M300_Classic_bed.png')
   for d in ('0.2','0.3','0.4','0.6'):
-   obj=m.read(self.root/'system/Zortrax/machine/('Zortrax M300 Classic '+d+' nozzle.json'))
+   obj=m.read(self.root/'system'/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json'))
    self.assertEqual(obj['bed_custom_texture'],absolute)
    self.assertTrue(Path(obj['bed_custom_texture']).is_file())
   self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
   m.restore(backup)
   self.assertFalse((self.root/asset).exists())
   for d in ('0.2','0.3','0.4','0.6'):
-   self.assertFalse((self.root/'system/Zortrax/machine/('Zortrax M300 Classic '+d+' nozzle.json')).exists())
+   self.assertFalse((self.root/'system'/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json')).exists())
  def test_idempotent(self):
   m.apply(m.install_plan(self.root,self.source));self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
  def test_exact_restore(self):
