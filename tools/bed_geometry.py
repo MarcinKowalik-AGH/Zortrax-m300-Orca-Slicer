@@ -22,10 +22,31 @@ PAD_CENTRE_MM = (50.0, 50.0)
 # Two centre screws are on the SVG crop; these 16 frame fasteners lie outside
 # the safe printable rectangle. Locations are visual estimates from the photo.
 FRAME_SCREWS = tuple((x, y) for x in (17.,97.,180.,263.,343.) for y in (16.,344.)) + tuple((x,y) for y in (98.,180.,262.) for x in (17.,343.))
-TOP_Z = .35
-BOTTOM_Z = -.35
+# Align the visible top of the STL with Orca's printable-plane overlay:
+# Bed3D moves model coordinates by approximately -0.41 mm in Z.
+PLATE_THICKNESS_MM = 3.0
+TOP_Z = .41
+BOTTOM_Z = TOP_Z - PLATE_THICKNESS_MM
 PERFORATION_PITCH_MM = 3.0
 PERFORATION_RADIUS_MM = .76
+
+# Reference: operator's ruler photographs IMG_9060, IMG_9061, IMG_9062,
+# IMG_9063 and close-up IMG_9058. Dimensions/position are approximate
+# photographic estimates, NOT caliper measurements.
+# x is measured from the LEFT of the 360 mm physical plate (front-left origin).
+# Connector visibly straddles the rear y=360 edge by only about 1-2 mm.
+REAR_CONNECTOR_CENTER_X_MM = 148.0
+REAR_CONNECTOR_SHELL_WIDTH_MM = 8.5
+REAR_CONNECTOR_TOTAL_WIDTH_MM = 12.0
+REAR_CONNECTOR_PROTRUSION_MM = 1.6
+REAR_CONNECTOR_INBOARD_MM = 5.4
+REAR_CONNECTOR_BODY_HEIGHT_MM = 3.2  # provisional, not measured
+REAR_CONNECTOR_SHELL_BOUNDS_MM = (
+    REAR_CONNECTOR_CENTER_X_MM - REAR_CONNECTOR_SHELL_WIDTH_MM / 2,
+    360.0 - REAR_CONNECTOR_INBOARD_MM,
+    REAR_CONNECTOR_CENTER_X_MM + REAR_CONNECTOR_SHELL_WIDTH_MM / 2,
+    360.0 + REAR_CONNECTOR_PROTRUSION_MM,
+)
 
 
 @lru_cache(maxsize=1)
@@ -34,8 +55,12 @@ def generate_visual_stl() -> bytes:
 
     The central aperture corresponds exactly to X=0..300, Y=0..305 after the
     slicer's standard model-centering translation. The outer band has regular
-    small perforations and 16 machined hex-socket screw seats. This is purely
-    a display asset and NEVER changes movement, bed-mesh or placement limits.
+    small perforations and 16 machined hex-socket screw seats. The centre has
+    a 3 mm thick backing under the separate printable texture; full-depth
+    perforations are explicitly modelled on the exposed exterior margin.
+    A small rear electrical connector is an approximate photographic mesh.
+    This is purely a display asset and NEVER changes movement, bed-mesh or
+    placement limits.
     """
     stream = BytesIO()
     name = b'Zortrax M300 Classic 360x360 mm - PRINTABLE 300x305 - VISUAL ONLY'
@@ -61,6 +86,19 @@ def generate_visual_stl() -> bytes:
     def quad(a,b,c,d):
         triangle(a,b,c)
         triangle(a,c,d)
+
+    def box(x0,y0,x1,y1,z0,z1):
+        """Visual cuboid; STL remains independent of the printable geometry."""
+        p000,p100,p110,p010=(vert(x0,y0,z0),vert(x1,y0,z0),
+                              vert(x1,y1,z0),vert(x0,y1,z0))
+        p001,p101,p111,p011=(vert(x0,y0,z1),vert(x1,y0,z1),
+                              vert(x1,y1,z1),vert(x0,y1,z1))
+        quad(p000,p010,p110,p100) # bottom
+        quad(p001,p101,p111,p011) # top
+        quad(p000,p100,p101,p001) # front
+        quad(p010,p011,p111,p110) # rear
+        quad(p000,p001,p011,p010) # left
+        quad(p100,p110,p111,p101) # right
 
     square=(( -1.5,-1.5),(0.,-1.5),(1.5,-1.5),(1.5,0.),
             (1.5,1.5),(0.,1.5),(-1.5,1.5),(-1.5,0.))
@@ -103,6 +141,13 @@ def generate_visual_stl() -> bytes:
     for ix in range(10,110):
         tile(ix*3.,335.,(ix+1)*3.,336.)
 
+    # The physical sheet is 3 mm thick ACROSS ITS WHOLE FOOTPRINT.
+    # This central backing is slightly below Orca's SVG logo layer, which
+    # supplies colours and visible perforations inside the 300x305 polygon.
+    # Modelling all central holes in STL as well would create hundreds of
+    # thousands of redundant 3D triangles and slow down the GUI.
+    box(30.,30.,330.,335.,BOTTOM_Z,TOP_Z)
+
     def wall(x0,y0,x1,y1):
         quad(vert(x0,y0,BOTTOM_Z),vert(x1,y1,BOTTOM_Z),
              vert(x1,y1,TOP_Z),vert(x0,y0,TOP_Z))
@@ -118,12 +163,37 @@ def generate_visual_stl() -> bytes:
             a=2*pi*n/12; b=2*pi*(n+1)/12
             def ring(r,theta,z):
                 return vert(bx+r*cos(theta),by+r*sin(theta),z)
-            quad(ring(3.1,a,.44),ring(3.1,b,.44),
-                 ring(1.45,b,.44),ring(1.45,a,.44))
+            rim=TOP_Z+.20
+            recess=TOP_Z+.02
+            quad(ring(3.1,a,rim),ring(3.1,b,rim),
+                 ring(1.45,b,rim),ring(1.45,a,rim))
             quad(ring(3.1,a,TOP_Z),ring(3.1,b,TOP_Z),
-                 ring(3.1,b,.44),ring(3.1,a,.44))
-            quad(ring(1.45,a,.36),ring(1.45,b,.36),
-                 ring(1.45,b,.44),ring(1.45,a,.44))
+                 ring(3.1,b,rim),ring(3.1,a,rim))
+            quad(ring(1.45,a,recess),ring(1.45,b,recess),
+                 ring(1.45,b,rim),ring(1.45,a,rim))
+
+    # Rear connector photographed with a millimetre ruler. Its cream plastic
+    # body is approx. 8-9 mm wide and has two soldered metal attachment wings
+    # spanning approximately 12 mm. Its exact Z dimension was not measured.
+    left,front,right,rear=REAR_CONNECTOR_SHELL_BOUNDS_MM
+    body_bottom=TOP_Z+.38
+    body_top=TOP_Z+REAR_CONNECTOR_BODY_HEIGHT_MM
+    box(left,front,right,rear,body_bottom,body_top)
+
+    # Narrow base at the rear margin and two visible metal fixing wings.
+    x=REAR_CONNECTOR_CENTER_X_MM
+    box(x-6.0,356.0,x+6.0,360.2,TOP_Z+.06,TOP_Z+.42)
+    box(x-6.0,355.8,left,359.5,TOP_Z+.09,TOP_Z+.58)
+    box(right,355.8,x+6.0,359.5,TOP_Z+.09,TOP_Z+.58)
+
+    # Raised central socket cap/back wall and five slender contact ribs.
+    box(left+.35,359.1,right-.35,361.4,body_top,body_top+.45)
+    for k in range(5):
+        sx=x-3.0+k*1.5
+        box(sx-.17,359.35,sx+.17,361.45,body_top+.43,body_top+.78)
+    # Small visible latch near the interior-facing edge.
+    box(x-2.2,354.2,x+2.2,355.1,TOP_Z+.50,TOP_Z+1.30)
+
     result=stream.getvalue()
     result=bytearray(result)
     result[80:84]=pack('<I',count)

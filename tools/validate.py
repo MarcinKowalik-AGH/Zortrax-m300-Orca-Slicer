@@ -4,13 +4,17 @@ import hashlib,json,re,xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import unquote
 from catalog import build
-from bed_geometry import PHYSICAL_MM,PRINTABLE_MM,PRINTABLE_PHYSICAL_BOUNDS_MM,PERFORATED_PHYSICAL_BOUNDS_MM,generate_visual_stl
+from bed_geometry import (PHYSICAL_MM,PRINTABLE_MM,PRINTABLE_PHYSICAL_BOUNDS_MM,
+                          PERFORATED_PHYSICAL_BOUNDS_MM,PLATE_THICKNESS_MM,
+                          TOP_Z,BOTTOM_Z,REAR_CONNECTOR_CENTER_X_MM,
+                          REAR_CONNECTOR_PROTRUSION_MM,REAR_CONNECTOR_SHELL_BOUNDS_MM,
+                          generate_visual_stl)
 ROOT=Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
  assert ps==baseline['sha256'],'Preset bytes differ from the reviewed unchanged machine/filament/process data baseline'
- assert current['profile_revision']=='R7.7' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
+ assert current['profile_revision']=='R7.8' and len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.12'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
  bed_model=json.loads((root/'profiles/Zortrax/machine/Zortrax M300 Classic.json').read_text())
  assert bed_model['bed_texture']=='model/Zortrax_M300_Classic_bed.svg'
@@ -46,6 +50,11 @@ def validate(root=ROOT):
  assert PHYSICAL_MM==(360.,360.) and PRINTABLE_MM==(300.,305.)
  assert PRINTABLE_PHYSICAL_BOUNDS_MM==(30.,330.,30.,335.)
  assert PERFORATED_PHYSICAL_BOUNDS_MM==(14.,346.,15.,344.)
+ assert PLATE_THICKNESS_MM==3. and abs(TOP_Z-BOTTOM_Z-3.)<1e-8
+ assert REAR_CONNECTOR_CENTER_X_MM==148. and REAR_CONNECTOR_PROTRUSION_MM==1.6
+ assert REAR_CONNECTOR_SHELL_BOUNDS_MM==(143.75,354.6,152.25,361.6)
+ assert current['measured_bed_geometry']['plate_thickness_mm']==3
+ assert current['measured_bed_geometry']['rear_connector']['no_klipper_or_printable_area_change'] is True
  mesh=generate_visual_stl()
  assert mesh.startswith(b'Zortrax M300 Classic')
  assert 1_000_000<len(mesh)<12_000_000 and len(mesh)==84+50*int.from_bytes(mesh[80:84],'little')

@@ -32,11 +32,13 @@ The installer validates the target environment and creates a reversible backup. 
 
 ## Automatic Zortrax M300 bed appearance
 
+**R7.8 visual update**: the locally generated STL now depicts a **3 mm-thick plate**, with full central backing and a rear socket approximately 148 mm from the left edge (about 8.5 mm plastic width; 12 mm including metal attachment tabs). Five contact ribs, a small latch and approximately 1.6 mm projection behind the 360 mm rear edge reflect the new ruler photographs. Connector dimensions are **approximate**, not measured with callipers; its height is provisional. The functional printable area remains **X 0–300, Y 0–305 mm**.
+
 **R7.7 measured physical bed**: 360 × 360 mm. The perforated field is 332 × 329 mm, inset 14 mm at each X edge, 15 mm at the front and 16 mm at the rear. The four corner pads are 60 × 60 mm and the central gold pad is 50 × 50 mm. Gold pad *locations*, distinct from their measured sizes, are estimated from the screenshot. The source for the real-scale diagram is [here](../docs/Zortrax_M300_360mm_plate_layout.svg); the complete coordinate derivation is [here](M300_BED_GEOMETRY.md).
 
 **Two independent visual assets**, both assigned automatically by `python3 install.py --apply`:
 - `bed_custom_texture`: an opaque, perforated **SVG cropped precisely to the 300 × 305 mm print region**. It shows five perforated gold pads and two centre Allen screws with hole-free collars.
-- `bed_custom_model`: a generated binary **STL of the *outer physical 360 mm metal surround***, with perforations and 16 outer frame Allen screws. The installer uses only Python's standard library via `tools/bed_geometry.py`, writes the STL to `$HOME/Library/Application Support/OrcaSlicer/vendor/Zortrax/model/`, then sets its absolute Mac pathname in all four installed M300 printer variants. No Node.js, CAD software or manual STL loading is needed on the Mac.
+- `bed_custom_model`: a generated binary **STL showing the complete physical 360 mm bed at 3 mm sheet thickness**, with perforations on the exposed surround, 16 outer Allen bolts, central backing behind the cropped SVG and the rear connector. The installer uses only Python's standard library via `tools/bed_geometry.py`, writes the STL to `$HOME/Library/Application Support/OrcaSlicer/vendor/Zortrax/model/`, then sets its absolute Mac pathname in all four installed M300 printer variants. No Node.js, CAD software or manual STL loading is needed on the Mac.
 
 **Effective print area** remains X=0…300 mm; the previously too-small Orca Y upper boundary is corrected to **Y=305 mm**. The actual physical metal lies X=−30…330 mm, Y=−30…330 mm; this does **not** authorize nozzle movement beyond the host's known safe limits. Y=315 remains service-only and not a slicer permission. `bed_mesh_max`, Klipper settings, nozzle temperatures, motion constraints, G-code, start/end macros and unrelated machine profiles are untouched.
 

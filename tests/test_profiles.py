@@ -91,6 +91,10 @@ class CurrentProfileTests(unittest.TestCase):
   from tools.bed_geometry import (
    PHYSICAL_MM,PRINTABLE_MM,PRINTABLE_PHYSICAL_BOUNDS_MM,
    PERFORATED_PHYSICAL_BOUNDS_MM,PAD_CORNER_MM,PAD_CENTRE_MM,
+   PLATE_THICKNESS_MM,TOP_Z,BOTTOM_Z,REAR_CONNECTOR_CENTER_X_MM,
+   REAR_CONNECTOR_SHELL_WIDTH_MM,REAR_CONNECTOR_TOTAL_WIDTH_MM,
+   REAR_CONNECTOR_PROTRUSION_MM,REAR_CONNECTOR_INBOARD_MM,
+   REAR_CONNECTOR_BODY_HEIGHT_MM,REAR_CONNECTOR_SHELL_BOUNDS_MM,
    generate_visual_stl)
   self.assertEqual(PHYSICAL_MM,(360.,360.))
   self.assertEqual(PRINTABLE_MM,(300.,305.))
@@ -98,6 +102,15 @@ class CurrentProfileTests(unittest.TestCase):
   self.assertEqual(PERFORATED_PHYSICAL_BOUNDS_MM,(14.,346.,15.,344.))
   self.assertEqual(PAD_CORNER_MM,(60.,60.))
   self.assertEqual(PAD_CENTRE_MM,(50.,50.))
+  self.assertEqual(PLATE_THICKNESS_MM,3.0)
+  self.assertAlmostEqual(TOP_Z-BOTTOM_Z,3.0,places=6)
+  self.assertEqual(REAR_CONNECTOR_CENTER_X_MM,148.0)
+  self.assertEqual(REAR_CONNECTOR_SHELL_WIDTH_MM,8.5)
+  self.assertEqual(REAR_CONNECTOR_TOTAL_WIDTH_MM,12.0)
+  self.assertEqual(REAR_CONNECTOR_INBOARD_MM,5.4)
+  self.assertEqual(REAR_CONNECTOR_PROTRUSION_MM,1.6)
+  self.assertEqual(REAR_CONNECTOR_BODY_HEIGHT_MM,3.2)
+  self.assertEqual(REAR_CONNECTOR_SHELL_BOUNDS_MM,(143.75,354.6,152.25,361.6))
   for d in ('0.2','0.3','0.4','0.6'):
    m=json.loads((ROOT/'profiles/Zortrax/machine'/('Zortrax M300 Classic '+d+' nozzle.json')).read_text())
    self.assertEqual(m['printable_area'],['0x0','300x0','300x305','0x305'])
@@ -112,13 +125,24 @@ class CurrentProfileTests(unittest.TestCase):
   # toward the front of the 300x305 printable rectangle.
   vertices=(v for tri in struct.iter_unpack('<12fH',data[84:])
              for v in (tri[3:6],tri[6:9],tri[9:12]))
-  xs=[];ys=[]
+  xs=[];ys=[];zs=[]
+  external_connector_vertices=0
+  centre_backing_vertices=0
   for vertex in vertices:
-   xs.append(vertex[0]);ys.append(vertex[1])
+   x,y,z=vertex
+   xs.append(x);ys.append(y);zs.append(z)
+   if y>177.5 and -40<x<-25 and z>TOP_Z:
+    external_connector_vertices+=1
+   if abs(x+150)<.001 and abs(y+152.5)<.001 and abs(z-TOP_Z)<.001:
+    centre_backing_vertices+=1
   self.assertAlmostEqual(min(xs),-180.,places=3)
   self.assertAlmostEqual(max(xs),180.,places=3)
   self.assertAlmostEqual(min(ys),-182.5,places=3)
-  self.assertAlmostEqual(max(ys),177.5,places=3)
+  self.assertAlmostEqual(max(ys),179.1,places=3)
+  self.assertAlmostEqual(min(zs),BOTTOM_Z,places=3)
+  self.assertAlmostEqual(max(zs),TOP_Z+3.98,places=3)
+  self.assertGreater(external_connector_vertices,6)
+  self.assertGreater(centre_backing_vertices,0)
  def test_profile_names_preserved(self):
   self.assertTrue(any(e['name']=='Z-PLA Pro @Zortrax M300 0.4' for e in self.vendor['filament_list']));self.assertTrue(any(e['name']=='0.20mm Standard @Zortrax M300 Classic 0.4 nozzle' for e in self.vendor['process_list']))
 if __name__=='__main__':unittest.main()

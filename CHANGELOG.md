@@ -1,5 +1,13 @@
 # Current release notes
 
+## R7.8 — 3 mm-thick plate and rear electrical connector (17 November 2026)
+
+Based on six operator photographs of the real M300 Classic bed and a centimetre ruler, the generated visual STL now represents the **entire 360 × 360 mm sheet at 3 mm thickness**. The visible outer surround retains perforations, while the central footprint gains solid backing beneath the separate gold-and-silver perforated SVG. The visual model is aligned below Orca's printable-plane overlay so it does not intentionally obscure the image.
+
+The rear socket is now centred about **148 mm from the plate's left edge**, not near the right rear corner as guessed from the original product photo. It has an approximately **8.5 mm housing**, **12 mm width including metal solder tabs**, **5.4 mm inboard depth** and **1.6 mm rear protrusion**. A low rectangular housing, five top ribs, solder wings and front latch are included in the STL. **Socket height (~3.2 mm) is estimated from perspective only** and has not been measured with a calliper. Model is colourless STL, so the cream colour is not represented.
+
+This release changes only generated visual STL, its Python generator, structural tests, documentation, and metadata. The exact **300 × 305 mm** functional Orca print polygon, Klipper motion limits, Y=315 service-only travel, homing, mesh, temperatures and G-code remain unchanged.
+
 ## R7.7 — measured 360 mm bed; true 300 × 305 mm print polygon (17 November 2026)
 
 The operator measured **physical plate 360 × 360 mm**, perforation margins **14/14 mm X**, **15 mm front**, **16 mm rear**, gold corner contacts **60 × 60 mm**, centre **50 × 50 mm**. The resulting perforated field is **332 × 329 mm**. The initial "200 mm backward" description was corrected to **155 mm behind the plate centre**, so safe placement spans **X ±150 mm**, **Y −150…+155 mm**.

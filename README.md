@@ -1,10 +1,12 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.7 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.8 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
 **This repository installs slicer profiles on the Mac only. It never updates the Orange Pi, Klipper, MCU, bootloader, UART, OLED or Fluidd.**
+
+**R7.8: 3 mm physical plate and photo-scaled rear electrical connector.** The STL model now has a 3.0 mm-thick metal sheet across the entire 360 × 360 mm footprint. The rear electrical socket sits approximately 148 mm from the left edge and extends about 1.6 mm beyond the back edge, with two mounting tabs, five small ribs and a visible latch. Width and position are estimated from ruler photographs; socket height is provisional. This affects *only the local visual bed model*; no profile motion, printable area, Klipper, process, filament, or G-code changes from R7.7.
 
 **R7.7 — measured Zortrax M300 physical bed, safe print area unchanged in Klipper.** The actual build plate is **360 × 360 mm**, with a **332 × 329 mm** perforated region (14 mm margins left/right; 15 mm front and 16 mm rear). The gold contact pads measure **60 × 60 mm** in the corners and **50 × 50 mm** in the centre. Their *positions* are estimated from the provided photograph, while their sizes and the bed margins are measured.
 

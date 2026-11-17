@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "R7.7: physical 360x360 mm STL surround is generated on the Mac; only the 4 M300 printer JSON printable_area upper-Y corners increase from 300 to confirmed safe 305 mm. The 136 other JSON profiles, filament temperatures, processes, start G-code, Klipper host and MCU remain unchanged.",
+  "scope": "R7.8 changes only Python-generated visual STL geometry (3mm thick measured plate, photo-scaled rear connector at x≈148mm), tests, docs and metadata. Four nozzle 300x305 print envelopes, 140 native profile JSON hashes, SVG, Klipper/MCU/Orange Pi and G-code are unchanged from R7.7.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -143,7 +143,7 @@
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
     "Zortrax.json": "3bc51dc0fc89d4ecbcb9ef598ff0f13cef25ebb1daf0ce54cdc40d25dbe0e1d8"
   },
-  "current_revision": "R7.7",
+  "current_revision": "R7.8",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -217,6 +217,16 @@
       332,
       329
     ],
-    "read_from_host": false
+    "read_from_host": false,
+    "thickness_mm": 3,
+    "rear_connector": {
+      "center_x_from_left_mm": 148,
+      "width_body_mm": 8.5,
+      "width_with_mounting_tabs_mm": 12,
+      "protrusion_back_mm": 1.6,
+      "inboard_mm": 5.4,
+      "height_mm_approx": 3.2,
+      "photo_estimate_not_caliper": true
+    }
   }
 }
