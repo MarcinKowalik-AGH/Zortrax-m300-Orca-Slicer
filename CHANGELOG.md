@@ -1,5 +1,12 @@
 # Current release notes
 
+## R7.4 — native Zortrax M300 bed artwork, 17 November 2026
+
+A 1024×1024 PNG rendition of the real M300 Classic perforated build plate is now included at `profiles/Zortrax/resources/bed/Zortrax_M300_Classic_bed.png`. The shared `machine_model` uses OrcaSlicer's `bed_texture` field, and the protected Mac installer automatically deploys the PNG alongside the vendor presets. The installer continues to preserve personal Orca settings and unrelated printer vendors, with atomic writes and rollback.
+
+**Visual-only change:** all 104 filament profiles, 30 process profiles, four nozzle variants, print commands, printer geometry and Klipper-side configuration remain unchanged. The GitHub CI checks texture presence, installer copying and rollback, and native Orca 2.5 loader behavior. The artwork is a visual approximation from provided photographs, not a measurement or mesh-surface map.
+
+
 ## R7.3 — bed-temperature floors, 17 November 2026
 
 Only Z-SEMIFLEX, Z-GLASS and Z-PETG were below the requested minima. For all four nozzle variants, first-layer bed temperature is now **40°C** and later layers **35°C**, for a total of 12 affected profiles. This is strictly an *increase-only* correction.

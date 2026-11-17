@@ -1,6 +1,6 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.3 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.4 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
@@ -45,6 +45,14 @@ Launch OrcaSlicer 2.5, open **Printer → Select/Remove printers (system presets
 - Installing new profiles does **not** modify previously generated G-code. Select the filament and **slice again** for subsequent prints.
 
 Only native OrcaSlicer presets are installed. The installer preserves other printers and global Orca settings, creates a backup, and **does not change Klipper, Orange Pi, MCU firmware or printer motion limits**. See the [full installation, connection and rollback guide](docs/INSTALLATION.md).
+
+## Native Zortrax M300 bed appearance
+
+The profile now installs a **top-down 1024 × 1024 PNG** matching the physical M300 Classic perforated plate, with a silver surface and five brown contact pads. It is shared across the 0.2 / 0.3 / 0.4 / 0.6 mm nozzle variants and appears on OrcaSlicer's Prepare plate after restarting the application.
+
+![Zortrax M300 Classic perforated bed](profiles/Zortrax/resources/bed/Zortrax_M300_Classic_bed.png)
+
+The texture is a **visual reference only**: it does not modify the 300 × 300 mm printable area, bed mesh, coordinates, firmware, or any print parameters. The existing macOS installer installs the image automatically alongside the printer profiles. Close OrcaSlicer with Cmd+Q before updating, then reopen and select the Zortrax M300 Classic printer. Personal custom bed textures may override the model default.
 
 ## One current profile set
 

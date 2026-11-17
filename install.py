@@ -55,6 +55,22 @@ def install_plan(root,source):
    p=safe(source/'Zortrax',e['sub_path']);obj=read(p)
    if obj['name']!=e['name'] or not scoped(obj):raise ValueError('Source scope/index mismatch')
    writes['system/Zortrax/'+e['sub_path']]=p.read_bytes();names.add(obj['name'])
+ # Machine-model textures are assets, not indexed JSON presets. Install them
+ # transactionally alongside the vendor, with the same backup and rollback.
+ # Restrict the path to this vendor's bed resources; never read absolute paths.
+ for entry in vendor['machine_model_list']:
+  model=read(safe(source/'Zortrax',entry['sub_path']))
+  texture=model.get('bed_texture','')
+  if not texture:continue
+  rel=Path(texture)
+  if rel.parts[:2]!=('resources','bed') or rel.suffix.lower()!='.png':
+   raise ValueError('Invalid M300 bed texture reference: '+str(texture))
+  asset=safe(source/'Zortrax',rel)
+  if not asset.is_file():raise ValueError('Required M300 bed texture missing: '+str(asset))
+  data=asset.read_bytes()
+  if len(data)>8*1024*1024 or not data.startswith(b'\\x89PNG\\r\\n\\x1a\\n'):
+   raise ValueError('Invalid M300 bed PNG: '+str(asset))
+  writes['system/Zortrax/'+rel.as_posix()]=data
  old=safe(root,'system/Zortrax.json');merged=copy.deepcopy(vendor)
  if old.exists():
   previous=read(old)

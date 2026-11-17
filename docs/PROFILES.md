@@ -1,10 +1,14 @@
-# Zortrax M300 Classic — native OrcaSlicer R7.3 profiles
+# Zortrax M300 Classic — native OrcaSlicer R7.4 profiles
 
 ## Preset organization
 
 OrcaSlicer 2.5 shows **one printer model** named **Zortrax M300 Classic**, and a **nozzle Variant** selector of **0.2 / 0.3 / 0.4 / 0.6 mm**. Four internal `machine` JSON files describe the four physically interchangeable nozzle configurations, not four unrelated printer models. Do not change the selected diameter unless the installed nozzle and the host's `[extruder] nozzle_diameter` actually match it.
 
 The original M300 **Classic** Z-SUITE supports the stock 0.4 mm nozzle. The additional variants are community-engineered for Klipper, not official Classic presets. This is distinct from M300 Plus and M300 Dual.
+
+## M300 Classic perforated bed texture (R7.4)
+
+The vendor's machine-model preset references `resources/bed/Zortrax_M300_Classic_bed.png`. The 1024px PNG is installed automatically under `OrcaSlicer/system/Zortrax/resources/bed/Zortrax_M300_Classic_bed.png` on macOS by `install.py`. This uses OrcaSlicer 2.5's native `bed_texture` property in the shared M300 Classic model, so **all four nozzle variants use the same appearance**. The texture is cosmetic only; the geometry, nozzle, start/end G-code and material settings remain unchanged. Quit Orca with **Cmd+Q** before installing and restart it afterward to refresh the preset cache.
 
 ## Print quality matrix
 

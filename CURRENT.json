@@ -1,9 +1,9 @@
 {
-  "profile_revision": "R7.3",
+  "profile_revision": "R7.4",
   "repository_layout": "current-only",
   "layout_date": "2026-11-12",
   "orca_target_version": "2.5.0",
-  "vendor_version": "02.05.00.10",
+  "vendor_version": "02.05.00.11",
   "profile_directory": "profiles",
   "installer": "install.py",
   "source_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
@@ -63,5 +63,17 @@
     "prior_PLA_experiment_unchanged": true,
     "hardware_validation": "pending",
     "klipper_host_changed": false
+  },
+  "bed_visualization": {
+    "file": "profiles/Zortrax/resources/bed/Zortrax_M300_Classic_bed.png",
+    "format": "PNG",
+    "width_px": 1024,
+    "height_px": 1024,
+    "png_sha256": "cd9a0b0d4db595c30fd6e298d3c563179a8b1932de72f9db21a9bb2798402007",
+    "origin": "Design based on supplied photographs of the real perforated Zortrax M300 Classic bed",
+    "all_four_variants": true,
+    "installed_by": "install.py",
+    "print_parameters_changed": false,
+    "host_changed": false
   }
 }
