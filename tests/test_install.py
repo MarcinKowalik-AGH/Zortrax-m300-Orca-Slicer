@@ -70,7 +70,14 @@ class R7InstallTests(unittest.TestCase):
   for d in ('0.2','0.3','0.4','0.6'):
    self.assertFalse((self.root/'system'/'Zortrax'/'machine'/('Zortrax M300 Classic '+d+' nozzle.json')).exists())
  def test_idempotent(self):
-  m.apply(m.install_plan(self.root,self.source));self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
+  m.apply(m.install_plan(self.root,self.source))
+  self.assertEqual(m.install_plan(self.root,self.source)['before'],{})
+  # A generated Orca .opc cache must NOT be deleted by a repeat no-op install.
+  cache=self.root/'system/Zortrax.opc';cache.write_bytes(b'compiled profile cache')
+  plan=m.install_plan(self.root,self.source)
+  self.assertEqual(plan['writes'],{})
+  self.assertEqual(plan['remove'],[])
+  self.assertEqual(plan['before'],{})
  def test_exact_restore(self):
   before=m.digest(self.root);b=m.apply(m.install_plan(self.root,self.source));m.restore(b);self.assertEqual(m.digest(self.root),before)
  def test_no_archive_before_activation(self):

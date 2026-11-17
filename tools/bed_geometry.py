@@ -19,9 +19,18 @@ PRINTABLE_PHYSICAL_BOUNDS_MM = (30.0, 330.0, 30.0, 335.0)
 PERFORATED_PHYSICAL_BOUNDS_MM = (14.0, 346.0, 15.0, 344.0)
 PAD_CORNER_MM = (60.0, 60.0)
 PAD_CENTRE_MM = (50.0, 50.0)
-# Two centre screws are on the SVG crop; these 16 frame fasteners lie outside
-# the safe printable rectangle. Locations are visual estimates from the photo.
-FRAME_SCREWS = tuple((x, y) for x in (17.,97.,180.,263.,343.) for y in (16.,344.)) + tuple((x,y) for y in (98.,180.,262.) for x in (17.,343.))
+# Reference: rectified OEM platform photo + user close-up IMG_9059/9063.
+# There are FIVE countersunk Allen screws on each frame edge including corners,
+# hence 16 unique bolts total (5+5+3+3). The previous 17 mm offsets were
+# incorrect: these heads are on the narrow outer metal flange, ~6 mm from
+# the physical 360 mm sheet edge. Intermediate pitch is approximately 87 mm.
+# Dimensions are photo-derived estimates; no caliper survey of fastener centres.
+FRAME_SCREW_EDGE_MM = (6.0, 93.0, 180.0, 267.0, 354.0)
+FRAME_SCREWS = (
+    tuple((x, y) for x in FRAME_SCREW_EDGE_MM for y in (6.0,354.0)) +
+    tuple((x, y) for y in FRAME_SCREW_EDGE_MM[1:-1] for x in (6.0,354.0))
+)
+assert len(set(FRAME_SCREWS)) == 16
 # Align the visible top of the STL with Orca's printable-plane overlay:
 # Bed3D moves model coordinates by approximately -0.41 mm in Z.
 PLATE_THICKNESS_MM = 3.0
@@ -157,20 +166,37 @@ def generate_visual_stl() -> bytes:
                  (330,335,330,30),(330,30,30,30)):
         wall(*edge)
 
-    # Hex-socket bolt heads, entirely on the non-printable rim.
+    # Real-looking, countersunk metal ALLEN head. The inner socket is
+    # hexagonal (not the circular hole used by the previous STL).
+    # 24 outer segments; 4 evenly spaced interpolation points per hex side.
+    # This only adds decorative geometry; no printer coordinates change.
+    def socket_xy(cx, cy, i):
+        side,step=divmod(i,4)
+        a=(side+0.5)*pi/3
+        b=(side+1.5)*pi/3
+        t=step/4.
+        return (cx + 1.55*((1-t)*cos(a)+t*cos(b)),
+                cy + 1.55*((1-t)*sin(a)+t*sin(b)))
+
     for bx,by in FRAME_SCREWS:
-        for n in range(12):
-            a=2*pi*n/12; b=2*pi*(n+1)/12
-            def ring(r,theta,z):
-                return vert(bx+r*cos(theta),by+r*sin(theta),z)
-            rim=TOP_Z+.20
-            recess=TOP_Z+.02
-            quad(ring(3.1,a,rim),ring(3.1,b,rim),
-                 ring(1.45,b,rim),ring(1.45,a,rim))
-            quad(ring(3.1,a,TOP_Z),ring(3.1,b,TOP_Z),
-                 ring(3.1,b,rim),ring(3.1,a,rim))
-            quad(ring(1.45,a,recess),ring(1.45,b,recess),
-                 ring(1.45,b,rim),ring(1.45,a,rim))
+        for i in range(24):
+            j=(i+1)%24
+            a=2*pi*i/24; b=2*pi*j/24
+            def outer(rad, theta, height):
+                return vert(bx+rad*cos(theta),by+rad*sin(theta),height)
+            def inner(k,height):
+                return vert(*socket_xy(bx,by,k),height)
+            # Shallow bevel around machined 6.4 mm outer diameter.
+            quad(outer(3.35,a,TOP_Z),outer(3.35,b,TOP_Z),
+                 outer(3.05,b,TOP_Z+.22),outer(3.05,a,TOP_Z+.22))
+            # Flat annulus between screw exterior and the actual hex socket.
+            quad(outer(3.05,a,TOP_Z+.22),outer(3.05,b,TOP_Z+.22),
+                 inner(j,TOP_Z+.22),inner(i,TOP_Z+.22))
+            # Recessed, six-sided socket walls.
+            quad(inner(i,TOP_Z+.02),inner(j,TOP_Z+.02),
+                 inner(j,TOP_Z+.22),inner(i,TOP_Z+.22))
+            triangle(inner(i,TOP_Z+.02),vert(bx,by,TOP_Z+.02),
+                     inner(j,TOP_Z+.02))
 
     # Rear connector photographed with a millimetre ruler. Its cream plastic
     # body is approx. 8-9 mm wide and has two soldered metal attachment wings

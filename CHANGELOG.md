@@ -1,5 +1,13 @@
 # Current release notes
 
+## R7.9 — perimeter Allen screws corrected; truthful no-op install (17 November 2026)
+
+Rectified the original Zortrax plate photo and compared it with the operator's screw close-ups. The prior 16 screw head centres were approximately 17 mm from metal edges, incorrectly placing them near the perforations. The physical outer border's screws are now drawn **~6 mm from the flange**, on five approximately equally spaced stations per outer side (16 unique screws total). A 24-facet circular head now has a **recessed, six-sided Allen socket** in the actual generated STL. Locations are photographic estimates, not caliper-measured hole coordinates.
+
+**The requested excluded-zone tint is not implemented in the stock OrcaSlicer GUI:** version 2.5 hardcodes a dark custom-bed STL color (`Bed3D::DEFAULT_MODEL_COLOR`), while the custom SVG texture is cropped to the real 300 × 305 mm bed polygon. The [full-plate diagram](docs/Zortrax_M300_360mm_plate_layout.svg) now includes a **15% darkening overlay as a labelled visual reference only**, not as a claim that the printer preset changed the application renderer. We explicitly do not extend printable geometry to 360 × 360 mm.
+
+The Mac installer now only purges `system/Zortrax.opc` when an actual profile/resource file changes, and prints the detected revision. No-op `--apply` no longer creates an empty backup and false "archived cache" status. No Klipper, 300 × 305 mm limits, homing, G-code, filament/process or other printer data changes.
+
 ## R7.8 — 3 mm-thick plate and rear electrical connector (17 November 2026)
 
 Based on six operator photographs of the real M300 Classic bed and a centimetre ruler, the generated visual STL now represents the **entire 360 × 360 mm sheet at 3 mm thickness**. The visible outer surround retains perforations, while the central footprint gains solid backing beneath the separate gold-and-silver perforated SVG. The visual model is aligned below Orca's printable-plane overlay so it does not intentionally obscure the image.

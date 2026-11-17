@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "R7.8 changes only Python-generated visual STL geometry (3mm thick measured plate, photo-scaled rear connector at x≈148mm), tests, docs and metadata. Four nozzle 300x305 print envelopes, 140 native profile JSON hashes, SVG, Klipper/MCU/Orange Pi and G-code are unchanged from R7.7.",
+  "scope": "R7.9 visual-only update: sixteen hex-socket screws moved to approx 6mm from real metal edges at 6/93/180/267/354mm coordinates; 15% darker excluded-zone is documented in full-size reference SVG only because stock Orca 2.5 hardcodes STL model color. Native 140 JSON profile settings, 300x305 printable area, SVG crop, print settings, G-code and Klipper untouched. No-op installer no longer deletes cache.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -143,7 +143,7 @@
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
     "Zortrax.json": "3bc51dc0fc89d4ecbcb9ef598ff0f13cef25ebb1daf0ce54cdc40d25dbe0e1d8"
   },
-  "current_revision": "R7.8",
+  "current_revision": "R7.9",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -227,6 +227,17 @@
       "inboard_mm": 5.4,
       "height_mm_approx": 3.2,
       "photo_estimate_not_caliper": true
-    }
+    },
+    "screw_centres_approx_mm": [
+      6,
+      93,
+      180,
+      267,
+      354
+    ],
+    "perimeter_hex_screws": 16,
+    "screw_centre_edge_offset_mm": 6,
+    "has_true_hex_socket": true,
+    "outer_zone_color_limitation": "Stock Orca model rendered dark regardless of STL data; no 15% tint achievable in stock Orca without modifying renderer."
   }
 }

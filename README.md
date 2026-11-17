@@ -1,10 +1,14 @@
 # Zortrax M300 Classic — OrcaSlicer
 
-**Current profiles: R7.8 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
+**Current profiles: R7.9 · Target slicer: OrcaSlicer 2.5.0 · Current release only.**
 
 Native system profiles for the **Zortrax M300 Classic with the project's Klipper port**. This community integration uses recovered Z-SUITE data and explicit engineering adaptations; it is not an official Zortrax Orca release, or an OEM-firmware/M300 Plus/M300 Dual/Inventure preset.
 
 **This repository installs slicer profiles on the Mac only. It never updates the Orange Pi, Klipper, MCU, bootloader, UART, OLED or Fluidd.**
+
+**R7.9: corrected perimeter screw geometry and honest cache reporting.** The measured 360 mm plate model now places **16 hex-socket screws** on the outer flange, ~6 mm from the edges, on five approximately evenly spaced positions along each side (four corner screws counted only once). This replaces the R7.8 screws incorrectly positioned ~17 mm in from the actual edges. Heads now contain visibly recessed **hexagonal** sockets. The installer **does not delete Orca's compiled `system/Zortrax.opc` cache on an unchanged reinstall**, and logs the actual profile revision.
+
+**Requested 15% darker excluded border — stock OrcaSlicer limitation:** Orca 2.5 hardcodes the color of custom bed STL models (`Bed3D::DEFAULT_MODEL_COLOR`) and clips `bed_custom_texture` SVG to the 300 × 305 mm printable polygon. Therefore **the installer cannot make the outer 360 mm metal margin precisely 15% darker in the stock Orca app** without changing Orca's C++ renderer. The [full-plate layout](docs/Zortrax_M300_360mm_plate_layout.svg) now demonstrates the target 15% shading as a **design reference only**; it is not claimed as a change to Orca's rendered STL. Never increase the printable area for cosmetic reasons.
 
 **R7.8: 3 mm physical plate and photo-scaled rear electrical connector.** The STL model now has a 3.0 mm-thick metal sheet across the entire 360 × 360 mm footprint. The rear electrical socket sits approximately 148 mm from the left edge and extends about 1.6 mm beyond the back edge, with two mounting tabs, five small ribs and a visible latch. Width and position are estimated from ruler photographs; socket height is provisional. This affects *only the local visual bed model*; no profile motion, printable area, Klipper, process, filament, or G-code changes from R7.7.
 

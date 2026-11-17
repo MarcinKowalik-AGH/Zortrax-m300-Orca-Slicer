@@ -1,5 +1,5 @@
 {
-  "profile_revision": "R7.8",
+  "profile_revision": "R7.9",
   "repository_layout": "current-only",
   "layout_date": "2026-11-12",
   "orca_target_version": "2.5.0",
@@ -165,6 +165,29 @@
       "body_height_over_plate_mm": 3.2,
       "dimensions_are_photo_estimates": true,
       "no_klipper_or_printable_area_change": true
+    },
+    "perimeter_allen_fasteners": {
+      "count": 16,
+      "edge_offset_from_metal_mm": 6,
+      "intermediate_axis_centres_mm": [
+        93,
+        180,
+        267
+      ],
+      "corner_axis_centres_mm": [
+        6,
+        354
+      ],
+      "approximate_from_operator_and_product_photos": true,
+      "hex_socket_geometry": true
+    },
+    "outer_margin_color": {
+      "requested_luminance_reduction_percent": 15,
+      "achievable_via_stock_orca_2_5_stl": false,
+      "why": "Orca 2.5 hardcodes bed STL model color and clips SVG to the 300x305 printable polygon; the full-bed SVG is a preview only.",
+      "reference_preview": "docs/Zortrax_M300_360mm_plate_layout.svg",
+      "safety_guard": "The 300x305 printable_area is never enlarged to fake this effect."
     }
-  }
+  },
+  "installer_noop_cache_policy": "Do not erase system/Zortrax.opc or create an install backup if all active files are already current."
 }

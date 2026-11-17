@@ -114,9 +114,13 @@ def install_plan(root,source):
      retained.append(e)
    merged[group]=retained+merged[group]
  writes['system/Zortrax.json']=enc(merged)
- if safe(root,'system/Zortrax.opc').exists():remove.add('system/Zortrax.opc')
+ # Rebuild Orca's vendor cache only when at least one profile/asset really
+ # changes. Previous releases erased the cache even on an up-to-date install,
+ # creating needless backups and misleading "Items to archive: 1" messages.
  remove.difference_update(writes)
  writes={r:b for r,b in writes.items() if not safe(root,r).is_file() or safe(root,r).read_bytes()!=b}
+ if writes and safe(root,'system/Zortrax.opc').exists():
+  remove.add('system/Zortrax.opc')
  remove={r for r in remove if safe(root,r).exists()}
  return make_plan(root,writes,remove,'install')
 
@@ -222,6 +226,7 @@ def main():
   root=a.config_dir.expanduser().resolve()
   if root.name!='OrcaSlicer' or not (root/'OrcaSlicer.conf').is_file():raise ValueError('The OrcaSlicer configuration directory was not recognized.')
   p=archive_plan(root) if a.archive_offline else install_plan(root,a.source)
+  print('Profile revision:',read(ROOT/'CURRENT.json').get('profile_revision','unknown'))
   print('MAC / ORCA ONLY. OrcaSlicer.conf, Creality, Inventure and Klipper are not modified.')
   print('Mode:',p['mode'],'Files to write:',len(p['writes']),'Items to archive:',len(p['remove']))
   for rel in p['remove']:print('Archive:',rel)

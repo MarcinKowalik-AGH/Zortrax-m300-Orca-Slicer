@@ -95,7 +95,7 @@ class CurrentProfileTests(unittest.TestCase):
    REAR_CONNECTOR_SHELL_WIDTH_MM,REAR_CONNECTOR_TOTAL_WIDTH_MM,
    REAR_CONNECTOR_PROTRUSION_MM,REAR_CONNECTOR_INBOARD_MM,
    REAR_CONNECTOR_BODY_HEIGHT_MM,REAR_CONNECTOR_SHELL_BOUNDS_MM,
-   generate_visual_stl)
+   FRAME_SCREW_EDGE_MM,FRAME_SCREWS,generate_visual_stl)
   self.assertEqual(PHYSICAL_MM,(360.,360.))
   self.assertEqual(PRINTABLE_MM,(300.,305.))
   self.assertEqual(PRINTABLE_PHYSICAL_BOUNDS_MM,(30.,330.,30.,335.))
@@ -111,6 +111,13 @@ class CurrentProfileTests(unittest.TestCase):
   self.assertEqual(REAR_CONNECTOR_PROTRUSION_MM,1.6)
   self.assertEqual(REAR_CONNECTOR_BODY_HEIGHT_MM,3.2)
   self.assertEqual(REAR_CONNECTOR_SHELL_BOUNDS_MM,(143.75,354.6,152.25,361.6))
+  self.assertEqual(FRAME_SCREW_EDGE_MM,(6.,93.,180.,267.,354.))
+  self.assertEqual(len(FRAME_SCREWS),16)
+  self.assertEqual(len(set(FRAME_SCREWS)),16)
+  # Photograph-based edge locations, not a mistaken 17 mm inset.
+  self.assertTrue(all(min(x,y,360-x,360-y)==6. for x,y in FRAME_SCREWS))
+  self.assertTrue(all((x<30 or x>330 or y<30 or y>335)
+                      for x,y in FRAME_SCREWS))
   for d in ('0.2','0.3','0.4','0.6'):
    m=json.loads((ROOT/'profiles/Zortrax/machine'/('Zortrax M300 Classic '+d+' nozzle.json')).read_text())
    self.assertEqual(m['printable_area'],['0x0','300x0','300x305','0x305'])

@@ -32,6 +32,10 @@ The installer validates the target environment and creates a reversible backup. 
 
 ## Automatic Zortrax M300 bed appearance
 
+**R7.9 fixes the exterior Allen bolts** (16 around the full 360 mm sheet, at approximately 6 mm from each edge, with recessed hex sockets) and an installer issue: repeating `install.py --apply` on identical files now leaves the generated `system/Zortrax.opc` cache intact instead of creating a pointless backup. Expect a `Profile revision: R7.9` line and positive `Files to write` counts on the first update; a second identical run should report **0 files to write and 0 items to archive**.
+
+**Important:** the requested **15% darker exclusion region** appears in the full-size SVG *reference diagram only*. The standard Orca 2.5 renderer gives external STL surfaces a hardcoded dark gray color, which the profile cannot override. The 300 × 305 mm safe printing polygon is left untouched. A true per-printer tint would require modifying OrcaSlicer's source application, not simply the preset.
+
 **R7.8 visual update**: the locally generated STL now depicts a **3 mm-thick plate**, with full central backing and a rear socket approximately 148 mm from the left edge (about 8.5 mm plastic width; 12 mm including metal attachment tabs). Five contact ribs, a small latch and approximately 1.6 mm projection behind the 360 mm rear edge reflect the new ruler photographs. Connector dimensions are **approximate**, not measured with callipers; its height is provisional. The functional printable area remains **X 0–300, Y 0–305 mm**.
 
 **R7.7 measured physical bed**: 360 × 360 mm. The perforated field is 332 × 329 mm, inset 14 mm at each X edge, 15 mm at the front and 16 mm at the rear. The four corner pads are 60 × 60 mm and the central gold pad is 50 × 50 mm. Gold pad *locations*, distinct from their measured sizes, are estimated from the screenshot. The source for the real-scale diagram is [here](../docs/Zortrax_M300_360mm_plate_layout.svg); the complete coordinate derivation is [here](M300_BED_GEOMETRY.md).

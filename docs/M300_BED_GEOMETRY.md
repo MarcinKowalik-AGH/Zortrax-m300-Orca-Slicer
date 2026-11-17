@@ -35,6 +35,18 @@ Origin of physical coordinates `(u,v)` is the **front-left edge** of the 360 mm 
 
 Orca's custom physical bed STL is positioned by its own **print-volume midpoint** (`150,152.5`). Hence the STL's local bounds are X `−180…180` mm, Y `−182.5…177.5` mm. The 2.5 mm Y offset ensures that the **real plate centre**, not the slightly rear-shifted print rectangle midpoint, remains correctly aligned.
 
+## Perimeter screws and additional openings (R7.9)
+
+The OEM product photograph was rectified into an orthogonal top view and checked against the operator's real photos showing recessed hex heads. There are **16 perimeter Allen screws** (5 on each horizontal edge, plus 3 on each vertical edge excluding the shared corner screws). Their **estimated** centre coordinates in physical plate millimetres are 6, 93, 180, 267 and 354 along each outer edge; centre-to-edge inset is ~6 mm. Unlike the former 17 mm offsets these are on the narrow unperforated frame. The STL uses a 24-segment circular head and **six-sided recessed socket** rather than a round hole or a Phillips cross.
+
+The original photograph also includes some **larger empty mounting holes**, which must not be confused with screw heads. Their exact centre positions have not been measured, so this revision does **not** invent additional screws in those positions.
+
+## Desired excluded area color (reference versus Orca 2.5)
+
+The [full-plate SVG drawing](Zortrax_M300_360mm_plate_layout.svg) shows the outer, non-printable margin with a 15% black overlay to communicate the desired appearance. **It is a reference drawing**, not the active SVG clipped to X=0…300, Y=0…305.
+
+In **stock OrcaSlicer 2.5**, the renderer hardcodes the appearance of external STL bed models using `Bed3D::DEFAULT_MODEL_COLOR` and the SVG is limited to the printable polygon. As a consequence, neither modifying a colorless STL nor enlarging the SVG viewBox can make the outside 360 mm metal zone exactly 15% darker than the bright central SVG. Achieving that requires a renderer change or a future native Orca feature. We keep the **functional X 0–300 / Y 0–305** print limits and do not misrepresent the shaded reference as a successful GUI change.
+
 ## Rendering model
 
 [View full-scale top-view SVG with the actual 300 × 305 mm boundary](Zortrax_M300_360mm_plate_layout.svg).

@@ -36,6 +36,8 @@ function generateSvgs(){
   [450,750].forEach(x=>collar(A,x,620));
   A.push('<rect x="1.25" y="1.25" width="1197.5" height="1217.5" fill="none" stroke="#94aab8" stroke-width="1.5" opacity=".7"/>');
   A.push('</svg>');
+  // Full-size REFERENCE plan; NOT an Orca 360 mm texture. The clipped SVG
+  // for the real 300x305 printable region is unchanged.
   // Full-size plan for verifying exact measured sizes and safe printable inset.
   head(P,1440,1440,'Zortrax M300 Classic - physical 360 mm platform, printable 300 x 305 mm');
   P.push('<rect x="0" y="0" width="1440" height="1440" fill="#c5d5e1"/>');
@@ -47,10 +49,20 @@ function generateSvgs(){
   for(let fy=16.5;fy<=340.5;fy+=3)for(let fx=16.5;fx<=343.5;fx+=3)P.push(`<circle cx="${fx*4}" cy="${(360-fy)*4}" r="2.9"/>`);
   P.push('</g>');
   [142.5,217.5].forEach(x=>collar(P,x*4,720));
-  let frame=[];
-  for(let x of [17,97,180,263,343])frame.push([x,16],[x,344]);
-  for(let y of [98,180,262])frame.push([17,y],[343,y]);
+  // OEM photo: sixteen unique perimeter hex screws. Four corners + three
+  // intermediates per edge, ~6 mm from metal boundaries, not 17 mm inward.
+  // Distances are approximate, derived from the rectified reference photograph.
+  const edge=[6,93,180,267,354],frame=[];
+  for(const x of edge)frame.push([x,6],[x,354]);
+  for(const y of edge.slice(1,-1))frame.push([6,y],[354,y]);
+  if(frame.length!==16)throw Error('Incorrect perimeter screw count');
   frame.forEach(([x,y])=>bolt(P,x*4,(360-y)*4));
+
+  // Design reference ONLY: stock OrcaSlicer 2.5 forces a dark material
+  // on external custom STL geometry. This 15% shade is an SVG proposal
+  // demonstrating the requested future renderer behavior, not what Orca
+  // can currently display outside its true 300 x 305 printable polygon.
+  P.push('<path id="excluded-margin-reference-only" d="M0 0H1440V1440H0Z M120 100H1320V1320H120Z" fill="#000000" fill-opacity=".15" fill-rule="evenodd"/>');
   P.push('<rect id="actual-printable-area-300x305" x="120" y="100" width="1200" height="1220" fill="none" stroke="#ff5a31" stroke-width="5"/>');
   P.push('</svg>');
   return {texture:A.join('\n')+'\n',layout:P.join('\n')+'\n'};
