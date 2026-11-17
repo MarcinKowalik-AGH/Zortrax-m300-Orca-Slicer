@@ -50,25 +50,38 @@ def install_plan(root,source):
  vendor=read(source/'Zortrax.json')
  if [len(vendor[k]) for k in GROUPS]!=[1,4,104,30]:raise ValueError('Not the complete current M300 vendor')
  writes={};remove=set();names=set()
+ # Orca 2.5 reads the Bed Shape dialog and plate overlay from the printer's
+ # bed_custom_texture option, NOT from machine_model.bed_texture alone.
+ # Its file value must be an existing absolute path on the current Mac.
+ model=read(safe(source/'Zortrax',vendor['machine_model_list'][0]['sub_path']))
+ texture=model.get('bed_texture','')
+ if not texture:raise ValueError('The M300 Classic bed texture is missing from the model')
+ asset=safe(source/'Zortrax',texture)
+ if asset.suffix.lower()!='.png' or not asset.is_file():
+  raise ValueError('Missing or invalid Zortrax PNG bed texture')
+ data=asset.read_bytes()
+ if not 8<len(data)<=5_000_000 or data[:8]!=bytes.fromhex('89504e470d0a1a0a'):
+  raise ValueError('Invalid PNG bed texture')
+ asset_rel='vendor/Zortrax/'+asset.relative_to(source/'Zortrax').as_posix()
+ # The destination is computed from the target OrcaSlicer configuration folder:
+ # never hard-code a /Users/<username> path into system presets or the repository.
+ absolute_texture=str(safe(root,asset_rel))
  for group in GROUPS:
   for e in vendor[group]:
    p=safe(source/'Zortrax',e['sub_path']);obj=read(p)
    if obj['name']!=e['name'] or not scoped(obj):raise ValueError('Source scope/index mismatch')
-   writes['system/Zortrax/'+e['sub_path']]=p.read_bytes();names.add(obj['name'])
- # Model bed texture loads from Orca's data_dir/vendor/<vendor>, not system.
- # Include it in the same
- # transactional install, backup and rollback as the printer profiles.
- model=read(safe(source/'Zortrax',vendor['machine_model_list'][0]['sub_path']))
- texture=model.get('bed_texture','')
- if texture:
-  asset=safe(source/'Zortrax',texture)
-  if asset.suffix.lower() not in ('.png','.svg') or not asset.is_file():
-   raise ValueError('Missing or invalid Zortrax bed texture')
-  data=asset.read_bytes()
-  if len(data)>5_000_000:raise ValueError('Bed texture exceeds 5 MB')
-  if asset.suffix.lower()=='.png' and data[:8]!=bytes.fromhex('89504e470d0a1a0a'):
-   raise ValueError('Invalid PNG texture signature')
-  writes['vendor/Zortrax/'+asset.relative_to(source/'Zortrax').as_posix()]=data
+   content=p.read_bytes()
+   if group=='machine_list' and obj.get('printer_model')==MODEL:
+    # Keep the repository preset portable; substitute only into the installed
+    # copy so all four nozzle variants display the texture on this Mac.
+    if obj.get('bed_custom_texture','') not in ('',None):
+     raise ValueError('Unexpected preconfigured custom bed texture in source')
+    obj=copy.deepcopy(obj)
+    obj['bed_custom_texture']=absolute_texture
+    content=enc(obj)
+   writes['system/Zortrax/'+e['sub_path']]=content;names.add(obj['name'])
+ # Copying the referenced texture is part of the same backup/restore transaction.
+ writes[asset_rel]=data
  old=safe(root,'system/Zortrax.json');merged=copy.deepcopy(vendor)
  if old.exists():
   previous=read(old)
