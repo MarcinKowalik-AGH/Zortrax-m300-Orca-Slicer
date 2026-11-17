@@ -1,6 +1,6 @@
 {
   "baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
-  "scope": "R7.4 native profiles: visual bed texture and vendor index updated; all printer mechanics, filament and process values are unchanged.",
+  "scope": "R7.5 original R7.4.1 printer, process and filament print settings retained. The M300 model bed_texture reference now points to a true 1200-unit vector SVG with 11,556 exactly aligned circles; vendor metadata updated.",
   "sha256": {
     "Zortrax/filament/Generic ABS @Zortrax M300 0.2.json": "e3d9507a370b526df6b02d42ca30683e2359b6f3ae1df4b1ce8bbd51b03ccb5b",
     "Zortrax/filament/Generic ABS @Zortrax M300 0.3.json": "ca86e7c206d8c4189dc1f6ac5f1e34792ae3c724e0caa7d9fb40550202d3d253",
@@ -110,7 +110,7 @@
     "Zortrax/machine/Zortrax M300 Classic 0.3 nozzle.json": "20712c1962efc6f92bea0f93d29fae3699a923781f5abeadfe5d458793b85e4d",
     "Zortrax/machine/Zortrax M300 Classic 0.4 nozzle.json": "1a6133e539163924109424c51e7ee583501cad135cbae41aba6e16f697d7c512",
     "Zortrax/machine/Zortrax M300 Classic 0.6 nozzle.json": "28f6b114a8c3a9faab05328042d70e97973b862befa87c2eefd766364866580c",
-    "Zortrax/machine/Zortrax M300 Classic.json": "dace5b254b815db3527af8a3afe3f3ac57e50a32b4fed043ee9353b08b3bfb5b",
+    "Zortrax/machine/Zortrax M300 Classic.json": "42d9fc88ddadbbc9c628f3b3170fc757531e0160f66731d4ee0dca00b58a67b8",
     "Zortrax/process/0.06mm Fine @Zortrax M300 Classic 0.2 nozzle.json": "68facaf1d9b8c39f5b053ee2aaeac4521153188a93027a6889c55f41cbb62a60",
     "Zortrax/process/0.08mm SuperDetail @Zortrax M300 Classic 0.2 nozzle.json": "b85f3aee4e50b2df6b5f57e0ef7d9365fe56d5ca404e1a6ead2986d752c350ed",
     "Zortrax/process/0.08mm SuperDetail @Zortrax M300 Classic 0.3 nozzle.json": "cf5191be239e5e6df18e0faf9a0c4944c587e481ce208080570b4795ab7fc78b",
@@ -143,7 +143,7 @@
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
     "Zortrax.json": "c8c9616f768061a01e29570717672623455235abbc3586fab2157e07dd13620c"
   },
-  "current_revision": "R7.4",
+  "current_revision": "R7.5",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
   "first_layer_change": {
     "materials": [
@@ -185,9 +185,13 @@
     ]
   },
   "visual_asset": {
-    "path": "Zortrax/model/Zortrax_M300_Classic_bed.png",
-    "sha256": "0dc03c4cb10f7c1bca006d840e9c80bed6aae55454eadf923ee7d2029dd963e8",
-    "width": 128,
-    "height": 128
+    "path": "Zortrax/model/Zortrax_M300_Classic_bed.svg",
+    "sha256": "15f7743a4a21f9a63f3f4636e09ada7db82a9af09d2d7624394b431d51f126a1",
+    "format": "SVG",
+    "width": 1200,
+    "height": 1200,
+    "hole_radius": 2.18,
+    "hole_pitch": 9.6,
+    "holes": 11556
   }
 }

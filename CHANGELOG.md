@@ -1,5 +1,12 @@
 # Current release notes
 
+## R7.5 — genuine vector Zortrax M300 Classic platform
+
+Replaced the blurry 128×128-pixel platform PNG with a native **SVG vector design** matching the preferred silver-and-gold artwork. All **11,556 perforations are exact circles on a 9.6-unit square lattice**, rather than warped or irregular dots. The artwork retains the five golden contact pads, symmetrical metal frame and machined fasteners.
+
+The installer deploys the SVG file into Orca's vendor resource directory and writes the absolute SVG file path into `bed_custom_texture` for each installed M300 printer variant. The 300×300 mm print area, all physical machine properties, all print/filament/process data and Klipper are unchanged. The previous tiny PNG remains only in the Git history.
+
+
 ## R7.4.1 — fix Bed Shape “Texture: None” on macOS
 
 Previous R7.4 installed `model/Zortrax_M300_Classic_bed.png` as a vendor asset and referenced it in the common printer-model metadata; however, the **per-nozzle `bed_custom_texture` fields were empty**. OrcaSlicer 2.5 uses those fields for the **Bed Shape → Texture** selection, so the image was not indicated in the UI.
