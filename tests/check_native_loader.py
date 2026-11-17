@@ -20,11 +20,28 @@ def check(source,gui):
  selected=[s for s in selected if s in expected['machine_list']]
  errors=[line for line in logs.splitlines() if '[error]' in line and ('Zortrax' in line or 'M300 Classic' in line)]
  cache=gui/'system/Zortrax.opc'
- result={'native_loader_pass':not(missing_process or missing_filaments or missing_machines or errors) and bool(selected) and cache.is_file() and cache.stat().st_size>1000,
+ # Native GUI is launched from a disposable copy of the *installed*, not source,
+ # profiles. The Bed Shape dialog uses an absolute bed_custom_texture filename.
+ texture_files=[]
+ texture_paths_valid=True
+ for d in ('0.2','0.3','0.4','0.6'):
+  preset_path=gui/'system/Zortrax/machine'/('Zortrax M300 Classic '+d+' nozzle.json')
+  try:
+   machine=json.loads(preset_path.read_text())
+   filename=Path(machine['bed_custom_texture'])
+   good=(filename.is_absolute() and filename.is_file()
+         and filename.resolve()==(gui/'vendor/Zortrax/model/Zortrax_M300_Classic_bed.png').resolve()
+         and filename.read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')))
+   texture_paths_valid &= bool(good)
+   texture_files.append({'nozzle':d,'path':str(filename),'valid':bool(good)})
+  except (OSError,ValueError,KeyError,TypeError):
+   texture_paths_valid=False
+   texture_files.append({'nozzle':d,'valid':False})
+ result={'native_loader_pass':not(missing_process or missing_filaments or missing_machines or errors) and bool(selected) and cache.is_file() and cache.stat().st_size>1000 and texture_paths_valid,
   'registered_processes':len(expected['process_list']&registered),'registered_filaments':len(expected['filament_list']&registered),
   'visible_machine_variants':len(expected['machine_list']&visible),'selected_native_machine':selected[-1] if selected else None,
   'missing_processes':missing_process,'missing_filaments':missing_filaments,'missing_machine_variants':missing_machines,
-  'native_errors':errors,'cache_generated':cache.is_file(),'actual_gui_platform':'Linux Xvfb','mac_user_install_test':False}
+  'native_errors':errors,'cache_generated':cache.is_file(),'bed_texture_paths_valid':texture_paths_valid,'bed_texture_variants':texture_files,'actual_gui_platform':'Linux Xvfb','mac_user_install_test':False}
  return result
 
 if __name__=='__main__':
