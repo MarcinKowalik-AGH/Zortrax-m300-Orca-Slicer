@@ -36,6 +36,21 @@ def inspect(g,ef,p,q,f,pa):
  start=starts[0] if starts else -1
  if commands.count('END_PRINT')!=1:errors.append('END_PRINT')
  if any(re.match(r'M(?:104|109|140|190)\b',l) for l in commands[:max(0,start)]):errors.append('Duplicate preheat')
+ # PLA first-layer targets must be sent to START_PRINT, then revert to the
+ # existing later-layer temperatures (without a second host-level START_PRINT).
+ if f['name'].split(' @',1)[0] in ('Z-PLA','Z-PLA Pro','Generic PLA'):
+  normal_hot=float(f['nozzle_temperature'][0]);normal_bed=float(f['hot_plate_temp'][0])
+  if (f['nozzle_temperature_initial_layer'],f['hot_plate_temp_initial_layer'])!=(['230'],['70']):
+   errors.append('PLA initial layer temperature profile')
+  after=commands[max(0,start+1):]
+  def found_heater_codes(codes,target):
+   for command in after:
+    if not re.match(r'^(?:'+codes+r')\b',command):continue
+    m=re.search(r'\bS('+NUMBER+')',command)
+    if m and abs(float(m[1])-target)<0.1:return True
+   return False
+  if not found_heater_codes('M104|M109',normal_hot):errors.append('No automatic PLA later-layer hotend target')
+  if not found_heater_codes('M140|M190',normal_bed):errors.append('No automatic PLA later-layer bed target')
  if any(l.split()[0] in ['M82','G10','G11','M201','M203','M205'] or 'ACCEL_TO_DECEL=' in l for l in commands):errors.append('Unwanted firmware command')
  pas=[]
  for i,l in enumerate(commands):

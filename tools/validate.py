@@ -8,8 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 def validate(root=ROOT):
  current=json.loads((root/'CURRENT.json').read_text());v=json.loads((root/'profiles/Zortrax.json').read_text());baseline=json.loads((root/'evidence/PROFILE_BASELINE.json').read_text())
  ps={str(p.relative_to(root/'profiles')):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'profiles').rglob('*.json')}
- assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.1 baseline'
- assert len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.08'
+ assert ps==baseline['sha256'],'Preset bytes differ from the reviewed R7.2 baseline'
+ assert len(ps)==140 and v['version']==current['vendor_version']=='02.05.00.09'
  assert [len(v[k]) for k in ('machine_model_list','machine_list','process_list','filament_list')]==[1,4,30,104]
  names=set();settings=set();machines={};processes={};filaments={}
  for key,kind in [('machine_model_list','machine_model'),('machine_list','machine'),('process_list','process'),('filament_list','filament')]:
@@ -40,7 +40,18 @@ def validate(root=ROOT):
   assert f['pressure_advance']==['0'] and f['adaptive_pressure_advance']==['0']
   assert all(float(value[0])<=105 for key,value in f.items() if '_plate_temp' in key)
  for d in ('0.2','0.3','0.4','0.6'):
-  f=filaments['Z-PLA @Zortrax M300 '+d];assert f['hot_plate_temp']==(['50'] if d=='0.4' else ['30'])
+  for material,old_nozzle,old_bed in (
+      ('Z-PLA','210','50' if d=='0.4' else '30'),
+      ('Z-PLA Pro','207','30'),
+      ('Generic PLA','210','60')):
+   f=filaments[material+' @Zortrax M300 '+d]
+   assert f['nozzle_temperature_initial_layer']==['230']
+   assert f['nozzle_temperature']==[old_nozzle]
+   assert f['hot_plate_temp']==[old_bed]
+   initial_plate_keys=[k for k in f if k.endswith('_plate_temp_initial_layer')]
+   assert len(initial_plate_keys)==6 and all(f[k]==['70'] for k in initial_plate_keys)
+   regular_plate_keys=[k for k in f if k.endswith('_plate_temp') and not k.endswith('_plate_temp_initial_layer')]
+   assert len(regular_plate_keys)==6 and all(f[k]==[old_bed] for k in regular_plate_keys)
  manifest=json.loads((root/'sources/MANIFEST.json').read_text())
  for name,sha in manifest['files'].items():assert hashlib.sha256((root/'sources'/name).read_bytes()).hexdigest()==sha
  outputs,tables=build(root)
@@ -53,5 +64,5 @@ def validate(root=ROOT):
  assert not any((root/p).exists() for p in forbidden),'Obsolete distribution remains'
  assert not list(root.rglob('*_PL.md')) and not list(root.rglob('*.orca_printer'))
  assert not any(p.suffix.lower() in ('.ttf','.otf','.woff','.woff2','.dll','.exe') for p in root.rglob('*'))
- return {'status':'PASS','profile_revision':current['profile_revision'],'profile_json_files':len(ps),'model_count':1,'machine_count':len(machines),'process_count':len(processes),'filament_count':len(filaments),'source_rows':len(tables['mapped']),'profile_bytes_unchanged':True,'host_access':False}
+ return {'status':'PASS','profile_revision':current['profile_revision'],'profile_json_files':len(ps),'model_count':1,'machine_count':len(machines),'process_count':len(processes),'filament_count':len(filaments),'source_rows':len(tables['mapped']),'profile_bytes_unchanged':False,'pla_first_layer_profiles_updated':12,'later_layer_temperatures_unchanged':True,'host_access':False}
 if __name__=='__main__':print(json.dumps(validate(),indent=2))

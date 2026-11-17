@@ -39,7 +39,7 @@
     "50"
   ],
   "cool_plate_temp_initial_layer": [
-    "50"
+    "70"
   ],
   "default_filament_colour": [
     ""
@@ -60,7 +60,7 @@
     "50"
   ],
   "eng_plate_temp_initial_layer": [
-    "50"
+    "70"
   ],
   "fan_cooling_layer_time": [
     "30"
@@ -266,7 +266,7 @@
     "50"
   ],
   "hot_plate_temp_initial_layer": [
-    "50"
+    "70"
   ],
   "idle_temperature": [
     "0"
@@ -285,7 +285,7 @@
     "210"
   ],
   "nozzle_temperature_initial_layer": [
-    "210"
+    "230"
   ],
   "nozzle_temperature_range_high": [
     "230"
@@ -327,7 +327,7 @@
     "50"
   ],
   "supertack_plate_temp_initial_layer": [
-    "50"
+    "70"
   ],
   "support_material_interface_fan_speed": [
     "-1"
@@ -339,13 +339,13 @@
     "50"
   ],
   "textured_cool_plate_temp_initial_layer": [
-    "50"
+    "70"
   ],
   "textured_plate_temp": [
     "50"
   ],
   "textured_plate_temp_initial_layer": [
-    "50"
+    "70"
   ],
   "version": "2.5.0.0",
   "volumetric_speed_coefficients": [

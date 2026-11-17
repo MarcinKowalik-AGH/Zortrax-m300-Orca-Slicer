@@ -1,6 +1,6 @@
 # Z-SUITE → OrcaSlicer: M300 Classic migration tables
 
-**Current profile set: R7.1 · OrcaSlicer target: 2.5.0.** Values below are generated from committed source records and current preset files, not remembered defaults. Source terminology is preserved: **material, displayed layer, quality and infill mode**. An original Z-SUITE selection is split between **Printer/Variant**, **Filament** and **Process** in Orca.
+**Current profile set: R7.2 · OrcaSlicer target: 2.5.0.** Values below are generated from committed source records and current preset files, not remembered defaults. Source terminology is preserved: **material, displayed layer, quality and infill mode**. An original Z-SUITE selection is split between **Printer/Variant**, **Filament** and **Process** in Orca.
 
 **There is no complete 1:1 conversion.** A recovered source field, a matching numerical value and a recommended functional process are three different claims. Neither field recovery nor an individual match proves identical toolpaths or print quality. Process suggestions are explicitly project judgments.
 
@@ -136,7 +136,7 @@ This table is for **nozzle 0.4 mm**. Source temperatures come from the exact sel
 | Z-ULTRAT | classic / M300 | 253 | 80 | 253 | 80 | Not physically qualified |
 | Z-ULTRAT Plus | classic / Inventure | 225 | 100 | 225 | 100 | Not physically qualified |
 
-**Z-PLA 0.4 exception:** 50°C bed replaces the 30°C source baseline based on one user-reported print start at 210/50°C. The other three Z-PLA nozzle presets retain 30°C. This is not a completed-print test or universal manufacturer recommendation. Cleanup changes none of these values.
+**R7.2 PLA first-layer trial:** all Z-PLA, Z-PLA Pro and Generic PLA presets (four nozzle variants each) request 230°C nozzle and 70°C bed on the first layer only. Later-layer values are unchanged: Z-PLA 210/30°C except 0.4 mm at 210/50°C; Z-PLA Pro 207/30°C; Generic PLA 210/60°C. The earlier 0.4 mm Z-PLA bed override remains distinct from its original 30°C source record. These are experimental operator-requested settings, not manufacturer-certified values. The [filament CSV](tables/filaments.csv) records initial and regular temperatures separately.
 
 **PEEK/PEI references:** 400/370/360°C exceed the stated 305°C hotend target limit, and source bed/chamber requirements may also exceed the setup. A capped 105°C profile bed setting does not qualify the material. Do not send these reference-only presets to this host.
 
