@@ -141,7 +141,7 @@
     "Zortrax/process/0.32mm Coarse @Zortrax M300 Classic 0.6 nozzle.json": "0b0fcca78667ff53fcd07458efa405b6b2d19afdf8857988e65ce1833e855ed9",
     "Zortrax/process/0.36mm Draft @Zortrax M300 Classic 0.6 nozzle.json": "8c7f065a4909573a05bea493f53965895c1f78ea20e594698888eea5ae6eb7c5",
     "Zortrax/process/0.42mm SuperDraft @Zortrax M300 Classic 0.6 nozzle.json": "9f834ca69353c6586cc71ecb26ecc06211712a12fde22d79813b3db4a13f7fc8",
-    "Zortrax.json": "c8c9616f768061a01e29570717672623455235abbc3586fab2157e07dd13620c"
+    "Zortrax.json": "3bc51dc0fc89d4ecbcb9ef598ff0f13cef25ebb1daf0ce54cdc40d25dbe0e1d8"
   },
   "current_revision": "R7.5",
   "previous_release_baseline_commit": "18d68bb161631004e6909a0f7585fe552b15b302",
