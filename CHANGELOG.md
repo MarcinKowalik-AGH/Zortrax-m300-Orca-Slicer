@@ -1,5 +1,12 @@
 # Current release notes
 
+## R7.4 — M300 Classic perforated bed image
+
+The M300 Classic system model now references `model/Zortrax_M300_Classic_bed.png`, a compact top-down visual representation based on the provided perforated plate photos and generated illustration (128×128 indexed PNG). The macOS installer copies this file to `system/Zortrax/model/` and includes it in normal backup/restore. The image is shared by all four nozzle variants.
+
+**Only the visual bed texture and vendor release metadata changed.** No heater, motion, filament, G-code, support, raft or Klipper settings were changed. After updating on the Mac, restart OrcaSlicer to see the bed.
+
+
 ## R7.3 — bed-temperature floors, 17 November 2026
 
 Only Z-SEMIFLEX, Z-GLASS and Z-PETG were below the requested minima. For all four nozzle variants, first-layer bed temperature is now **40°C** and later layers **35°C**, for a total of 12 affected profiles. This is strictly an *increase-only* correction.
